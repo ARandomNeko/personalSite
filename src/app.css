@@ -204,14 +204,9 @@
 	--color-dark-ma-2: var(--color-magenta-600);
 }
 
-:root {
-	--flexoki-black: #100f0f;
-	--flexoki-paper: #fffcf0;
-}
-
 body {
-	background-color: var(--flexoki-paper);
-	color: var(--flexoki-black);
+	background-color: var(--color-dark-bg);
+	color: var(--color-dark-tx);
 	font-family:
 		system-ui,
 		-apple-system,
@@ -220,29 +215,30 @@ body {
 		Roboto,
 		sans-serif;
 }
+.btn {
+	@apply rounded-md px-4 py-2 transition-colors duration-200;
+}
 
-@layer components {
-	.btn {
-		@apply rounded-md px-4 py-2 transition-colors duration-200;
-	}
+.btn-primary {
+	@apply bg-magenta-600 text-paper hover:bg-blue-600;
+}
 
-	.btn-primary {
-		@apply bg-blue-400 text-white hover:bg-blue-600;
-	}
+h1 {
+	@apply mb-4 text-3xl font-bold text-red-600;
+}
 
-	.prose h1 {
-		@apply mb-4 text-3xl font-bold text-black;
-	}
+h2 {
+	@apply text-dark-or mt-8 mb-4 text-2xl font-bold;
+}
 
-	.prose h2 {
-		@apply mt-8 mb-4 text-2xl font-bold text-black;
-	}
+p {
+	@apply text-dark-tx mb-4;
+}
 
-	.prose p {
-		@apply mb-4 text-gray-800;
-	}
+a {
+	@apply text-base-600 hover:underline;
+}
 
-	.prose a {
-		@apply text-blue-400 hover:underline;
-	}
+.self-start {
+	align-self: flex-start;
 }

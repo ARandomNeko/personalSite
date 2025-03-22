@@ -5,8 +5,8 @@
   
   onMount(() => {
     const hour = new Date().getHours();
-    if (hour < 12) greeting = "Good morning";
-    else if (hour < 18) greeting = "Good afternoon";
+    if (hour < 12 && hour > 6) greeting = "Good morning";
+    else if (hour < 18 && hour > 12) greeting = "Good afternoon";
     else greeting = "Good evening";
   });
 </script>
@@ -17,10 +17,10 @@
 
 <section class="py-12">
   <div class="max-w-3xl mx-auto">
-    <h1 class="text-4xl font-bold text-fl-black mb-2">{greeting}, I'm [Your Name]</h1>
-    <p class="text-xl text-fl-gray-700 mb-8">Developer, Designer, Thinker</p>
+    <h1 class="text-4xl font-bold mb-2 ">{greeting}, I'm Rituparan Reddy</h1>
+    <p class="text-xl mb-8">Developer, Designer, Thinker</p>
     
-    <div class="prose max-w-none">
+    <div class="max-w-none">
       <p>Welcome to my personal corner of the internet. I'm a [your profession] passionate about [your interests].</p>
       
       <p>I build things with code, explore new ideas, and document my journey along the way.</p>
@@ -35,7 +35,7 @@
 
 <section class="py-8 bg-fl-gray-50 rounded-lg">
   <div class="max-w-3xl mx-auto">
-    <h2 class="text-2xl font-bold text-fl-black mb-6">Featured Projects</h2>
+    <h2 class="text-2xl font-bold text-fl-black mb-6 ">Featured Projects</h2>
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <a href="/projects/flow-solver" class="block p-6 bg-white rounded-lg border border-fl-gray-200 hover:shadow-md transition-shadow">
