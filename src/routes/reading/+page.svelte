@@ -43,7 +43,7 @@
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       {#each books as book}
-        <div class="flex rounded-lg border bg-base-950 border-base-200 overflow-hidden hover:shadow-sm transition-shadow">
+        <div class="flex rounded-lg border border-base-200 overflow-hidden hover:shadow-sm transition-shadow">
           <div class={`w-4 bg-${book.coverColor}-600`}></div>
           <div class="p-6 flex-1">
             <div class="flex justify-between items-start">

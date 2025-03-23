@@ -204,9 +204,61 @@
 	--color-dark-ma-2: var(--color-magenta-600);
 }
 
+/* Base theme variables */
+:root {
+	/* Default to dark theme */
+	--bg: var(--color-dark-bg);
+	--bg-2: var(--color-dark-bg-2);
+	--tx: var(--color-dark-tx);
+	--tx-2: var(--color-dark-tx-2);
+	--tx-3: var(--color-dark-tx-3);
+	--ui: var(--color-dark-ui);
+	--ui-2: var(--color-dark-ui-2);
+	--ui-3: var(--color-dark-ui-3);
+
+	--re: var(--color-dark-re);
+	--or: var(--color-dark-or);
+	--ye: var(--color-dark-ye);
+	--gr: var(--color-dark-gr);
+	--cy: var(--color-dark-cy);
+	--bl: var(--color-dark-bl);
+	--pu: var(--color-dark-pu);
+	--ma: var(--color-dark-ma);
+
+	/* Grid dot color */
+	--dot-color: var(--color-base-700);
+}
+
+/* Light theme class */
+.light-mode {
+	--bg: var(--color-light-bg);
+	--bg-2: var(--color-light-bg-2);
+	--tx: var(--color-light-tx);
+	--tx-2: var(--color-light-tx-2);
+	--tx-3: var(--color-light-tx-3);
+	--ui: var(--color-light-ui);
+	--ui-2: var(--color-light-ui-2);
+	--ui-3: var(--color-light-ui-3);
+
+	--re: var(--color-light-re);
+	--or: var(--color-light-or);
+	--ye: var(--color-light-ye);
+	--gr: var(--color-light-gr);
+	--cy: var(--color-light-cy);
+	--bl: var(--color-light-bl);
+	--pu: var(--color-light-pu);
+	--ma: var(--color-light-ma);
+
+	/* Grid dot color for light mode */
+	--dot-color: var(--color-base-300);
+}
+
+/* Your existing styles updated with theme variables */
 body {
-	background-color: var(--color-dark-bg);
-	color: var(--color-dark-tx);
+	background-color: var(--bg);
+	background-image: radial-gradient(var(--dot-color) 1px, var(--bg) 1px);
+	background-size: 20px 20px;
+	color: var(--tx);
 	font-family:
 		system-ui,
 		-apple-system,
@@ -214,31 +266,133 @@ body {
 		'Segoe UI',
 		Roboto,
 		sans-serif;
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease,
+		background-image 0.3s ease;
 }
+
 .btn {
 	@apply rounded-md px-4 py-2 transition-colors duration-200;
 }
 
 .btn-primary {
 	@apply bg-magenta-600 text-paper hover:bg-blue-600;
+	transition: all 0.3s ease;
 }
 
+/* Update Tailwind classes with CSS variables */
 h1 {
-	@apply mb-4 text-3xl font-bold text-red-600;
+	@apply mb-4 text-3xl font-bold;
+	color: var(--re);
+	transition: color 0.3s ease;
 }
 
 h2 {
-	@apply text-dark-or mt-8 mb-4 text-2xl font-bold;
+	@apply mt-8 mb-4 text-2xl font-bold;
+	color: var(--or);
+	transition: color 0.3s ease;
 }
 
 p {
-	@apply text-dark-tx mb-4;
+	@apply mb-4;
+	color: var(--tx);
+	transition: color 0.3s ease;
 }
 
 a {
-	@apply text-base-600 hover:underline;
+	color: var(--bl);
+	transition: color 0.3s ease;
+	@apply hover:underline;
 }
 
-.self-start {
-	align-self: flex-start;
+.card {
+	background-color: rgba(var(--bg), 0.5);
+	backdrop-filter: blur(1px);
+	-webkit-backdrop-filter: blur(1px);
+	border: 0px solid rgba(135, 133, 128, 0.2);
+	border-radius: 12px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	color: var(--tx);
+	padding: 1.5rem;
+	transition:
+		all 0.3s ease,
+		background-color 0.3s ease,
+		color 0.3s ease;
+}
+
+.card:hover {
+	border-color: rgba(206, 93, 151, 0.5);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+	transform: translateY(-2px);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+}
+
+/* Theme toggle switch */
+.theme-toggle {
+	display: inline-block;
+	position: relative;
+	width: 60px;
+	height: 30px;
+}
+
+.theme-toggle input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--ui-2);
+	transition: 0.4s;
+	border-radius: 30px;
+}
+
+.slider:before {
+	position: absolute;
+	content: '';
+	height: 22px;
+	width: 22px;
+	left: 4px;
+	bottom: 4px;
+	background-color: var(--bg);
+	transition: 0.4s;
+	border-radius: 50%;
+}
+
+input:checked + .slider {
+	background-color: var(--bl);
+}
+
+input:checked + .slider:before {
+	transform: translateX(30px);
+}
+
+/* Icons for sun and moon */
+.slider:after {
+	content: '🌙';
+	position: absolute;
+	left: 10px;
+	top: 5px;
+	font-size: 14px;
+	opacity: 1;
+	transition: 0.4s;
+}
+
+input:checked + .slider:after {
+	content: '☀️';
+	left: 35px;
+	opacity: 1;
+}
+
+/* Light mode button adaptations */
+.light-mode .btn-primary {
+	@apply bg-magenta-600 text-paper hover:bg-blue-600;
 }
