@@ -167,14 +167,14 @@
 	--color-dark-ui-2: var(--color-base-850);
 	--color-dark-ui-3: var(--color-base-800);
 
-	--color-light-re: var(--color-red-600);
-	--color-light-or: var(--color-orange-600);
-	--color-light-ye: var(--color-yellow-600);
-	--color-light-gr: var(--color-green-600);
-	--color-light-cy: var(--color-cyan-600);
-	--color-light-bl: var(--color-blue-600);
-	--color-light-pu: var(--color-purple-600);
-	--color-light-ma: var(--color-magenta-600);
+	--color-light-re: var(--color-red-500);
+	--color-light-or: var(--color-orange-500);
+	--color-light-ye: var(--color-yellow-500);
+	--color-light-gr: var(--color-green-500);
+	--color-light-cy: var(--color-cyan-500);
+	--color-light-bl: var(--color-blue-500);
+	--color-light-pu: var(--color-purple-500);
+	--color-light-ma: var(--color-magenta-500);
 
 	--color-dark-re: var(--color-red-400);
 	--color-dark-or: var(--color-orange-400);
@@ -185,14 +185,14 @@
 	--color-dark-pu: var(--color-purple-400);
 	--color-dark-ma: var(--color-magenta-400);
 
-	--color-light-re-2: var(--color-red-400);
-	--color-light-or-2: var(--color-orange-400);
-	--color-light-ye-2: var(--color-yellow-400);
-	--color-light-gr-2: var(--color-green-400);
-	--color-light-cy-2: var(--color-cyan-400);
-	--color-light-bl-2: var(--color-blue-400);
-	--color-light-pu-2: var(--color-purple-400);
-	--color-light-ma-2: var(--color-magenta-400);
+	--color-light-re-2: var(--color-red-300);
+	--color-light-or-2: var(--color-orange-300);
+	--color-light-ye-2: var(--color-yellow-300);
+	--color-light-gr-2: var(--color-green-300);
+	--color-light-cy-2: var(--color-cyan-300);
+	--color-light-bl-2: var(--color-blue-300);
+	--color-light-pu-2: var(--color-purple-300);
+	--color-light-ma-2: var(--color-magenta-300);
 
 	--color-dark-re-2: var(--color-red-600);
 	--color-dark-or-2: var(--color-orange-600);
@@ -257,7 +257,7 @@
 body {
 	background-color: var(--bg);
 	background-image: radial-gradient(var(--dot-color) 1px, var(--bg) 1px);
-	background-size: 20px 20px;
+	background-size: 25px 25px;
 	color: var(--tx);
 	font-family:
 		system-ui,

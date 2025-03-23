@@ -43,7 +43,7 @@
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       {#each books as book}
-        <div class="flex rounded-lg border border-base-200 overflow-hidden hover:shadow-sm transition-shadow">
+        <div class="flex card rounded-lg border border-base-200 overflow-hidden hover:shadow-sm transition-shadow">
           <div class={`w-4 bg-${book.coverColor}-600`}></div>
           <div class="p-6 flex-1">
             <div class="flex justify-between items-start">
@@ -51,7 +51,7 @@
                 <h2 class="text-xl font-bold mb-1">{book.title}</h2>
                 <p class="text-gray mb-3">by {book.author}</p>
               </div>
-              <span class="text-sm bg-green-100 text-light-tx px-2 py-1 rounded ">{book.status}</span>
+              <span class="text-sm bg-green-400 text-light-tx px-2 py-1 rounded ">{book.status}</span>
             </div>
             
             <div class="flex items-center mb-3">
