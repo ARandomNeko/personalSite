@@ -301,7 +301,7 @@ p {
 }
 
 a {
-	color: var(--bl);
+	color: var(--tx);
 	transition: color 0.3s ease;
 	@apply hover:underline;
 }
@@ -310,8 +310,9 @@ a {
 	background-color: rgba(var(--bg), 0.5);
 	backdrop-filter: blur(1px);
 	-webkit-backdrop-filter: blur(1px);
-	border: 0px solid rgba(135, 133, 128, 0.2);
+	border: 2px solid; 
 	border-radius: 12px;
+  border-color: var(--pu);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	color: var(--tx);
 	padding: 1.5rem;
@@ -322,7 +323,7 @@ a {
 }
 
 .card:hover {
-	border-color: rgba(206, 93, 151, 0.5);
+	border-color: var(--gr); 
 	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 	transform: translateY(-2px);
 	backdrop-filter: blur(4px);
