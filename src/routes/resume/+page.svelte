@@ -14,7 +14,6 @@
 			>download my resume as a PDF</a
 		>.
 	</p>
-
 	<h2>Summary</h2>
 	<p>
 		Highly motivated and skilled developer with experience in web technologies, passionate about
@@ -23,30 +22,137 @@
 
 	<h2>Experience</h2>
 
-	<h3>Software Engineer | Awesome Company | 2022 - Present</h3>
+	<h3>Chief Technology Officer (CTO) | World Peace Today | 2022 - 2024</h3>
 	<ul>
-		<li>Developed and maintained web applications using SvelteKit, Node.js, and PostgreSQL.</li>
-		<li>Collaborated with designers and product managers to deliver features.</li>
-		<li>Implemented automated testing using Vitest and Playwright.</li>
+		<li>
+			Led technology initiatives for a non-profit organization focused on community support. [cite:
+			4]
+		</li>
+		<li>
+			Developed and maintained organization's website (https://worldpeacetoday.vercel.app). [cite:
+			4]
+		</li>
+		<li>Contributed to campaigns that provided over 3,500 meals to those in need. [cite: 4]</li>
 	</ul>
 
-	<h3>Junior Developer | Previous Company | 2020 - 2022</h3>
+	<h3>Head of IT | Hack4Earth | 2023</h3>
 	<ul>
-		<li>Assisted senior developers with front-end tasks using React and CSS.</li>
-		<li>Participated in code reviews and agile ceremonies.</li>
+		<li>
+			Served as Head of IT for sustainability-themed hackathon based on UN SDGs and STEM education.
+			[cite: 5]
+		</li>
+		<li>Managed technical infrastructure for an event with over 550 participants. [cite: 5]</li>
+		<li>Oversaw distribution of $250,000 in prizes. [cite: 5]</li>
+	</ul>
+
+	<h3>Secretary | Rotary Interact Club | 2022 - 2023</h3>
+	<ul>
+		<li>Coordinated club activities and community service projects. [cite: 7]</li>
+		<li>Maintained records and facilitated communication between members. [cite: 7]</li>
+		<li>
+			Implemented initiatives to improve community wellbeing both within and outside school. [cite:
+			7]
+		</li>
+	</ul>
+
+	<h3>Wellness Secretary | Sreenidhi International School Student Council | 2023 - 2024</h3>
+	<ul>
+		<li>Serve as the fourth-highest position in the school's student council. [cite: 6]</li>
+		<li>Focus on student wellbeing and inclusivity initiatives. [cite: 6]</li>
+		<li>Organize and implement wellness programs. [cite: 6]</li>
 	</ul>
 
 	<h2>Education</h2>
-	<p><strong>B.S. in Computer Science</strong> | University Name | 2016 - 2020</p>
+	<p>
+		<strong>International Baccalaureate (IB) Diploma Program</strong> | Sreenidhi International School,
+		Hyderabad, India | July 2017 - May 2024
+	</p>
+	[cite: 2, 3]
+	<ul>
+		<li>Higher Level: Math AA, Physics, Chemistry [cite: 3]</li>
+		<li>Standard Level: English, Spanish B, Economics [cite: 3]</li>
+		<li>
+			Achievements: Certificate of Academic Merit, Runner-Up in Sreenidhi International School
+			Science Fair (2nd/75) [cite: 3]
+		</li>
+	</ul>
 
 	<h2>Skills</h2>
 	<ul>
-		<li><strong>Languages:</strong> JavaScript, TypeScript, HTML, CSS, SQL, Python</li>
 		<li>
-			<strong>Frameworks/Libraries:</strong> SvelteKit, React, Node.js, Express, Tailwind CSS, Three.js
+			<strong>Languages:</strong> Haskell, C++, Nix, English (Fluent), Hindi (Proficient), Telugu (Native),
+			Spanish (Proficient) [cite: 3]
 		</li>
-		<li><strong>Tools:</strong> Git, Docker, Vite, Vitest, Playwright, Figma</li>
-		<li><strong>Databases:</strong> PostgreSQL, MongoDB</li>
+		<li><strong>Web Development:</strong> Svelte, SvelteKit [cite: 3]</li>
+		<li><strong>Technologies:</strong> Robotics, IoT, Computer Vision [cite: 3]</li>
+	</ul>
+
+	<h2>Projects</h2>
+	<ul>
+		<li>
+			<strong>Robotics &amp; Hardware:</strong>
+			<ul>
+				<li>
+					Hexapod Robot: Designed and built a 6-legged robot with vision navigation system for
+					autonomous obstacle detection and avoidance. [cite: 8]
+				</li>
+				<li>Custom Computer: Built a personal computer from components. [cite: 8]</li>
+				<li>Ergonomic Keyboard: Designed and assembled a custom ergonomic keyboard. [cite: 8]</li>
+				<li>
+					Hand Wash Timer: Created a device displaying proper handwashing steps and duration during
+					COVID-19 pandemic. [cite: 8]
+				</li>
+				<li>
+					Cloud Chamber: Designed and built a cloud chamber capable of visualizing radiation
+					particles and cosmic rays. [cite: 8]
+				</li>
+			</ul>
+		</li>
+		<li>
+			<strong>Programming Experience:</strong>
+			<ul>
+				<li>Haskell: Implemented functional programming projects and algorithms. [cite: 8]</li>
+				<li>C++: Developed applications focusing on data structures and algorithms. [cite: 8]</li>
+				<li>Nix: Created reproducible build environments and configurations. [cite: 8]</li>
+				<li>
+					Web Development: Built responsive websites using Svelte and SvelteKit frameworks. [cite:
+					8]
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<h2>Volunteer Experience</h2>
+
+	<h3>Volunteer | Grace Foundation | 2022 - Present</h3>
+	<ul>
+		<li>
+			Volunteered at fundraising runs aimed at raising awareness and funds for cancer treatment.
+			[cite: 9]
+		</li>
+		<li>Assisted with event coordination and participant support. [cite: 9]</li>
+	</ul>
+
+	<h3>Organizer | Community Fundraisers | 2022 - Present</h3>
+	<ul>
+		<li>Organized various fundraising events to support community causes. [cite: 10]</li>
+		<li>Mobilized resources and coordinated volunteer efforts. [cite: 10]</li>
+	</ul>
+
+	<h2>Additional Activities</h2>
+
+	<h3>Self-Taught Enthusiast | Astrophotography | 2020 - Present</h3>
+	<ul>
+		<li>Developed skills in capturing astronomical phenomena. [cite: 11]</li>
+		<li>Studied celestial bodies and photography techniques. [cite: 11]</li>
+	</ul>
+
+	<h2>Certifications &amp; Test Scores</h2>
+	<ul>
+		<li>SAT: 1470 (Math: 770, Evidence-based Reading and Writing: 700) [cite: 11]</li>
+		<li>
+			IELTS: Overall 8.0 (Listening: 9.0, Reading: 8.5, Writing: 8.0, Speaking: 7.5) [cite: 11]
+		</li>
 	</ul>
 
 	<h2>Projects</h2>
