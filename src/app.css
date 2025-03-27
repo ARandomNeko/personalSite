@@ -146,6 +146,7 @@
 	--color-magenta-850: #4f1b39;
 	--color-magenta-900: #39172b;
 	--color-magenta-950: #24131d;
+  --font-mono: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", monospace;
 }
 
 @theme inline {
@@ -256,86 +257,79 @@
 /* Your existing styles updated with theme variables */
 body {
 	background-color: var(--bg);
-	background-image: radial-gradient(var(--dot-color) 1px, var(--bg) 1px);
-	background-size: 25px 25px;
 	color: var(--tx);
-	font-family:
-		system-ui,
-		-apple-system,
-		BlinkMacSystemFont,
-		'Segoe UI',
-		Roboto,
-		sans-serif;
+	font-family: var(--font-mono); /* Use monospace font */
+	/* Remove background-image for solid color */
+	/* background-image: radial-gradient(var(--dot-color) 1px, var(--bg) 1px); */
+	/* background-size: 25px 25px; */
 	transition:
 		background-color 0.3s ease,
-		color 0.3s ease,
-		background-image 0.3s ease;
+		color 0.3s ease;
+	/* Ensure Three.js canvas doesn't cause scrollbars */
+	overflow: hidden;
 }
 
+/* Minimal button */
 .btn {
-	@apply rounded-md px-4 py-2 transition-colors duration-200;
+	@apply rounded-none border border-[--tx] px-3 py-1 text-sm uppercase tracking-wider transition-colors duration-200 hover:bg-[--tx] hover:text-[--bg];
+	/* Remove btn-primary specific styles if you want all buttons the same */
 }
 
-.btn-primary {
-	@apply bg-magenta-600 text-paper hover:bg-blue-600;
-	transition: all 0.3s ease;
+/* Apply mono font to headings by default via Tailwind config or here */
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-mono);
+	color: var(--tx); /* Default heading color */
+	/* Adjust specific heading colors if needed */
 }
 
-/* Update Tailwind classes with CSS variables */
-h1 {
-	@apply mb-4 text-3xl font-bold;
-	color: var(--re);
-	transition: color 0.3s ease;
-}
+h1 { @apply mb-4 text-2xl font-bold; color: var(--re); }
+h2 { @apply mt-6 mb-3 text-xl font-bold; color: var(--or); }
+h3 { @apply mt-4 mb-2 text-lg font-bold; color: var(--ye); }
 
-h2 {
-	@apply mt-8 mb-4 text-2xl font-bold;
-	color: var(--or);
-	transition: color 0.3s ease;
-}
 
 p {
-	@apply mb-4;
+	@apply mb-4 leading-relaxed; /* Adjust line height */
 	color: var(--tx);
 	transition: color 0.3s ease;
 }
 
 a {
-	color: var(--tx);
+	color: var(--cy); /* Use a distinct link color */
 	transition: color 0.3s ease;
-	@apply hover:underline;
+	@apply hover:underline decoration-dotted underline-offset-2;
 }
 
+/* Minimal Card style */
 .card {
-	background-color: rgba(var(--bg), 0.5);
-	backdrop-filter: blur(1px);
-	-webkit-backdrop-filter: blur(1px);
-	border: 2px solid; 
-	border-radius: 12px;
-  border-color: var(--pu);
-	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	/* Remove background effects, border, shadow for minimalism */
+	/* background-color: rgba(var(--bg), 0.5); */
+	/* backdrop-filter: blur(1px); */
+	/* -webkit-backdrop-filter: blur(1px); */
+	border: 1px solid var(--ui-3); /* Simple border */
+	border-radius: 0; /* No rounded corners */
+	/* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
 	color: var(--tx);
-	padding: 1.5rem;
+	padding: 1rem;
 	transition:
-		all 0.3s ease,
-		background-color 0.3s ease,
+		border-color 0.3s ease,
 		color 0.3s ease;
 }
 
 .card:hover {
-	border-color: var(--gr); 
-	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-	transform: translateY(-2px);
-	backdrop-filter: blur(4px);
-	-webkit-backdrop-filter: blur(4px);
+	border-color: var(--cy); /* Highlight border on hover */
+	/* Remove transform/shadow changes */
+	/* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); */
+	/* transform: translateY(-2px); */
+	/* backdrop-filter: blur(4px); */
+	/* -webkit-backdrop-filter: blur(4px); */
 }
 
-/* Theme toggle switch */
+/* Theme toggle switch styling (keep as is or simplify further) */
 .theme-toggle {
 	display: inline-block;
 	position: relative;
-	width: 60px;
-	height: 30px;
+	width: 50px; /* Slightly smaller */
+	height: 24px;
 }
 
 .theme-toggle input {
@@ -353,19 +347,21 @@ a {
 	bottom: 0;
 	background-color: var(--ui-2);
 	transition: 0.4s;
-	border-radius: 30px;
+	border-radius: 24px; /* Make it pill-shaped */
+	border: 1px solid var(--ui-3);
 }
 
 .slider:before {
 	position: absolute;
 	content: '';
-	height: 22px;
-	width: 22px;
-	left: 4px;
-	bottom: 4px;
+	height: 18px; /* Smaller circle */
+	width: 18px;
+	left: 3px; /* Adjust positioning */
+	bottom: 3px;
 	background-color: var(--bg);
 	transition: 0.4s;
 	border-radius: 50%;
+	border: 1px solid var(--ui-3);
 }
 
 input:checked + .slider {
@@ -373,27 +369,88 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-	transform: translateX(30px);
+	transform: translateX(26px); /* Adjust translation */
 }
 
-/* Icons for sun and moon */
+/* Remove icons if desired for pure minimalism */
 .slider:after {
-	content: '🌙';
+	content: ''; /* Remove text icon */
+	/* Or use simple symbols */
+	/* content: '☾';
 	position: absolute;
-	left: 10px;
-	top: 5px;
-	font-size: 14px;
+	left: 7px;
+	top: 3px;
+	font-size: 10px;
 	opacity: 1;
 	transition: 0.4s;
+	color: var(--tx-2); */
 }
 
 input:checked + .slider:after {
-	content: '☀️';
-	left: 35px;
-	opacity: 1;
+	/* content: '☼'; */
+	/* left: 30px; */
+	/* opacity: 1; */
 }
 
-/* Light mode button adaptations */
-.light-mode .btn-primary {
-	@apply bg-magenta-600 text-paper hover:bg-blue-600;
+/* Ensure prose styles use theme variables */
+.prose {
+	--tw-prose-body: var(--tx);
+	--tw-prose-headings: var(--tx);
+	--tw-prose-lead: var(--tx-2);
+	--tw-prose-links: var(--cy);
+	--tw-prose-bold: var(--tx);
+	--tw-prose-counters: var(--tx-2);
+	--tw-prose-bullets: var(--tx-3);
+	--tw-prose-hr: var(--ui-2);
+	--tw-prose-quotes: var(--tx);
+	--tw-prose-quote-borders: var(--ui-3);
+	--tw-prose-captions: var(--tx-2);
+	--tw-prose-code: var(--ma); /* Code color */
+	--tw-prose-pre-code: var(--ma);
+	--tw-prose-pre-bg: var(--ui); /* Code block background */
+	--tw-prose-th-borders: var(--ui-3);
+	--tw-prose-td-borders: var(--ui-2);
+
+	/* Dark mode prose variables */
+	--tw-prose-invert-body: var(--tx);
+	--tw-prose-invert-headings: var(--tx);
+	--tw-prose-invert-lead: var(--tx-2);
+	--tw-prose-invert-links: var(--cy);
+	--tw-prose-invert-bold: var(--tx);
+	--tw-prose-invert-counters: var(--tx-2);
+	--tw-prose-invert-bullets: var(--tx-3);
+	--tw-prose-invert-hr: var(--ui-2);
+	--tw-prose-invert-quotes: var(--tx);
+	--tw-prose-invert-quote-borders: var(--ui-3);
+	--tw-prose-invert-captions: var(--tx-2);
+	--tw-prose-invert-code: var(--ma);
+	--tw-prose-invert-pre-code: var(--ma);
+	--tw-prose-invert-pre-bg: var(--ui);
+	--tw-prose-invert-th-borders: var(--ui-3);
+	--tw-prose-invert-td-borders: var(--ui-2);
+
+	/* Use monospace font for prose */
+	font-family: var(--font-mono);
+	a {
+		color: var(--cy);
+		&:hover {
+			color: var(--bl);
+		}
+	}
+	code {
+		color: var(--ma);
+		font-weight: normal;
+		font-size: 0.9em;
+		&::before, &::after {
+			content: ''; /* Remove backticks */
+		}
+	}
+	pre {
+		border-radius: 0; /* No rounded corners for code blocks */
+		border: 1px solid var(--ui-3);
+		code {
+			font-size: 0.9em;
+		}
+	}
+
 }

@@ -1,4 +1,4 @@
-<script lang="ts">
+ <script lang="ts">
     import type { Post } from '$lib/posts';
 
     let { data } = $props();
@@ -10,11 +10,11 @@
 </script>
 
 <svelte:head>
-    <title>Reading | Rituparan Reddy</title>
+    <title>Projects | Rituparan Reddy</title>
 </svelte:head>
 
 <section>
-    <h1 class="text-2xl font-bold mb-6">Reading List / Book Reviews</h1>
+    <h1 class="text-2xl font-bold mb-6">Projects</h1>
 
     {#if posts.length > 0}
         <div class="space-y-6">
@@ -36,6 +36,6 @@
             {/each}
         </div>
     {:else}
-        <p>No book-related posts found. Tag posts with 'book'.</p>
+        <p>No project posts found. Tag posts with 'project'.</p>
     {/if}
-</section>/section>
+</section>
