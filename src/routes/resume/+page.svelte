@@ -69,8 +69,7 @@
 	<h2>Skills</h2>
 	<ul>
 		<li>
-			<strong>Languages:</strong> Haskell, C++, Nix, English (Fluent), Hindi (Proficient), Telugu (Native),
-			Spanish (Proficient)
+			<strong>Languages:</strong> Haskell, C++, Nix
 		</li>
 		<li><strong>Web Development:</strong> Svelte, SvelteKit</li>
 		<li><strong>Technologies:</strong> Robotics, IoT, Computer Vision</li>
