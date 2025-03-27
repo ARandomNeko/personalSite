@@ -10,7 +10,7 @@
 <section class="py-12">
 	<div class="mx-auto max-w-2xl">
 		<h1 class="mb-3 text-3xl font-bold !text-[--re]">Rituparan Reddy</h1>
-		<p class="mb-6 text-lg text-[--tx-2]">Developer // Mentat // Humanist</p>
+		<p class="mb-6 text-lg text-[--tx-2]">Developer // Thinker // Humanist</p>
 
 		<div class="prose prose-base dark:prose-invert max-w-none">
 			<p>
