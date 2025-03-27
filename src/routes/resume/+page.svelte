@@ -106,6 +106,7 @@
 				<li>Web Development: Built responsive websites using Svelte and SvelteKit frameworks.</li>
 			</ul>
 		</li>
+		<p>See the <a href="/projects">Projects</a> page for more details.</p>
 	</ul>
 
 	<h2>Volunteer Experience</h2>
@@ -137,6 +138,4 @@
 		<li>SAT: 1470 (Math: 770, Evidence-based Reading and Writing: 700)</li>
 		<li>IELTS: Overall 8.0 (Listening: 9.0, Reading: 8.5, Writing: 8.0, Speaking: 7.5)</li>
 	</ul>
-	<h2>Projects</h2>
-	<p>See the <a href="/projects">Projects</a> page for more details.</p>
 </section>
