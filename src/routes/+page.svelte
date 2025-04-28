@@ -15,8 +15,11 @@
 		<div class="prose prose-base dark:prose-invert max-w-none">
 			<p>
 				Site W.I.P, I'll finish it after finals. First post can be expected to be up by the end of
-				may. Welcome to my personal corner of the internet. I'm passionate about building things
-				with code, exploring new ideas, and documenting the journey.
+				may.
+			</p>
+			<p>
+				Welcome to my personal corner of the internet. I'm passionate about building things with
+				code, exploring new ideas, and documenting the journey.
 			</p>
 			<p>This site serves as my digital garden, notebook, and portfolio.</p>
 		</div>
