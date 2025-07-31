@@ -14,8 +14,9 @@
 
 		<div class="prose prose-base dark:prose-invert max-w-none">
 			<p>
-				Site W.I.P, I'll finish it after finals. First post can be expected to be up by the end of
-				may.
+				Big shit cooking, will be busy for a couple months, first project post and blog post will be
+				about that, expect a few book posts till then, \n currently reading the nicomachean ethics
+				by Aristotle
 			</p>
 			<p>
 				Welcome to my personal corner of the internet. I'm passionate about building things with
