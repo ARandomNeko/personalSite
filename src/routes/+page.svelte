@@ -14,14 +14,14 @@
 
 		<div class="prose prose-base dark:prose-invert max-w-none">
 			<p>
-				Big shit cooking, will be busy for a couple months, first project post and blog post will be
-				about that, expect a few book posts till then, \n currently reading the nicomachean ethics
-				by Aristotle
-			</p>
-			<p>
 				Welcome to my personal corner of the internet. I'm passionate about building things with
 				code, exploring new ideas, and documenting the journey.
 			</p>
+			<p>
+				Big shit cooking, will be busy for a couple months, first project post and blog post will be
+				about that, expect a few book posts till then.
+			</p>
+			<p>Currently reading the nicomachean ethics by Aristotle</p>
 			<p>This site serves as my digital garden, notebook, and portfolio.</p>
 		</div>
 
