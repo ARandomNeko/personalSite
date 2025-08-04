@@ -3,325 +3,94 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
-	--color-amber-*: initial;
-	--color-lime-*: initial;
-	--color-emerald-*: initial;
-	--color-teal-*: initial;
-	--color-sky-*: initial;
-	--color-indigo-*: initial;
-	--color-violet-*: initial;
-	--color-fuchsia-*: initial;
-	--color-pink-*: initial;
-	--color-rose-*: initial;
-	--color-slate-*: initial;
-	--color-zinc-*: initial;
-	--color-neutral-*: initial;
-	--color-stone-*: initial;
+	/* Define a strict black and white palette */
+	--color-black: #000000;
+	--color-white: #ffffff;
+	--color-light-gray: #cccccc;
+	--color-medium-gray: #888888;
+	--color-dark-gray: #444444;
 
-	--color-black: #100f0f;
-	--color-paper: #fffcf0;
-
-	--color-base-50: #f2f0e5;
-	--color-base-100: #e6e4d9;
-	--color-base-150: #dad8ce;
-	--color-base-200: #cecdc3;
-	--color-base-300: #b7b5ac;
-	--color-base-400: #9f9d96;
-	--color-base-500: #878580;
-	--color-base-600: #6f6e69;
-	--color-base-700: #575653;
-	--color-base-800: #403e3c;
-	--color-base-850: #343331;
-	--color-base-900: #282726;
-	--color-base-950: #1c1b1a;
-
-	--color-red-50: #ffe1d5;
-	--color-red-100: #ffcabb;
-	--color-red-150: #fdb2a2;
-	--color-red-200: #f89a8a;
-	--color-red-300: #e8705f;
-	--color-red-400: #d14d41;
-	--color-red-500: #c03e35;
-	--color-red-600: #af3029;
-	--color-red-700: #942822;
-	--color-red-800: #6c201c;
-	--color-red-850: #551b18;
-	--color-red-900: #3e1715;
-	--color-red-950: #261312;
-
-	--color-orange-50: #ffe7ce;
-	--color-orange-100: #fed3af;
-	--color-orange-150: #fcc192;
-	--color-orange-200: #f9ae77;
-	--color-orange-300: #ec8b49;
-	--color-orange-400: #da702c;
-	--color-orange-500: #cb6120;
-	--color-orange-600: #bc5215;
-	--color-orange-700: #9d4310;
-	--color-orange-800: #71320d;
-	--color-orange-850: #59290d;
-	--color-orange-900: #40200d;
-	--color-orange-950: #27180e;
-
-	--color-yellow-50: #faeec6;
-	--color-yellow-100: #f6e2a0;
-	--color-yellow-150: #f1d67e;
-	--color-yellow-200: #eccb60;
-	--color-yellow-300: #dfb431;
-	--color-yellow-400: #d0a215;
-	--color-yellow-500: #be9207;
-	--color-yellow-600: #ad8301;
-	--color-yellow-700: #8e6b01;
-	--color-yellow-800: #664d01;
-	--color-yellow-850: #503d02;
-	--color-yellow-900: #3a2d04;
-	--color-yellow-950: #241e08;
-
-	--color-green-50: #edeecf;
-	--color-green-100: #dde2b2;
-	--color-green-150: #cdd597;
-	--color-green-200: #bec97e;
-	--color-green-300: #a0af54;
-	--color-green-400: #879a39;
-	--color-green-500: #768d21;
-	--color-green-600: #66800b;
-	--color-green-700: #536907;
-	--color-green-800: #3d4c07;
-	--color-green-850: #313d07;
-	--color-green-900: #252d09;
-	--color-green-950: #1a1e0c;
-
-	--color-cyan-50: #ddf1e4;
-	--color-cyan-100: #bfe8d9;
-	--color-cyan-150: #a2dece;
-	--color-cyan-200: #87d3c3;
-	--color-cyan-300: #5abdac;
-	--color-cyan-400: #3aa99f;
-	--color-cyan-500: #2f968d;
-	--color-cyan-600: #24837b;
-	--color-cyan-700: #1c6c66;
-	--color-cyan-800: #164f4a;
-	--color-cyan-850: #143f3c;
-	--color-cyan-900: #122f2c;
-	--color-cyan-950: #101f1d;
-
-	--color-blue-50: #e1eceb;
-	--color-blue-100: #c6dde8;
-	--color-blue-150: #abcfe2;
-	--color-blue-200: #92bfdb;
-	--color-blue-300: #66a0c8;
-	--color-blue-400: #4385be;
-	--color-blue-500: #3171b2;
-	--color-blue-600: #205ea6;
-	--color-blue-700: #1a4f8c;
-	--color-blue-800: #163b66;
-	--color-blue-850: #133051;
-	--color-blue-900: #12253b;
-	--color-blue-950: #101a24;
-
-	--color-purple-50: #f0eaec;
-	--color-purple-100: #e2d9e9;
-	--color-purple-150: #d3cae6;
-	--color-purple-200: #c4b9e0;
-	--color-purple-300: #a699d0;
-	--color-purple-400: #8b7ec8;
-	--color-purple-500: #735eb5;
-	--color-purple-600: #5e409d;
-	--color-purple-700: #4f3685;
-	--color-purple-800: #3c2a62;
-	--color-purple-850: #31234e;
-	--color-purple-900: #261c39;
-	--color-purple-950: #1a1623;
-
-	--color-magenta-50: #fee4e5;
-	--color-magenta-100: #fccfda;
-	--color-magenta-150: #f9b9cf;
-	--color-magenta-200: #f4a4c2;
-	--color-magenta-300: #e47da8;
-	--color-magenta-400: #ce5d97;
-	--color-magenta-500: #b74583;
-	--color-magenta-600: #a02f6f;
-	--color-magenta-700: #87285e;
-	--color-magenta-800: #641f46;
-	--color-magenta-850: #4f1b39;
-	--color-magenta-900: #39172b;
-	--color-magenta-950: #24131d;
-  --font-mono: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", monospace;
+	--font-mono: 'Press Start 2P', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", monospace;
 }
 
 @theme inline {
-	--color-light-bg: var(--color-paper);
-	--color-light-bg-2: var(--color-base-50);
+	/* Light mode (mimicking the old monitor's light gray background) */
+	--color-light-bg: var(--color-light-gray);
 	--color-light-tx: var(--color-black);
-	--color-light-tx-2: var(--color-base-600);
-	--color-light-tx-3: var(--color-base-300);
-	--color-light-ui: var(--color-base-100);
-	--color-light-ui-2: var(--color-base-150);
-	--color-light-ui-3: var(--color-base-200);
+	--color-light-ui: var(--color-medium-gray);
+	--color-light-border: var(--color-black);
 
+	/* Dark mode (not explicitly in the image, but good to keep for consistency if needed) */
 	--color-dark-bg: var(--color-black);
-	--color-dark-bg-2: var(--color-base-950);
-	--color-dark-tx: var(--color-base-200);
-	--color-dark-tx-2: var(--color-base-500);
-	--color-dark-tx-3: var(--color-base-700);
-	--color-dark-ui: var(--color-base-900);
-	--color-dark-ui-2: var(--color-base-850);
-	--color-dark-ui-3: var(--color-base-800);
-
-	--color-light-re: var(--color-red-500);
-	--color-light-or: var(--color-orange-500);
-	--color-light-ye: var(--color-yellow-500);
-	--color-light-gr: var(--color-green-500);
-	--color-light-cy: var(--color-cyan-500);
-	--color-light-bl: var(--color-blue-500);
-	--color-light-pu: var(--color-purple-500);
-	--color-light-ma: var(--color-magenta-500);
-
-	--color-dark-re: var(--color-red-400);
-	--color-dark-or: var(--color-orange-400);
-	--color-dark-ye: var(--color-yellow-400);
-	--color-dark-gr: var(--color-green-400);
-	--color-dark-cy: var(--color-cyan-400);
-	--color-dark-bl: var(--color-blue-400);
-	--color-dark-pu: var(--color-purple-400);
-	--color-dark-ma: var(--color-magenta-400);
-
-	--color-light-re-2: var(--color-red-300);
-	--color-light-or-2: var(--color-orange-300);
-	--color-light-ye-2: var(--color-yellow-300);
-	--color-light-gr-2: var(--color-green-300);
-	--color-light-cy-2: var(--color-cyan-300);
-	--color-light-bl-2: var(--color-blue-300);
-	--color-light-pu-2: var(--color-purple-300);
-	--color-light-ma-2: var(--color-magenta-300);
-
-	--color-dark-re-2: var(--color-red-600);
-	--color-dark-or-2: var(--color-orange-600);
-	--color-dark-ye-2: var(--color-yellow-600);
-	--color-dark-gr-2: var(--color-green-600);
-	--color-dark-cy-2: var(--color-cyan-600);
-	--color-dark-bl-2: var(--color-blue-600);
-	--color-dark-pu-2: var(--color-purple-600);
-	--color-dark-ma-2: var(--color-magenta-600);
+	--color-dark-tx: var(--color-light-gray);
+	--color-dark-ui: var(--color-dark-gray);
+	--color-dark-border: var(--color-light-gray);
 }
 
-/* Base theme variables */
+/* Base theme variables - default to dark mode */
 :root {
-	/* Default to dark theme */
 	--bg: var(--color-dark-bg);
-	--bg-2: var(--color-dark-bg-2);
 	--tx: var(--color-dark-tx);
-	--tx-2: var(--color-dark-tx-2);
-	--tx-3: var(--color-dark-tx-3);
 	--ui: var(--color-dark-ui);
-	--ui-2: var(--color-dark-ui-2);
-	--ui-3: var(--color-dark-ui-3);
+	--border: var(--color-dark-border);
+	--tx-1: var(--color-dark-tx);
+	--tx-2: var(--color-medium-gray);
+	--ui-3: var(--color-dark-ui);
+	--cy: var(--color-light-gray);
+	--re: var(--color-light-gray);
 
-	--re: var(--color-dark-re);
-	--or: var(--color-dark-or);
-	--ye: var(--color-dark-ye);
-	--gr: var(--color-dark-gr);
-	--cy: var(--color-dark-cy);
-	--bl: var(--color-dark-bl);
-	--pu: var(--color-dark-pu);
-	--ma: var(--color-dark-ma);
-
-	/* Grid dot color */
-	--dot-color: var(--color-base-700);
+	/* Dotted background pattern */
+	--dot-color: var(--color-dark-gray);
 }
 
-/* Light theme class */
+/* Light mode class - switches to light theme */
 .light-mode {
 	--bg: var(--color-light-bg);
-	--bg-2: var(--color-light-bg-2);
 	--tx: var(--color-light-tx);
-	--tx-2: var(--color-light-tx-2);
-	--tx-3: var(--color-light-tx-3);
 	--ui: var(--color-light-ui);
-	--ui-2: var(--color-light-ui-2);
-	--ui-3: var(--color-light-ui-3);
-
-	--re: var(--color-light-re);
-	--or: var(--color-light-or);
-	--ye: var(--color-light-ye);
-	--gr: var(--color-light-gr);
-	--cy: var(--color-light-cy);
-	--bl: var(--color-light-bl);
-	--pu: var(--color-light-pu);
-	--ma: var(--color-light-ma);
-
-	/* Grid dot color for light mode */
-	--dot-color: var(--color-base-300);
+	--border: var(--color-light-border);
+	--tx-1: var(--color-light-tx);
+	--tx-2: var(--color-medium-gray);
+	--ui-3: var(--color-light-ui);
+	--cy: var(--color-dark-gray);
+	--re: var(--color-dark-gray);
+	--dot-color: var(--color-medium-gray);
 }
 
-/* Your existing styles updated with theme variables */
 body {
 	background-color: var(--bg);
 	color: var(--tx);
-	font-family: var(--font-mono); /* Use monospace font */
-	/* Remove background-image for solid color */
-	/* background-image: radial-gradient(var(--dot-color) 1px, var(--bg) 1px); */
-	/* background-size: 25px 25px; */
-	transition:
-		background-color 0.3s ease,
-		color 0.3s ease;
-	/* Ensure Three.js canvas doesn't cause scrollbars */
-	overflow: hidden;
+	font-family: var(--font-mono);
+	/* Dotted background pattern */
+	background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+	background-size: 4px 4px; /* Adjust dot size and spacing */
+	overflow: hidden; /* Prevent scrollbars from the background */
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /* Minimal button */
 .btn {
-	@apply rounded-none border border-[--tx] px-3 py-1 text-sm uppercase tracking-wider transition-colors duration-200 hover:bg-[--tx] hover:text-[--bg];
-	/* Remove btn-primary specific styles if you want all buttons the same */
+	background-color: var(--bg);
+	border: 1px solid var(--tx);
+	color: var(--tx);
+	padding: 2px 5px;
+	font-size: 10px;
+	cursor: pointer;
+	&:hover {
+		background-color: var(--tx);
+		color: var(--bg);
+	}
 }
 
-/* Apply mono font to headings by default via Tailwind config or here */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p, a {
 	font-family: var(--font-mono);
-	color: var(--tx); /* Default heading color */
-	/* Adjust specific heading colors if needed */
-}
-
-h1 { @apply mb-4 text-2xl font-bold; color: var(--re); }
-h2 { @apply mt-6 mb-3 text-xl font-bold; color: var(--or); }
-h3 { @apply mt-4 mb-2 text-lg font-bold; color: var(--ye); }
-
-
-p {
-	@apply mb-4 leading-relaxed; /* Adjust line height */
 	color: var(--tx);
-	transition: color 0.3s ease;
-}
-
-a {
-	color: var(--cy); /* Use a distinct link color */
-	transition: color 0.3s ease;
-	@apply hover:underline decoration-dotted underline-offset-2;
-}
-
-/* Minimal Card style */
-.card {
-	/* Remove background effects, border, shadow for minimalism */
-	/* background-color: rgba(var(--bg), 0.5); */
-	/* backdrop-filter: blur(1px); */
-	/* -webkit-backdrop-filter: blur(1px); */
-	border: 1px solid var(--ui-3); /* Simple border */
-	border-radius: 0; /* No rounded corners */
-	/* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
-	color: var(--tx);
-	padding: 1rem;
-	transition:
-		border-color 0.3s ease,
-		color 0.3s ease;
-}
-
-.card:hover {
-	border-color: var(--cy); /* Highlight border on hover */
-	/* Remove transform/shadow changes */
-	/* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); */
-	/* transform: translateY(-2px); */
-	/* backdrop-filter: blur(4px); */
-	/* -webkit-backdrop-filter: blur(4px); */
 }
 
 /* Theme toggle switch styling (keep as is or simplify further) */
@@ -345,10 +114,10 @@ a {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: var(--ui-2);
+	background-color: var(--ui);
 	transition: 0.4s;
 	border-radius: 24px; /* Make it pill-shaped */
-	border: 1px solid var(--ui-3);
+	border: 1px solid var(--border);
 }
 
 .slider:before {
@@ -361,96 +130,74 @@ a {
 	background-color: var(--bg);
 	transition: 0.4s;
 	border-radius: 50%;
-	border: 1px solid var(--ui-3);
+	border: 1px solid var(--border);
 }
 
 input:checked + .slider {
-	background-color: var(--bl);
+	background-color: var(--tx);
 }
 
 input:checked + .slider:before {
 	transform: translateX(26px); /* Adjust translation */
 }
 
-/* Remove icons if desired for pure minimalism */
-.slider:after {
-	content: ''; /* Remove text icon */
-	/* Or use simple symbols */
-	/* content: '☾';
-	position: absolute;
-	left: 7px;
-	top: 3px;
-	font-size: 10px;
-	opacity: 1;
-	transition: 0.4s;
-	color: var(--tx-2); */
-}
-
-input:checked + .slider:after {
-	/* content: '☼'; */
-	/* left: 30px; */
-	/* opacity: 1; */
-}
-
 /* Ensure prose styles use theme variables */
 .prose {
 	--tw-prose-body: var(--tx);
 	--tw-prose-headings: var(--tx);
-	--tw-prose-lead: var(--tx-2);
-	--tw-prose-links: var(--cy);
+	--tw-prose-lead: var(--tx);
+	--tw-prose-links: var(--tx);
 	--tw-prose-bold: var(--tx);
-	--tw-prose-counters: var(--tx-2);
-	--tw-prose-bullets: var(--tx-3);
-	--tw-prose-hr: var(--ui-2);
+	--tw-prose-counters: var(--tx);
+	--tw-prose-bullets: var(--tx);
+	--tw-prose-hr: var(--border);
 	--tw-prose-quotes: var(--tx);
-	--tw-prose-quote-borders: var(--ui-3);
-	--tw-prose-captions: var(--tx-2);
-	--tw-prose-code: var(--ma); /* Code color */
-	--tw-prose-pre-code: var(--ma);
-	--tw-prose-pre-bg: var(--ui); /* Code block background */
-	--tw-prose-th-borders: var(--ui-3);
-	--tw-prose-td-borders: var(--ui-2);
+	--tw-prose-quote-borders: var(--border);
+	--tw-prose-captions: var(--tx);
+	--tw-prose-code: var(--tx);
+	--tw-prose-pre-code: var(--tx);
+	--tw-prose-pre-bg: var(--ui);
+	--tw-prose-th-borders: var(--border);
+	--tw-prose-td-borders: var(--border);
 
-	/* Dark mode prose variables */
+	/* Dark mode prose variables - adjust if dark mode is implemented */
 	--tw-prose-invert-body: var(--tx);
 	--tw-prose-invert-headings: var(--tx);
-	--tw-prose-invert-lead: var(--tx-2);
-	--tw-prose-invert-links: var(--cy);
+	--tw-prose-invert-lead: var(--tx);
+	--tw-prose-invert-links: var(--tx);
 	--tw-prose-invert-bold: var(--tx);
-	--tw-prose-invert-counters: var(--tx-2);
-	--tw-prose-invert-bullets: var(--tx-3);
-	--tw-prose-invert-hr: var(--ui-2);
+	--tw-prose-invert-counters: var(--tx);
+	--tw-prose-invert-bullets: var(--tx);
+	--tw-prose-invert-hr: var(--border);
 	--tw-prose-invert-quotes: var(--tx);
-	--tw-prose-invert-quote-borders: var(--ui-3);
-	--tw-prose-invert-captions: var(--tx-2);
-	--tw-prose-invert-code: var(--ma);
-	--tw-prose-invert-pre-code: var(--ma);
+	--tw-prose-invert-quote-borders: var(--border);
+	--tw-prose-invert-captions: var(--tx);
+	--tw-prose-invert-code: var(--tx);
+	--tw-prose-invert-pre-code: var(--tx);
 	--tw-prose-invert-pre-bg: var(--ui);
-	--tw-prose-invert-th-borders: var(--ui-3);
-	--tw-prose-invert-td-borders: var(--ui-2);
+	--tw-prose-invert-th-borders: var(--border);
+	--tw-prose-invert-td-borders: var(--border);
 
-	/* Use monospace font for prose */
 	font-family: var(--font-mono);
 	a {
-		color: var(--cy);
+		color: var(--tx);
 		&:hover {
-			color: var(--bl);
+			text-decoration: underline;
 		}
 	}
 	code {
-		color: var(--ma);
 		font-weight: normal;
 		font-size: 0.9em;
 		&::before, &::after {
-			content: ''; /* Remove backticks */
+			content: '';
 		}
 	}
 	pre {
-		border-radius: 0; /* No rounded corners for code blocks */
-		border: 1px solid var(--ui-3);
+		border-radius: 0;
+		border: 1px solid var(--border);
 		code {
 			font-size: 0.9em;
 		}
 	}
-
 }
+
