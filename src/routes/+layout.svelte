@@ -1,22 +1,23 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import '../app.css';
-	import BackgroundAnimation from '$lib/components/BackgroundAnimation.svelte'; // Import the background
+	import DitheredSpheres from '$lib/background/DitheredSpheres.svelte';
 
 	let { children } = $props();
-	let isDarkMode = true;
+	let isDarkMode = $state(true);
+	let currentTime = $state(new Date());
 
 	function toggleTheme() {
-		isDarkMode = !isDarkMode;
-		const body = document.body;
-		if (isDarkMode) {
-			body.classList.remove('light-mode');
-			localStorage.setItem('theme', 'dark');
-		} else {
-			body.classList.add('light-mode');
-			localStorage.setItem('theme', 'light');
-		}
-		// Update Three.js particle color if needed (more complex, optional)
+			isDarkMode = !isDarkMode;
+			const body = document.body;
+			if (isDarkMode) {
+				body.classList.remove('light-mode');
+				localStorage.setItem('theme', 'dark');
+			} else {
+				body.classList.add('light-mode');
+				localStorage.setItem('theme', 'light');
+			}
+			// Update Three.js particle color if needed (more complex, optional)
 	}
 
 	function setTheme() {
@@ -28,11 +29,12 @@
 			body.classList.add('light-mode');
 			isDarkMode = false;
 		} else if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+			// Default to light mode as per the image aesthetic
 			body.classList.remove('light-mode');
 			isDarkMode = true;
 		} else {
-			body.classList.add('light-mode'); // Default to light if no preference/save
-			isDarkMode = false;
+				body.classList.add('light-mode'); // Default to light if no preference/save
+				isDarkMode = false;
 		}
 	}
 
@@ -48,12 +50,20 @@
 				}
 			}
 		});
+
+		// Update clock every second
+		const clockInterval = setInterval(() => {
+			currentTime = new Date();
+		}, 1000);
+
+		return () => {
+			clearInterval(clockInterval);
+		};
 	});
 </script>
 
 <div class="relative flex min-h-screen flex-col">
-	<BackgroundAnimation />
-	<!-- Add the background component -->
+	<DitheredSpheres />
 
 	<header class="border-b border-[--ui-3] px-4 py-3">
 		<nav
@@ -66,12 +76,17 @@
 				<a href="/projects" class="hover:text-[--cy]">Projects</a>
 				<a href="/resume" class="hover:text-[--cy]">Resume</a>
 				<label class="theme-toggle">
-					<input type="checkbox" checked={!isDarkMode} on:change={toggleTheme} />
+					<input type="checkbox" checked={!isDarkMode} onchange={toggleTheme} />
 					<span class="slider"></span>
 				</label>
 			</div>
 		</nav>
 	</header>
+
+	<!-- Clock Tool - Fixed Position -->
+	<div class="fixed top-4 right-4 z-50 p-2 border-2 font-mono text-xs clock-display">
+		<p>{currentTime.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' })} {currentTime.toLocaleTimeString('en-US', { hour12: false })}</p>
+	</div>
 
 	<!-- Ensure main content is scrollable and above the background -->
 	<main class="relative z-0 container mx-auto flex-grow overflow-y-auto p-4 md:p-6 lg:p-8">
@@ -94,10 +109,20 @@
 		max-height: calc(100vh - 80px); /* Example: adjust 80px based on header/footer height */
 	}
 
-	/* Optionally add a subtle background to main content if needed over complex animations */
-	/* main { background-color: rgba(var(--bg-rgb), 0.95); } */
-	/* Add --bg-rgb definition if using above: */
-	/* :root { --bg-rgb: 40, 39, 38; } /* Dark mode black */
-	/* .light-mode { --bg-rgb: 255, 252, 240; } /* Light mode paper */
+	/* Clock display styling with theme support */
+	.clock-display {
+		border-color: var(--tx-1);
+		background-color: var(--bg);
+		color: var(--tx-1);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	}
+
+	/* Light mode clock adjustments */
+	:global(.light-mode) .clock-display {
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+	}
 </style>
+
+
+
 
