@@ -1,5 +1,7 @@
 import { json } from "@sveltejs/kit"
 
+import type { Post } from '$lib/posts';
+
 async function getPosts() {
 	let posts: Post[] = []
 
@@ -12,14 +14,15 @@ async function getPosts() {
 		if (file && typeof file === "object" && "metadata" in file && slug) {
 			const metadata = file.metadata as Omit<Post, "slug">
 			const post = { ...metadata, slug } satisfies Post
-			if (post.published) {
+			if (post.metadata.published) {
 				posts.push(post)
 			}
 		}
 	}
 
 	posts = posts.sort(
-		(first, second) => new Date(second.date).getTime() - new Date(first.date).getTime()
+		(first, second) =>
+			new Date(second.metadata.date).getTime() - new Date(first.metadata.date).getTime()
 	)
 
 	return posts
