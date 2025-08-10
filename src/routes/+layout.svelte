@@ -6,7 +6,6 @@
 
 	let { children } = $props();
 	let isDarkMode = $state(true);
-	let currentTime = $state(new Date());
 	let isMobile = $state(browser ? window.innerWidth < 768 : false);
 
 	function toggleTheme() {
@@ -51,10 +50,6 @@
 			}
 		});
 
-		const clockInterval = setInterval(() => {
-			currentTime = new Date();
-		}, 1000);
-
 		const handleResize = () => {
 			isMobile = window.innerWidth < 768;
 		};
@@ -62,16 +57,13 @@
 		window.addEventListener('resize', handleResize);
 
 		return () => {
-			clearInterval(clockInterval);
 			window.removeEventListener('resize', handleResize);
 		};
 	});
 </script>
 
 <div class="relative flex min-h-screen flex-col">
-	{#if !isMobile}
-		<DitheredSpheres />
-	{/if}
+	<DitheredSpheres isMobile={isMobile} />
 
 	<header class="border-b border-[--ui-3] px-4 py-2">
 		<nav class="container mx-auto flex flex-wrap items-center justify-between text-sm">
@@ -89,10 +81,6 @@
 		</nav>
 	</header>
 
-	<div class="fixed top-2 right-2 z-50 border p-1 font-mono text-xs clock-display">
-		<p>{currentTime.toLocaleDateString('en-US', { month: 'short', day: '2-digit' })} {currentTime.toLocaleTimeString('en-US', { hour12: false })}</p>
-	</div>
-
 	<main class="relative z-0 container mx-auto flex-grow p-4">
 		{@render children()}
 	</main>
@@ -105,11 +93,6 @@
 </div>
 
 <style>
-	.clock-display {
-		border-color: var(--tx-1);
-		background-color: var(--bg);
-		color: var(--tx-1);
-	}
 </style>
 
 
