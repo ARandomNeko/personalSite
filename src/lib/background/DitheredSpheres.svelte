@@ -2,6 +2,8 @@
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
 
+	let { isMobile } = $props();
+
 	let container: HTMLDivElement;
 	let scene: THREE.Scene;
 	let camera: THREE.PerspectiveCamera;
@@ -258,8 +260,10 @@
 		// Check initial theme
 		isDarkMode = !document.body.classList.contains('light-mode');
 
-		// Create 500 spheres that will follow the icosahedron structure with noise
-		for (let i = 0; i < 500; i++) {
+		const numSpheres = isMobile ? 250 : 500;
+
+		// Create numSpheres that will follow the icosahedron structure with noise
+		for (let i = 0; i < numSpheres; i++) {
 			// Varied sphere properties
 			const radius = 0.1 + Math.random() * 0.2; // Bigger random sizes
 			const baseBrightness = 0.2 + Math.random() * 0.6; // Random brightness for variety

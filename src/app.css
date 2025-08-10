@@ -57,7 +57,6 @@
 	--cy: var(--color-dark-gray);
 	--re: var(--color-dark-gray);
 	--dot-color: var(--color-medium-gray);
-	font-weight: 600;
 }
 
 body {
@@ -100,6 +99,7 @@ p {
 	font-family: var(--font-mono);
 	color: var(--tx);
 	font-weight: 400;
+	font-size: 18px;
 }
 
 /* Theme toggle switch styling (keep as is or simplify further) */
