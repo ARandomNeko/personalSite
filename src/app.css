@@ -43,6 +43,9 @@
 
 	/* Dotted background pattern */
 	--dot-color: var(--color-dark-gray);
+
+	/* Grid unit for alignment */
+	--grid: 12px;
 }
 
 /* Light mode class - switches to light theme */
@@ -60,20 +63,24 @@
 }
 
 body {
-	background-color: var(--bg);
-	color: var(--tx);
-	font-family: var(--font-mono);
-	font-size: 18px;
-	font-weight: 400;
-	/* Dotted background pattern */
-	background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
-	background-size: 4px 4px; /* Adjust dot size and spacing */
-	margin: 0;
-	padding: 1rem;
-	width: 100%;
-	max-width: 800px;
-	margin-inline: auto;
+    background-color: var(--bg);
+    color: var(--tx);
+    font-family: var(--font-mono);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: calc(var(--grid) * 2);
+    /* Dither grid is drawn by the background component */
+    background: none;
+    margin: 0;
+    padding: 0;
+    width: 100dvw;
+    height: 100dvh;
+    overflow: hidden;
 }
+
+/* Align common text element spacing to the grid */
+p { margin: 0 0 var(--grid) 0; }
+h1, h2, h3, h4, h5, h6 { margin: var(--grid) 0 calc(var(--grid) * 0.5) 0; line-height: calc(var(--grid) * 2); }
 
 /* Minimal button */
 .btn {
