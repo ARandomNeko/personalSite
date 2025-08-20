@@ -4,15 +4,17 @@
 </script>
 
 <svelte:head>
-	<title>Rituparan Reddy</title>
+    <title>Rituparan Reddy | Developer, Writer</title>
+    <meta name="description" content="Rituparan (Ritu) Reddy – blog, projects, robotics, reading notes, and experiments.">
+    <meta name="keywords" content="ritu, rituparan, ritu reddy, rituparan reddy, rituparan gurrala, rituparan reddy gurrala, blog, robotics, projects, reading, programming" />
 </svelte:head>
 
-<section class="py-12">
-	<div class="mx-auto max-w-2xl">
-		<h1 class="mb-3 text-3xl font-bold !text-[--re]">Rituparan Reddy</h1>
-		<p class="mb-6 text-lg text-[--tx-2]">Developer // Thinker // Humanist</p>
+<section class="py-[24px]">
+    <div class="max-w-none">
+        <h1 class="mb-[12px] text-3xl font-bold !text-[--re]">Rituparan Reddy</h1>
+        <p class="mb-[24px] text-lg text-[--tx-2]">Developer // Thinker // Humanist</p>
 
-		<div class="prose prose-base dark:prose-invert max-w-none">
+        <div class="prose prose-base dark:prose-invert max-w-none">
 			<p>
 				Welcome to my personal corner of the internet. I'm passionate about building things with
 				code, exploring new ideas, and documenting the journey.
@@ -25,7 +27,7 @@
 			<p>This site serves as my digital garden, notebook, and portfolio.</p>
 		</div>
 
-		<div class="mt-8 flex gap-4">
+        <div class="mt-[24px] flex" style="gap: var(--grid);">
 			<a href="/projects" class="btn">Projects</a>
 			<a href="/blog" class="btn">Blog</a>
 			<a href="/resume" class="btn">Resume</a>

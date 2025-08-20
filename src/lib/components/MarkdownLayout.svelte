@@ -1,7 +1,6 @@
 <!-- src/lib/components/MarkdownLayout.svelte -->
 <script>
-	let { title, date, tags } = $props(); // Access frontmatter passed by Mdsvex
-	let { children } = $props();
+	let { title, date, tags, children } = $props();
 </script>
 
 <svelte:head>

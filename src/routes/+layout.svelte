@@ -1,23 +1,24 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import '../app.css';
-	import DitheredSpheres from '$lib/background/DitheredSpheres.svelte';
+    import { onMount } from 'svelte';
+    import { browser } from '$app/environment';
+    import { page } from '$app/stores';
+    import '../app.css';
+    import DitheredSpheres from '$lib/background/DitheredSpheres.svelte';
 
 	let { children } = $props();
 	let isDarkMode = $state(true);
-	let currentTime = $state(new Date());
+	let isMobile = $state(browser ? window.innerWidth < 768 : false);
 
 	function toggleTheme() {
-			isDarkMode = !isDarkMode;
-			const body = document.body;
-			if (isDarkMode) {
-				body.classList.remove('light-mode');
-				localStorage.setItem('theme', 'dark');
-			} else {
-				body.classList.add('light-mode');
-				localStorage.setItem('theme', 'light');
-			}
-			// Update Three.js particle color if needed (more complex, optional)
+		isDarkMode = !isDarkMode;
+		const body = document.body;
+		if (isDarkMode) {
+			body.classList.remove('light-mode');
+			localStorage.setItem('theme', 'dark');
+		} else {
+			body.classList.add('light-mode');
+			localStorage.setItem('theme', 'light');
+		}
 	}
 
 	function setTheme() {
@@ -29,12 +30,11 @@
 			body.classList.add('light-mode');
 			isDarkMode = false;
 		} else if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-			// Default to light mode as per the image aesthetic
 			body.classList.remove('light-mode');
 			isDarkMode = true;
 		} else {
-				body.classList.add('light-mode'); // Default to light if no preference/save
-				isDarkMode = false;
+			body.classList.add('light-mode');
+			isDarkMode = false;
 		}
 	}
 
@@ -51,26 +51,70 @@
 			}
 		});
 
-		// Update clock every second
-		const clockInterval = setInterval(() => {
-			currentTime = new Date();
-		}, 1000);
+		const handleResize = () => {
+			isMobile = window.innerWidth < 768;
+		};
+
+		window.addEventListener('resize', handleResize);
 
 		return () => {
-			clearInterval(clockInterval);
+			window.removeEventListener('resize', handleResize);
 		};
 	});
 </script>
 
-<div class="relative flex min-h-screen flex-col">
-	<DitheredSpheres />
+<svelte:head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Rituparan Reddy (Gurrala) – developer, writer, and tinkerer. Blog, projects, reading notes, robotics, distributed systems, Svelte, TypeScript." />
+    <meta name="keywords" content="ritu, rituparan, ritu reddy, rituparan reddy, rituparan gurrala, rituparan reddy gurrala, ritu gurrala, blog, projects, reading, robotics, programming, svelte, typescript" />
+    <meta name="author" content="Rituparan Reddy" />
 
-	<header class="border-b border-[--ui-3] px-4 py-3">
-		<nav
-			class="container mx-auto flex items-center justify-between text-sm tracking-wider uppercase"
-		>
-			<a href="/" class="text-base font-bold normal-case hover:text-[--cy]">Rituparan Reddy</a>
-			<div class="flex items-center gap-4">
+    <meta property="og:site_name" content="Rituparan Reddy" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Rituparan Reddy" />
+    <meta property="og:description" content="Developer, writer, and tinkerer. Blog, projects, reading notes, robotics." />
+    <meta property="og:url" content={$page.url.origin + $page.url.pathname} />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Rituparan Reddy" />
+    <meta name="twitter:description" content="Developer, writer, and tinkerer. Blog, projects, reading notes, robotics." />
+
+    <link rel="canonical" href={$page.url.origin + $page.url.pathname} />
+
+    <script type="application/ld+json">
+        {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: 'Rituparan Reddy',
+            alternateName: ['Ritu', 'Ritu Reddy', 'Rituparan', 'Rituparan Gurrala', 'Rituparan Reddy Gurrala'],
+            url: $page.url.origin,
+            jobTitle: 'Developer',
+            description: 'Developer, writer, and tinkerer working on code, robotics, and systems.',
+            sameAs: []
+        })}
+    </script>
+    <script type="application/ld+json">
+        {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Rituparan Reddy',
+            url: $page.url.origin,
+            potentialAction: {
+                '@type': 'SearchAction',
+                target: `${$page.url.origin}/search?q={query}`,
+                'query-input': 'required name=query'
+            }
+        })}
+    </script>
+</svelte:head>
+
+<div class="relative flex h-dvh flex-col overflow-hidden">
+	<DitheredSpheres isMobile={isMobile} />
+
+<header class="border-b border-[--ui-3] px-3 h-[48px] flex items-center box-border">
+    <nav class="w-full flex flex-wrap items-center justify-between text-sm" style="gap: var(--grid);">
+			<a href="/" class="text-lg font-bold hover:text-[--cy]">Rituparan Reddy</a>
+            <div class="flex items-center flex-wrap" style="column-gap: calc(var(--grid)); row-gap: calc(var(--grid) / 2);">
 				<a href="/blog" class="hover:text-[--cy]">Blog</a>
 				<a href="/reading" class="hover:text-[--cy]">Reading</a>
 				<a href="/projects" class="hover:text-[--cy]">Projects</a>
@@ -83,44 +127,20 @@
 		</nav>
 	</header>
 
-	<!-- Clock Tool - Fixed Position -->
-	<div class="fixed top-4 right-4 z-50 p-2 border-2 font-mono text-xs clock-display">
-		<p>{currentTime.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' })} {currentTime.toLocaleTimeString('en-US', { hour12: false })}</p>
-	</div>
-
-	<!-- Ensure main content is scrollable and above the background -->
-	<main class="relative z-0 container mx-auto flex-grow overflow-y-auto p-4 md:p-6 lg:p-8">
-		{@render children()}
+<main class="relative z-0 flex-1 overflow-auto px-3 py-[12px]" style="scroll-padding: var(--grid);">
+		<div class="max-w-4xl mx-auto">
+			{@render children()}
+		</div>
 	</main>
 
-	<footer class="border-t border-[--ui-3] px-4 py-3 text-center text-xs text-[--tx-2]">
-		<div class="container mx-auto">
-			<p>© {new Date().getFullYear()} Rituparan Reddy</p>
-			<!-- <p>Built with SvelteKit, Tailwind, Mdsvex, Three.js, Flexoki</p> -->
-		</div>
-	</footer>
+<footer class="border-t border-[--ui-3] px-3 h-[48px] text-center text-xs text-[--tx-2] flex items-center justify-center box-border">
+    <div class="w-full">
+        <p>© {new Date().getFullYear()} Rituparan Reddy</p>
+    </div>
+</footer>
 </div>
 
 <style>
-	/* Ensure main content area allows scrolling if needed */
-	main {
-		/* Set a max-height and allow scrolling if content exceeds viewport height */
-		/* Adjust max-height calculation as needed, considering header/footer */
-		max-height: calc(100vh - 80px); /* Example: adjust 80px based on header/footer height */
-	}
-
-	/* Clock display styling with theme support */
-	.clock-display {
-		border-color: var(--tx-1);
-		background-color: var(--bg);
-		color: var(--tx-1);
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-	}
-
-	/* Light mode clock adjustments */
-	:global(.light-mode) .clock-display {
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-	}
 </style>
 
 

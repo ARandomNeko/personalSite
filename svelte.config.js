@@ -1,6 +1,6 @@
 // svelte.config.js
-// import adapterNode from '@sveltejs/adapter-node'; // Remove or comment out the old adapter
-import adapterCloudflare from '@sveltejs/adapter-cloudflare'; // Import the Cloudflare adapter
+import adapterNode from '@sveltejs/adapter-node'; // Use Node adapter for local development
+import adapterCloudflare from '@sveltejs/adapter-cloudflare'; // Keep Cloudflare for production builds
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
 import path from 'path';
@@ -22,18 +22,19 @@ const config = {
 	],
 
 	kit: {
-		// Use the Cloudflare adapter
-		adapter: adapterCloudflare({
-			// See adapter options: https://svelte.dev/docs/adapter-cloudflare
-			// routes: {
-			//  include: ['/*'],
-			//  exclude: ['<all>']
-			// }
+		// Use Node adapter for local development (better for NixOS and native dependencies)
+		adapter: process.env.NODE_ENV === 'production' ? adapterCloudflare({
+			// Cloudflare adapter for production builds
+			routes: {
+				include: ['/*'],
+				exclude: ['<all>']
+			}
+		}) : adapterNode({
+			// Node adapter for development - handles native dependencies better
+			mode: 'standalone',
+			precompress: false,
+			envPrefix: 'MY_APP_'
 		})
-		// Optional: Define platform specifics if needed for Cloudflare Workers environment
-		// platform: {
-		// 	envPrefix: 'MY_APP_' // Example prefix for environment variables
-		// }
 	}
 };
 
