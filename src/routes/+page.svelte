@@ -23,7 +23,7 @@
 				Big shit cooking, will be busy for a couple months, first project post and blog post will be
 				about that, expect a few book posts till then.
 			</p>
-			<p>Currently reading the nicomachean ethics by Aristotle</p>
+			<p>Currently reading the nicomachean ethics by Aristotle and the notes from underground by Dostoevsky</p>
 			<p>This site serves as my digital garden, notebook, and portfolio.</p>
 		</div>
 
