@@ -10,7 +10,7 @@
 </svelte:head>
 
 <section class="py-[24px]">
-    <div class="max-w-none" style="padding-left: calc(var(--grid) * 14); padding-right: calc(var(--grid) * 14);">
+    <div class="max-w-none">
         <h1 class="mb-[12px] text-3xl font-bold !text-[--re]">Rituparan Reddy</h1>
         <p class="mb-[24px] text-lg text-[--tx-2]">Developer // Thinker // Humanist</p>
 

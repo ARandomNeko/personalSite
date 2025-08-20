@@ -128,7 +128,9 @@
 	</header>
 
 <main class="relative z-0 flex-1 overflow-auto px-3 py-[12px]" style="scroll-padding: var(--grid);">
-		{@render children()}
+		<div class="max-w-4xl mx-auto">
+			{@render children()}
+		</div>
 	</main>
 
 <footer class="border-t border-[--ui-3] px-3 h-[48px] text-center text-xs text-[--tx-2] flex items-center justify-center box-border">
