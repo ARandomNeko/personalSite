@@ -184,8 +184,8 @@
         camera.position.set(0, 0, Math.max(window.innerWidth, window.innerHeight) * 0.08);
 
         renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        const targetDpr = isMobile ? 1.25 : 1.5;
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, targetDpr));
+        const targetDpr = 1.0;
+        renderer.setPixelRatio(targetDpr);
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setClearColor(0x000000, 0);
         container.appendChild(renderer.domElement);
@@ -197,34 +197,53 @@
         icosahedronVertices = createIcosahedronVertices();
         isDarkMode = !document.body.classList.contains('light-mode');
 
-        const numSpheres = isMobile ? 120 : 200;
-        for (let i = 0; i < numSpheres; i++) {
-            const baseBrightness = 0.2 + Math.random() * 0.6;
-            const brightness = isDarkMode ? 0.45 + baseBrightness * 0.5 : 0.4 + (1.0 - baseBrightness) * 0.3;
-            const color = new THREE.Color(brightness, brightness, brightness);
-            const ditherScale = 0.6 + Math.random() * 0.8;
+        const numSpheres = isMobile ? 80 : 120;
+        let spheresAddedCount = 0;
+        const spheresPerFrame = 5; // Adjust this value to control the speed of loading
 
-            const mat = createDitheredMaterial(color, ditherScale);
-            const mesh = new THREE.Mesh(sharedGeometry, mat);
-            const scale = 0.08 + Math.random() * 0.25;
-            mesh.scale.setScalar(scale);
+        function addSphereBatch() {
+            const batchEnd = Math.min(spheresAddedCount + spheresPerFrame, numSpheres);
+            for (let i = spheresAddedCount; i < batchEnd; i++) {
+                const baseBrightness = 0.2 + Math.random() * 0.6;
+                const brightness = isDarkMode ? 0.45 + baseBrightness * 0.5 : 0.4 + (1.0 - baseBrightness) * 0.3;
+                const color = new THREE.Color(brightness, brightness, brightness);
+                const ditherScale = 0.6 + Math.random() * 0.8;
 
-            const targetVertex = icosahedronVertices[i % icosahedronVertices.length];
-            mesh.userData = {
-                targetVertex: targetVertex.clone(),
-                noiseOffsetX: Math.random() * 10,
-                noiseOffsetY: Math.random() * 10,
-                noiseOffsetZ: Math.random() * 10,
-                noiseScale: Math.min(window.innerWidth, window.innerHeight) * (0.006 + Math.random() * 0.014),
-                orbitRadius: Math.min(window.innerWidth, window.innerHeight) * (0.006 + Math.random() * 0.012),
-                orbitSpeed: 0.12 + Math.random() * 0.22,
-                orbitPhase: Math.random() * Math.PI * 2,
-                baseBrightness
-            };
+                const mat = createDitheredMaterial(color, ditherScale);
+                const mesh = new THREE.Mesh(sharedGeometry, mat);
+                const scale = 0.08 + Math.random() * 0.25;
+                mesh.scale.setScalar(scale);
 
-            spheres.push(mesh);
-            scene.add(mesh);
+                const targetVertex = icosahedronVertices[i % icosahedronVertices.length];
+                mesh.userData = {
+                    targetVertex: targetVertex.clone(),
+                    noiseOffsetX: Math.random() * 10,
+                    noiseOffsetY: Math.random() * 10,
+                    noiseOffsetZ: Math.random() * 10,
+                    noiseScale: Math.min(window.innerWidth, window.innerHeight) * (0.006 + Math.random() * 0.014),
+                    orbitRadius: Math.min(window.innerWidth, window.innerHeight) * (0.006 + Math.random() * 0.012),
+                    orbitSpeed: 0.12 + Math.random() * 0.22,
+                    orbitPhase: Math.random() * Math.PI * 2,
+                    baseBrightness
+                };
+
+                spheres.push(mesh);
+                scene.add(mesh);
+            }
+            spheresAddedCount = batchEnd;
+
+            if (spheresAddedCount < numSpheres) {
+                requestAnimationFrame(addSphereBatch);
+            } else {
+                // All spheres added, start animation if not already started
+                if (!animationId) {
+                    animate();
+                }
+            }
         }
+
+        // Start adding spheres
+        addSphereBatch();
 
         // Animate
         animate();
