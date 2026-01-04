@@ -9,11 +9,6 @@
 <section class="prose prose-base dark:prose-invert max-w-none">
 	<h1 class="!text-[--re]">Resume</h1>
 
-	<p>
-		You can also <a href="/path/to/your/resume.pdf" download="Rituparan_Reddy_Resume.pdf"
-			>download my resume as a PDF</a
-		>.
-	</p>
 	<h2>Summary</h2>
 	<p>
 		Highly motivated and skilled developer with experience in web technologies, passionate about
@@ -105,8 +100,8 @@
 				<li>Web Development: Built responsive websites using Svelte and SvelteKit frameworks.</li>
 			</ul>
 		</li>
-		<p>See the <a href="/projects">Projects</a> page for more details.</p>
 	</ul>
+	<p>See the <a href="/projects">Projects</a> page for more details.</p>
 
 	<h2>Volunteer Experience</h2>
 

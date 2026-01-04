@@ -41,6 +41,10 @@
 	--cy: var(--color-light-gray);
 	--re: var(--color-light-gray);
 
+	/* Tag chip colors */
+	--tag-bg: var(--color-dark-ui);
+	--tag-tx: var(--color-light-gray);
+
 	/* Dotted background pattern */
 	--dot-color: var(--color-dark-gray);
 
@@ -59,23 +63,25 @@
 	--ui-3: var(--color-light-ui);
 	--cy: var(--color-dark-gray);
 	--re: var(--color-dark-gray);
+	--tag-bg: var(--color-light-gray);
+	--tag-tx: var(--color-black);
 	--dot-color: var(--color-medium-gray);
 }
 
 body {
-    background-color: var(--bg);
-    color: var(--tx);
-    font-family: var(--font-mono);
-    font-size: 18px;
-    font-weight: 400;
-    line-height: calc(var(--grid) * 2);
-    /* Dither grid is drawn by the background component */
-    background: none;
-    margin: 0;
-    padding: 0;
-    width: 100dvw;
-    height: 100dvh;
-    overflow: hidden;
+	background-color: var(--bg);
+	color: var(--tx);
+	font-family: var(--font-mono);
+	font-size: 18px;
+	font-weight: 400;
+	line-height: calc(var(--grid) * 2);
+	/* Dither grid is drawn by the background component */
+	background: none;
+	margin: 0;
+	padding: 0;
+	width: 100dvw;
+	height: 100dvh;
+	overflow: hidden;
 }
 
 /* Align common text element spacing to the grid */
@@ -87,12 +93,35 @@ h1, h2, h3, h4, h5, h6 { margin: var(--grid) 0 calc(var(--grid) * 0.5) 0; line-h
 	background-color: var(--bg);
 	border: 1px solid var(--tx);
 	color: var(--tx);
-	padding: 2px 5px;
-	font-size: 10px;
+	padding: 6px 12px;
+	font-size: 12px;
 	cursor: pointer;
+	transition: background-color 0.15s, color 0.15s;
 	&:hover {
 		background-color: var(--tx);
 		color: var(--bg);
+	}
+}
+
+/* Tag chip styling - uses CSS variables for theme support */
+.tag {
+	background-color: var(--tag-bg);
+	color: var(--tag-tx);
+	padding: 2px 8px;
+	font-size: 11px;
+	border-radius: 0;
+}
+
+/* Card styling */
+.card {
+	display: block;
+	padding: var(--grid);
+	border: 1px solid var(--ui-3);
+	background-color: transparent;
+	transition: border-color 0.15s, background-color 0.15s;
+	&:hover {
+		border-color: var(--tx);
+		background-color: color-mix(in srgb, var(--tx) 5%, transparent);
 	}
 }
 
@@ -109,45 +138,42 @@ p {
 	font-size: 18px;
 }
 
-/* Theme toggle switch styling (keep as is or simplify further) */
+/* Theme toggle button styling */
 .theme-toggle {
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
 	position: relative;
 	width: 40px;
 	height: 20px;
-}
-
-.theme-toggle input {
-	opacity: 0;
-	width: 0;
-	height: 0;
-}
-
-.slider {
-	position: absolute;
+	background: transparent;
+	border: none;
+	padding: 0;
 	cursor: pointer;
+}
+
+.theme-toggle .slider {
+	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	background-color: var(--tx);
-	transition: 0.4s;
-	border-radius: 0;
+	transition: 0.3s;
 	display: flex;
 	align-items: center;
 }
 
-.slider:before {
+.theme-toggle .slider::before {
 	content: '';
 	height: 14px;
 	width: 14px;
-	margin-left: 2px;
+	margin-left: 3px;
 	background-color: var(--bg);
-	transition: 0.4s;
+	transition: 0.3s;
 }
 
-input:checked + .slider:before {
-	margin-left: 24px;
+.theme-toggle .slider.checked::before {
+	margin-left: 23px;
 }
 
 /* Ensure prose styles use theme variables */
@@ -210,3 +236,33 @@ input:checked + .slider:before {
 	}
 }
 
+/* Staggered fade-in animation for editorial layout */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.animate-fade-in {
+	animation: fadeInUp 0.5s ease-out forwards;
+	opacity: 0;
+}
+
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
+.animate-delay-4 { animation-delay: 0.4s; }
+.animate-delay-5 { animation-delay: 0.5s; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.animate-fade-in {
+		animation: none;
+		opacity: 1;
+	}
+}
