@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
 
-	let { isMobile } = $props();
+	let { isMobile, scrollProgress = 0, mousePosition = { x: 0, y: 0 } } = $props();
 
 	let container: HTMLDivElement = $state(null!);
 	let scene: THREE.Scene;
