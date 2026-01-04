@@ -5,7 +5,7 @@
 
 <svelte:head>
 	{#if title}
-		<title>{title} | My Personal Site</title>
+		<title>{title} | Rituparan Reddy</title>
 	{/if}
 </svelte:head>
 
@@ -23,9 +23,9 @@
 		</p>
 	{/if}
 	{#if tags && tags.length > 0}
-		<div class="mb-6 flex gap-2">
+		<div class="mb-6 flex flex-wrap gap-2">
 			{#each tags as tag}
-				<span class="bg-base-800 text-base-200 rounded px-2 py-1 text-xs">#{tag}</span>
+				<span class="tag">#{tag}</span>
 			{/each}
 		</div>
 	{/if}
