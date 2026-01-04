@@ -210,7 +210,7 @@
                 const ditherScale = 0.6 + Math.random() * 0.8;
 
                 const mat = createDitheredMaterial(color, ditherScale);
-                const mesh = new THREE.Mesh(sharedGeometry, mat);
+                const mesh = new THREE.Mesh(sharedGeometry!, mat);
                 const scale = 0.08 + Math.random() * 0.25;
                 mesh.scale.setScalar(scale);
 
