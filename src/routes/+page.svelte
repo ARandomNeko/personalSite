@@ -33,7 +33,7 @@
 			<p class="mb-6 text-lg text-[--tx-2]">Developer // Thinker // Humanist</p>
 		</div>
 
-		<div class="prose prose-base dark:prose-invert max-w-none animate-fade-in animate-delay-1">
+		<div class="prose prose-base dark:prose-invert animate-fade-in animate-delay-1 max-w-none">
 			<p>
 				Welcome to my personal corner of the internet. I'm passionate about building things with
 				code, exploring new ideas, and documenting the journey.
@@ -44,7 +44,7 @@
 			</p>
 		</div>
 
-		<div class="mt-8 flex flex-wrap gap-3 animate-fade-in animate-delay-2">
+		<div class="animate-fade-in animate-delay-2 mt-8 flex flex-wrap gap-3">
 			<a href="/projects" class="btn">Projects</a>
 			<a href="/blog" class="btn">Blog</a>
 			<a href="/reading" class="btn">Reading</a>
@@ -56,30 +56,33 @@
 	<aside class="sidebar">
 		<!-- Now Card -->
 		<div class="sidebar-card animate-fade-in animate-delay-3">
-			<h2 class="text-sm font-bold mb-3 text-[--tx-2]">// NOW</h2>
-			<p class="text-sm mb-2">
-				Big project cooking — expect updates soon. First project post and blog post will be about that.
+			<h2 class="mb-3 text-sm font-bold text-[--tx-2]">// NOW</h2>
+			<p class="mb-2 text-sm">
+				Big project cooking — expect updates soon. First project post and blog post will be about
+				that.
 			</p>
 			<p class="text-sm text-[--tx-2]">
-				Currently reading: <em>Nicomachean Ethics</em> by Aristotle
+				Currently reading: <em>The Myth of Sisyphus</em> by Albert Camus
 			</p>
 		</div>
 
 		<!-- Recent Posts -->
 		{#if recentPosts.length > 0}
 			<div class="sidebar-card animate-fade-in animate-delay-4">
-				<h2 class="text-sm font-bold mb-3 text-[--tx-2]">// RECENT</h2>
+				<h2 class="mb-3 text-sm font-bold text-[--tx-2]">// RECENT</h2>
 				<ul class="space-y-3">
 					{#each recentPosts as post}
 						<li>
-							<a href="/blog/{post.slug}" class="block group">
+							<a href="/blog/{post.slug}" class="group block">
 								<span class="text-xs text-[--tx-2]">{formatDate(post.metadata.date)}</span>
-								<p class="text-sm group-hover:text-[--cy] transition-colors">{post.metadata.title}</p>
+								<p class="text-sm transition-colors group-hover:text-[--cy]">
+									{post.metadata.title}
+								</p>
 							</a>
 						</li>
 					{/each}
 				</ul>
-				<a href="/blog" class="inline-block mt-4 text-xs text-[--tx-2] hover:text-[--cy]">
+				<a href="/blog" class="mt-4 inline-block text-xs text-[--tx-2] hover:text-[--cy]">
 					View all posts →
 				</a>
 			</div>
@@ -87,9 +90,16 @@
 
 		<!-- Links -->
 		<div class="sidebar-card animate-fade-in animate-delay-5">
-			<h2 class="text-sm font-bold mb-3 text-[--tx-2]">// LINKS</h2>
+			<h2 class="mb-3 text-sm font-bold text-[--tx-2]">// LINKS</h2>
 			<ul class="space-y-2 text-sm">
-				<li><a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-[--cy]">GitHub ↗</a></li>
+				<li>
+					<a
+						href="https://github.com"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="hover:text-[--cy]">GitHub ↗</a
+					>
+				</li>
 				<li><a href="mailto:contact@example.com" class="hover:text-[--cy]">Email</a></li>
 			</ul>
 		</div>
