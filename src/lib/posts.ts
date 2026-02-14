@@ -6,7 +6,8 @@ export type PostMetadata = {
 	date: string;
 	tags?: string[];
 	description?: string;
-	published?: boolean; // Optional: control visibility
+	published?: boolean;
+	status?: 'read' | 'reading' | 'plan to read';
 };
 
 export type Post = {
@@ -26,7 +27,6 @@ function getSlugFromPath(path: string): string {
 	throw new Error(`Could not derive slug from path: ${path}`);
 }
 
-
 // Fetch all posts
 async function fetchPosts(): Promise<Post[]> {
 	const modules = import.meta.glob('/src/posts/**/*.md');
@@ -38,19 +38,21 @@ async function fetchPosts(): Promise<Post[]> {
 			};
 
 			// Basic validation
-			if (!resolvedModule.metadata || !resolvedModule.metadata.title || !resolvedModule.metadata.date) {
+			if (
+				!resolvedModule.metadata ||
+				!resolvedModule.metadata.title ||
+				!resolvedModule.metadata.date
+			) {
 				console.warn(`Skipping ${path}: Missing required frontmatter (title, date).`);
 				return null; // Skip posts with missing essential frontmatter
 			}
-			
+
 			// Filter out unpublished posts if 'published' flag exists and is false
 			if (resolvedModule.metadata.published === false) {
 				return null;
 			}
 
-
 			const slug = getSlugFromPath(path);
-
 
 			return {
 				metadata: resolvedModule.metadata,
@@ -85,13 +87,13 @@ export async function getAllPosts(): Promise<Post[]> {
 // Get posts filtered by tag
 export async function getPostsByTag(tag: string): Promise<Post[]> {
 	const posts = await getAllPosts();
-	return posts.filter(post => post.metadata.tags?.includes(tag));
+	return posts.filter((post) => post.metadata.tags?.includes(tag));
 }
 
 // Get a single post by slug
 export async function getPostBySlug(slug: string): Promise<Post> {
 	const posts = await getAllPosts();
-	const post = posts.find(p => p.slug === slug);
+	const post = posts.find((p) => p.slug === slug);
 	if (!post) {
 		error(404, 'Post not found');
 	}

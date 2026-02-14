@@ -85,19 +85,31 @@
 
 <svelte:head>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="Rituparan Reddy (Gurrala) – developer, writer, and tinkerer. Blog, projects, reading notes, robotics, distributed systems, Svelte, TypeScript." />
-	<meta name="keywords" content="ritu, rituparan, ritu reddy, rituparan reddy, rituparan gurrala, rituparan reddy gurrala, ritu gurrala, blog, projects, reading, robotics, programming, svelte, typescript" />
+	<meta
+		name="description"
+		content="Rituparan Reddy (Gurrala) – developer, writer, and tinkerer. Blog, projects, reading notes, robotics, distributed systems, Svelte, TypeScript."
+	/>
+	<meta
+		name="keywords"
+		content="ritu, rituparan, ritu reddy, rituparan reddy, rituparan gurrala, rituparan reddy gurrala, ritu gurrala, blog, projects, reading, robotics, programming, svelte, typescript"
+	/>
 	<meta name="author" content="Rituparan Reddy" />
 
 	<meta property="og:site_name" content="Rituparan Reddy" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Rituparan Reddy" />
-	<meta property="og:description" content="Developer, writer, and tinkerer. Blog, projects, reading notes, robotics." />
+	<meta
+		property="og:description"
+		content="Developer, writer, and tinkerer. Blog, projects, reading notes, robotics."
+	/>
 	<meta property="og:url" content={$page.url.origin + $page.url.pathname} />
 
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:title" content="Rituparan Reddy" />
-	<meta name="twitter:description" content="Developer, writer, and tinkerer. Blog, projects, reading notes, robotics." />
+	<meta
+		name="twitter:description"
+		content="Developer, writer, and tinkerer. Blog, projects, reading notes, robotics."
+	/>
 
 	<link rel="canonical" href={$page.url.origin + $page.url.pathname} />
 
@@ -126,10 +138,12 @@
 <div class="relative flex h-dvh flex-col overflow-hidden">
 	<DitheredSpheres {isMobile} {scrollProgress} {mousePosition} />
 
-	<header class="border-b border-[--ui-3] px-3 h-[48px] flex items-center box-border">
-		<nav class="w-full flex flex-wrap items-center justify-between text-sm gap-[--grid]">
+	<header class="box-border flex h-[48px] items-center border-b border-[--ui-3] px-3">
+		<nav class="flex w-full flex-wrap items-center justify-between gap-[var(--grid)] text-sm">
 			<a href="/" class="text-lg font-bold hover:text-[--cy]">Rituparan Reddy</a>
-			<div class="flex items-center flex-wrap gap-x-[--grid] gap-y-[calc(var(--grid)/2)]">
+			<div
+				class="flex flex-wrap items-center gap-x-[calc(var(--grid)*2)] gap-y-[calc(var(--grid)/2)]"
+			>
 				<a href="/blog" class="hover:text-[--cy]">Blog</a>
 				<a href="/reading" class="hover:text-[--cy]">Reading</a>
 				<a href="/projects" class="hover:text-[--cy]">Projects</a>
@@ -157,7 +171,9 @@
 		{@render children()}
 	</main>
 
-	<footer class="border-t border-[--ui-3] px-3 h-[48px] text-center text-xs text-[--tx-2] flex items-center justify-center box-border">
+	<footer
+		class="box-border flex h-[48px] items-center justify-center border-t border-[--ui-3] px-3 text-center text-xs text-[--tx-2]"
+	>
 		<div class="w-full">
 			<p>© {new Date().getFullYear()} Rituparan Reddy</p>
 		</div>

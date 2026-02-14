@@ -1,8 +1,8 @@
 import { getPostsByTag } from '$lib/posts';
 
 export async function load() {
-    const posts = await getPostsByTag('book');
-    return {
-        posts: posts
-    };
+	const posts = await getPostsByTag('book');
+	return {
+		posts: posts.map(({ metadata, slug }) => ({ metadata, slug }))
+	};
 }

@@ -94,13 +94,13 @@
 			<ul class="space-y-2 text-sm">
 				<li>
 					<a
-						href="https://github.com"
+						href="https://github.com/ARandomNeko"
 						target="_blank"
 						rel="noopener noreferrer"
 						class="hover:text-[--cy]">GitHub ↗</a
 					>
 				</li>
-				<li><a href="mailto:contact@example.com" class="hover:text-[--cy]">Email</a></li>
+				<li><a href="mailto:me@rituparan.com" class="hover:text-[--cy]">Email</a></li>
 			</ul>
 		</div>
 	</aside>
