@@ -16,6 +16,12 @@ export type Post = {
 	component: ConstructorOfATypedSvelteComponent; // The actual Svelte component from the MD file
 };
 
+// Post without the component - used for list views
+export type PostPreview = {
+	metadata: PostMetadata;
+	slug: string;
+};
+
 // Helper function to get slug from path
 function getSlugFromPath(path: string): string {
 	const match = path.match(/src\/posts\/(.+)\.md$/);

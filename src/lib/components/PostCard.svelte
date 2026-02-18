@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { Post } from '$lib/posts';
+	import type { PostPreview } from '$lib/posts';
 
-	let { post, basePath = '/blog' }: { post: Post; basePath?: string } = $props();
+	let { post, basePath = '/blog' }: { post: PostPreview; basePath?: string } = $props();
 
 	function formatDate(dateString: string) {
 		return new Date(dateString).toLocaleDateString('en-US', {
@@ -28,6 +28,3 @@
 		</div>
 	{/if}
 </a>
-
-
-

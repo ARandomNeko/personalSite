@@ -3,7 +3,9 @@ import { getAllPosts } from '$lib/posts';
 
 export const load: PageServerLoad = async () => {
 	const allPosts = await getAllPosts();
-	// Get the 3 most recent posts for the sidebar
-	const recentPosts = allPosts.slice(0, 3).map(({ metadata, slug }) => ({ metadata, slug }));
+	const recentPosts = allPosts
+		.filter((post) => post.metadata.status !== 'plan to read')
+		.slice(0, 3)
+		.map(({ metadata, slug }) => ({ metadata, slug }));
 	return { recentPosts };
 };

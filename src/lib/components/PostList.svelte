@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Post } from '$lib/posts';
+	import type { PostPreview } from '$lib/posts';
 	import PostCard from './PostCard.svelte';
 
 	let {
@@ -9,7 +9,7 @@
 		basePath = '/blog',
 		description = ''
 	}: {
-		posts: Post[];
+		posts: PostPreview[];
 		title: string;
 		emptyMessage?: string;
 		basePath?: string;
@@ -35,6 +35,3 @@
 		<p class="text-[--tx-2]">{emptyMessage}</p>
 	{/if}
 </section>
-
-
-
