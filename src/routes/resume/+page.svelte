@@ -155,40 +155,42 @@
 	<div class="resume-section animate-fade-in animate-delay-4 mt-6">
 		<h2 class="section-heading">// PROJECTS</h2>
 		<div class="projects-grid">
-			<div class="resume-card">
+			<a href="/blog/hexapod-robot" class="resume-card project-link">
 				<span class="card-title">Hexapod Robot</span>
 				<p class="mt-1 text-xs text-[--tx-2]">
 					6-legged robot with vision navigation for autonomous obstacle detection and avoidance.
 				</p>
-			</div>
-			<div class="resume-card">
-				<span class="card-title">Custom Computer</span>
-				<p class="mt-1 text-xs text-[--tx-2]">Built a personal computer from components.</p>
-			</div>
-			<div class="resume-card">
+			</a>
+			<a href="/blog/polymarket-bot" class="resume-card project-link">
+				<span class="card-title">Polymarket Bot</span>
+				<p class="mt-1 text-xs text-[--tx-2]">
+					Automated trading bot for Polymarket prediction markets.
+				</p>
+			</a>
+			<a href="/blog/ergonomic-keyboard" class="resume-card project-link">
 				<span class="card-title">Ergonomic Keyboard</span>
 				<p class="mt-1 text-xs text-[--tx-2]">
 					Designed and assembled a custom ergonomic keyboard.
 				</p>
-			</div>
-			<div class="resume-card">
+			</a>
+			<a href="/blog/cloud-chamber" class="resume-card project-link">
 				<span class="card-title">Cloud Chamber</span>
 				<p class="mt-1 text-xs text-[--tx-2]">
 					Built a cloud chamber capable of visualizing radiation particles and cosmic rays.
 				</p>
-			</div>
-			<div class="resume-card">
+			</a>
+			<a href="/blog/hand-wash-timer" class="resume-card project-link">
 				<span class="card-title">Hand Wash Timer</span>
 				<p class="mt-1 text-xs text-[--tx-2]">
 					Device displaying proper handwashing steps and duration during COVID-19.
 				</p>
-			</div>
-			<div class="resume-card">
+			</a>
+			<a href="/blog/web-development" class="resume-card project-link">
 				<span class="card-title">Web Development</span>
 				<p class="mt-1 text-xs text-[--tx-2]">
 					Built responsive websites using Svelte and SvelteKit frameworks.
 				</p>
-			</div>
+			</a>
 		</div>
 		<a href="/projects" class="mt-4 inline-block text-xs text-[--tx-2] hover:text-[--cy]"
 			>View all projects →</a
@@ -286,6 +288,15 @@
 
 	.resume-card:hover {
 		border-color: var(--tx);
+	}
+
+	.project-link {
+		text-decoration: none;
+		display: block;
+	}
+
+	.project-link:hover .card-title {
+		color: var(--cy);
 	}
 
 	.card-header {
