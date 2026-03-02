@@ -22,62 +22,56 @@
 
 			<div class="resume-card">
 				<div class="card-header">
-					<span class="card-title">Chief Technology Officer (CTO)</span>
-					<span class="card-date">2022 - 2024</span>
+					<span class="card-title">Internship</span>
+					<span class="card-date">Dec 2025 - Feb 2026</span>
 				</div>
-				<span class="card-org">World Peace Today</span>
+				<span class="card-org">Benfornia LLP (Karnataka, India) - Full-time</span>
 				<ul class="card-list">
 					<li>
-						Led technology initiatives for a non-profit organization focused on community support.
+						Implemented agentic AI solutions for proprietary internal software platform tools.
 					</li>
-					<li>
-						Developed and maintained organization's website (https://worldpeacetoday.vercel.app).
-					</li>
-					<li>Contributed to campaigns that provided over 3,500 meals to those in need.</li>
+					<li>Enhanced and maintained the T-Desk tool and Benfornia website.</li>
+					<li>Handled status reporting and additional cross-functional operational tasks.</li>
 				</ul>
 			</div>
 
 			<div class="resume-card">
 				<div class="card-header">
-					<span class="card-title">Head of IT</span>
-					<span class="card-date">2023</span>
+					<span class="card-title">Intern</span>
+					<span class="card-date">May 2025 - Aug 2025</span>
 				</div>
-				<span class="card-org">Hack4Earth</span>
+				<span class="card-org">Anvisol LLP (Telangana, India) - Part-time</span>
 				<ul class="card-list">
-					<li>
-						Served as Head of IT for sustainability-themed hackathon based on UN SDGs and STEM
-						education.
-					</li>
-					<li>Managed technical infrastructure for an event with over 550 participants.</li>
-					<li>Oversaw distribution of $250,000 in prizes.</li>
+					<li>Learned and implemented systems using the Salesforce Agentforce AI platform.</li>
 				</ul>
 			</div>
 
 			<div class="resume-card">
 				<div class="card-header">
-					<span class="card-title">Wellness Secretary</span>
-					<span class="card-date">2023 - 2024</span>
+					<span class="card-title">Intern</span>
+					<span class="card-date">Dec 2024 - Feb 2025</span>
 				</div>
-				<span class="card-org">Sreenidhi International School Student Council</span>
+				<span class="card-org">Prometheus Patent Services (Telangana, India) - Part-time</span>
 				<ul class="card-list">
-					<li>Serve as the fourth-highest position in the school's student council.</li>
-					<li>Focus on student wellbeing and inclusivity initiatives.</li>
-					<li>Organize and implement wellness programs.</li>
+					<li>Helped implement RAG AI systems for the patent office.</li>
 				</ul>
 			</div>
 
 			<div class="resume-card">
 				<div class="card-header">
-					<span class="card-title">Secretary</span>
-					<span class="card-date">2022 - 2023</span>
+					<span class="card-title">Robotics Club President</span>
+					<span class="card-date">Mar 2025 - Mar 2026</span>
 				</div>
-				<span class="card-org">Rotary Interact Club</span>
+				<span class="card-org">Enigma Robotics (Karnataka, India) - Volunteer / Part-time</span>
 				<ul class="card-list">
-					<li>Coordinated club activities and community service projects.</li>
-					<li>Maintained records and facilitated communication between members.</li>
 					<li>
-						Implemented initiatives to improve community wellbeing both within and outside school.
+						Rebuilt club culture from the ground up with merit-based systems over seniority.
 					</li>
+					<li>
+						Instituted blind technical assessments to reduce bias and focus evaluations on work
+						quality.
+					</li>
+					<li>Planned and built robotics IoT and AI projects over several months.</li>
 				</ul>
 			</div>
 		</div>
