@@ -1,6 +1,11 @@
 <script lang="ts">
 	let { data } = $props();
 	const posts = data.posts;
+
+	function formatStatus(status: string) {
+		if (status === 'plan to read') return 'Plan to Read';
+		return status.charAt(0).toUpperCase() + status.slice(1);
+	}
 </script>
 
 <svelte:head>
@@ -10,7 +15,9 @@
 <section class="reading-layout py-6">
 	<div class="animate-fade-in">
 		<h1 class="mb-3 text-3xl font-bold !text-[--re]">Reading List</h1>
-		<p class="mb-6 text-sm text-[--tx-2]">Books I've read or am currently reading.</p>
+		<p class="mb-6 text-sm text-[--tx-2]">
+			Books I've read, am currently reading, or plan to read.
+		</p>
 	</div>
 
 	{#if posts.length > 0}
@@ -24,7 +31,7 @@
 						{/if}
 					</div>
 					{#if post.metadata.status}
-						<span class="tag">{post.metadata.status}</span>
+						<span class="tag">{formatStatus(post.metadata.status)}</span>
 					{/if}
 				</div>
 			{/each}
@@ -36,12 +43,12 @@
 
 <style>
 	.reading-layout {
-		max-width: 900px;
+		max-width: 960px;
 		margin: 0 auto;
 		padding: 0 var(--grid);
 	}
 
-	@media (min-width: 768px) {
+	@media (min-width: 900px) {
 		.reading-layout {
 			padding: 0 calc(var(--grid) * 2);
 		}
@@ -53,12 +60,20 @@
 
 	.reading-item {
 		display: flex;
-		justify-content: space-between;
-		align-items: baseline;
+		flex-direction: column;
+		align-items: flex-start;
 		padding: calc(var(--grid) * 0.75) var(--grid);
 		border-bottom: 1px solid var(--ui-3);
 		transition: border-color 0.15s;
 		gap: var(--grid);
+	}
+
+	@media (min-width: 640px) {
+		.reading-item {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: baseline;
+		}
 	}
 
 	.reading-item:last-child {

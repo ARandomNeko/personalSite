@@ -17,21 +17,37 @@
 	} = $props();
 </script>
 
-<section>
-	<h1 class="mb-2 text-2xl font-bold">{title}</h1>
+<section class="list-layout py-6">
+	<div class="animate-fade-in">
+		<h1 class="mb-3 text-3xl font-bold !text-[--re]">{title}</h1>
+	</div>
 	{#if description}
-		<p class="mb-6 text-sm text-[--tx-2]">{description}</p>
+		<p class="animate-fade-in animate-delay-1 mb-6 text-sm text-[--tx-2]">{description}</p>
 	{:else}
 		<div class="mb-6"></div>
 	{/if}
 
 	{#if posts.length > 0}
-		<div class="space-y-6">
+		<div class="animate-fade-in animate-delay-2 space-y-6">
 			{#each posts as post}
 				<PostCard {post} {basePath} />
 			{/each}
 		</div>
 	{:else}
-		<p class="text-[--tx-2]">{emptyMessage}</p>
+		<p class="animate-fade-in animate-delay-2 text-[--tx-2]">{emptyMessage}</p>
 	{/if}
 </section>
+
+<style>
+	.list-layout {
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 0 var(--grid);
+	}
+
+	@media (min-width: 900px) {
+		.list-layout {
+			padding: 0 calc(var(--grid) * 2);
+		}
+	}
+</style>

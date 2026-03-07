@@ -138,11 +138,11 @@
 <div class="relative flex h-dvh flex-col overflow-hidden">
 	<DitheredSpheres {isMobile} {scrollProgress} {mousePosition} />
 
-	<header class="box-border flex h-[48px] items-center border-b border-[--ui-3] px-3">
-		<nav class="flex w-full flex-wrap items-center justify-between gap-[var(--grid)] text-sm">
-			<a href="/" class="text-lg font-bold hover:text-[--cy]">Rituparan Reddy</a>
+	<header class="box-border border-b border-[--ui-3] px-3 py-2 sm:px-4">
+		<nav class="flex w-full flex-col gap-2 text-sm sm:flex-row sm:items-center sm:justify-between">
+			<a href="/" class="text-base font-bold hover:text-[--cy] sm:text-lg">Rituparan Reddy</a>
 			<div
-				class="flex flex-wrap items-center gap-x-[calc(var(--grid)*2)] gap-y-[calc(var(--grid)/2)]"
+				class="flex w-full flex-wrap items-center gap-x-[calc(var(--grid)*1.5)] gap-y-[calc(var(--grid)/2)] sm:w-auto sm:justify-end"
 			>
 				<a href="/blog" class="hover:text-[--cy]">Blog</a>
 				<a href="/reading" class="hover:text-[--cy]">Reading</a>
@@ -152,7 +152,7 @@
 					type="button"
 					class="theme-toggle"
 					onclick={toggleTheme}
-					aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+					aria-label="Toggle theme"
 					aria-pressed={!isDarkMode}
 				>
 					<span class="slider" class:checked={!isDarkMode}></span>
@@ -165,14 +165,14 @@
 	<main
 		bind:this={mainElement}
 		onscroll={handleScroll}
-		class="relative z-0 flex-1 overflow-auto px-3 py-[12px]"
+		class="relative z-0 flex-1 overflow-y-auto overflow-x-hidden px-3 py-[12px] sm:px-4"
 		style="scroll-padding: var(--grid);"
 	>
 		{@render children()}
 	</main>
 
 	<footer
-		class="box-border flex h-[48px] items-center justify-center border-t border-[--ui-3] px-3 text-center text-xs text-[--tx-2]"
+		class="box-border flex min-h-[48px] items-center justify-center border-t border-[--ui-3] px-3 py-2 text-center text-xs text-[--tx-2] sm:px-4"
 	>
 		<div class="w-full">
 			<p>© {new Date().getFullYear()} Rituparan Reddy</p>

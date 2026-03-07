@@ -1,8 +1,6 @@
 <script lang="ts">
-	import type { Post } from '$lib/posts';
-
 	let { data } = $props();
-	const recentPosts: Post[] = data.recentPosts;
+	const recentPosts = data.recentPosts;
 
 	function formatDate(dateString: string) {
 		return new Date(dateString).toLocaleDateString('en-US', {
@@ -111,12 +109,12 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: calc(var(--grid) * 3);
-		max-width: 900px;
+		max-width: 960px;
 		margin: 0 auto;
 		padding: 0 var(--grid);
 	}
 
-	@media (min-width: 768px) {
+	@media (min-width: 900px) {
 		.home-layout {
 			grid-template-columns: 1fr 0.6fr;
 			padding: 0 calc(var(--grid) * 2);
@@ -136,9 +134,11 @@
 	.sidebar-card {
 		padding: var(--grid);
 		border: 1px solid var(--ui-3);
+		overflow-wrap: anywhere;
 	}
 
 	.sidebar-card:hover {
 		border-color: var(--tx);
+		background-color: color-mix(in srgb, var(--tx) 5%, transparent);
 	}
 </style>

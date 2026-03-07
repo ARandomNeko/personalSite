@@ -231,12 +231,12 @@
 
 <style>
 	.resume-layout {
-		max-width: 900px;
+		max-width: 960px;
 		margin: 0 auto;
 		padding: 0 var(--grid);
 	}
 
-	@media (min-width: 768px) {
+	@media (min-width: 900px) {
 		.resume-layout {
 			padding: 0 calc(var(--grid) * 2);
 		}
@@ -282,6 +282,7 @@
 
 	.resume-card:hover {
 		border-color: var(--tx);
+		background-color: color-mix(in srgb, var(--tx) 5%, transparent);
 	}
 
 	.project-link {
@@ -295,9 +296,17 @@
 
 	.card-header {
 		display: flex;
-		justify-content: space-between;
-		align-items: baseline;
+		flex-direction: column;
+		align-items: flex-start;
 		gap: 8px;
+	}
+
+	@media (min-width: 480px) {
+		.card-header {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: baseline;
+		}
 	}
 
 	.card-title {
@@ -358,6 +367,12 @@
 
 	@media (min-width: 768px) {
 		.projects-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.projects-grid {
 			grid-template-columns: 1fr 1fr 1fr;
 		}
 	}
@@ -368,7 +383,13 @@
 		gap: var(--grid);
 	}
 
-	@media (min-width: 768px) {
+	@media (min-width: 640px) {
+		.volunteer-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	@media (min-width: 1024px) {
 		.volunteer-grid {
 			grid-template-columns: 1fr 1fr 1fr;
 		}

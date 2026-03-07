@@ -12,13 +12,13 @@
 	}
 </script>
 
-<a href="{basePath}/{post.slug}" class="card group block">
+<a href={`${basePath}/${post.slug}`} class="card group block overflow-hidden">
 	<span class="text-xs text-[--tx-2]">{formatDate(post.metadata.date)}</span>
-	<h2 class="mt-1 mb-2 text-lg font-bold transition-colors group-hover:text-[--cy]">
+	<h2 class="mt-1 mb-2 text-lg font-bold break-words transition-colors group-hover:text-[--cy] sm:text-xl">
 		{post.metadata.title}
 	</h2>
 	{#if post.metadata.description}
-		<p class="text-sm text-[--tx-2]">{post.metadata.description}</p>
+		<p class="text-sm break-words text-[--tx-2]">{post.metadata.description}</p>
 	{/if}
 	{#if post.metadata.tags && post.metadata.tags.length > 0}
 		<div class="mt-2 flex flex-wrap gap-2">
