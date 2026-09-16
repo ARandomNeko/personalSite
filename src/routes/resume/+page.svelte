@@ -1,17 +1,27 @@
 <svelte:head>
-	<title>Resume | Rituparan Reddy</title>
+	<title>Resume | Rituparan Reddy Gurrala</title>
 </svelte:head>
 
 <section class="resume-layout py-6">
 	<div class="animate-fade-in">
 		<h1 class="mb-3 text-3xl font-bold !text-[--re]">Resume</h1>
+		<p class="mb-2 text-lg font-bold">Rituparan Reddy Gurrala</p>
 		<p class="mb-6 text-lg text-[--tx-2]">Developer // Builder // Problem Solver</p>
+		<div class="mb-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+			<a class="break-all hover:text-[--cy]" href="mailto:rituparanreddy2006@gmail.com">
+				rituparanreddy2006@gmail.com
+			</a>
+			<a class="hover:text-[--cy]" href="tel:+918978244211">+91 8978244211</a>
+			<a class="hover:text-[--cy]" href="https://rituparan.com">rituparan.com</a>
+		</div>
+		<a class="btn mb-6 inline-block" href="/resume.pdf" download>Download résumé (PDF)</a>
 	</div>
 
 	<div class="animate-fade-in animate-delay-1 mb-6">
 		<p class="text-sm text-[--tx-2]">
-			Highly motivated and skilled developer with experience in web technologies, passionate about
-			creating efficient and elegant solutions. Eager to contribute to innovative projects.
+			Highly motivated and skilled developer with experience in web technologies, agentic AI
+			systems, and IoT. Passionate about creating efficient and elegant solutions and eager to
+			contribute to innovative projects.
 		</p>
 	</div>
 
@@ -22,10 +32,10 @@
 
 			<div class="resume-card">
 				<div class="card-header">
-					<span class="card-title">Internship</span>
+					<span class="card-title">Software Intern</span>
 					<span class="card-date">Dec 2025 - Feb 2026</span>
 				</div>
-				<span class="card-org">Benfornia LLP (Karnataka, India) - Full-time</span>
+				<span class="card-org">Benfornia LLP (Karnataka, India)</span>
 				<ul class="card-list">
 					<li>
 						Implemented agentic AI solutions for proprietary internal software platform tools.
@@ -40,7 +50,7 @@
 					<span class="card-title">Intern</span>
 					<span class="card-date">May 2025 - Aug 2025</span>
 				</div>
-				<span class="card-org">Anvisol LLP (Telangana, India) - Part-time</span>
+				<span class="card-org">Anvisol LLP (Telangana, India)</span>
 				<ul class="card-list">
 					<li>Learned and implemented systems using the Salesforce Agentforce AI platform.</li>
 				</ul>
@@ -51,7 +61,7 @@
 					<span class="card-title">Intern</span>
 					<span class="card-date">Dec 2024 - Feb 2025</span>
 				</div>
-				<span class="card-org">Prometheus Patent Services (Telangana, India) - Part-time</span>
+				<span class="card-org">Prometheus Patent Services (Telangana, India)</span>
 				<ul class="card-list">
 					<li>Helped implement RAG AI systems for the patent office.</li>
 				</ul>
@@ -62,11 +72,9 @@
 					<span class="card-title">Robotics Club President</span>
 					<span class="card-date">Mar 2025 - Mar 2026</span>
 				</div>
-				<span class="card-org">Enigma Robotics (Karnataka, India) - Volunteer / Part-time</span>
+				<span class="card-org">Enigma Robotics (Karnataka, India)</span>
 				<ul class="card-list">
-					<li>
-						Rebuilt club culture from the ground up with merit-based systems over seniority.
-					</li>
+					<li>Rebuilt club culture from the ground up with merit-based systems over seniority.</li>
 					<li>
 						Instituted blind technical assessments to reduce bias and focus evaluations on work
 						quality.
@@ -83,16 +91,23 @@
 				<h2 class="section-heading">// EDUCATION</h2>
 				<div class="resume-card">
 					<div class="card-header">
-						<span class="card-title">IB Diploma Program</span>
+						<span class="card-title">BS in Computer Science</span>
+						<span class="card-date">2024 - 2028</span>
+					</div>
+					<span class="card-org">
+						International Center for Applied Science, Manipal Academy of Higher Education
+					</span>
+					<ul class="card-list">
+						<li>Expected graduation: 2028</li>
+						<li>Current GPA: 3.1</li>
+					</ul>
+				</div>
+				<div class="resume-card">
+					<div class="card-header">
+						<span class="card-title">IB Program</span>
 						<span class="card-date">2017 - 2024</span>
 					</div>
 					<span class="card-org">Sreenidhi International School, Hyderabad</span>
-					<ul class="card-list">
-						<li>HL: Math AA, Physics, Chemistry</li>
-						<li>SL: English, Spanish B, Economics</li>
-						<li>Certificate of Academic Merit</li>
-						<li>Runner-Up, Science Fair (2nd/75)</li>
-					</ul>
 				</div>
 			</div>
 
@@ -103,7 +118,7 @@
 					<div class="skills-group">
 						<span class="text-xs text-[--tx-2]">Languages</span>
 						<div class="mt-1 flex flex-wrap gap-2">
-							<span class="tag">Haskell</span>
+							<span class="tag">Rust</span>
 							<span class="tag">C++</span>
 							<span class="tag">Nix</span>
 						</div>
@@ -113,6 +128,7 @@
 						<div class="mt-1 flex flex-wrap gap-2">
 							<span class="tag">Svelte</span>
 							<span class="tag">SvelteKit</span>
+							<span class="tag">HTML/CSS/JS</span>
 						</div>
 					</div>
 					<div class="skills-group">
@@ -121,6 +137,9 @@
 							<span class="tag">Robotics</span>
 							<span class="tag">IoT</span>
 							<span class="tag">Computer Vision</span>
+							<span class="tag">Agentic AI</span>
+							<span class="tag">Salesforce Agentforce</span>
+							<span class="tag">RAG Systems</span>
 						</div>
 					</div>
 				</div>
@@ -161,28 +180,10 @@
 					Automated trading bot for Polymarket prediction markets.
 				</p>
 			</a>
-			<a href="/blog/ergonomic-keyboard" class="resume-card project-link">
-				<span class="card-title">Ergonomic Keyboard</span>
-				<p class="mt-1 text-xs text-[--tx-2]">
-					Designed and assembled a custom ergonomic keyboard.
-				</p>
-			</a>
-			<a href="/blog/cloud-chamber" class="resume-card project-link">
-				<span class="card-title">Cloud Chamber</span>
-				<p class="mt-1 text-xs text-[--tx-2]">
-					Built a cloud chamber capable of visualizing radiation particles and cosmic rays.
-				</p>
-			</a>
-			<a href="/blog/hand-wash-timer" class="resume-card project-link">
-				<span class="card-title">Hand Wash Timer</span>
-				<p class="mt-1 text-xs text-[--tx-2]">
-					Device displaying proper handwashing steps and duration during COVID-19.
-				</p>
-			</a>
 			<a href="/blog/web-development" class="resume-card project-link">
 				<span class="card-title">Web Development</span>
 				<p class="mt-1 text-xs text-[--tx-2]">
-					Built responsive websites using Svelte and SvelteKit frameworks.
+					Built a responsive personal website and portfolio using Svelte and SvelteKit frameworks.
 				</p>
 			</a>
 		</div>
@@ -198,7 +199,7 @@
 			<div class="resume-card">
 				<div class="card-header">
 					<span class="card-title">Grace Foundation</span>
-					<span class="card-date">2022 - Present</span>
+					<span class="card-date">2022 - 2024</span>
 				</div>
 				<p class="mt-1 text-xs text-[--tx-2]">
 					Volunteered at fundraising runs for cancer treatment awareness. Assisted with event

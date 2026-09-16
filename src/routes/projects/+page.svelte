@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { Post } from '$lib/posts';
+	import type { PostPreview } from '$lib/posts';
 	import PostList from '$lib/components/PostList.svelte';
 
 	let { data } = $props();
-	const posts: Post[] = data.posts;
+	const posts: PostPreview[] = data.posts;
 </script>
 
 <svelte:head>

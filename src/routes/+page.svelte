@@ -56,8 +56,8 @@
 		<div class="sidebar-card animate-fade-in animate-delay-3">
 			<h2 class="mb-3 text-sm font-bold text-[--tx-2]">// NOW</h2>
 			<p class="mb-2 text-sm">
-				Big project cooking — expect updates soon. First project post and blog post will be about
-				that.
+				Studying computer science at Manipal Academy of Higher Education, with projects in robotics,
+				AI, and web development.
 			</p>
 			<p class="text-sm text-[--tx-2]">
 				Currently reading: <em>The Myth of Sisyphus</em> by Albert Camus
@@ -69,7 +69,7 @@
 			<div class="sidebar-card animate-fade-in animate-delay-4">
 				<h2 class="mb-3 text-sm font-bold text-[--tx-2]">// RECENT</h2>
 				<ul class="space-y-3">
-					{#each recentPosts as post}
+					{#each recentPosts as post (post.slug)}
 						<li>
 							<a href="/blog/{post.slug}" class="group block">
 								<span class="text-xs text-[--tx-2]">{formatDate(post.metadata.date)}</span>
