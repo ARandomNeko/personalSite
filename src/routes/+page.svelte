@@ -56,8 +56,8 @@
 		<div class="sidebar-card animate-fade-in animate-delay-3">
 			<h2 class="mb-3 text-sm font-bold text-[--tx-2]">// NOW</h2>
 			<p class="mb-2 text-sm">
-				Studying computer science at Manipal Academy of Higher Education, with projects in robotics,
-				AI, and web development.
+				Studying computer science at Rutgers University–New Brunswick, with projects in robotics,
+				agentic AI, and developer tooling.
 			</p>
 			<p class="text-sm text-[--tx-2]">
 				Currently reading: <em>The Myth of Sisyphus</em> by Albert Camus

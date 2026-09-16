@@ -11,6 +11,7 @@
 			<a class="break-all hover:text-[--cy]" href="mailto:rituparanreddy2006@gmail.com">
 				rituparanreddy2006@gmail.com
 			</a>
+			<a class="hover:text-[--cy]" href="tel:+19082086544">+1 908 208 6544</a>
 			<a class="hover:text-[--cy]" href="tel:+918978244211">+91 8978244211</a>
 			<a class="hover:text-[--cy]" href="https://rituparan.com">rituparan.com</a>
 		</div>
@@ -19,9 +20,9 @@
 
 	<div class="animate-fade-in animate-delay-1 mb-6">
 		<p class="text-sm text-[--tx-2]">
-			Highly motivated and skilled developer with experience in web technologies, agentic AI
-			systems, and IoT. Passionate about creating efficient and elegant solutions and eager to
-			contribute to innovative projects.
+			Software developer focused on agentic AI, developer tooling, web systems, robotics, and IoT.
+			Experienced in building autonomous, repository-scale engineering workflows and
+			production-oriented AI systems.
 		</p>
 	</div>
 
@@ -29,6 +30,30 @@
 		<!-- Experience -->
 		<div class="resume-section animate-fade-in animate-delay-2">
 			<h2 class="section-heading">// EXPERIENCE</h2>
+
+			<div class="resume-card">
+				<div class="card-header">
+					<span class="card-title">SDLC AI Automation Intern</span>
+					<span class="card-date">May 2026 - Aug 2026</span>
+				</div>
+				<span class="card-org">ORBCOMM Technologies India Pvt Ltd (Hyderabad, India)</span>
+				<ul class="card-list">
+					<li>
+						Built an organization-wide agentic unit-test analysis and implementation system that
+						pulls repositories, analyzes code and existing tests, runs and repairs test suites,
+						implements missing tests, and opens pull requests autonomously.
+					</li>
+					<li>
+						Designed the agent to be technology-stack agnostic across languages, frameworks, and
+						build systems, with comparable effectiveness on legacy codebases and active-development
+						projects.
+					</li>
+					<li>
+						Built the foundation of a system now being considered for broader testing automation at
+						ORBCOMM, including integration and end-to-end testing beyond unit tests.
+					</li>
+				</ul>
+			</div>
 
 			<div class="resume-card">
 				<div class="card-header">
@@ -41,7 +66,6 @@
 						Implemented agentic AI solutions for proprietary internal software platform tools.
 					</li>
 					<li>Enhanced and maintained the T-Desk tool and Benfornia website.</li>
-					<li>Handled status reporting and additional cross-functional operational tasks.</li>
 				</ul>
 			</div>
 
@@ -52,7 +76,9 @@
 				</div>
 				<span class="card-org">Anvisol LLP (Telangana, India)</span>
 				<ul class="card-list">
-					<li>Learned and implemented systems using the Salesforce Agentforce AI platform.</li>
+					<li>
+						Implemented AI agent workflows and automation systems for business process use cases.
+					</li>
 				</ul>
 			</div>
 
@@ -74,12 +100,11 @@
 				</div>
 				<span class="card-org">Enigma Robotics (Karnataka, India)</span>
 				<ul class="card-list">
-					<li>Rebuilt club culture from the ground up with merit-based systems over seniority.</li>
 					<li>
-						Instituted blind technical assessments to reduce bias and focus evaluations on work
-						quality.
+						Rebuilt club culture around merit-based systems and instituted blind technical
+						assessments to focus evaluation on work quality.
 					</li>
-					<li>Planned and built robotics IoT and AI projects over several months.</li>
+					<li>Planned and built robotics, IoT, and AI projects over several months.</li>
 				</ul>
 			</div>
 		</div>
@@ -91,16 +116,10 @@
 				<h2 class="section-heading">// EDUCATION</h2>
 				<div class="resume-card">
 					<div class="card-header">
-						<span class="card-title">BS in Computer Science</span>
-						<span class="card-date">2024 - 2028</span>
+						<span class="card-title">B.S. in Computer Science</span>
+						<span class="card-date">2026 - 2028 (Expected)</span>
 					</div>
-					<span class="card-org">
-						International Center for Applied Science, Manipal Academy of Higher Education
-					</span>
-					<ul class="card-list">
-						<li>Expected graduation: 2028</li>
-						<li>Current GPA: 3.1</li>
-					</ul>
+					<span class="card-org"> Rutgers University - New Brunswick, New Jersey </span>
 				</div>
 				<div class="resume-card">
 					<div class="card-header">
@@ -120,15 +139,17 @@
 						<div class="mt-1 flex flex-wrap gap-2">
 							<span class="tag">Rust</span>
 							<span class="tag">C++</span>
+							<span class="tag">Python</span>
 							<span class="tag">Nix</span>
 						</div>
 					</div>
 					<div class="skills-group">
 						<span class="text-xs text-[--tx-2]">Web</span>
 						<div class="mt-1 flex flex-wrap gap-2">
-							<span class="tag">Svelte</span>
+							<span class="tag">React</span>
 							<span class="tag">SvelteKit</span>
-							<span class="tag">HTML/CSS/JS</span>
+							<span class="tag">WASM</span>
+							<span class="tag">TypeScript</span>
 						</div>
 					</div>
 					<div class="skills-group">
@@ -138,7 +159,7 @@
 							<span class="tag">IoT</span>
 							<span class="tag">Computer Vision</span>
 							<span class="tag">Agentic AI</span>
-							<span class="tag">Salesforce Agentforce</span>
+							<span class="tag">Automated Testing</span>
 							<span class="tag">RAG Systems</span>
 						</div>
 					</div>
@@ -180,10 +201,12 @@
 					Automated trading bot for Polymarket prediction markets.
 				</p>
 			</a>
-			<a href="/blog/web-development" class="resume-card project-link">
-				<span class="card-title">Web Development</span>
+			<a href="/blog/rl-ppo-drone-sandbox" class="resume-card project-link">
+				<span class="card-title">RL/PPO Drone Simulation Sandbox</span>
 				<p class="mt-1 text-xs text-[--tx-2]">
-					Built a responsive personal website and portfolio using Svelte and SvelteKit frameworks.
+					Built a reinforcement-learning drone simulation sandbox for training and evaluating
+					control policies with Proximal Policy Optimization (PPO), focused on sim-to-real robotics
+					experimentation.
 				</p>
 			</a>
 		</div>
@@ -212,8 +235,7 @@
 					<span class="card-date">2022 - Present</span>
 				</div>
 				<p class="mt-1 text-xs text-[--tx-2]">
-					Organized various fundraising events. Mobilized resources and coordinated volunteer
-					efforts.
+					Organized fundraising events; mobilized resources and coordinated volunteer efforts.
 				</p>
 			</div>
 			<div class="resume-card">
@@ -222,7 +244,7 @@
 					<span class="card-date">2020 - Present</span>
 				</div>
 				<p class="mt-1 text-xs text-[--tx-2]">
-					Self-taught astrophotography. Capturing astronomical phenomena and studying celestial
+					Self-taught astrophotography, capturing astronomical phenomena and studying celestial
 					bodies.
 				</p>
 			</div>
