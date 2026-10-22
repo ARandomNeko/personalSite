@@ -124,18 +124,6 @@ p {
 	overflow: auto;
 	padding: 36px 24px 60px;
 }
-.site-footer {
-	min-height: 38px;
-	flex-shrink: 0;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 20px;
-	padding: 8px 5vw;
-	border-top: 1px solid var(--ui-3);
-	color: var(--tx-2);
-	font: 9px/1.5 var(--font-mono);
-}
 .btn {
 	display: inline-block;
 	border: 1px solid var(--cy);
@@ -249,11 +237,6 @@ p {
 	}
 	.prose {
 		font-size: 21px;
-	}
-	.site-footer {
-		align-items: flex-start;
-		font-size: 8px;
-		padding: 8px 22px;
 	}
 }
 

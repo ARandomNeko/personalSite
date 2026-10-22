@@ -39,11 +39,6 @@
 	{:else}
 		<div class="site-shell" class:library-shell={$page.url.pathname === '/reading'}>
 			<main class="html-content">{@render children()}</main>
-			<footer class="site-footer">
-				<span>Rituparan Reddy / {new Date().getFullYear()}</span><a href="/"
-					>Return to the journal</a
-				>
-			</footer>
 		</div>
 	{/if}
 </div>
@@ -109,10 +104,6 @@
 			margin: 38px auto;
 			padding: 0;
 		}
-	}
-	.site-footer {
-		margin-top: auto;
-		background: #202225;
 	}
 	@media (max-width: 640px) {
 		.html-content {

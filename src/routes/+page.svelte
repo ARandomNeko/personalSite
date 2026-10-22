@@ -226,9 +226,6 @@
 							</li>{/each}
 					</ul>
 				</details>
-				<footer>
-					<a href="#writing">Back to top ↑</a>
-				</footer>
 			</div>
 		</section>
 	</main>
@@ -404,18 +401,6 @@
 		display: block;
 		color: #66626a;
 		font-size: 12px;
-	}
-	footer {
-		display: flex;
-		justify-content: space-between;
-		gap: 20px;
-		margin-top: 50px;
-		font:
-			10px/1.6 'Courier New',
-			monospace;
-	}
-	footer a {
-		text-decoration: none;
 	}
 	.skip {
 		position: fixed;
