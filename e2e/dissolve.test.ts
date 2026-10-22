@@ -1,3 +1,4 @@
+import { scrollToScene } from './helpers';
 import { expect, test } from '@playwright/test';
 
 type SnapshotResult = {
@@ -73,20 +74,20 @@ test('interrupting an opaque painting dissolve preserves the displayed pixels', 
 		} as typeof getContext;
 	});
 	await page.goto('/');
-	await page.getByRole('navigation').getByRole('link', { name: 'Books', exact: true }).click();
+	await scrollToScene(page, 1);
 	await expect(page.locator('.noise-dissolve')).toHaveAttribute('data-active', 'true');
 	await page
 		.locator('.paint-layer')
 		.nth(2)
 		.locator('img')
 		.evaluate((image) => image.decode());
-	await page.getByRole('navigation').getByRole('link', { name: 'Work', exact: true }).click();
+	await scrollToScene(page, 2);
 	await expect
 		.poll(() =>
 			page.evaluate(() => window.__dissolveSnapshots.filter((capture) => capture.compared).length)
 		)
 		.toBeGreaterThan(0);
-	await page.getByRole('navigation').getByRole('link', { name: 'Writing', exact: true }).click();
+	await scrollToScene(page, 0);
 	await expect
 		.poll(() =>
 			page.evaluate(() => window.__dissolveSnapshots.filter((capture) => capture.compared).length)

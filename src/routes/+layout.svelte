@@ -1,14 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import '../app.css';
+	import SiteHeader from '$lib/components/SiteHeader.svelte';
 
 	let { children } = $props();
-	const sections = [
-		{ href: '/projects', label: 'Work' },
-		{ href: '/reading', label: 'Library' },
-		{ href: '/blog', label: 'Journal' },
-		{ href: '/resume', label: 'Résumé' }
-	];
 </script>
 
 <svelte:head>
@@ -37,28 +32,21 @@
 	<link rel="canonical" href={$page.url.origin + $page.url.pathname} />
 </svelte:head>
 
-{#if $page.url.pathname === '/'}
-	{@render children()}
-{:else}
-	<div class="site-shell">
-		<header class="site-header">
-			<a class="wordmark" href="/" aria-label="Rituparan Reddy’s journal">Rituparan Reddy</a>
-			<nav aria-label="Main navigation">
-				{#each sections as section}
-					<a
-						href={section.href}
-						aria-current={$page.url.pathname.startsWith(section.href) ? 'page' : undefined}
-						>{section.label}</a
-					>
-				{/each}
-			</nav>
-		</header>
-		<main class="html-content">{@render children()}</main>
-		<footer class="site-footer">
-			<span>Rituparan Reddy / {new Date().getFullYear()}</span><a href="/">Return to the journal</a>
-		</footer>
-	</div>
-{/if}
+<div class="site-root">
+	<SiteHeader />
+	{#if $page.url.pathname === '/'}
+		{@render children()}
+	{:else}
+		<div class="site-shell">
+			<main class="html-content">{@render children()}</main>
+			<footer class="site-footer">
+				<span>Rituparan Reddy / {new Date().getFullYear()}</span><a href="/"
+					>Return to the journal</a
+				>
+			</footer>
+		</div>
+	{/if}
+</div>
 
 <style>
 	:global(body:has(.site-shell)) {
@@ -76,24 +64,12 @@
 		--re: #dfd9c9;
 		--tag-bg: #303435;
 		--tag-tx: #d4c393;
-		min-height: 100dvh;
+		min-height: calc(100dvh - var(--site-header-height));
 		height: auto;
 		color: var(--tx);
 		background:
 			linear-gradient(#141a1f44, #141a1f44),
 			url('/paintings/turner-moonlight.jpg') center/cover fixed;
-	}
-	.site-header {
-		min-height: 55px;
-		padding: 10px 30px;
-		background: #202225;
-		border-bottom: 1px solid #77786d;
-	}
-	.wordmark {
-		font-size: 22px;
-	}
-	.site-header nav {
-		font-size: 11px;
 	}
 	.html-content {
 		flex: initial;
@@ -115,9 +91,6 @@
 		background: #202225;
 	}
 	@media (max-width: 640px) {
-		.site-header {
-			padding: 15px 20px;
-		}
 		.html-content {
 			margin: 35px auto;
 			padding: 23px 12px;

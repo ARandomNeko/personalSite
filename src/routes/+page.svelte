@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { onMount, untrack } from 'svelte';
+	import BookShelf from '$lib/components/BookShelf.svelte';
+	import { featuredBooks } from '$lib/books';
 
 	import PaintedBackdrop from '$lib/art/PaintedBackdrop.svelte';
 	import { dissolveCard } from '$lib/art/dissolveCard';
@@ -28,13 +30,7 @@
 	let paintingContent: HTMLDivElement;
 	let sideCardHeight = $state<number>();
 	const currentPainting = $derived(displayedPainting ?? paintings[0]);
-	const books = [
-		['The Picture of Dorian Gray', 'Oscar Wilde'],
-		['The Sickness unto Death', 'Søren Kierkegaard'],
-		['Crime and Punishment', 'Fyodor Dostoyevsky'],
-		['The Stranger', 'Albert Camus'],
-		['The Myth of Sisyphus', 'Albert Camus']
-	];
+
 	onMount(() => {
 		function sizeSideCards() {
 			const cards = [introContent, paintingContent];
@@ -108,16 +104,6 @@
 		</div>
 	</aside>
 
-	<header class="journal-header">
-		<a class="signature" href="/">Rituparan Reddy<span class="cursor" aria-hidden="true">▮</span></a
-		>
-		<nav aria-label="Main navigation">
-			<a href="#writing">Writing</a><a href="#books">Books</a><a href="#work">Work</a><a
-				href="/resume">Résumé</a
-			>
-		</nav>
-	</header>
-
 	<aside
 		class="intro-note"
 		aria-label="About me"
@@ -173,16 +159,10 @@
 			aria-labelledby="books-title"
 		>
 			<div class="sheet books-sheet">
-				<div class="window-bar"><span>Books</span><a href="/reading">Index ↗</a></div>
-				<h2 id="books-title">Books</h2>
-				<ul class="book-list">
-					{#each books as [title, author]}
-						<li>
-							<span class="book-title">{title}</span><span class="book-author">{author}</span>
-						</li>
-					{/each}
-				</ul>
-				<a class="read-link" href="/reading">The reading list</a>
+				<div class="window-bar"><span>Library</span><a href="/reading">Index ↗</a></div>
+				<h2 id="books-title">Library</h2>
+				<BookShelf books={featuredBooks} />
+				<a class="read-link" href="/reading">Explore the library ↗</a>
 			</div>
 		</section>
 
@@ -252,9 +232,6 @@
 </div>
 
 <style>
-	:global(html:has(.journal-page)) {
-		scroll-padding-top: 40px;
-	}
 	:global(body:has(.journal-page)) {
 		overflow: auto;
 		background: #625f69;
@@ -276,31 +253,6 @@
 	.journal-page :focus-visible {
 		outline: 2px solid currentColor;
 		outline-offset: 6px;
-	}
-	.journal-header {
-		height: 114px;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 0 5.2%;
-		color: #fff8ed;
-		text-shadow: 0 1px 8px #25252b88;
-	}
-	.signature {
-		font:
-			30px/1 'Instrument Serif',
-			Georgia,
-			serif;
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		gap: 32px;
-		font-size: 15px;
-	}
-	nav a {
-		text-decoration: none;
-		padding: 10px 0;
 	}
 	.journal-pages {
 		padding-top: clamp(70px, 15vh, 180px);
@@ -372,27 +324,6 @@
 		padding-top: 110px;
 		padding-bottom: 120px;
 		background: #e4e0dd;
-	}
-	.book-list {
-		list-style: none;
-		margin: 0 0 40px;
-		padding: 0;
-	}
-	.book-list li {
-		padding-bottom: 27px;
-	}
-	.book-title {
-		display: block;
-		font:
-			31px/1.15 'Instrument Serif',
-			Georgia,
-			serif;
-	}
-	.book-author {
-		display: block;
-		font-size: 13px;
-		margin-top: 7px;
-		color: #66626a;
 	}
 	.work-sheet {
 		background: #e1dfdb;
@@ -498,22 +429,6 @@
 		}
 	}
 	@media (max-width: 650px) {
-		.journal-header {
-			height: 96px;
-			padding: 0 24px;
-			align-items: flex-start;
-			padding-top: 27px;
-		}
-		.signature {
-			font-size: 26px;
-			max-width: 120px;
-			line-height: 1;
-		}
-		nav {
-			gap: 17px;
-			font-size: 13px;
-			padding-top: 6px;
-		}
 		.journal-pages {
 			padding-top: 24svh;
 		}
@@ -545,9 +460,6 @@
 			padding-top: 70px;
 			padding-bottom: 70px;
 		}
-		.book-title {
-			font-size: 29px;
-		}
 		.closing {
 			padding-top: 180px;
 			padding-bottom: 24px;
@@ -566,36 +478,6 @@
 	.journal-page {
 		--paper: #202225;
 		--ink: #dfd9c9;
-	}
-	.journal-header {
-		position: sticky;
-		top: 0;
-		z-index: 5;
-		height: 55px;
-		padding: 0 30px;
-		background: #202225;
-		border-bottom: 1px solid #77786d;
-		box-shadow: 0 3px #121518;
-		text-shadow: none;
-		color: #dfd9c9;
-	}
-	.signature {
-		font:
-			19px/1 'Instrument Serif',
-			Georgia,
-			serif;
-		letter-spacing: 0.02em;
-	}
-	.cursor {
-		margin-left: 12px;
-		font: 12px monospace;
-		color: #a9a28a;
-	}
-	nav {
-		gap: 28px;
-		font:
-			11px/1.5 'JetBrains Mono',
-			monospace;
 	}
 	.journal-pages {
 		padding-top: 18vh;
@@ -685,15 +567,6 @@
 		padding-bottom: 55px;
 		background: #202225;
 	}
-	.book-title {
-		font-size: 29px;
-	}
-	.book-author {
-		font:
-			11px/1.6 'JetBrains Mono',
-			monospace;
-		color: #aaa99d;
-	}
 	.further-work {
 		margin-top: 50px;
 		padding-top: 25px;
@@ -739,23 +612,6 @@
 		}
 	}
 	@media (max-width: 650px) {
-		.journal-header {
-			height: 54px;
-			padding: 0 17px;
-			align-items: center;
-		}
-		.signature {
-			max-width: none;
-			font-size: 18px;
-		}
-		.cursor {
-			display: none;
-		}
-		nav {
-			padding: 0;
-			gap: 15px;
-			font-size: 10px;
-		}
 		.journal-pages {
 			padding-top: 30svh;
 		}
@@ -779,9 +635,6 @@
 		}
 		p {
 			font-size: 16px;
-		}
-		.book-title {
-			font-size: 29px;
 		}
 		.colophon {
 			padding-top: 35px;
@@ -817,17 +670,6 @@
 		justify-content: space-between;
 	}
 	@media (max-width: 650px) {
-		.journal-header {
-			flex-wrap: wrap;
-			height: 82px;
-			justify-content: space-between;
-			padding: 13px 17px;
-			gap: 12px;
-		}
-		.journal-header nav {
-			width: 100%;
-			justify-content: space-between;
-		}
 		.intro-note {
 			top: 94px;
 			left: 17px;

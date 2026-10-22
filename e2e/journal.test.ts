@@ -1,3 +1,4 @@
+import { scrollToScene } from './helpers';
 import { expect, test } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
@@ -81,7 +82,7 @@ test('journal reveals decoded paintings smoothly and updates the painting label'
 	await expect(page.getByRole('complementary', { name: 'Current painting' })).toContainText(
 		catalogue.find((painting) => painting.id === order[0])!.name
 	);
-	await page.getByRole('navigation').getByRole('link', { name: 'Books', exact: true }).click();
+	await scrollToScene(page, 1);
 	await expect(page.locator('.noise-dissolve')).toHaveAttribute('data-active', 'true');
 	await expect(page.locator('.noise-dissolve')).toHaveAttribute('data-renderer', 'webgl');
 	await expect(page.locator('.noise-dissolve')).toHaveAttribute('data-transition', 'quadtree');
@@ -120,10 +121,9 @@ test('journal reveals decoded paintings smoothly and updates the painting label'
 	await expect(caption).toHaveAttribute('data-cell-size', '1');
 	await expect(caption).toHaveAttribute('data-active', 'false');
 	await expect(page.locator('.painting-label .side-card-content')).toHaveCSS('opacity', '1');
-	await page.getByRole('navigation').getByRole('link', { name: 'Work', exact: true }).click();
-	await expect(page).toHaveURL(/#work$/);
+	await scrollToScene(page, 2);
 	await expect(page.locator('.noise-dissolve')).toHaveAttribute('data-active', 'true');
-	await page.getByRole('navigation').getByRole('link', { name: 'Writing', exact: true }).click();
+	await scrollToScene(page, 0);
 	await expect(page.locator('[data-scene="0"]')).toHaveAttribute('data-focused', 'true');
 	await expect(page.locator('.paint-layer').first()).toHaveCSS('opacity', '1');
 	await expect(page.locator('.paint-layer').nth(2)).toHaveCSS('visibility', 'hidden');
@@ -139,7 +139,7 @@ test('journal reveals decoded paintings smoothly and updates the painting label'
 					layers.filter((layer) => getComputedStyle(layer).visibility === 'visible').length
 			)
 	).toBe(1);
-	await page.getByRole('navigation').getByRole('link', { name: 'Work', exact: true }).click();
+	await scrollToScene(page, 2);
 	await page.locator('#work').getByRole('link', { name: 'Read entry' }).click();
 	await expect(page).toHaveURL(/\/blog\/polymarket-bot$/);
 	await expect(page.getByRole('heading', { level: 1 })).toHaveText('Polymarket Bot');
@@ -153,7 +153,7 @@ test('mobile cards match and reduced motion changes paintings without animation'
 	await page.setViewportSize({ width: 390, height: 844 });
 	await page.emulateMedia({ reducedMotion: 'reduce' });
 	await page.goto('/');
-	await page.getByRole('navigation').getByRole('link', { name: 'Work', exact: true }).click();
+	await scrollToScene(page, 2);
 	await expect(page.locator('.paint-layer').first()).toHaveCSS('transform', 'none');
 	await expect(page.locator('.paint-layer').nth(2)).toHaveCSS('visibility', 'visible');
 	await expect(page.locator('#work')).toHaveAttribute('data-focused', 'true');
@@ -189,7 +189,7 @@ test('quadtree reaches individual drawing-buffer pixels on a high-density displa
 	try {
 		const page = await context.newPage();
 		await page.goto('/');
-		await page.getByRole('navigation').getByRole('link', { name: 'Books', exact: true }).click();
+		await scrollToScene(page, 1);
 		await expect(page.locator('.noise-dissolve')).toHaveAttribute('data-renderer', 'webgl');
 		await expect(page.locator('.noise-dissolve')).toHaveAttribute('data-cell-size', '1');
 		expect(
@@ -212,7 +212,7 @@ test('painting changes still work without WebGL', async ({ page }) => {
 		} as typeof getContext;
 	});
 	await page.goto('/');
-	await page.getByRole('navigation').getByRole('link', { name: 'Books', exact: true }).click();
+	await scrollToScene(page, 1);
 	await expect(page.locator('.noise-dissolve')).toHaveAttribute('data-renderer', 'fallback');
 	await expect(page.locator('.paint-layer').nth(1)).toHaveCSS('visibility', 'visible');
 	await expect(page.locator('.paint-layer').first()).toHaveCSS('visibility', 'hidden');
@@ -221,7 +221,7 @@ test('painting changes still work without WebGL', async ({ page }) => {
 
 test('losing the GPU during a dissolve leaves the decoded painting visible', async ({ page }) => {
 	await page.goto('/');
-	await page.getByRole('navigation').getByRole('link', { name: 'Books', exact: true }).click();
+	await scrollToScene(page, 1);
 	await expect(page.locator('.noise-dissolve')).toHaveAttribute('data-active', 'true');
 	await page.locator('.noise-dissolve').evaluate((canvas) => {
 		(canvas as HTMLCanvasElement)
@@ -231,7 +231,7 @@ test('losing the GPU during a dissolve leaves the decoded painting visible', asy
 	});
 	await expect(page.locator('.noise-dissolve')).toHaveAttribute('data-active', 'false');
 	await expect(page.locator('.paint-layer').nth(1)).toHaveCSS('visibility', 'visible');
-	await page.getByRole('navigation').getByRole('link', { name: 'Work', exact: true }).click();
+	await scrollToScene(page, 2);
 	await expect(page.locator('.paint-layer').nth(2)).toHaveCSS('visibility', 'visible');
 	await expect(page.locator('.paint-layer').nth(1)).toHaveCSS('visibility', 'hidden');
 });
@@ -242,7 +242,7 @@ test('painting card returns to native text and links if its own GPU context is l
 	await page.goto('/');
 	await expect(page.locator('.painting-label')).toHaveAttribute('data-dissolve-ready', 'true');
 	const nextId = await page.locator('.paint-layer').nth(1).getAttribute('data-painting');
-	await page.getByRole('navigation').getByRole('link', { name: 'Books', exact: true }).click();
+	await scrollToScene(page, 1);
 	await expect(page.locator('.caption-dissolve')).toHaveAttribute('data-active', 'true');
 	await page.locator('.caption-dissolve').evaluate((element) => {
 		(element as HTMLCanvasElement)
@@ -278,7 +278,7 @@ test('card height changes dissolve through transparent shader pixels without str
 	await expect(page.locator('.painting-label')).toHaveAttribute('data-dissolve-ready', 'true');
 	const nextId = await page.locator('.paint-layer').nth(1).getAttribute('data-painting');
 	const old = await page.locator('.painting-label').boundingBox();
-	await page.getByRole('navigation').getByRole('link', { name: 'Books', exact: true }).click();
+	await scrollToScene(page, 1);
 	const caption = page.locator('.caption-dissolve');
 	await expect(caption).toHaveAttribute('data-active', 'true');
 	await expect(page.locator('.identity-dissolve')).toHaveAttribute('data-active', 'true');
@@ -333,12 +333,12 @@ test('card height changes dissolve through transparent shader pixels without str
 	await expect(caption).toHaveAttribute('data-active', 'false');
 	await expect(page.locator('.painting-label')).toHaveCSS('opacity', '1');
 	// Reverse while the taller card is dissolving away, then interrupt that shrink.
-	await page.getByRole('navigation').getByRole('link', { name: 'Writing', exact: true }).click();
+	await scrollToScene(page, 0);
 	await expect(caption).toHaveAttribute('data-active', 'true');
 	expect(Number(await caption.getAttribute('data-from-height'))).toBeGreaterThan(
 		Number(await caption.getAttribute('data-to-height'))
 	);
-	await page.getByRole('navigation').getByRole('link', { name: 'Books', exact: true }).click();
+	await scrollToScene(page, 1);
 	await expect(caption).toHaveAttribute('data-active', 'false');
 	await expect(page.locator('.painting-label')).toHaveCSS('opacity', '1');
 	await expect(page.locator('.intro-note')).toHaveCSS('opacity', '1');

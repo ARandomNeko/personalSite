@@ -1,3 +1,4 @@
+import { scrollToScene } from './helpers';
 import { expect, test } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
@@ -34,7 +35,7 @@ test('a fresh load shuffles the curated selection once and ignores old picker pr
 	expect(new Set(order).size).toBe(selectedIds.length);
 	// Only the current painting and its neighbor are requested initially.
 	await expect(page.locator('.paint-layer img[src]')).toHaveCount(2);
-	await page.getByRole('navigation').getByRole('link', { name: 'Books', exact: true }).click();
+	await scrollToScene(page, 1);
 	await expect(page.locator('.paint-layer').nth(1)).toHaveCSS('visibility', 'visible');
 	await page.setViewportSize({ width: 1280, height: 900 });
 	expect(
@@ -42,7 +43,7 @@ test('a fresh load shuffles the curated selection once and ignores old picker pr
 			.locator('.paint-layer')
 			.evaluateAll((layers) => layers.map((layer) => (layer as HTMLElement).dataset.painting!))
 	).toEqual(order);
-	await page.getByRole('navigation').getByRole('link', { name: 'Writing', exact: true }).click();
+	await scrollToScene(page, 0);
 	await expect(page.locator('.paint-layer').first()).toHaveCSS('visibility', 'visible');
 	expect(
 		await page.evaluate(() => JSON.parse(localStorage.getItem('journal-paintings-v2')!))
