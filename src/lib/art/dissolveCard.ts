@@ -6,9 +6,10 @@ import { unionRect, textureBounds, type CardRect } from './CardGeometry';
 type Change = { key: string; clock?: DissolveClock; geometryOnly?: boolean };
 type Snapshot = { image: HTMLCanvasElement; rect: CardRect };
 
-// A transparent, fixed surface spans both silhouettes. The shader switches RGBA
-// pixels, including the panel and border; native layout can settle underneath.
+// Keep the original HTML frame visible throughout the transition.
+// Only the contents pass through the transparent shader surface.
 export function dissolveCard(card: HTMLElement, initial: Change) {
+	const content = card.querySelector<HTMLElement>('.side-card-content')!;
 	const canvas = document.createElement('canvas');
 	canvas.className = initial.geometryOnly ? 'identity-dissolve' : 'caption-dissolve';
 	canvas.setAttribute('aria-hidden', 'true');
@@ -36,7 +37,7 @@ export function dissolveCard(card: HTMLElement, initial: Change) {
 	}
 	function reveal() {
 		renderer?.cancel();
-		card.style.opacity = '';
+		content.style.opacity = '';
 	}
 	async function capture(): Promise<Snapshot> {
 		let rect: CardRect = card.getBoundingClientRect();
@@ -76,18 +77,17 @@ export function dissolveCard(card: HTMLElement, initial: Change) {
 		}
 		try {
 			renderer ??= new NoiseDissolve(canvas, () => surface, true);
-			// Freeze before moving the surface, preserving partially dissolved borders
-			// and text through a rapid reversal without reading pixels back to the CPU.
+			// Preserve the current text pixels through rapid reversals without a CPU readback.
 			const frozenRect = surface;
 			const frozen = renderer.freeze();
 			if (!frozen) {
 				position(previous.rect);
 				if (!renderer.hold(previous.image)) throw new Error('Card GPU unavailable');
 			}
-			card.style.opacity = '0';
+			content.style.opacity = '0';
 			await tick();
 			// Let the shared height measurement and Svelte resize updates settle
-			// before capturing the target layout. Neither native frame is visible.
+			// before capturing the target content inside the visible HTML frame.
 			await new Promise<void>((resolve) =>
 				requestAnimationFrame(() => requestAnimationFrame(() => resolve()))
 			);

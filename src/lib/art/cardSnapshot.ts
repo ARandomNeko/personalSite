@@ -1,5 +1,7 @@
 // Rasterize this small text-only panel with the browser's own HTML layout and
 // font rasterizer. No screenshot dependency or hand-maintained canvas typography.
+import { snapshotRect, type CardRect } from './CardGeometry';
+
 let fontStyles: Promise<string> | undefined;
 
 function embeddedFonts() {
@@ -25,12 +27,14 @@ function embeddedFonts() {
 
 export async function snapshotCard(
 	card: HTMLElement,
-	onlayout?: (rect: DOMRect) => void
+	onlayout?: (rect: CardRect) => void
 ): Promise<HTMLCanvasElement> {
 	if (!document.fonts) throw new Error('Font loading API unavailable');
 	const [fonts] = await Promise.all([embeddedFonts(), document.fonts.ready]);
 	const bounds = card.getBoundingClientRect();
-	onlayout?.(bounds);
+	const scale = devicePixelRatio || 1;
+	const surface = snapshotRect(bounds, scale);
+	onlayout?.(surface);
 	const clone = card.cloneNode(true) as HTMLElement;
 	clone.querySelectorAll('canvas').forEach((canvas) => canvas.remove());
 	const sources = [card, ...card.querySelectorAll<HTMLElement>(':not(canvas)')];
@@ -46,25 +50,47 @@ export async function snapshotCard(
 		if (source.classList.contains('side-card-content')) copy.style.opacity = '1';
 	});
 	Object.assign(clone.style, {
-		position: 'static',
+		position: 'absolute',
+		left: `${bounds.left - surface.left}px`,
+		top: `${bounds.top - surface.top}px`,
+		right: 'auto',
+		bottom: 'auto',
 		margin: '0',
 		transform: 'none',
 		opacity: '1',
 		width: `${bounds.width}px`,
-		height: `${bounds.height}px`
+		height: `${bounds.height}px`,
+		inlineSize: `${bounds.width}px`,
+		blockSize: `${bounds.height}px`,
+		boxSizing: 'border-box',
+		background: 'transparent',
+		borderColor: 'transparent',
+		boxShadow: 'none'
 	});
+	// Remove the frame entirely, including copied logical border declarations.
+	// Fold its widths into padding so the text retains its native coordinates.
+	const computed = getComputedStyle(card);
+	clone.style.setProperty('border', 'none', 'important');
+	clone.style.setProperty('background', 'transparent', 'important');
+	clone.style.setProperty('box-shadow', 'none', 'important');
+	for (const side of ['top', 'right', 'bottom', 'left']) {
+		const padding = parseFloat(computed.getPropertyValue(`padding-${side}`));
+		const border = parseFloat(computed.getPropertyValue(`border-${side}-width`));
+		clone.style.setProperty(`padding-${side}`, `${padding + border}px`, 'important');
+	}
 	const style = document.createElement('style');
 	style.textContent = fonts;
 	clone.prepend(style);
 	const html = new XMLSerializer().serializeToString(clone);
-	const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${bounds.width}" height="${bounds.height}"><foreignObject width="100%" height="100%">${html}</foreignObject></svg>`;
+	const width = Math.max(1, Math.round(surface.width * scale));
+	const height = Math.max(1, Math.round(surface.height * scale));
+	const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${surface.width} ${surface.height}"><foreignObject width="100%" height="100%">${html}</foreignObject></svg>`;
 	const image = new Image();
 	image.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 	await image.decode();
 	const canvas = document.createElement('canvas');
-	const scale = devicePixelRatio || 1;
-	canvas.width = Math.max(1, Math.round(bounds.width * scale));
-	canvas.height = Math.max(1, Math.round(bounds.height * scale));
+	canvas.width = width;
+	canvas.height = height;
 	const context = canvas.getContext('2d')!;
 	context.drawImage(image, 0, 0, canvas.width, canvas.height);
 	return canvas;

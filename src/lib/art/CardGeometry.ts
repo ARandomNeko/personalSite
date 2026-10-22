@@ -1,5 +1,20 @@
 export type CardRect = { left: number; top: number; width: number; height: number };
 
+// Keep the native subpixel origin and leave a clear pixel beyond every border.
+// Fractional SVG viewport sizes can otherwise truncate the right/bottom edges.
+export function snapshotRect(rect: CardRect, scale: number): CardRect {
+	const left = Math.floor(rect.left * scale) - 1;
+	const top = Math.floor(rect.top * scale) - 1;
+	const right = Math.ceil((rect.left + rect.width) * scale) + 1;
+	const bottom = Math.ceil((rect.top + rect.height) * scale) + 1;
+	return {
+		left: left / scale,
+		top: top / scale,
+		width: (right - left) / scale,
+		height: (bottom - top) / scale
+	};
+}
+
 export function unionRect(a: CardRect, b: CardRect): CardRect {
 	const left = Math.min(a.left, b.left);
 	const top = Math.min(a.top, b.top);

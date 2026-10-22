@@ -43,3 +43,7 @@ The library displays plain book titles in three reading groups over a painting.
 Selecting or focusing a title changes the backdrop using the existing quadtree
 renderer, with reduced-motion and WebGL fallbacks. Hand-picked artwork IDs live
 in `src/lib/bookPaintings.ts`; the locally hosted catalogue supplies the credits.
+
+Homepage side cards keep their frames in the browser's CSS renderer while the
+shader dissolves their contents. This avoids thin borders changing appearance
+when an SVG snapshot hands back to live HTML at fractional display scales.

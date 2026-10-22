@@ -102,7 +102,7 @@ test('journal reveals decoded paintings smoothly and updates the painting label'
 			height: (element as HTMLCanvasElement).height
 		}))
 	).toEqual({
-		width: Math.round(cardBounds!.width),
+		width: Math.ceil(cardBounds!.width) + 2,
 		height: Math.round(
 			Math.max(
 				Number(await caption.getAttribute('data-from-height')),
@@ -260,9 +260,7 @@ test('painting card returns to native text and links if its own GPU context is l
 	).toHaveAttribute('href', catalogue.find((painting) => painting.id === nextId)!.source);
 });
 
-test('card height changes dissolve through transparent shader pixels without stretching the frame', async ({
-	page
-}) => {
+test('card contents dissolve over a native frame during height changes', async ({ page }) => {
 	await page.setViewportSize({ width: 1440, height: 1000 });
 	await page.goto('/');
 	// Reader styles produce a deterministic height change with any shuffled paintings.
@@ -282,12 +280,14 @@ test('card height changes dissolve through transparent shader pixels without str
 	const caption = page.locator('.caption-dissolve');
 	await expect(caption).toHaveAttribute('data-active', 'true');
 	await expect(page.locator('.identity-dissolve')).toHaveAttribute('data-active', 'true');
-	await expect(page.locator('.painting-label')).toHaveCSS('opacity', '0');
+	await expect(page.locator('.painting-label .side-card-content')).toHaveCSS('opacity', '0');
+	await expect(page.locator('.painting-label')).toHaveCSS('opacity', '1');
 	const target = await page.locator('.painting-label').boundingBox();
 	expect(target!.height - old!.height).toBeGreaterThan(30);
 	const area = await caption.boundingBox();
-	expect(Math.abs(area!.height - target!.height)).toBeLessThan(1);
-	expect(Math.abs(area!.y + area!.height - old!.y - old!.height)).toBeLessThan(1);
+	// The raster surface includes one clear device pixel beyond each native edge.
+	expect(Math.abs(area!.height - target!.height - 2)).toBeLessThan(1);
+	expect(Math.abs(area!.y + area!.height - old!.y - old!.height - 1)).toBeLessThan(1);
 	await page.waitForFunction(
 		() => Number(document.querySelector<HTMLElement>('.caption-dissolve')!.dataset.progress) > 0.4
 	);
@@ -329,7 +329,8 @@ test('card height changes dissolve through transparent shader pixels without str
 	expect(alpha.alphaContext).toBe(true);
 	expect(alpha.transparent).toBeGreaterThan(100);
 	expect(alpha.opaque).toBeGreaterThan(100);
-	expect(alpha.other).toBe(0);
+	// Transparent text textures retain the font rasterizer's antialiased glyph edges.
+	expect(alpha.other).toBeGreaterThan(0);
 	await expect(caption).toHaveAttribute('data-active', 'false');
 	await expect(page.locator('.painting-label')).toHaveCSS('opacity', '1');
 	// Reverse while the taller card is dissolving away, then interrupt that shrink.
@@ -349,3 +350,98 @@ test('card height changes dissolve through transparent shader pixels without str
 		catalogue.find((painting) => painting.id === nextId)!.name
 	);
 });
+
+for (const scale of [1, 1.2]) {
+	test.describe(`card border handoff at ${scale}x`, () => {
+		test.use({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: scale });
+		test('fractional card borders stay visually stable during and after the shader', async ({
+			page
+		}) => {
+			// Install fractional geometry before hydration so the initial cached snapshot
+			// already has these dimensions; resizing after warmup would test a resize.
+			await page.addInitScript((scale) => {
+				const install = () => {
+					if (!document.documentElement) return false;
+					const style = document.createElement('style');
+					style.textContent = `
+						.painted-world, .painted-world * { visibility: hidden !important; }
+						.journal-page { background: #202225 !important; }
+						.painting-label, .intro-note {
+							width: ${330.984375 / scale}px !important;
+							height: ${395.984375 / scale}px !important;
+							left: ${66.015625 / scale}px !important;
+							bottom: ${28 / scale}px !important;
+						}
+					`;
+					document.documentElement.append(style);
+					return true;
+				};
+				if (!install()) {
+					const observer = new MutationObserver(() => {
+						if (install()) observer.disconnect();
+					});
+					observer.observe(document, { childList: true, subtree: true });
+				}
+			}, scale);
+			await page.goto('/');
+			const card = page.locator('.painting-label');
+			await expect(card).toHaveAttribute('data-dissolve-ready', 'true');
+			await scrollToScene(page, 1);
+			const caption = page.locator('.caption-dissolve');
+			await expect(caption).toHaveAttribute('data-active', 'true');
+			await expect(card).toHaveCSS('opacity', '1');
+			await expect(card.locator('.side-card-content')).toHaveCSS('opacity', '0');
+
+			await expect(card).toHaveCSS('border-right-color', 'rgb(119, 120, 109)');
+			const during = await page.screenshot();
+			await expect(caption).toHaveAttribute('data-active', 'false');
+			await expect(card.locator('.side-card-content')).toHaveCSS('opacity', '1');
+			await expect(card).toHaveCSS('opacity', '1');
+			const after = await page.screenshot();
+			const pixels = await page.evaluate(
+				async ({ during, after }) => {
+					const rect = document.querySelector('.painting-label')!.getBoundingClientRect();
+					const half = 0.5 / devicePixelRatio;
+					const positions = [
+						[(rect.left + rect.right) / 2, rect.top + half],
+						[(rect.left + rect.right) / 2, rect.bottom - half],
+						[rect.left + half, (rect.top + rect.bottom) / 2],
+						[rect.right - half, (rect.top + rect.bottom) / 2]
+					];
+					const sample = async (encoded: string) => {
+						const image = new Image();
+						image.src = `data:image/png;base64,${encoded}`;
+						await image.decode();
+						const canvas = document.createElement('canvas');
+						canvas.width = image.naturalWidth;
+						canvas.height = image.naturalHeight;
+						const context = canvas.getContext('2d')!;
+						context.drawImage(image, 0, 0);
+						return positions.map(([x, y]) =>
+							Array.from(
+								context.getImageData(
+									Math.floor(x * devicePixelRatio),
+									Math.floor(y * devicePixelRatio),
+									1,
+									1
+								).data
+							)
+						);
+					};
+					return { during: await sample(during), after: await sample(after) };
+				},
+				{ during: during.toString('base64'), after: after.toString('base64') }
+			);
+			for (const [index, edge] of pixels.during.entries()) {
+				for (let channel = 0; channel < 4; channel++) {
+					expect(
+						Math.abs(edge[channel] - pixels.after[index][channel]),
+						`border ${index} changed at handoff: ${edge} vs ${pixels.after[index]}`
+					).toBeLessThanOrEqual(4);
+				}
+				// A partially covered edge pixel is antialiased, but must remain brighter than the panel.
+				expect(edge[0]).toBeGreaterThan(50);
+			}
+		});
+	});
+}
