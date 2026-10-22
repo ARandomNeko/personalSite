@@ -1,5 +1,5 @@
 import { getPostsByTag } from '$lib/posts';
-import { featuredBooks, type Book } from '$lib/books';
+import { featuredBooks, provisionalReadingStatus, type Book } from '$lib/books';
 
 export async function load() {
 	const posts = await getPostsByTag('book');
@@ -18,6 +18,9 @@ export async function load() {
 		if (!books.has(book.id)) books.set(book.id, book);
 	}
 	return {
-		books: [...books.values()]
+		books: [...books.values()].map((book) => ({
+			...book,
+			status: provisionalReadingStatus[book.id] ?? book.status
+		}))
 	};
 }

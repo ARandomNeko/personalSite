@@ -34,3 +34,7 @@ image changes its URL. Only the current painting and its neighbor load ahead.
 Reading text uses self-hosted ET Bembo, matching the body font on
 [Elon Litman’s blog](https://elonlit.com/scrivings/how-to-run-turing-complete-malware-in-pytorchs-backward-pass/).
 Its MIT license is included in `static/fonts/ETBembo-LICENSE.txt`.
+
+The library separates Reading now, Owned / to read, and Read. The owner-approved
+placeholder assignments are in `provisionalReadingStatus` in `src/lib/books.ts`;
+replace that map when the final reading inventory is available.

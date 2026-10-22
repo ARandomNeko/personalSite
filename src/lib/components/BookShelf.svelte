@@ -40,7 +40,7 @@
 		</div>
 	{/if}
 	{#if visible.length}
-		<ul class="shelf" aria-label="Bookshelf">
+		<ul class="shelf" aria-label="Bookshelf" style:--book-count={visible.length}>
 			{#each visible as book, index (book.id)}
 				{@const cover = binding(book.id)}
 				<li>
@@ -126,6 +126,7 @@
 	}
 	.shelf {
 		display: grid;
+		max-width: calc(var(--book-count) * 78px);
 		grid-template-columns: repeat(auto-fit, minmax(44px, 1fr));
 		grid-auto-rows: 248px;
 		align-items: end;

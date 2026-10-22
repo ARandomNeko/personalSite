@@ -41,31 +41,46 @@ for (const width of [1440, 390]) {
 	});
 }
 
-test('library books can be selected, searched, and browsed with the keyboard on mobile', async ({
+test('library groups keep their books separate and support searching and keyboard browsing', async ({
 	page
 }) => {
 	await page.setViewportSize({ width: 390, height: 844 });
 	await page.goto('/reading');
+	const tabs = page.getByRole('tablist', { name: 'Reading groups' });
+	const current = tabs.getByRole('tab', { name: /^Reading now/ });
+	const collection = tabs.getByRole('tab', { name: /^Owned/ });
+	const read = tabs.getByRole('tab', { name: /^Read(?!ing)/ });
+	await expect(current).toHaveAttribute('aria-selected', 'true');
 	const shelf = page.getByRole('list', { name: 'Bookshelf' });
 	const detail = page.getByRole('region', { name: 'Selected book' });
-	await expect(shelf.getByRole('button')).toHaveCount(12);
-	await shelf
-		.getByRole('button', { name: 'View The Stranger by Albert Camus', exact: true })
-		.click();
-	await expect(detail.getByRole('heading')).toHaveText('The Stranger');
-	await expect(detail).toContainText('To read');
-	const search = page.getByRole('searchbox', { name: 'Find a book' });
-	await search.fill('dostoyevsky');
 	await expect(shelf.getByRole('button')).toHaveCount(2);
+	await expect(detail.locator('.reading-status')).toHaveText('Reading');
+	const currentTitles = await shelf.getByRole('button').allTextContents();
+	await current.focus();
+	await page.keyboard.press('ArrowRight');
+	await expect(collection).toBeFocused();
+	await expect(collection).toHaveAttribute('aria-selected', 'true');
+	await expect(shelf.getByRole('button')).toHaveCount(6);
+	await expect(detail.locator('.reading-status')).toHaveText('To read');
+	const collectionTitles = await shelf.getByRole('button').allTextContents();
+	const search = page.getByRole('searchbox', { name: 'Find a book' });
+	await search.fill('Camus');
+	await expect(shelf.getByRole('button')).toHaveCount(4);
 	await shelf.getByRole('button').first().focus();
 	await page.keyboard.press('ArrowRight');
 	await expect(shelf.getByRole('button').nth(1)).toBeFocused();
-	await expect(detail.getByRole('heading')).toHaveText('Crime and Punishment');
-	await expect(detail.locator('.reading-status')).toHaveCount(0);
 	await search.fill('no matching title');
 	await expect(page.getByText('No books match that search.')).toBeVisible();
 	await page.getByRole('button', { name: 'Show all books' }).click();
-	await expect(shelf.getByRole('button')).toHaveCount(12);
+	await expect(shelf.getByRole('button')).toHaveCount(6);
+	await read.click();
+	await expect(shelf.getByRole('button')).toHaveCount(4);
+	await expect(detail.locator('.reading-status')).toHaveText('Read');
+	const finishedTitles = await shelf.getByRole('button').allTextContents();
+	expect(new Set([...currentTitles, ...collectionTitles, ...finishedTitles]).size).toBe(12);
+	await page.reload();
+	await read.click();
+	expect(await shelf.getByRole('button').allTextContents()).toEqual(finishedTitles);
 	expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
 	await page.goto('/');
 	await expect(page.getByRole('list', { name: 'Bookshelf' }).getByRole('button')).toHaveCount(5);
