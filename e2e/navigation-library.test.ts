@@ -41,47 +41,118 @@ for (const width of [1440, 390]) {
 	});
 }
 
-test('library groups keep their books separate and support searching and keyboard browsing', async ({
+for (const width of [1440, 390]) {
+	test(`simple library groups and painting selection work at ${width}px`, async ({ page }) => {
+		await page.setViewportSize({ width, height: 900 });
+		const errors: string[] = [];
+		page.on('pageerror', (error) => errors.push(error.message));
+		await page.goto('/reading');
+		const current = page.getByRole('list', { name: 'Reading now', exact: true });
+		const collection = page.getByRole('list', { name: 'Owned / to read', exact: true });
+		const finished = page.getByRole('list', { name: 'Read', exact: true });
+		await expect(current.getByRole('button')).toHaveCount(2);
+		await expect(collection.getByRole('button')).toHaveCount(6);
+		await expect(finished.getByRole('button')).toHaveCount(4);
+		const caption = page.getByRole('complementary', { name: 'Current painting' });
+		await expect(caption).toContainText('The Abbey in the Oakwood');
+		const book = page.getByRole('button', { name: 'The Picture of Dorian Gray Oscar Wilde' });
+		await book.click();
+		await expect(book).toHaveAttribute('aria-pressed', 'true');
+		await expect(caption).toContainText('Lamia');
+		await expect(caption.getByRole('link')).toHaveAttribute('href', /^https:\/\//);
+		await expect
+			.poll(() => page.locator('.library-backdrop img').getAttribute('src'))
+			.toMatch(/waterhouse-lamia/);
+		await expect
+			.poll(() =>
+				page
+					.locator('.library-backdrop img')
+					.evaluate((img) => img.complete && img.naturalWidth > 0)
+			)
+			.toBe(true);
+		await current.getByRole('button').first().focus();
+		await expect(caption).toContainText('The Abbey in the Oakwood');
+		expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);
+		await expect(page.locator('.cabinet, .book-card')).toHaveCount(0);
+		expect(errors).toEqual([]);
+	});
+}
+
+for (const mode of ['reduced motion', 'no WebGL'] as const) {
+	test(`library paintings remain usable with ${mode}`, async ({ page }) => {
+		if (mode === 'reduced motion') await page.emulateMedia({ reducedMotion: 'reduce' });
+		else
+			await page.addInitScript(() => {
+				const original = HTMLCanvasElement.prototype.getContext;
+				HTMLCanvasElement.prototype.getContext = function (
+					this: HTMLCanvasElement,
+					...args: Parameters<typeof original>
+				) {
+					if (String(args[0]).includes('webgl')) return null;
+					return original.apply(this, args);
+				} as typeof original;
+			});
+		await page.goto('/reading');
+		await page.getByRole('button', { name: 'The Picture of Dorian Gray Oscar Wilde' }).click();
+		await expect
+			.poll(() => page.locator('.library-backdrop img').getAttribute('src'))
+			.toMatch(/waterhouse-lamia/);
+		await expect
+			.poll(() =>
+				page
+					.locator('.library-backdrop img')
+					.evaluate((img) => img.complete && img.naturalWidth > 0)
+			)
+			.toBe(true);
+		await expect(page.locator('.library-backdrop canvas')).toHaveAttribute('data-active', 'false');
+	});
+}
+
+test('preloaded library paintings keep valid crop coordinates through rapid changes', async ({
 	page
 }) => {
-	await page.setViewportSize({ width: 390, height: 844 });
+	await page.addInitScript(() => {
+		const positions: number[][] = [];
+		Object.assign(window, { libraryShaderPositions: positions });
+		const getContext = HTMLCanvasElement.prototype.getContext;
+		HTMLCanvasElement.prototype.getContext = function (name: string, ...args: unknown[]) {
+			const context = getContext.apply(this, [name, ...args] as Parameters<typeof getContext>);
+			if (name !== 'webgl' || !context) return context;
+			const gl = context as WebGLRenderingContext;
+			const locations = new WeakMap<WebGLUniformLocation, string>();
+			const getUniformLocation = gl.getUniformLocation.bind(gl);
+			gl.getUniformLocation = (program, uniform) => {
+				const location = getUniformLocation(program, uniform);
+				if (location) locations.set(location, uniform);
+				return location;
+			};
+			const uniform2f = gl.uniform2f.bind(gl);
+			gl.uniform2f = (location, x, y) => {
+				if (location && ['u_fromPosition', 'u_toPosition'].includes(locations.get(location) ?? ''))
+					positions.push([x, y]);
+				uniform2f(location, x, y);
+			};
+			return context;
+		} as typeof getContext;
+	});
 	await page.goto('/reading');
-	const tabs = page.getByRole('tablist', { name: 'Reading groups' });
-	const current = tabs.getByRole('tab', { name: /^Reading now/ });
-	const collection = tabs.getByRole('tab', { name: /^Owned/ });
-	const read = tabs.getByRole('tab', { name: /^Read(?!ing)/ });
-	await expect(current).toHaveAttribute('aria-selected', 'true');
-	const shelf = page.getByRole('list', { name: 'Bookshelf' });
-	const detail = page.getByRole('region', { name: 'Selected book' });
-	await expect(shelf.getByRole('button')).toHaveCount(2);
-	await expect(detail.locator('.reading-status')).toHaveText('Reading');
-	const currentTitles = await shelf.getByRole('button').allTextContents();
-	await current.focus();
-	await page.keyboard.press('ArrowRight');
-	await expect(collection).toBeFocused();
-	await expect(collection).toHaveAttribute('aria-selected', 'true');
-	await expect(shelf.getByRole('button')).toHaveCount(6);
-	await expect(detail.locator('.reading-status')).toHaveText('To read');
-	const collectionTitles = await shelf.getByRole('button').allTextContents();
-	const search = page.getByRole('searchbox', { name: 'Find a book' });
-	await search.fill('Camus');
-	await expect(shelf.getByRole('button')).toHaveCount(4);
-	await shelf.getByRole('button').first().focus();
-	await page.keyboard.press('ArrowRight');
-	await expect(shelf.getByRole('button').nth(1)).toBeFocused();
-	await search.fill('no matching title');
-	await expect(page.getByText('No books match that search.')).toBeVisible();
-	await page.getByRole('button', { name: 'Show all books' }).click();
-	await expect(shelf.getByRole('button')).toHaveCount(6);
-	await read.click();
-	await expect(shelf.getByRole('button')).toHaveCount(4);
-	await expect(detail.locator('.reading-status')).toHaveText('Read');
-	const finishedTitles = await shelf.getByRole('button').allTextContents();
-	expect(new Set([...currentTitles, ...collectionTitles, ...finishedTitles]).size).toBe(12);
-	await page.reload();
-	await read.click();
-	expect(await shelf.getByRole('button').allTextContents()).toEqual(finishedTitles);
-	expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
-	await page.goto('/');
-	await expect(page.getByRole('list', { name: 'Bookshelf' }).getByRole('button')).toHaveCount(5);
+	const backdrop = page.locator('.library-backdrop');
+	await backdrop.locator('img').evaluate((img) => img.decode());
+	await page.getByRole('button', { name: 'The Picture of Dorian Gray Oscar Wilde' }).click();
+	await expect(backdrop.locator('canvas')).toHaveAttribute('data-active', 'true');
+	await page.getByRole('button', { name: 'Crime and Punishment Fyodor Dostoyevsky' }).click();
+	await expect(backdrop.locator('img')).toHaveAttribute('src', /nga-1238/);
+	await expect(backdrop.locator('canvas')).toHaveAttribute('data-active', 'false', {
+		timeout: 15000
+	});
+	const positions = await page.evaluate(
+		() => (window as unknown as { libraryShaderPositions: number[][] }).libraryShaderPositions
+	);
+	expect(positions.length).toBeGreaterThan(2);
+	expect(positions.every((pair) => pair.every(Number.isFinite))).toBe(true);
+	expect(positions.some(([x, y]) => x === 0.35 && y === 0.5)).toBe(true);
+	await expect(page.getByRole('complementary', { name: 'Current painting' })).toContainText(
+		'Grey and Silver: Chelsea Wharf'
+	);
+	await expect(backdrop.locator('img')).toHaveCSS('object-position', '35% 50%');
 });

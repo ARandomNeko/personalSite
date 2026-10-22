@@ -279,9 +279,12 @@ export class NoiseDissolve {
 		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, staging);
 		const position =
 			image instanceof HTMLImageElement
-				? getComputedStyle(image)
-						.objectPosition.split(' ')
-						.map((value) => parseFloat(value) / 100)
+				? (getComputedStyle(image).objectPosition || image.style.objectPosition || '50% 50%')
+						.split(' ')
+						.map((value) => {
+							const percent = parseFloat(value);
+							return Number.isFinite(percent) ? percent / 100 : 0.5;
+						})
 				: [0.5, 0.5];
 		const result: Frame = {
 			texture,

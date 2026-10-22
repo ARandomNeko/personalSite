@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount, untrack } from 'svelte';
-	import BookShelf from '$lib/components/BookShelf.svelte';
 	import { featuredBooks } from '$lib/books';
 
 	import PaintedBackdrop from '$lib/art/PaintedBackdrop.svelte';
@@ -161,7 +160,11 @@
 			<div class="sheet books-sheet">
 				<div class="window-bar"><span>Library</span><a href="/reading">Index ↗</a></div>
 				<h2 id="books-title">Library</h2>
-				<BookShelf books={featuredBooks} />
+				<ul class="featured-books" aria-label="Featured books">
+					{#each featuredBooks as book}
+						<li><span>{book.title}</span><span>{book.author}</span></li>
+					{/each}
+				</ul>
 				<a class="read-link" href="/reading">Explore the library ↗</a>
 			</div>
 		</section>
@@ -319,6 +322,23 @@
 		text-decoration-thickness: 1px;
 		text-underline-offset: 5px;
 		margin-top: 8px;
+	}
+	.featured-books {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 28px;
+		display: grid;
+		gap: 22px;
+	}
+	.featured-books li > span:first-child {
+		display: block;
+		font: 28px/1.15 var(--font-serif);
+	}
+	.featured-books li > span:last-child {
+		display: block;
+		margin-top: 5px;
+		color: #aaa99d;
+		font: 16px/1.5 var(--font-body);
 	}
 	.books-sheet {
 		padding-top: 110px;

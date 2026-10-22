@@ -37,7 +37,7 @@
 	{#if $page.url.pathname === '/'}
 		{@render children()}
 	{:else}
-		<div class="site-shell">
+		<div class="site-shell" class:library-shell={$page.url.pathname === '/reading'}>
 			<main class="html-content">{@render children()}</main>
 			<footer class="site-footer">
 				<span>Rituparan Reddy / {new Date().getFullYear()}</span><a href="/"
@@ -85,6 +85,30 @@
 		font-family: var(--font-body);
 		font-size: 18px;
 		line-height: 1.9;
+	}
+	.library-shell {
+		isolation: isolate;
+		background: transparent;
+	}
+	.library-shell .html-content {
+		width: min(1180px, calc(100% - 100px));
+		margin: 64px auto 48px;
+		padding: 16px 0;
+		background: transparent;
+		border: 0;
+		box-shadow: none;
+	}
+	@media (max-width: 1000px) {
+		.library-shell .html-content {
+			width: calc(100% - 72px);
+		}
+	}
+	@media (max-width: 760px) {
+		.library-shell .html-content {
+			width: calc(100% - 48px);
+			margin: 38px auto;
+			padding: 0;
+		}
 	}
 	.site-footer {
 		margin-top: auto;

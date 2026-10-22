@@ -1,27 +1,22 @@
 <script lang="ts">
-	import BookShelf from '$lib/components/BookShelf.svelte';
-	import { readingGroups, readingGroup, type Book, type ReadingGroup } from '$lib/books';
+	import { untrack } from 'svelte';
+	import { readingGroups, readingGroup, type Book } from '$lib/books';
+	import { bookPaintings } from '$lib/bookPaintings';
+	import { paintings } from '$lib/art/collection';
+	import LibraryBackdrop from '$lib/art/LibraryBackdrop.svelte';
 	let { data }: { data: { books: Book[] } } = $props();
-	let activeGroup = $state<ReadingGroup>('reading');
+	let selectedId = $state(
+		untrack(() => data.books.find((book) => book.status === 'reading')?.id ?? data.books[0]?.id)
+	);
 	const groups = $derived(
 		readingGroups.map((group) => ({
 			...group,
 			books: data.books.filter((book) => readingGroup(book) === group.id)
 		}))
 	);
-	function switchGroup(event: KeyboardEvent, index: number) {
-		let next: number;
-		if (event.key === 'ArrowRight') next = (index + 1) % groups.length;
-		else if (event.key === 'ArrowLeft') next = (index - 1 + groups.length) % groups.length;
-		else if (event.key === 'Home') next = 0;
-		else if (event.key === 'End') next = groups.length - 1;
-		else return;
-		event.preventDefault();
-		activeGroup = groups[next].id;
-		(event.currentTarget as HTMLButtonElement)
-			.parentElement!.querySelectorAll<HTMLButtonElement>('button')
-			[next]?.focus();
-	}
+	const painting = $derived(
+		paintings.find((painting) => painting.id === bookPaintings[selectedId]) ?? paintings[0]
+	);
 </script>
 
 <svelte:head>
@@ -32,132 +27,161 @@
 	/>
 </svelte:head>
 
+<LibraryBackdrop {painting} />
+
 <section class="library" aria-labelledby="library-title">
 	<header class="library-heading">
-		<p class="eyebrow">Literature &amp; philosophy</p>
 		<h1 id="library-title">The library.</h1>
-		<p class="introduction">What I'm reading, what's waiting, and what I've finished.</p>
 	</header>
-	<div class="reading-groups" role="tablist" aria-label="Reading groups">
-		{#each groups as group, index}
-			<button
-				role="tab"
-				id={`tab-${group.id}`}
-				aria-controls={`group-${group.id}`}
-				aria-selected={activeGroup === group.id}
-				tabindex={activeGroup === group.id ? 0 : -1}
-				onclick={() => (activeGroup = group.id)}
-				onkeydown={(event) => switchGroup(event, index)}
-			>
-				<span class="group-label">{group.label}</span><span class="group-count"
-					>{group.books.length}</span
-				>
-			</button>
+	<div class="reading-groups">
+		{#each groups as group}
+			<section aria-labelledby={`group-${group.id}`}>
+				<h2 id={`group-${group.id}`}>
+					{group.label}<span>{String(group.books.length).padStart(2, '0')}</span>
+				</h2>
+				<ul aria-label={group.label}>
+					{#each group.books as book (book.id)}
+						<li>
+							<button
+								aria-pressed={selectedId === book.id}
+								onclick={() => (selectedId = book.id)}
+								onfocus={() => (selectedId = book.id)}
+							>
+								<span class="book-title">{book.title}</span>
+								<span class="book-author">{book.author}</span>
+							</button>
+						</li>
+					{/each}
+				</ul>
+			</section>
 		{/each}
 	</div>
-	{#each groups as group}
-		<div
-			role="tabpanel"
-			id={`group-${group.id}`}
-			aria-labelledby={`tab-${group.id}`}
-			hidden={activeGroup !== group.id}
-			tabindex="0"
-		>
-			{#if activeGroup === group.id}
-				<p class="group-caption">{group.caption}</p>
-				{#if group.books.length}
-					<BookShelf books={group.books} searchable />
-				{:else}
-					<p class="empty-group">No books listed in this group yet.</p>
-				{/if}
-			{/if}
-		</div>
-	{/each}
+	<aside class="painting-credit" aria-label="Current painting" aria-live="polite">
+		<a href={painting.source} target="_blank" rel="noreferrer">{painting.name} ↗</a>
+		<p>{painting.artist}, {painting.year}</p>
+	</aside>
 </section>
 
 <style>
 	.library {
-		padding: 12px 0 18px;
+		min-height: calc(100dvh - var(--site-header-height) - 180px);
+		display: flex;
+		flex-direction: column;
 	}
 	.library-heading {
-		margin-bottom: 28px;
-	}
-	.eyebrow {
-		margin: 0 0 16px;
-		color: #aaa99d;
-		font: 10px/1.5 var(--font-mono);
+		margin-bottom: 68px;
 	}
 	h1 {
-		margin: 0 0 16px;
-		font: clamp(44px, 6vw, 66px) / 1 var(--font-serif);
-		color: #dfd9c9;
-	}
-	.introduction {
-		max-width: 45ch;
+		font: clamp(54px, 6vw, 80px) / 1 var(--font-serif);
+		letter-spacing: -1px;
 		margin: 0;
-		color: #aaa99d;
-		font: 19px/1.6 var(--font-body);
 	}
 	.reading-groups {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 58px;
+	}
+	h2 {
 		display: flex;
-		margin: 0 0 24px;
-		border-bottom: 1px solid #60655d;
-	}
-	.reading-groups button {
-		display: flex;
-		align-items: center;
-		gap: 10px;
-		flex: 1;
-		padding: 15px 8px;
-		border: 0;
-		border-bottom: 2px solid transparent;
-		color: #aaa99d;
-		background: transparent;
-		text-align: left;
-		font: 11px/1.5 var(--font-mono);
-	}
-	.reading-groups button:hover,
-	.reading-groups button[aria-selected='true'] {
-		color: #e8dec5;
-		background: #d4c3930a;
-	}
-	.reading-groups button[aria-selected='true'] {
-		border-bottom-color: #d4c393;
-	}
-	.group-count {
-		margin-left: auto;
-		color: #a9a28a;
-		font-size: 10px;
-	}
-	.group-caption {
-		margin: 0 0 20px;
-		color: #d4c393;
+		align-items: baseline;
+		gap: 14px;
+		margin: 0 0 28px;
+		color: #d4c9b0;
 		font: 10px/1.5 var(--font-mono);
 	}
-	[role='tabpanel']:focus-visible {
-		outline: 1px solid #d4c393;
-		outline-offset: 8px;
+	h2 > span {
+		color: #aaa995;
+		font-size: 8px;
 	}
-	.empty-group {
-		padding: 40px 0;
-		color: #aaa99d;
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		gap: 25px;
 	}
-	@media (max-width: 650px) {
-		.library {
-			padding: 8px 4px;
+	button {
+		display: block;
+		width: 100%;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		color: #d2cebd;
+		text-align: left;
+	}
+	.book-title {
+		display: block;
+		font: 29px/1.1 var(--font-serif);
+		text-wrap: balance;
+	}
+	.book-author {
+		display: block;
+		margin-top: 8px;
+		color: #acb09e;
+		font: 16px/1.5 var(--font-body);
+	}
+	button:hover,
+	button[aria-pressed='true'] {
+		color: #f0e4c6;
+	}
+	button:hover .book-title,
+	button[aria-pressed='true'] .book-title {
+		text-decoration: underline;
+		text-decoration-color: #bda67a99;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 6px;
+	}
+	.painting-credit {
+		margin-top: auto;
+		padding-top: 72px;
+		color: #c0bfab;
+		font: 9px/1.6 var(--font-mono);
+	}
+	.painting-credit a {
+		text-decoration: none;
+	}
+	.painting-credit a:hover {
+		text-decoration: underline;
+	}
+	.painting-credit p {
+		color: #a9af9b;
+		font-size: 8px;
+		margin: 5px 0 0;
+	}
+	@media (max-width: 1000px) {
+		.reading-groups {
+			gap: 30px;
 		}
-		.introduction {
-			font-size: 18px;
+		.book-title {
+			font-size: 26px;
 		}
-		.reading-groups button {
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 5px;
-			padding: 12px 6px;
-			font-size: 10px;
+	}
+	@media (max-width: 760px) {
+		.library-heading {
+			margin-bottom: 45px;
 		}
-		.group-count {
-			margin-left: 0;
+		h1 {
+			font-size: 58px;
+		}
+		.reading-groups {
+			grid-template-columns: 1fr;
+			gap: 45px;
+		}
+		h2 {
+			margin-bottom: 24px;
+		}
+		ul {
+			gap: 22px;
+		}
+		.book-title {
+			font-size: 30px;
+		}
+		.book-author {
+			font-size: 17px;
+			margin-top: 6px;
+		}
+		.painting-credit {
+			padding-top: 60px;
 		}
 	}
 </style>

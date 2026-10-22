@@ -38,3 +38,8 @@ Its MIT license is included in `static/fonts/ETBembo-LICENSE.txt`.
 The library separates Reading now, Owned / to read, and Read. The owner-approved
 placeholder assignments are in `provisionalReadingStatus` in `src/lib/books.ts`;
 replace that map when the final reading inventory is available.
+
+The library displays plain book titles in three reading groups over a painting.
+Selecting or focusing a title changes the backdrop using the existing quadtree
+renderer, with reduced-motion and WebGL fallbacks. Hand-picked artwork IDs live
+in `src/lib/bookPaintings.ts`; the locally hosted catalogue supplies the credits.
