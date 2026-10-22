@@ -1,38 +1,37 @@
-# sv
+# Rituparan Reddy’s personal site
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A SvelteKit journal and portfolio with painting backgrounds, dark reading cards,
+and scroll-linked pixel transitions. Posts live in `src/posts`; the homepage,
+blog, and projects use the same newest-first post list.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+```sh
+npm install
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+npm run check
+npm run test:unit -- --run
 ```
 
-## Building
+Build for Cloudflare with `npm run build`, or use the Node adapter locally:
 
-To create a production version of your app:
-
-```bash
-npm run build
+```sh
+SITE_ADAPTER=node npm run build
+npm run preview
 ```
 
-You can preview the production build with `npm run preview`.
+Run browser checks against the Node build with
+`SITE_ADAPTER=node npm run test:e2e`. Set `CHROMIUM_PATH` if Chromium is installed
+outside Playwright’s default location.
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+The approved artwork IDs live in `src/lib/art/selection.json`. The homepage
+shuffles that collection once per load; visitors cannot change it through
+cookies or browser storage. `static/` contains only public site assets.
+
+Responsive WebP paintings ship as static files through Cloudflare’s CDN, without
+an image-service subscription. Their filenames include content hashes so they
+can use a one-year immutable browser cache in `_headers`. Regenerating an
+image changes its URL. Only the current painting and its neighbor load ahead.
+
+Development studies, the former painting picker, and unused artwork are saved
+under [design/](design/README.md), outside the published routes and static files.
+The Rust/GPUI experiment is separate under [workstation/](workstation/README.md).
+Neither is included in the site build.

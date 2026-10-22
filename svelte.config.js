@@ -16,25 +16,34 @@ const mdsvexOptions = {
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', '.md'],
-	preprocess: [
-		vitePreprocess(),
-		mdsvex(mdsvexOptions)
-	],
+	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 
 	kit: {
 		// Use Node adapter for local development (better for NixOS and native dependencies)
-		adapter: process.env.NODE_ENV === 'production' ? adapterCloudflare({
-			// Cloudflare adapter for production builds
-			routes: {
-				include: ['/*'],
-				exclude: ['<all>']
-			}
-		}) : adapterNode({
-			// Node adapter for development - handles native dependencies better
-			mode: 'standalone',
-			precompress: false,
-			envPrefix: 'MY_APP_'
-		})
+		adapter:
+			process.env.NODE_ENV === 'production' && process.env.SITE_ADAPTER !== 'node'
+				? adapterCloudflare({
+						// Cloudflare adapter for production builds
+						routes: {
+							include: ['/*'],
+							// Serve image/font requests directly as CDN assets, without a Function.
+							// Directory rules keep the route list below Cloudflare's 100-rule limit.
+							exclude: [
+								'<build>',
+								'<prerendered>',
+								'/paintings/*',
+								'/fonts/*',
+								'/favicon.ico',
+								'/resume.pdf'
+							]
+						}
+					})
+				: adapterNode({
+						// Node adapter for development - handles native dependencies better
+						mode: 'standalone',
+						precompress: true,
+						envPrefix: 'MY_APP_'
+					})
 	}
 };
 

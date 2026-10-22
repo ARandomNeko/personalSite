@@ -1,0 +1,167 @@
+[
+  {
+    "slug": "rl-ppo-drone-sandbox",
+    "title": "RL/PPO Drone Simulation Sandbox",
+    "date": "2026-09-16",
+    "description": "A MuJoCo sandbox for training and evaluating drone control policies with PPO, with configurable physics for sim-to-real experiments.",
+    "tags": [
+      "project"
+    ],
+    "status": "",
+    "body": "I built a reinforcement-learning drone simulation sandbox for training and evaluating control policies with Proximal Policy Optimization (PPO). The project, Robotomy, uses MuJoCo and includes aerial quadrotors, aquatic vehicles, and ground rovers in a shared simulated world.\n\nThe focus is sim-to-real experimentation: making the conditions a controller encounters explicit and adjustable. Training is one part of that workflow. Inspecting the physics, running a baseline controller, and evaluating a saved policy are separate parts that need to work together.\n\n## A shared world with different controls\n\nThe sandbox generates a MuJoCo world from configuration. Its vehicle models include actuator response, battery behavior, and environmental effects such as wind and water currents. Each vehicle type has its own control interpretation. For a quadrotor, a neutral command corresponds to hover trim calculated from its mass and gravity; for a rover, it means no drive or yaw command.\n\nThe goal-reaching environments use a common observation layout containing goal error, position, linear velocity, and angular velocity. Their actions differ: the aerial policy controls collective thrust, roll, pitch, and yaw, while the aquatic and terrestrial policies use controls suited to their vehicle models.\n\nThis makes it possible to work on separate policies while keeping them within the same simulation framework.\n\n## Establishing a baseline\n\nThe project includes scripted controllers as well as PPO training through Stable-Baselines3. The documented workflow starts with a deterministic baseline: inspect the generated world, run the scripted controller, and examine the resulting motion before introducing learning.\n\nThat order gives debugging a useful starting point. If a vehicle cannot complete a task under the baseline controller, its physics, controls, or task configuration are available to inspect before interpreting a training result.\n\nThe interactive viewer and headless rollouts share the same simulation stepping path. A behavior can therefore be examined visually and recorded through trace output without maintaining two different versions of the environment.\n\n## Varying the conditions\n\nThe sandbox supports episode-level randomization of properties including mass, thrust, drag, motor behavior, sensor noise, wind, and initial state. Deterministic runs provide a repeatable starting point; randomized runs expose the controller to variations in those configured conditions.\n\nTraining produces saved policy files and a summary, and a separate evaluation command can load a policy for another run. These artifacts make it possible to revisit a result and compare behavior across configurations.\n\nThe project provides the environment and workflow for these experiments. Transfer to a physical drone remains a separate validation step. For now, the useful result is a sandbox where control policies, their assumptions, and the simulated conditions can be examined together."
+  },
+  {
+    "slug": "critique-of-pure-reason",
+    "title": "Critique of Pure Reason",
+    "date": "2026-02-14",
+    "description": "By Immanuel Kant",
+    "tags": [
+      "book"
+    ],
+    "status": "plan to read",
+    "body": ""
+  },
+  {
+    "slug": "dantes-inferno",
+    "title": "Inferno",
+    "date": "2026-02-14",
+    "description": "By Dante Alighieri",
+    "tags": [
+      "book"
+    ],
+    "status": "plan to read",
+    "body": ""
+  },
+  {
+    "slug": "don-quixote",
+    "title": "Don Quixote",
+    "date": "2026-02-14",
+    "description": "By Miguel de Cervantes",
+    "tags": [
+      "book"
+    ],
+    "status": "plan to read",
+    "body": ""
+  },
+  {
+    "slug": "the-brothers-karamazov",
+    "title": "The Brothers Karamazov",
+    "date": "2026-02-14",
+    "description": "By Fyodor Dostoyevsky",
+    "tags": [
+      "book"
+    ],
+    "status": "plan to read",
+    "body": ""
+  },
+  {
+    "slug": "the-plague",
+    "title": "The Plague",
+    "date": "2026-02-14",
+    "description": "By Albert Camus",
+    "tags": [
+      "book"
+    ],
+    "status": "plan to read",
+    "body": ""
+  },
+  {
+    "slug": "the-rebel",
+    "title": "The Rebel",
+    "date": "2026-02-14",
+    "description": "By Albert Camus",
+    "tags": [
+      "book"
+    ],
+    "status": "plan to read",
+    "body": ""
+  },
+  {
+    "slug": "the-sickness-unto-death",
+    "title": "The Sickness Unto Death",
+    "date": "2026-02-14",
+    "description": "By Soren Kierkegaard",
+    "tags": [
+      "book"
+    ],
+    "status": "plan to read",
+    "body": ""
+  },
+  {
+    "slug": "the-stranger",
+    "title": "The Stranger",
+    "date": "2026-02-14",
+    "description": "By Albert Camus",
+    "tags": [
+      "book"
+    ],
+    "status": "plan to read",
+    "body": ""
+  },
+  {
+    "slug": "war-and-peace",
+    "title": "War and Peace",
+    "date": "2026-02-14",
+    "description": "By Leo Tolstoy",
+    "tags": [
+      "book"
+    ],
+    "status": "plan to read",
+    "body": ""
+  },
+  {
+    "slug": "polymarket-bot",
+    "title": "Polymarket Bot",
+    "date": "2026-02-07",
+    "description": "A Rust trading-bot prototype with a polling loop, paper-trade records, and a separate market-data streamer.",
+    "tags": [
+      "project"
+    ],
+    "status": "",
+    "body": "My Polymarket bot is a Rust project built around a short holding window for BTC prediction-market positions. The code brings together an API client, a small entry-and-exit strategy, position tracking, and a paper-trading mode backed by SQLite.\n\nThe most useful way to describe it is as a prototype for the machinery around an automated strategy. A rule that says when to buy is only one piece; the program also needs to remember what it holds, decide when to close it, and leave a record of what happened.\n\n## Following a trading cycle\n\nThe main loop resolves a market, requests its current YES and NO prices, checks existing positions for exits, and then considers new entries. After a successful cycle it waits sixty seconds. If a cycle returns an error, it logs the error and waits thirty seconds before trying again.\n\nThe entry rule is deliberately small: it selects a side whose quoted price is above 0.50 and below 0.80. The code calls this a momentum strategy, but that label needs some care. The rule reads a price snapshot; it doesn't calculate a trend from a history of BTC prices.\n\nFor an open position, the exit rule checks the percentage change from the entry price and the elapsed holding time. It signals an exit when the configured target is reached or fifteen minutes have passed. Since those checks happen during polling, the time limit is evaluated at each cycle rather than enforced by a separate timer.\n\nThose are rules the program attempts to follow. A configured profit target is an input to that logic, not a measured return.\n\n## Making a run inspectable\n\nPaper mode follows the same strategy path but records simulated trades instead of submitting orders. The database stores fields such as the market, side, amount, price, and timestamp. A statistics command reads the stored history and summarizes it.\n\nThat gives the project an inspection layer: a run can leave more than terminal output behind. It also creates another part of the system to check. Recorded balances and profit calculations need to agree with the trade quantities and cash movements before the statistics can support conclusions about a strategy.\n\nThe repository also contains a separate WebSocket data-streamer executable. It has handlers for price, trade, and order-book messages. That experiment is separate from the bot's polling loop; the trading decisions in this version are not driven by the stream.\n\n## Where the prototype ends\n\nThe source includes a live-order path, but its presence alone doesn't demonstrate reliable live execution or profitable trading. The implementation still leaves questions around repeated entries, balance accounting, and the distinction between submitting an order and confirming a fill.\n\nFor example, positions are keyed by market and side. Reusing that key for another entry can replace the previous position in memory. That is a concrete reason to examine the position lifecycle before treating a limit on the map's size as a reliable exposure limit.\n\nThis project puts several concerns in the same small codebase: external data, decision rules, execution, and persistent records. The next meaningful improvement would be to make those records reconcile with the position state throughout a run, then evaluate the strategy against clearly stated simulation assumptions."
+  },
+  {
+    "slug": "hexapod-robot",
+    "title": "Hexapod Robot",
+    "date": "2025-11-02",
+    "description": "A six-legged robot combining locomotion and vision-based obstacle detection and avoidance.",
+    "tags": [
+      "project"
+    ],
+    "status": "",
+    "body": "I built a six-legged robot with vision-based navigation for autonomous obstacle detection and avoidance. The project brings together two problems: moving a physical body and using what it sees to decide where that body should go.\n\nThat combination is what makes a walking robot interesting. Detecting an obstacle in an image is useful only if the robot can turn that information into movement that clears it. A navigation decision has to account for the body and legs that will actually pass through the space.\n\n## Seeing and moving\n\nAt a high level, the task forms a repeated loop: observe the surroundings, identify an obstruction, choose a movement, and observe again. The last step matters because the camera's view changes as the robot moves. A decision based on one view cannot describe the environment indefinitely.\n\nThere are two different ways to judge that loop. Perception asks whether an obstacle was detected. Navigation asks whether the resulting motion avoided it. A robot can succeed at the first and still fail at the second—for example, if it detects something ahead but turns without enough clearance for its legs.\n\nThe six-legged body adds coordination to that problem. Moving individual joints is only part of locomotion; the movements have to work together to carry the body through a step. The useful unit of behavior is the robot's movement as a whole.\n\n## What avoidance demonstrates\n\nObstacle avoidance is a specific task with an observable outcome: the robot encounters an obstruction and changes its motion to avoid it. Broader claims about navigation would need broader evidence, such as repeated trials in different environments or a demonstrated ability to reach a destination.\n\nFor this project, the focus is the connection between vision and physical action. It is a compact example of why robotics spans software and hardware so closely. The software's decision becomes meaningful when the machine can carry it out in the space around it."
+  },
+  {
+    "slug": "web-development",
+    "title": "Web Development",
+    "date": "2024-08-20",
+    "description": "Inside this site: Markdown posts, SvelteKit routes, a monochrome interface, and a Three.js background.",
+    "tags": [
+      "project"
+    ],
+    "status": "",
+    "body": "This website is one of my web-development projects, and a useful example because you can look around the result while reading about it. It brings together a portfolio, a blog, a reading list, and a résumé. Underneath those pages is a fairly small SvelteKit application with Markdown files for content.\n\nThe interesting part is how much those pages share. A project is also a blog post. A book can appear in the reading list before it has a reading note. The homepage pulls recent entries from the same collection. Those relationships shape the code more than any individual page does.\n\n## One collection, several views\n\nPosts live in `src/posts` as Markdown files. Each file starts with frontmatter: a title, date, description, tags, and a publication flag. Book entries also have a reading status. The filename supplies the URL slug, so `cloud-chamber.md` becomes `/blog/cloud-chamber`.\n\nThe content loader discovers those files with Vite's `import.meta.glob`. It checks for the required metadata, filters out unpublished entries, and sorts the rest by date. From there, each page asks for a different view of the collection:\n\n- The blog lists published entries, excluding books marked “plan to read.”\n- The projects page selects entries tagged `project`.\n- The reading page selects entries tagged `book`.\n- The homepage shows the three most recent entries eligible for the blog.\n\nThat means adding a project doesn't require maintaining a separate project database and blog index. Its tag makes it appear in the right place, while the article itself has one URL.\n\nThere is a small but useful distinction in the data model: a full post includes its rendered component, while a list preview only needs metadata and a slug. Cards need a title, description, and link; the article route needs the body. Keeping those responsibilities separate also keeps component functions out of server responses that must be serialized.\n\n## Writing and rendering\n\nThe site uses mdsvex to compile Markdown into Svelte components. A shared article layout handles the title, date, tags, and reading width. The article route adds metadata such as the page description and Open Graph title.\n\nFor a site this size, files fit the workflow well. Content and layout changes can travel in the same Git commit, and a post is readable without opening a CMS. The tradeoff is that publishing involves the repository and a build. That is convenient for my own site, though it would be a different choice for a team of editors who don't work in code.\n\n## The visual side\n\nThe interface uses a monospace typeface, a monochrome palette, thin borders, and a spacing grid. CSS variables carry the light and dark themes through cards, text, and navigation. The theme toggle saves a preference locally, with the system preference as the initial fallback.\n\nBehind the pages is a Three.js scene containing animated spheres. A custom shader uses a 4-by-4 dithering pattern to turn changes in brightness into a visible pixel-like texture. It gives the background a different character from smoothly shaded 3D objects while using the same restrained palette as the rest of the site.\n\nThe page layouts change with available space. The homepage and résumé use columns on wider screens and stack their content on smaller ones. Navigation can wrap, card text can break, and articles have a capped line length. Those details matter once real titles and paragraphs replace short placeholders.\n\n## A site that can keep growing\n\nThe project is still small enough that its structure is easy to follow: files hold the writing, a loader organizes it, and Svelte components present it. That leaves room for the content to grow without requiring a separate publishing system first.\n\nYou can browse the [projects](/projects), see the [reading list](/reading), or explore the [site's source on GitHub](https://github.com/ARandomNeko/personalSite)."
+  },
+  {
+    "slug": "cloud-chamber",
+    "title": "Cloud Chamber",
+    "date": "2023-03-10",
+    "description": "Building a particle detector that makes the paths of ionizing particles visible as condensation trails.",
+    "tags": [
+      "project"
+    ],
+    "status": "",
+    "body": "I built a cloud chamber to make particle tracks visible. It is a striking kind of instrument: a particle too small to see can leave a trail large enough to observe with your eyes.\n\nThe project connects an abstract idea from physics to a physical object. Radiation becomes something with a visible trace, rather than only a number reported by an electronic detector.\n\n## What makes a track\n\nIn an alcohol cloud chamber, the working region contains supersaturated vapor. A charged particle passing through can ionize the gas along its path. The resulting ions provide sites where vapor condenses into tiny droplets, producing a visible trail. The droplets are what we see; the particle itself remains invisible. [Harvard's cloud-chamber demonstration](https://sciencedemonstrations.fas.harvard.edu/presentations/cloud-chamber) explains this mechanism.\n\nThat distinction is part of the appeal. The detector translates an interaction at one scale into evidence at another. It creates conditions in which a passing particle can leave a temporary record.\n\n## Making the evidence visible\n\nThe conditions inside the chamber and the way it is lit both matter. A track has to form, but it also has to stand out against its surroundings. The [cloud-chamber experiments at ICTS](https://www.icts.res.in/lab/cloudchamber) describe how suitable illumination in a dim room improves visibility.\n\nThis makes the chamber an optical experiment as well as a particle detector. Looking into a container is only the final step; the apparatus first needs to produce a visible response to an otherwise invisible event.\n\n## Observation and interpretation\n\nA visible track gives the experiment something to investigate. Its shape, length, and width invite further questions about the particle and its interaction with the vapor. Recording those observations would make a useful extension of the build: a way to compare events after their trails have disappeared.\n\nThe achievement here is the instrument itself: a cloud chamber capable of turning particle passages into observable tracks. It is a satisfying meeting point between building something and using it to investigate the physical world."
+  },
+  {
+    "slug": "ergonomic-keyboard",
+    "title": "Ergonomic Keyboard",
+    "date": "2022-06-15",
+    "description": "A custom keyboard project exploring the relationship between a physical layout and the hands using it.",
+    "tags": [
+      "project"
+    ],
+    "status": "",
+    "body": "I designed and assembled a custom ergonomic keyboard. It is a small hardware project with an unusually close connection to everyday software work: the finished object sits between a person and almost everything they type.\n\nA keyboard's layout is easy to take for granted. Building one makes that layout a set of choices again. Where should the keys sit? Which actions deserve the easiest positions to reach? How much of a familiar arrangement is worth keeping?\n\n## A layout is an interface\n\nThe physical arrangement and the logical mapping solve related problems. The arrangement determines where a finger needs to move; the mapping determines which action lives at that position. A compact arrangement can reduce the number of physical keys while asking the user to remember more combinations. A familiar arrangement can be easier to pick up while leaving less room to rethink those movements.\n\nThose tradeoffs are the interesting part of a custom keyboard. There isn't a single layout that follows automatically from the word “ergonomic.” The design has to be considered in relation to its user and the tasks they repeat.\n\n## From a design to an object\n\nAssembly gives a keyboard design a physical test. A drawing can show spacing and shape, but the assembled object is what someone actually types on. The useful questions become concrete: can a key be reached comfortably, is its action easy to remember, and does the arrangement make sense during an ordinary stretch of work?\n\nThis project sits alongside my software work as another kind of interface design. Instead of only choosing what appears on a screen, it means choosing the object used to interact with that screen. The result was a custom keyboard I had taken through both design and assembly."
+  }
+]

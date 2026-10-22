@@ -1,195 +1,123 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import '../app.css';
-	import DitheredSpheres from '$lib/background/DitheredSpheres.svelte';
 
 	let { children } = $props();
-	let isDarkMode = $state(true);
-	let isMobile = $state(browser ? window.innerWidth < 768 : false);
-	let mainElement: HTMLElement;
-	let scrollProgress = $state(0);
-	let mousePosition = $state({ x: 0, y: 0 });
-
-	function toggleTheme() {
-		isDarkMode = !isDarkMode;
-		const body = document.body;
-		if (isDarkMode) {
-			body.classList.remove('light-mode');
-			localStorage.setItem('theme', 'dark');
-		} else {
-			body.classList.add('light-mode');
-			localStorage.setItem('theme', 'light');
-		}
-	}
-
-	function setTheme() {
-		const savedTheme = localStorage.getItem('theme');
-		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-		const body = document.body;
-
-		if (savedTheme === 'light') {
-			body.classList.add('light-mode');
-			isDarkMode = false;
-		} else if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-			body.classList.remove('light-mode');
-			isDarkMode = true;
-		} else {
-			body.classList.add('light-mode');
-			isDarkMode = false;
-		}
-	}
-
-	function handleScroll() {
-		if (!mainElement) return;
-		const { scrollTop, scrollHeight, clientHeight } = mainElement;
-		const maxScroll = scrollHeight - clientHeight;
-		scrollProgress = maxScroll > 0 ? scrollTop / maxScroll : 0;
-	}
-
-	function handleMouseMove(e: MouseEvent) {
-		// Normalize to -1 to 1 range
-		mousePosition = {
-			x: (e.clientX / window.innerWidth) * 2 - 1,
-			y: (e.clientY / window.innerHeight) * 2 - 1
-		};
-	}
-
-	onMount(() => {
-		setTheme();
-		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-			if (!localStorage.getItem('theme')) {
-				isDarkMode = e.matches;
-				if (e.matches) {
-					document.body.classList.remove('light-mode');
-				} else {
-					document.body.classList.add('light-mode');
-				}
-			}
-		});
-
-		const handleResize = () => {
-			isMobile = window.innerWidth < 768;
-		};
-
-		window.addEventListener('resize', handleResize);
-		window.addEventListener('mousemove', handleMouseMove);
-
-		return () => {
-			window.removeEventListener('resize', handleResize);
-			window.removeEventListener('mousemove', handleMouseMove);
-		};
-	});
+	const sections = [
+		{ href: '/projects', label: 'Work' },
+		{ href: '/reading', label: 'Library' },
+		{ href: '/blog', label: 'Journal' },
+		{ href: '/resume', label: 'Résumé' }
+	];
 </script>
 
 <svelte:head>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta
 		name="description"
-		content="Rituparan Reddy (Gurrala) – developer, writer, and tinkerer. Blog, projects, reading notes, robotics, distributed systems, Svelte, TypeScript."
-	/>
-	<meta
-		name="keywords"
-		content="ritu, rituparan, ritu reddy, rituparan reddy, rituparan gurrala, rituparan reddy gurrala, ritu gurrala, blog, projects, reading, robotics, programming, svelte, typescript"
+		content="Rituparan Reddy’s personal collection of code, robotics, literature, and writing."
 	/>
 	<meta name="author" content="Rituparan Reddy" />
-
 	<meta property="og:site_name" content="Rituparan Reddy" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Rituparan Reddy" />
 	<meta
 		property="og:description"
-		content="Developer, writer, and tinkerer. Blog, projects, reading notes, robotics."
+		content="Developer, builder, and reader. Projects, reading notes, and writing."
 	/>
 	<meta property="og:url" content={$page.url.origin + $page.url.pathname} />
-
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content="Rituparan Reddy" />
-	<meta
-		name="twitter:description"
-		content="Developer, writer, and tinkerer. Blog, projects, reading notes, robotics."
-	/>
-
 	<link rel="canonical" href={$page.url.origin + $page.url.pathname} />
-
-	<script type="application/ld+json">
-		{JSON.stringify({
-			'@context': 'https://schema.org',
-			'@type': 'Person',
-			name: 'Rituparan Reddy',
-			alternateName: ['Ritu', 'Ritu Reddy', 'Rituparan', 'Rituparan Gurrala', 'Rituparan Reddy Gurrala'],
-			url: $page.url.origin,
-			jobTitle: 'Developer',
-			description: 'Developer, writer, and tinkerer working on code, robotics, and systems.',
-			sameAs: []
-		})}
-	</script>
-	<script type="application/ld+json">
-		{JSON.stringify({
-			'@context': 'https://schema.org',
-			'@type': 'WebSite',
-			name: 'Rituparan Reddy',
-			url: $page.url.origin
-		})}
-	</script>
 </svelte:head>
 
-<div class="relative flex h-dvh flex-col overflow-hidden">
-	<DitheredSpheres {isMobile} {scrollProgress} {mousePosition} />
-
-	<header class="box-border border-b border-[--ui-3] px-3 py-2 sm:px-4">
-		<nav class="flex w-full flex-col gap-2 text-sm sm:flex-row sm:items-center sm:justify-between">
-			<a href="/" class="text-base font-bold hover:text-[--cy] sm:text-lg">Rituparan Reddy</a>
-			<div
-				class="flex w-full flex-wrap items-center gap-x-[calc(var(--grid)*1.5)] gap-y-[calc(var(--grid)/2)] sm:w-auto sm:justify-end"
-			>
-				<a href="/blog" class="hover:text-[--cy]">Blog</a>
-				<a href="/reading" class="hover:text-[--cy]">Reading</a>
-				<a href="/projects" class="hover:text-[--cy]">Projects</a>
-				<a href="/resume" class="hover:text-[--cy]">Resume</a>
-				<button
-					type="button"
-					class="theme-toggle"
-					onclick={toggleTheme}
-					aria-label="Toggle theme"
-					aria-pressed={!isDarkMode}
-				>
-					<span class="slider" class:checked={!isDarkMode}></span>
-					<span class="sr-only">{isDarkMode ? 'Dark mode' : 'Light mode'}</span>
-				</button>
-			</div>
-		</nav>
-	</header>
-
-	<main
-		bind:this={mainElement}
-		onscroll={handleScroll}
-		class="relative z-0 flex-1 overflow-y-auto overflow-x-hidden px-3 py-[12px] sm:px-4"
-		style="scroll-padding: var(--grid);"
-	>
-		{@render children()}
-	</main>
-
-	<footer
-		class="box-border flex min-h-[48px] items-center justify-center border-t border-[--ui-3] px-3 py-2 text-center text-xs text-[--tx-2] sm:px-4"
-	>
-		<div class="w-full">
-			<p>© {new Date().getFullYear()} Rituparan Reddy</p>
-		</div>
-	</footer>
-</div>
+{#if $page.url.pathname === '/'}
+	{@render children()}
+{:else}
+	<div class="site-shell">
+		<header class="site-header">
+			<a class="wordmark" href="/" aria-label="Rituparan Reddy’s journal">Rituparan Reddy</a>
+			<nav aria-label="Main navigation">
+				{#each sections as section}
+					<a
+						href={section.href}
+						aria-current={$page.url.pathname.startsWith(section.href) ? 'page' : undefined}
+						>{section.label}</a
+					>
+				{/each}
+			</nav>
+		</header>
+		<main class="html-content">{@render children()}</main>
+		<footer class="site-footer">
+			<span>Rituparan Reddy / {new Date().getFullYear()}</span><a href="/">Return to the journal</a>
+		</footer>
+	</div>
+{/if}
 
 <style>
-	.sr-only {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		border: 0;
+	:global(body:has(.site-shell)) {
+		overflow: auto;
+	}
+	.site-shell {
+		--bg: #202225;
+		--tx: #dfd9c9;
+		--tx-1: #dfd9c9;
+		--tx-2: #aaa99d;
+		--ui: #303435;
+		--ui-3: #60655d;
+		--border: #60655d;
+		--cy: #d4c393;
+		--re: #dfd9c9;
+		--tag-bg: #303435;
+		--tag-tx: #d4c393;
+		min-height: 100dvh;
+		height: auto;
+		color: var(--tx);
+		background:
+			linear-gradient(#141a1f44, #141a1f44),
+			url('/paintings/turner-moonlight.jpg') center/cover fixed;
+	}
+	.site-header {
+		min-height: 55px;
+		padding: 10px 30px;
+		background: #202225;
+		border-bottom: 1px solid #77786d;
+	}
+	.wordmark {
+		font-size: 22px;
+	}
+	.site-header nav {
+		font-size: 11px;
+	}
+	.html-content {
+		flex: initial;
+		overflow: visible;
+		width: min(850px, calc(100% - 40px));
+		margin: 70px auto;
+		padding: 35px;
+		background: #202225;
+		border: 1px solid #878779;
+		box-shadow: 7px 7px #11161980;
+	}
+	.html-content :global(.prose) {
+		font-family: Georgia, serif;
+		font-size: 18px;
+		line-height: 1.9;
+	}
+	.site-footer {
+		margin-top: auto;
+		background: #202225;
+	}
+	@media (max-width: 640px) {
+		.site-header {
+			padding: 15px 20px;
+		}
+		.html-content {
+			margin: 35px auto;
+			padding: 23px 12px;
+			width: calc(100% - 30px);
+		}
+		.html-content :global(.prose) {
+			font-size: 16px;
+		}
 	}
 </style>

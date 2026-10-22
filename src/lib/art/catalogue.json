@@ -1,0 +1,996 @@
+[
+	{
+		"id": "nga-52452",
+		"name": "The Voyage of Life: Manhood",
+		"artist": "Thomas Cole",
+		"year": "1842",
+		"style": "Hudson River School",
+		"category": "Myth & spirit",
+		"medium": "oil on canvas",
+		"source": "https://www.nga.gov/artworks/52452",
+		"original": "https://api.nga.gov/iiif/242acea8-e32b-4119-bd4c-2d8d87675f4b/full/full/0/default.jpg",
+		"sourceWidth": 5272,
+		"sourceHeight": 3468,
+		"position": "35% 50%",
+		"museum": "National Gallery of Art",
+		"width": 4096,
+		"height": 2694,
+		"thumb": "/paintings/catalogue/nga-52452-480-e00bfe593b86.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/nga-52452-480-e00bfe593b86.webp",
+				"bytes": 13384
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/nga-52452-1600-a14cab4ccbd2.webp",
+				"bytes": 258736
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/nga-52452-3200-56075b143c8b.webp",
+				"bytes": 1230182
+			},
+			{
+				"width": 4096,
+				"src": "/paintings/catalogue/nga-52452-4096-7d515bcc182c.webp",
+				"bytes": 2245088
+			}
+		]
+	},
+	{
+		"id": "nga-50299",
+		"name": "El Rio de Luz (The River of Light)",
+		"artist": "Frederic Edwin Church",
+		"year": "1877",
+		"style": "Hudson River School",
+		"category": "Sea & sky",
+		"medium": "oil on canvas",
+		"source": "https://www.nga.gov/artworks/50299",
+		"original": "https://api.nga.gov/iiif/9d96691b-10b2-44c9-8670-a642e0cd9ce2/full/full/0/default.jpg",
+		"sourceWidth": 36733,
+		"sourceHeight": 23743,
+		"position": "35% 50%",
+		"museum": "National Gallery of Art",
+		"width": 4096,
+		"height": 2648,
+		"thumb": "/paintings/catalogue/nga-50299-480-a643854a89c0.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/nga-50299-480-a643854a89c0.webp",
+				"bytes": 16832
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/nga-50299-1600-a55d73bc07b8.webp",
+				"bytes": 346508
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/nga-50299-3200-9da33fba9b11.webp",
+				"bytes": 1465724
+			},
+			{
+				"width": 4096,
+				"src": "/paintings/catalogue/nga-50299-4096-983c9ae32d62.webp",
+				"bytes": 2632742
+			}
+		]
+	},
+	{
+		"id": "nga-166436",
+		"name": "Niagara",
+		"artist": "Frederic Edwin Church",
+		"year": "1857",
+		"style": "Hudson River School",
+		"category": "Sea & sky",
+		"medium": "oil on canvas",
+		"source": "https://www.nga.gov/artworks/166436",
+		"original": "https://api.nga.gov/iiif/4d6a4fa1-db74-4586-a753-9951bc5945a3/full/full/0/default.jpg",
+		"sourceWidth": 27911,
+		"sourceHeight": 12955,
+		"position": "35% 50%",
+		"museum": "National Gallery of Art",
+		"width": 4096,
+		"height": 1901,
+		"thumb": "/paintings/catalogue/nga-166436-480-d0b629ecfb13.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/nga-166436-480-d0b629ecfb13.webp",
+				"bytes": 12314
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/nga-166436-1600-a19258a8f363.webp",
+				"bytes": 216436
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/nga-166436-3200-e6393aa5b5c5.webp",
+				"bytes": 907486
+			},
+			{
+				"width": 4096,
+				"src": "/paintings/catalogue/nga-166436-4096-6372d7bb0efa.webp",
+				"bytes": 1719540
+			}
+		]
+	},
+	{
+		"id": "nga-71503",
+		"name": "Lake Lucerne",
+		"artist": "Albert Bierstadt",
+		"year": "1858",
+		"style": "Hudson River School",
+		"category": "Sea & sky",
+		"medium": "oil on canvas",
+		"source": "https://www.nga.gov/artworks/71503",
+		"original": "https://api.nga.gov/iiif/5f1692b3-d8ed-4a65-a4f5-281387550c8d/full/full/0/default.jpg",
+		"sourceWidth": 7153,
+		"sourceHeight": 4272,
+		"position": "35% 50%",
+		"museum": "National Gallery of Art",
+		"width": 4096,
+		"height": 2446,
+		"thumb": "/paintings/catalogue/nga-71503-480-5159269d53e1.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/nga-71503-480-5159269d53e1.webp",
+				"bytes": 13500
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/nga-71503-1600-96404b0f4c3e.webp",
+				"bytes": 206200
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/nga-71503-3200-bcfcb72df027.webp",
+				"bytes": 919386
+			},
+			{
+				"width": 4096,
+				"src": "/paintings/catalogue/nga-71503-4096-e7c5162faf07.webp",
+				"bytes": 1756906
+			}
+		]
+	},
+	{
+		"id": "nga-32624",
+		"name": "Siegfried and the Rhine Maidens",
+		"artist": "Albert Pinkham Ryder",
+		"year": "1888/1891",
+		"style": "Symbolism",
+		"category": "Myth & spirit",
+		"medium": "oil on canvas",
+		"source": "https://www.nga.gov/artworks/32624",
+		"original": "https://api.nga.gov/iiif/1d5813d5-1e83-4f97-867c-62dc8629cf7f/full/full/0/default.jpg",
+		"sourceWidth": 12653,
+		"sourceHeight": 12311,
+		"position": "35% 50%",
+		"museum": "National Gallery of Art",
+		"width": 4096,
+		"height": 3985,
+		"thumb": "/paintings/catalogue/nga-32624-480-e71188717535.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/nga-32624-480-e71188717535.webp",
+				"bytes": 29588
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/nga-32624-1600-3173a1e1f58e.webp",
+				"bytes": 580592
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/nga-32624-3200-09c8ff4acae2.webp",
+				"bytes": 2365648
+			},
+			{
+				"width": 4096,
+				"src": "/paintings/catalogue/nga-32624-4096-247f4fc62055.webp",
+				"bytes": 4158782
+			}
+		]
+	},
+	{
+		"id": "nga-46523",
+		"name": "The Houses of Parliament, Sunset",
+		"artist": "Claude Monet",
+		"year": "1903",
+		"style": "Impressionism",
+		"category": "Night & atmosphere",
+		"medium": "oil on canvas",
+		"source": "https://www.nga.gov/artworks/46523",
+		"original": "https://api.nga.gov/iiif/9eae6258-ec1c-442f-b353-a89cff510113/full/full/0/default.jpg",
+		"sourceWidth": 17031,
+		"sourceHeight": 15043,
+		"position": "35% 50%",
+		"museum": "National Gallery of Art",
+		"width": 4096,
+		"height": 3618,
+		"thumb": "/paintings/catalogue/nga-46523-480-905b9413cfee.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/nga-46523-480-905b9413cfee.webp",
+				"bytes": 24624
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/nga-46523-1600-43263040e9ef.webp",
+				"bytes": 582058
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/nga-46523-3200-286c3460e7fc.webp",
+				"bytes": 2920134
+			},
+			{
+				"width": 4096,
+				"src": "/paintings/catalogue/nga-46523-4096-5c5ca8b6c360.webp",
+				"bytes": 5527118
+			}
+		]
+	},
+	{
+		"id": "nga-66425",
+		"name": "Cliffs at Pourville",
+		"artist": "Claude Monet",
+		"year": "1882",
+		"style": "Impressionism",
+		"category": "Sea & sky",
+		"medium": "oil on canvas",
+		"source": "https://www.nga.gov/artworks/66425",
+		"original": "https://api.nga.gov/iiif/31a2c319-1d47-4119-82c1-dbe8f9ed2e58/full/full/0/default.jpg",
+		"sourceWidth": 20692,
+		"sourceHeight": 12341,
+		"position": "35% 50%",
+		"museum": "National Gallery of Art",
+		"width": 4096,
+		"height": 2443,
+		"thumb": "/paintings/catalogue/nga-66425-480-4e9056ad3115.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/nga-66425-480-4e9056ad3115.webp",
+				"bytes": 12562
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/nga-66425-1600-f84f0fb03b59.webp",
+				"bytes": 302196
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/nga-66425-3200-4b6a52262aa4.webp",
+				"bytes": 1505614
+			},
+			{
+				"width": 4096,
+				"src": "/paintings/catalogue/nga-66425-4096-a68272e6f01f.webp",
+				"bytes": 2792750
+			}
+		]
+	},
+	{
+		"id": "nga-61379",
+		"name": "Woman with a Parasol - Madame Monet and Her Son",
+		"artist": "Claude Monet",
+		"year": "1875",
+		"style": "Impressionism",
+		"category": "People & interiors",
+		"medium": "oil on canvas",
+		"source": "https://www.nga.gov/artworks/61379",
+		"original": "https://api.nga.gov/iiif/99758d9d-c10b-4d02-a198-7e49afb1f3a6/full/full/0/default.jpg",
+		"sourceWidth": 12666,
+		"sourceHeight": 15698,
+		"position": "35% 50%",
+		"museum": "National Gallery of Art",
+		"width": 3305,
+		"height": 4096,
+		"thumb": "/paintings/catalogue/nga-61379-480-1977a5600d10.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/nga-61379-480-1977a5600d10.webp",
+				"bytes": 66976
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/nga-61379-1600-51d088683f7e.webp",
+				"bytes": 968872
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/nga-61379-3200-a7caec6ec400.webp",
+				"bytes": 4379478
+			},
+			{
+				"width": 3305,
+				"src": "/paintings/catalogue/nga-61379-3305-524803ba8006.webp",
+				"bytes": 5646930
+			}
+		]
+	},
+	{
+		"id": "nga-178273",
+		"name": "Harvest Moon",
+		"artist": "George Inness",
+		"year": "1891",
+		"style": "Tonalism",
+		"category": "Night & atmosphere",
+		"medium": "oil on canvas",
+		"source": "https://www.nga.gov/artworks/178273",
+		"original": "https://api.nga.gov/iiif/2e5a816f-77e1-4ea1-9774-ddd3b90496ba/full/full/0/default.jpg",
+		"sourceWidth": 25309,
+		"sourceHeight": 16934,
+		"position": "35% 50%",
+		"museum": "National Gallery of Art",
+		"width": 4096,
+		"height": 2741,
+		"thumb": "/paintings/catalogue/nga-178273-480-f41f2d2b83d9.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/nga-178273-480-f41f2d2b83d9.webp",
+				"bytes": 8560
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/nga-178273-1600-0ec35ea690f0.webp",
+				"bytes": 281278
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/nga-178273-3200-97d857fbb389.webp",
+				"bytes": 1384336
+			},
+			{
+				"width": 4096,
+				"src": "/paintings/catalogue/nga-178273-4096-ad418f94109c.webp",
+				"bytes": 2576254
+			}
+		]
+	},
+	{
+		"id": "nga-1238",
+		"name": "Grey and Silver: Chelsea Wharf",
+		"artist": "James McNeill Whistler",
+		"year": "c. 1864/1868",
+		"style": "Tonalism / Aestheticism",
+		"category": "Night & atmosphere",
+		"medium": "oil on canvas",
+		"source": "https://www.nga.gov/artworks/1238",
+		"original": "https://api.nga.gov/iiif/c1c74893-90dd-4f36-8201-36db7f2cf241/full/full/0/default.jpg",
+		"sourceWidth": 10762,
+		"sourceHeight": 14430,
+		"position": "35% 50%",
+		"museum": "National Gallery of Art",
+		"width": 3055,
+		"height": 4096,
+		"thumb": "/paintings/catalogue/nga-1238-480-ec060d4ba68d.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/nga-1238-480-ec060d4ba68d.webp",
+				"bytes": 36210
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/nga-1238-1600-e9ef22e03090.webp",
+				"bytes": 1139042
+			},
+			{
+				"width": 3055,
+				"src": "/paintings/catalogue/nga-1238-3055-95327dde124c.webp",
+				"bytes": 4266514
+			}
+		]
+	},
+	{
+		"id": "nga-111194",
+		"name": "The Shipwreck",
+		"artist": "Claude-Joseph Vernet",
+		"year": "1772",
+		"style": "Romantic landscape",
+		"category": "Sea & sky",
+		"medium": "oil on canvas",
+		"source": "https://www.nga.gov/artworks/111194",
+		"original": "https://api.nga.gov/iiif/e5783ee7-1f28-4a83-95ad-e7907a34202e/full/full/0/default.jpg",
+		"sourceWidth": 15463,
+		"sourceHeight": 10739,
+		"position": "35% 50%",
+		"museum": "National Gallery of Art",
+		"width": 4096,
+		"height": 2845,
+		"thumb": "/paintings/catalogue/nga-111194-480-24cf97519a9a.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/nga-111194-480-24cf97519a9a.webp",
+				"bytes": 14940
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/nga-111194-1600-2de23c8a10ef.webp",
+				"bytes": 249050
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/nga-111194-3200-4f6d4c965faa.webp",
+				"bytes": 1217492
+			},
+			{
+				"width": 4096,
+				"src": "/paintings/catalogue/nga-111194-4096-ecfa0fb75637.webp",
+				"bytes": 2373118
+			}
+		]
+	},
+	{
+		"id": "nga-163323",
+		"name": "Green Wheat Fields, Auvers",
+		"artist": "Vincent van Gogh",
+		"year": "1890",
+		"style": "Post-Impressionism",
+		"category": "Gardens & fields",
+		"medium": "oil on canvas",
+		"source": "https://www.nga.gov/artworks/163323",
+		"original": "https://api.nga.gov/iiif/b479275a-4f8a-4702-83c2-9dcc4cbe60ce/full/full/0/default.jpg",
+		"sourceWidth": 16266,
+		"sourceHeight": 12766,
+		"position": "35% 50%",
+		"museum": "National Gallery of Art",
+		"width": 4096,
+		"height": 3215,
+		"thumb": "/paintings/catalogue/nga-163323-480-cb2004cf9ad0.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/nga-163323-480-cb2004cf9ad0.webp",
+				"bytes": 40496
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/nga-163323-1600-55734045050b.webp",
+				"bytes": 777150
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/nga-163323-3200-7fc29fbbef31.webp",
+				"bytes": 3032236
+			},
+			{
+				"width": 4096,
+				"src": "/paintings/catalogue/nga-163323-4096-03a9ebd3db4a.webp",
+				"bytes": 5338698
+			}
+		]
+	},
+	{
+		"id": "nga-72328",
+		"name": "Roses",
+		"artist": "Vincent van Gogh",
+		"year": "1890",
+		"style": "Post-Impressionism",
+		"category": "Gardens & fields",
+		"medium": "oil on canvas",
+		"source": "https://www.nga.gov/artworks/72328",
+		"original": "https://api.nga.gov/iiif/bef8c58d-15ae-4649-b2ff-ae0ead24714e/full/full/0/default.jpg",
+		"sourceWidth": 29148,
+		"sourceHeight": 23164,
+		"position": "35% 50%",
+		"museum": "National Gallery of Art",
+		"width": 4096,
+		"height": 3255,
+		"thumb": "/paintings/catalogue/nga-72328-480-f060cdfe7739.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/nga-72328-480-f060cdfe7739.webp",
+				"bytes": 43742
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/nga-72328-1600-42e928ddbceb.webp",
+				"bytes": 825702
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/nga-72328-3200-c65f52776245.webp",
+				"bytes": 3288172
+			},
+			{
+				"width": 4096,
+				"src": "/paintings/catalogue/nga-72328-4096-df0cf6d8ef69.webp",
+				"bytes": 5651284
+			}
+		]
+	},
+	{
+		"id": "martin-wrath",
+		"name": "The Great Day of His Wrath",
+		"artist": "John Martin",
+		"year": "1851\u201353",
+		"style": "Romanticism",
+		"category": "Myth & spirit",
+		"medium": "Oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:John_Martin_-_The_Great_Day_of_His_Wrath_-_Google_Art_Project.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/5/50/John_Martin_-_The_Great_Day_of_His_Wrath_-_Google_Art_Project.jpg",
+		"position": "36% 50%",
+		"museum": "Tate / Wikimedia Commons",
+		"sourceWidth": 3136,
+		"sourceHeight": 2023,
+		"width": 3136,
+		"height": 2023,
+		"thumb": "/paintings/catalogue/martin-wrath-480-aa8241c1778c.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/martin-wrath-480-aa8241c1778c.webp",
+				"bytes": 26768
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/martin-wrath-1600-33da364c4fab.webp",
+				"bytes": 385654
+			},
+			{
+				"width": 3136,
+				"src": "/paintings/catalogue/martin-wrath-3136-0b59599bd51e.webp",
+				"bytes": 941780
+			}
+		]
+	},
+	{
+		"id": "monet-sunset",
+		"name": "The Cliff, \u00c9tretat, Sunset",
+		"artist": "Claude Monet",
+		"year": "1882\u201383",
+		"style": "Impressionism",
+		"category": "Sea & sky",
+		"medium": "Oil on canvas",
+		"source": "https://learn.ncartmuseum.org/artwork/the-cliff-etretat-sunset/",
+		"original": "https://learn.ncartmuseum.org/wp-content/uploads/2026/04/Monet-The-Cliff-Etretat-Sunset-67_24_1-HB.jpg",
+		"position": "35% 50%",
+		"museum": "North Carolina Museum of Art",
+		"sourceWidth": 2188,
+		"sourceHeight": 1637,
+		"width": 2188,
+		"height": 1637,
+		"thumb": "/paintings/catalogue/monet-sunset-480-6265deeb1c3c.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/monet-sunset-480-6265deeb1c3c.webp",
+				"bytes": 30682
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/monet-sunset-1600-d9c47480050e.webp",
+				"bytes": 732072
+			},
+			{
+				"width": 2188,
+				"src": "/paintings/catalogue/monet-sunset-2188-adc076125661.webp",
+				"bytes": 1592272
+			}
+		]
+	},
+	{
+		"id": "vasnetsov-crossroads",
+		"name": "Knight at the Crossroads",
+		"artist": "Viktor Vasnetsov",
+		"year": "1882",
+		"style": "Romantic nationalism",
+		"medium": "Oil on canvas",
+		"category": "Knights & legends",
+		"source": "https://commons.wikimedia.org/wiki/File:Victor_Vasnetsov_-_Knight_at_the_Crossroads_-_Google_Art_Project.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/1/12/Victor_Vasnetsov_-_Knight_at_the_Crossroads_-_Google_Art_Project.jpg",
+		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"position": "50% 50%",
+		"sourceWidth": 5527,
+		"sourceHeight": 3065,
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"width": 5527,
+		"height": 3065,
+		"thumb": "/paintings/catalogue/vasnetsov-crossroads-480-f129b8e67686.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/vasnetsov-crossroads-480-f129b8e67686.webp",
+				"bytes": 20920
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/vasnetsov-crossroads-1600-1bc8ccde4a0d.webp",
+				"bytes": 268474
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/vasnetsov-crossroads-3200-fee14677b96d.webp",
+				"bytes": 842540
+			},
+			{
+				"width": 5120,
+				"src": "/paintings/catalogue/vasnetsov-crossroads-5120-4fed33f3bcfa.webp",
+				"bytes": 1517766
+			}
+		]
+	},
+	{
+		"id": "arbo-wild-hunt",
+		"name": "The Wild Hunt of Odin",
+		"artist": "Peter Nicolai Arbo",
+		"year": "1872",
+		"style": "Romanticism",
+		"medium": "Oil on canvas",
+		"category": "Knights & legends",
+		"source": "https://commons.wikimedia.org/wiki/File:Peter_Nicolai_Arbo_-_The_wild_Hunt_of_Odin_-_NG.M.00258_-_National_Museum_of_Art,_Architecture_and_Design.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Peter_Nicolai_Arbo_-_The_wild_Hunt_of_Odin_-_NG.M.00258_-_National_Museum_of_Art%2C_Architecture_and_Design.jpg",
+		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"position": "50% 50%",
+		"sourceWidth": 10291,
+		"sourceHeight": 7074,
+		"license": "CC BY 4.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+		"imageCredit": "National Museum of Art, Architecture and Design, Norway",
+		"width": 3840,
+		"height": 2640,
+		"thumb": "/paintings/catalogue/arbo-wild-hunt-480-c10025423d59.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/arbo-wild-hunt-480-c10025423d59.webp",
+				"bytes": 8574
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/arbo-wild-hunt-1600-6267feca068e.webp",
+				"bytes": 137978
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/arbo-wild-hunt-3200-3a10561381dc.webp",
+				"bytes": 974114
+			},
+			{
+				"width": 3840,
+				"src": "/paintings/catalogue/arbo-wild-hunt-3840-4c196faf154f.webp",
+				"bytes": 1743782
+			}
+		]
+	},
+	{
+		"id": "leighton-accolade",
+		"name": "The Accolade",
+		"artist": "Edmund Blair Leighton",
+		"year": "1901",
+		"style": "Victorian medievalism",
+		"medium": "Oil on canvas",
+		"category": "Knights & legends",
+		"source": "https://commons.wikimedia.org/wiki/File:Accolade_by_Edmund_Blair_Leighton.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/3/38/Accolade_by_Edmund_Blair_Leighton.jpg",
+		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"position": "50% 50%",
+		"sourceWidth": 2329,
+		"sourceHeight": 4000,
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"width": 2329,
+		"height": 4000,
+		"thumb": "/paintings/catalogue/leighton-accolade-480-a0314df89874.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/leighton-accolade-480-a0314df89874.webp",
+				"bytes": 67030
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/leighton-accolade-1600-8a6c0fa93971.webp",
+				"bytes": 1496740
+			},
+			{
+				"width": 2329,
+				"src": "/paintings/catalogue/leighton-accolade-2329-02b35ff89caf.webp",
+				"bytes": 2864012
+			}
+		]
+	},
+	{
+		"id": "waterhouse-lamia",
+		"name": "Lamia",
+		"artist": "John William Waterhouse",
+		"year": "1905",
+		"style": "Pre-Raphaelite revival",
+		"medium": "Oil on canvas",
+		"category": "Knights & legends",
+		"source": "https://commons.wikimedia.org/wiki/File:John_Waterhouse_-_Lamia_-_Google_Art_Project.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/e/e4/John_Waterhouse_-_Lamia_-_Google_Art_Project.jpg",
+		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"position": "50% 50%",
+		"sourceWidth": 3454,
+		"sourceHeight": 5686,
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"width": 3454,
+		"height": 5686,
+		"thumb": "/paintings/catalogue/waterhouse-lamia-480-beec1bf50be0.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/waterhouse-lamia-480-beec1bf50be0.webp",
+				"bytes": 69218
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/waterhouse-lamia-1600-b94f0412bb7c.webp",
+				"bytes": 870332
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/waterhouse-lamia-3200-386e9c63cff3.webp",
+				"bytes": 2805384
+			},
+			{
+				"width": 3454,
+				"src": "/paintings/catalogue/waterhouse-lamia-3454-96558ccbf926.webp",
+				"bytes": 3193656
+			}
+		]
+	},
+	{
+		"id": "hughes-galahad",
+		"name": "Sir Galahad: The Quest for the Holy Grail (Study)",
+		"artist": "Arthur Hughes",
+		"year": "Undated study",
+		"style": "Pre-Raphaelite",
+		"medium": "Oil on panel",
+		"category": "Knights & legends",
+		"source": "https://commons.wikimedia.org/wiki/File:Arthur_Hughes_-_Sir_Galahad_-_The_Quest_for_the_Holy_Grail_(Study).jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Arthur_Hughes_-_Sir_Galahad_-_The_Quest_for_the_Holy_Grail_%28Study%29.jpg",
+		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"position": "50% 50%",
+		"sourceWidth": 2000,
+		"sourceHeight": 1424,
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"width": 1920,
+		"height": 1367,
+		"thumb": "/paintings/catalogue/hughes-galahad-480-86709cc1ccf5.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/hughes-galahad-480-86709cc1ccf5.webp",
+				"bytes": 20716
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/hughes-galahad-1600-98b2deaace10.webp",
+				"bytes": 392362
+			},
+			{
+				"width": 1920,
+				"src": "/paintings/catalogue/hughes-galahad-1920-d3b23d5432c1.webp",
+				"bytes": 618392
+			}
+		]
+	},
+	{
+		"id": "kittelsen-far-away",
+		"name": "Far, Far Away Soria Moria Palace Shimmered Like Gold",
+		"artist": "Theodor Kittelsen",
+		"year": "1900",
+		"style": "Norwegian fairy-tale art",
+		"medium": "Oil on canvas",
+		"category": "Knights & legends",
+		"source": "https://commons.wikimedia.org/wiki/File:Theodor_Kittelsen_-_Far,_far_away_Soria_Moria_Palace_shimmered_like_Gold_-_Google_Art_Project.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Theodor_Kittelsen_-_Far%2C_far_away_Soria_Moria_Palace_shimmered_like_Gold_-_Google_Art_Project.jpg",
+		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"position": "50% 50%",
+		"sourceWidth": 7546,
+		"sourceHeight": 4955,
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"width": 3840,
+		"height": 2521,
+		"thumb": "/paintings/catalogue/kittelsen-far-away-480-d88cf0de8af6.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/kittelsen-far-away-480-d88cf0de8af6.webp",
+				"bytes": 11660
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/kittelsen-far-away-1600-d999fd6a8456.webp",
+				"bytes": 319222
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/kittelsen-far-away-3200-8e0b3bbb1dec.webp",
+				"bytes": 1719708
+			},
+			{
+				"width": 3840,
+				"src": "/paintings/catalogue/kittelsen-far-away-3840-ef893b275be6.webp",
+				"bytes": 2964970
+			}
+		]
+	},
+	{
+		"id": "kittelsen-palace",
+		"name": "Soria Moria Palace",
+		"artist": "Theodor Kittelsen",
+		"year": "1900",
+		"style": "Norwegian fairy-tale art",
+		"medium": "Oil on canvas",
+		"category": "Knights & legends",
+		"source": "https://commons.wikimedia.org/wiki/File:Theodor_Kittelsen_-_Soria_Moria_Palace_-_NG.M.00551_-_National_Museum_of_Art,_Architecture_and_Design.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Theodor_Kittelsen_-_Soria_Moria_Palace_-_NG.M.00551_-_National_Museum_of_Art%2C_Architecture_and_Design.jpg",
+		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"position": "50% 50%",
+		"sourceWidth": 10232,
+		"sourceHeight": 6752,
+		"license": "CC BY 4.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+		"imageCredit": "National Museum of Art, Architecture and Design, Norway",
+		"width": 3840,
+		"height": 2534,
+		"thumb": "/paintings/catalogue/kittelsen-palace-480-12c0faa16bc6.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/kittelsen-palace-480-12c0faa16bc6.webp",
+				"bytes": 11240
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/kittelsen-palace-1600-39afa7736c83.webp",
+				"bytes": 321444
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/kittelsen-palace-3200-d1f639ea79ef.webp",
+				"bytes": 2017892
+			},
+			{
+				"width": 3840,
+				"src": "/paintings/catalogue/kittelsen-palace-3840-96ac1fb74bff.webp",
+				"bytes": 3537948
+			}
+		]
+	},
+	{
+		"id": "schinkel-cathedral",
+		"name": "Gothic Cathedral by the Water",
+		"artist": "Karl Friedrich Schinkel",
+		"year": "1813",
+		"style": "Romanticism",
+		"medium": "Oil on canvas",
+		"category": "Knights & legends",
+		"source": "https://commons.wikimedia.org/wiki/File:1813_Schinkel_Gotischer_Dom_am_Wasser_anagoria.JPG",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/8/88/1813_Schinkel_Gotischer_Dom_am_Wasser_anagoria.JPG",
+		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"position": "50% 50%",
+		"sourceWidth": 4752,
+		"sourceHeight": 3516,
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "Photograph: anagoria",
+		"width": 3840,
+		"height": 2841,
+		"thumb": "/paintings/catalogue/schinkel-cathedral-480-655f83435baf.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/schinkel-cathedral-480-655f83435baf.webp",
+				"bytes": 19884
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/schinkel-cathedral-1600-697c130a9489.webp",
+				"bytes": 322492
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/schinkel-cathedral-3200-b8f9c36f90ad.webp",
+				"bytes": 1398408
+			},
+			{
+				"width": 3840,
+				"src": "/paintings/catalogue/schinkel-cathedral-3840-f5f651c1fc07.webp",
+				"bytes": 2093302
+			}
+		]
+	},
+	{
+		"id": "friedrich-abbey",
+		"name": "The Abbey in the Oakwood",
+		"artist": "Caspar David Friedrich",
+		"year": "1809\u20131810",
+		"style": "Romanticism",
+		"medium": "Oil on canvas",
+		"category": "Knights & legends",
+		"source": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Abtei_im_Eichwald_-_Google_Art_Project.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/3/32/Caspar_David_Friedrich_-_Abtei_im_Eichwald_-_Google_Art_Project.jpg",
+		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"position": "50% 50%",
+		"sourceWidth": 4000,
+		"sourceHeight": 2563,
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"width": 3840,
+		"height": 2460,
+		"thumb": "/paintings/catalogue/friedrich-abbey-480-764d6e9e5965.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/friedrich-abbey-480-764d6e9e5965.webp",
+				"bytes": 13268
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/friedrich-abbey-1600-88745c7f112e.webp",
+				"bytes": 253102
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/friedrich-abbey-3200-4a744971e445.webp",
+				"bytes": 1161348
+			},
+			{
+				"width": 3840,
+				"src": "/paintings/catalogue/friedrich-abbey-3840-ab29cdf3dc2f.webp",
+				"bytes": 1746058
+			}
+		]
+	},
+	{
+		"id": "martin-pandemonium",
+		"name": "Pandemonium",
+		"artist": "John Martin",
+		"year": "1841",
+		"style": "Romanticism",
+		"medium": "Oil on canvas",
+		"category": "Knights & legends",
+		"source": "https://commons.wikimedia.org/wiki/File:John_Martin_Le_Pandemonium_Louvre.JPG",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/0/08/John_Martin_Le_Pandemonium_Louvre.JPG",
+		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"position": "50% 50%",
+		"sourceWidth": 3224,
+		"sourceHeight": 2127,
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "Photograph: St\u00e9phane Magnenat",
+		"width": 1920,
+		"height": 1267,
+		"thumb": "/paintings/catalogue/martin-pandemonium-480-9f9c8eca1748.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/martin-pandemonium-480-9f9c8eca1748.webp",
+				"bytes": 15618
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/martin-pandemonium-1600-154716fe5261.webp",
+				"bytes": 271212
+			},
+			{
+				"width": 1920,
+				"src": "/paintings/catalogue/martin-pandemonium-1920-d139df0b8d41.webp",
+				"bytes": 411918
+			}
+		]
+	}
+]
