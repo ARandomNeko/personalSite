@@ -1,6 +1,0 @@
-[target.wasm32-unknown-unknown]
-rustflags = ["-C", "link-arg=-zstack-size=8388608"]
-
-[env]
-# GPUI's web dependencies currently use parking_lot's nightly feature.
-RUSTC_BOOTSTRAP = "1"

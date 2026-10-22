@@ -5,9 +5,10 @@ let fontStyles: Promise<string> | undefined;
 function embeddedFonts() {
 	return (fontStyles ??= Promise.all(
 		[
-			['Instrument Serif', 'InstrumentSerif-Regular.ttf'],
-			['JetBrains Mono', 'JetBrainsMono-Regular.ttf']
-		].map(async ([family, file]) => {
+			['Instrument Serif', 'InstrumentSerif-Regular.ttf', 'truetype'],
+			['JetBrains Mono', 'JetBrainsMono-Regular.ttf', 'truetype'],
+			['ET Bembo', 'ETBembo-Regular.woff', 'woff']
+		].map(async ([family, file, format]) => {
 			const response = await fetch(`/fonts/${file}`);
 			if (!response.ok) throw new Error('Card font unavailable');
 			const blob = await response.blob();
@@ -17,7 +18,7 @@ function embeddedFonts() {
 				reader.onerror = reject;
 				reader.readAsDataURL(blob);
 			});
-			return `@font-face { font-family: '${family}'; src: url('${url}') format('truetype'); }`;
+			return `@font-face { font-family: '${family}'; src: url('${url}') format('${format}'); }`;
 		})
 	).then((rules) => rules.join('\n')));
 }

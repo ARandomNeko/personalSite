@@ -27,6 +27,13 @@
 	/>
 	<meta property="og:url" content={$page.url.origin + $page.url.pathname} />
 	<meta name="twitter:card" content="summary" />
+	<link
+		rel="preload"
+		href="/fonts/ETBembo-Regular.woff"
+		as="font"
+		type="font/woff"
+		crossorigin="anonymous"
+	/>
 	<link rel="canonical" href={$page.url.origin + $page.url.pathname} />
 </svelte:head>
 
@@ -99,7 +106,7 @@
 		box-shadow: 7px 7px #11161980;
 	}
 	.html-content :global(.prose) {
-		font-family: Georgia, serif;
+		font-family: var(--font-body);
 		font-size: 18px;
 		line-height: 1.9;
 	}

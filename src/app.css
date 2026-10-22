@@ -1,6 +1,27 @@
 @import 'tailwindcss';
-@plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+@font-face {
+	font-family: 'ET Bembo';
+	src: url('/fonts/ETBembo-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'ET Bembo';
+	src: url('/fonts/ETBembo-Italic.woff') format('woff');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'ET Bembo';
+	src: url('/fonts/ETBembo-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
 
 @font-face {
 	font-family: 'Instrument Serif';
@@ -22,6 +43,7 @@
 @theme {
 	--font-mono: 'JetBrains Mono', 'Courier New', monospace;
 	--font-serif: 'Instrument Serif', Georgia, serif;
+	--font-body: 'ET Bembo', Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
 }
 
 :root {
@@ -39,20 +61,6 @@
 	--grid: 12px;
 	color-scheme: dark;
 }
-.light-mode {
-	--bg: #e8e1cd;
-	--tx: #282b25;
-	--tx-1: #282b25;
-	--tx-2: #6b6d61;
-	--ui: #ded7c3;
-	--ui-3: #b7b59f;
-	--border: #b7b59f;
-	--cy: #703d48;
-	--re: #282b25;
-	--tag-bg: #ded7c3;
-	--tag-tx: #703d48;
-	color-scheme: light;
-}
 *,
 *::before,
 *::after {
@@ -64,7 +72,7 @@ body {
 	overflow: hidden;
 	background: var(--bg);
 	color: var(--tx);
-	font: 17px/1.6 var(--font-serif);
+	font: 17px/1.6 var(--font-body);
 }
 a {
 	color: inherit;
@@ -135,13 +143,6 @@ p {
 	color: var(--cy);
 	border-bottom: 1px solid currentColor;
 }
-.paper-toggle {
-	font: 11px/1.5 var(--font-mono);
-	color: var(--cy);
-	background: none;
-	border: 0;
-	padding: 12px 0;
-}
 .html-content {
 	flex: 1;
 	overflow: auto;
@@ -194,7 +195,7 @@ p {
 }
 .card p {
 	max-width: 75ch;
-	font: 12px/1.8 var(--font-mono);
+	font: 16px/1.8 var(--font-body);
 }
 .card > span {
 	font: 10px/1.5 var(--font-mono);
@@ -232,7 +233,7 @@ p {
 	--tw-prose-invert-pre-bg: var(--ui);
 	--tw-prose-invert-th-borders: var(--border);
 	--tw-prose-invert-td-borders: var(--border);
-	font: 22px/1.65 var(--font-serif);
+	font: 22px/1.65 var(--font-body);
 	overflow-wrap: anywhere;
 }
 .prose h1 {

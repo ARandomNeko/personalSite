@@ -265,7 +265,7 @@
 		position: relative;
 		isolation: isolate;
 		color: var(--ink);
-		font-family: Georgia, 'Times New Roman', serif;
+		font-family: var(--font-body);
 	}
 	.journal-page a {
 		color: inherit;

@@ -31,7 +31,6 @@ an image-service subscription. Their filenames include content hashes so they
 can use a one-year immutable browser cache in `_headers`. Regenerating an
 image changes its URL. Only the current painting and its neighbor load ahead.
 
-Development studies, the former painting picker, and unused artwork are saved
-under [design/](design/README.md), outside the published routes and static files.
-The Rust/GPUI experiment is separate under [workstation/](workstation/README.md).
-Neither is included in the site build.
+Reading text uses self-hosted ET Bembo, matching the body font on
+[Elon Litman’s blog](https://elonlit.com/scrivings/how-to-run-turing-complete-malware-in-pytorchs-backward-pass/).
+Its MIT license is included in `static/fonts/ETBembo-LICENSE.txt`.
