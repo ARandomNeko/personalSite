@@ -37,7 +37,11 @@
 	{#if $page.url.pathname === '/'}
 		{@render children()}
 	{:else}
-		<div class="site-shell" class:library-shell={$page.url.pathname === '/reading'}>
+		<div
+			class="site-shell"
+			class:library-shell={$page.url.pathname === '/reading'}
+			class:resume-shell={$page.url.pathname === '/resume'}
+		>
 			<main class="html-content">{@render children()}</main>
 		</div>
 	{/if}
@@ -80,6 +84,18 @@
 		font-family: var(--font-body);
 		font-size: 18px;
 		line-height: 1.9;
+	}
+	.resume-shell {
+		isolation: isolate;
+		background: transparent;
+	}
+	.resume-shell .html-content {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		background: transparent;
+		border: 0;
+		box-shadow: none;
 	}
 	.library-shell {
 		isolation: isolate;
