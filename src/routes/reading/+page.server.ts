@@ -1,4 +1,4 @@
-import { getPostsByTag } from '$lib/posts';
+import { getPostsByTag } from '$lib/server/posts';
 import { featuredBooks, provisionalReadingStatus, type Book } from '$lib/books';
 
 export async function load() {

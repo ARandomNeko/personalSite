@@ -40,6 +40,8 @@
 				loading={lead ? 'eager' : 'lazy'}
 				fetchpriority={lead ? 'high' : 'auto'}
 				decoding="async"
+				width={painting.width}
+				height={painting.height}
 				alt=""
 			/>
 			{#if lead}<span class="latest">Latest entry</span>{/if}

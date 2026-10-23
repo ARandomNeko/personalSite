@@ -15,27 +15,42 @@
 		"museum": "National Gallery of Art",
 		"width": 4096,
 		"height": 2694,
-		"thumb": "/paintings/catalogue/nga-52452-480-e00bfe593b86.webp",
+		"thumb": "/paintings/catalogue/nga-52452-480-842f53280b28.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/nga-52452-480-e00bfe593b86.webp",
-				"bytes": 13384
+				"src": "/paintings/catalogue/nga-52452-480-842f53280b28.webp",
+				"bytes": 17494
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/nga-52452-800-39a910e94ebf.webp",
+				"bytes": 42354
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/nga-52452-1200-62ae21f7dd98.webp",
+				"bytes": 86674
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/nga-52452-1600-a14cab4ccbd2.webp",
-				"bytes": 258736
+				"src": "/paintings/catalogue/nga-52452-1600-6028e5935c40.webp",
+				"bytes": 151044
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/nga-52452-2400-e322e9a79b33.webp",
+				"bytes": 359962
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/nga-52452-3200-56075b143c8b.webp",
-				"bytes": 1230182
+				"src": "/paintings/catalogue/nga-52452-3200-8179d9b8fd20.webp",
+				"bytes": 661868
 			},
 			{
 				"width": 4096,
-				"src": "/paintings/catalogue/nga-52452-4096-7d515bcc182c.webp",
-				"bytes": 2245088
+				"src": "/paintings/catalogue/nga-52452-4096-0263257ac892.webp",
+				"bytes": 1798434
 			}
 		]
 	},
@@ -55,27 +70,42 @@
 		"museum": "National Gallery of Art",
 		"width": 4096,
 		"height": 2648,
-		"thumb": "/paintings/catalogue/nga-50299-480-a643854a89c0.webp",
+		"thumb": "/paintings/catalogue/nga-50299-480-615a66d570a4.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/nga-50299-480-a643854a89c0.webp",
-				"bytes": 16832
+				"src": "/paintings/catalogue/nga-50299-480-615a66d570a4.webp",
+				"bytes": 22946
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/nga-50299-800-b896b6b0439e.webp",
+				"bytes": 62214
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/nga-50299-1200-065f2119763f.webp",
+				"bytes": 136558
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/nga-50299-1600-a55d73bc07b8.webp",
-				"bytes": 346508
+				"src": "/paintings/catalogue/nga-50299-1600-fb2a3131bc95.webp",
+				"bytes": 237274
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/nga-50299-2400-0d755d2ea2ab.webp",
+				"bytes": 516122
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/nga-50299-3200-9da33fba9b11.webp",
-				"bytes": 1465724
+				"src": "/paintings/catalogue/nga-50299-3200-471e3250dad6.webp",
+				"bytes": 844686
 			},
 			{
 				"width": 4096,
-				"src": "/paintings/catalogue/nga-50299-4096-983c9ae32d62.webp",
-				"bytes": 2632742
+				"src": "/paintings/catalogue/nga-50299-4096-c14c831fd63b.webp",
+				"bytes": 2033388
 			}
 		]
 	},
@@ -95,27 +125,42 @@
 		"museum": "National Gallery of Art",
 		"width": 4096,
 		"height": 1901,
-		"thumb": "/paintings/catalogue/nga-166436-480-d0b629ecfb13.webp",
+		"thumb": "/paintings/catalogue/nga-166436-480-818d383bb40c.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/nga-166436-480-d0b629ecfb13.webp",
-				"bytes": 12314
+				"src": "/paintings/catalogue/nga-166436-480-818d383bb40c.webp",
+				"bytes": 15606
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/nga-166436-800-36203600ae99.webp",
+				"bytes": 39674
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/nga-166436-1200-3e777d6f4186.webp",
+				"bytes": 82290
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/nga-166436-1600-a19258a8f363.webp",
-				"bytes": 216436
+				"src": "/paintings/catalogue/nga-166436-1600-f7749eefc270.webp",
+				"bytes": 141178
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/nga-166436-2400-5ad47a452603.webp",
+				"bytes": 291040
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/nga-166436-3200-e6393aa5b5c5.webp",
-				"bytes": 907486
+				"src": "/paintings/catalogue/nga-166436-3200-017bb9f2de0d.webp",
+				"bytes": 498738
 			},
 			{
 				"width": 4096,
-				"src": "/paintings/catalogue/nga-166436-4096-6372d7bb0efa.webp",
-				"bytes": 1719540
+				"src": "/paintings/catalogue/nga-166436-4096-8a6a952e60a3.webp",
+				"bytes": 1205598
 			}
 		]
 	},
@@ -135,27 +180,42 @@
 		"museum": "National Gallery of Art",
 		"width": 4096,
 		"height": 2446,
-		"thumb": "/paintings/catalogue/nga-71503-480-5159269d53e1.webp",
+		"thumb": "/paintings/catalogue/nga-71503-480-f1e17b274823.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/nga-71503-480-5159269d53e1.webp",
-				"bytes": 13500
+				"src": "/paintings/catalogue/nga-71503-480-f1e17b274823.webp",
+				"bytes": 17150
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/nga-71503-800-0950f833a8c7.webp",
+				"bytes": 39372
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/nga-71503-1200-39ce7800349b.webp",
+				"bytes": 79400
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/nga-71503-1600-96404b0f4c3e.webp",
-				"bytes": 206200
+				"src": "/paintings/catalogue/nga-71503-1600-408479542430.webp",
+				"bytes": 133404
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/nga-71503-2400-d244a303a5d4.webp",
+				"bytes": 275936
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/nga-71503-3200-bcfcb72df027.webp",
-				"bytes": 919386
+				"src": "/paintings/catalogue/nga-71503-3200-b2015a6b0278.webp",
+				"bytes": 473964
 			},
 			{
 				"width": 4096,
-				"src": "/paintings/catalogue/nga-71503-4096-e7c5162faf07.webp",
-				"bytes": 1756906
+				"src": "/paintings/catalogue/nga-71503-4096-5ac907eda2ba.webp",
+				"bytes": 1288388
 			}
 		]
 	},
@@ -175,27 +235,42 @@
 		"museum": "National Gallery of Art",
 		"width": 4096,
 		"height": 3985,
-		"thumb": "/paintings/catalogue/nga-32624-480-e71188717535.webp",
+		"thumb": "/paintings/catalogue/nga-32624-480-59c3ce726baf.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/nga-32624-480-e71188717535.webp",
-				"bytes": 29588
+				"src": "/paintings/catalogue/nga-32624-480-59c3ce726baf.webp",
+				"bytes": 39512
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/nga-32624-800-4b0e1c31ee5c.webp",
+				"bytes": 99350
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/nga-32624-1200-a889dc1f707b.webp",
+				"bytes": 219796
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/nga-32624-1600-3173a1e1f58e.webp",
-				"bytes": 580592
+				"src": "/paintings/catalogue/nga-32624-1600-4a67c6335247.webp",
+				"bytes": 388928
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/nga-32624-2400-1f5ceae4fa8f.webp",
+				"bytes": 852050
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/nga-32624-3200-09c8ff4acae2.webp",
-				"bytes": 2365648
+				"src": "/paintings/catalogue/nga-32624-3200-6adf4aee6a8f.webp",
+				"bytes": 1441492
 			},
 			{
 				"width": 4096,
-				"src": "/paintings/catalogue/nga-32624-4096-247f4fc62055.webp",
-				"bytes": 4158782
+				"src": "/paintings/catalogue/nga-32624-4096-c51c02a5c259.webp",
+				"bytes": 3203226
 			}
 		]
 	},
@@ -215,27 +290,42 @@
 		"museum": "National Gallery of Art",
 		"width": 4096,
 		"height": 3618,
-		"thumb": "/paintings/catalogue/nga-46523-480-905b9413cfee.webp",
+		"thumb": "/paintings/catalogue/nga-46523-480-5b64f4840dd5.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/nga-46523-480-905b9413cfee.webp",
-				"bytes": 24624
+				"src": "/paintings/catalogue/nga-46523-480-5b64f4840dd5.webp",
+				"bytes": 31772
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/nga-46523-800-e7ded317d503.webp",
+				"bytes": 83468
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/nga-46523-1200-533c4732268e.webp",
+				"bytes": 197030
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/nga-46523-1600-43263040e9ef.webp",
-				"bytes": 582058
+				"src": "/paintings/catalogue/nga-46523-1600-bde6dc693879.webp",
+				"bytes": 368372
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/nga-46523-2400-156d4b075b68.webp",
+				"bytes": 967418
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/nga-46523-3200-286c3460e7fc.webp",
-				"bytes": 2920134
+				"src": "/paintings/catalogue/nga-46523-3200-920921dd9273.webp",
+				"bytes": 1927436
 			},
 			{
 				"width": 4096,
-				"src": "/paintings/catalogue/nga-46523-4096-5c5ca8b6c360.webp",
-				"bytes": 5527118
+				"src": "/paintings/catalogue/nga-46523-4096-24ef4aa49a2f.webp",
+				"bytes": 4328728
 			}
 		]
 	},
@@ -255,27 +345,42 @@
 		"museum": "National Gallery of Art",
 		"width": 4096,
 		"height": 2443,
-		"thumb": "/paintings/catalogue/nga-66425-480-4e9056ad3115.webp",
+		"thumb": "/paintings/catalogue/nga-66425-480-addf2e4651b2.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/nga-66425-480-4e9056ad3115.webp",
-				"bytes": 12562
+				"src": "/paintings/catalogue/nga-66425-480-addf2e4651b2.webp",
+				"bytes": 16426
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/nga-66425-800-237fdab37bfe.webp",
+				"bytes": 41688
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/nga-66425-1200-29661690adb0.webp",
+				"bytes": 92674
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/nga-66425-1600-f84f0fb03b59.webp",
-				"bytes": 302196
+				"src": "/paintings/catalogue/nga-66425-1600-a5ef44b8b62b.webp",
+				"bytes": 170908
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/nga-66425-2400-cffcc55c2f52.webp",
+				"bytes": 409838
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/nga-66425-3200-4b6a52262aa4.webp",
-				"bytes": 1505614
+				"src": "/paintings/catalogue/nga-66425-3200-1e18c8104b5b.webp",
+				"bytes": 786880
 			},
 			{
 				"width": 4096,
-				"src": "/paintings/catalogue/nga-66425-4096-a68272e6f01f.webp",
-				"bytes": 2792750
+				"src": "/paintings/catalogue/nga-66425-4096-79a561ee6001.webp",
+				"bytes": 2165562
 			}
 		]
 	},
@@ -295,27 +400,42 @@
 		"museum": "National Gallery of Art",
 		"width": 3305,
 		"height": 4096,
-		"thumb": "/paintings/catalogue/nga-61379-480-1977a5600d10.webp",
+		"thumb": "/paintings/catalogue/nga-61379-480-67e75168ddff.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/nga-61379-480-1977a5600d10.webp",
-				"bytes": 66976
+				"src": "/paintings/catalogue/nga-61379-480-67e75168ddff.webp",
+				"bytes": 70580
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/nga-61379-800-5f2bc4bb10cb.webp",
+				"bytes": 182058
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/nga-61379-1200-469a3885870c.webp",
+				"bytes": 419988
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/nga-61379-1600-51d088683f7e.webp",
-				"bytes": 968872
+				"src": "/paintings/catalogue/nga-61379-1600-4f03a24ef98c.webp",
+				"bytes": 790584
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/nga-61379-2400-5238785b1192.webp",
+				"bytes": 1864252
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/nga-61379-3200-a7caec6ec400.webp",
-				"bytes": 4379478
+				"src": "/paintings/catalogue/nga-61379-3200-a371d31f1e82.webp",
+				"bytes": 3257564
 			},
 			{
 				"width": 3305,
-				"src": "/paintings/catalogue/nga-61379-3305-524803ba8006.webp",
-				"bytes": 5646930
+				"src": "/paintings/catalogue/nga-61379-3305-b0cff61078da.webp",
+				"bytes": 4581898
 			}
 		]
 	},
@@ -335,27 +455,42 @@
 		"museum": "National Gallery of Art",
 		"width": 4096,
 		"height": 2741,
-		"thumb": "/paintings/catalogue/nga-178273-480-f41f2d2b83d9.webp",
+		"thumb": "/paintings/catalogue/nga-178273-480-e61633b119e4.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/nga-178273-480-f41f2d2b83d9.webp",
-				"bytes": 8560
+				"src": "/paintings/catalogue/nga-178273-480-e61633b119e4.webp",
+				"bytes": 10822
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/nga-178273-800-a06623196fbb.webp",
+				"bytes": 29690
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/nga-178273-1200-dedca92ce0b3.webp",
+				"bytes": 74230
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/nga-178273-1600-0ec35ea690f0.webp",
-				"bytes": 281278
+				"src": "/paintings/catalogue/nga-178273-1600-e8a4197a0c05.webp",
+				"bytes": 141762
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/nga-178273-2400-a8034a6c9f3b.webp",
+				"bytes": 379722
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/nga-178273-3200-97d857fbb389.webp",
-				"bytes": 1384336
+				"src": "/paintings/catalogue/nga-178273-3200-d5894de5f2bc.webp",
+				"bytes": 734574
 			},
 			{
 				"width": 4096,
-				"src": "/paintings/catalogue/nga-178273-4096-ad418f94109c.webp",
-				"bytes": 2576254
+				"src": "/paintings/catalogue/nga-178273-4096-917e643e96e2.webp",
+				"bytes": 1999068
 			}
 		]
 	},
@@ -375,22 +510,37 @@
 		"museum": "National Gallery of Art",
 		"width": 3055,
 		"height": 4096,
-		"thumb": "/paintings/catalogue/nga-1238-480-ec060d4ba68d.webp",
+		"thumb": "/paintings/catalogue/nga-1238-480-aa5b3bcd76ea.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/nga-1238-480-ec060d4ba68d.webp",
-				"bytes": 36210
+				"src": "/paintings/catalogue/nga-1238-480-aa5b3bcd76ea.webp",
+				"bytes": 38830
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/nga-1238-800-c63afa14d45d.webp",
+				"bytes": 129692
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/nga-1238-1200-fdcb1107ae85.webp",
+				"bytes": 343858
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/nga-1238-1600-e9ef22e03090.webp",
-				"bytes": 1139042
+				"src": "/paintings/catalogue/nga-1238-1600-6c13396fadab.webp",
+				"bytes": 660228
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/nga-1238-2400-bde9bcaa6b6a.webp",
+				"bytes": 1530210
 			},
 			{
 				"width": 3055,
-				"src": "/paintings/catalogue/nga-1238-3055-95327dde124c.webp",
-				"bytes": 4266514
+				"src": "/paintings/catalogue/nga-1238-3055-ba3b8b8d2636.webp",
+				"bytes": 3393814
 			}
 		]
 	},
@@ -410,27 +560,42 @@
 		"museum": "National Gallery of Art",
 		"width": 4096,
 		"height": 2845,
-		"thumb": "/paintings/catalogue/nga-111194-480-24cf97519a9a.webp",
+		"thumb": "/paintings/catalogue/nga-111194-480-b49d780ab756.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/nga-111194-480-24cf97519a9a.webp",
-				"bytes": 14940
+				"src": "/paintings/catalogue/nga-111194-480-b49d780ab756.webp",
+				"bytes": 18766
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/nga-111194-800-eec74048a005.webp",
+				"bytes": 44070
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/nga-111194-1200-5e421d449328.webp",
+				"bytes": 86902
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/nga-111194-1600-2de23c8a10ef.webp",
-				"bytes": 249050
+				"src": "/paintings/catalogue/nga-111194-1600-b071328bc7e1.webp",
+				"bytes": 144666
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/nga-111194-2400-2a4ae8ced639.webp",
+				"bytes": 330226
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/nga-111194-3200-4f6d4c965faa.webp",
-				"bytes": 1217492
+				"src": "/paintings/catalogue/nga-111194-3200-8917767a3137.webp",
+				"bytes": 614236
 			},
 			{
 				"width": 4096,
-				"src": "/paintings/catalogue/nga-111194-4096-ecfa0fb75637.webp",
-				"bytes": 2373118
+				"src": "/paintings/catalogue/nga-111194-4096-66d0794b7914.webp",
+				"bytes": 1893778
 			}
 		]
 	},
@@ -450,27 +615,42 @@
 		"museum": "National Gallery of Art",
 		"width": 4096,
 		"height": 3215,
-		"thumb": "/paintings/catalogue/nga-163323-480-cb2004cf9ad0.webp",
+		"thumb": "/paintings/catalogue/nga-163323-480-c344ebd87913.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/nga-163323-480-cb2004cf9ad0.webp",
-				"bytes": 40496
+				"src": "/paintings/catalogue/nga-163323-480-c344ebd87913.webp",
+				"bytes": 55064
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/nga-163323-800-2c52c9f962a5.webp",
+				"bytes": 149246
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/nga-163323-1200-c6fcdfbec284.webp",
+				"bytes": 325108
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/nga-163323-1600-55734045050b.webp",
-				"bytes": 777150
+				"src": "/paintings/catalogue/nga-163323-1600-d0bcada6b5d3.webp",
+				"bytes": 568150
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/nga-163323-2400-8968bfe3a764.webp",
+				"bytes": 1235800
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/nga-163323-3200-7fc29fbbef31.webp",
-				"bytes": 3032236
+				"src": "/paintings/catalogue/nga-163323-3200-e9481bba90e1.webp",
+				"bytes": 2109034
 			},
 			{
 				"width": 4096,
-				"src": "/paintings/catalogue/nga-163323-4096-03a9ebd3db4a.webp",
-				"bytes": 5338698
+				"src": "/paintings/catalogue/nga-163323-4096-4605fce1aa15.webp",
+				"bytes": 4228194
 			}
 		]
 	},
@@ -490,27 +670,42 @@
 		"museum": "National Gallery of Art",
 		"width": 4096,
 		"height": 3255,
-		"thumb": "/paintings/catalogue/nga-72328-480-f060cdfe7739.webp",
+		"thumb": "/paintings/catalogue/nga-72328-480-d9cdb752fe5b.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/nga-72328-480-f060cdfe7739.webp",
-				"bytes": 43742
+				"src": "/paintings/catalogue/nga-72328-480-d9cdb752fe5b.webp",
+				"bytes": 57948
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/nga-72328-800-e624820fc8ef.webp",
+				"bytes": 156086
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/nga-72328-1200-3ebe76a36bb8.webp",
+				"bytes": 355440
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/nga-72328-1600-42e928ddbceb.webp",
-				"bytes": 825702
+				"src": "/paintings/catalogue/nga-72328-1600-2cb9959df51f.webp",
+				"bytes": 634116
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/nga-72328-2400-9d45f968ce06.webp",
+				"bytes": 1397020
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/nga-72328-3200-c65f52776245.webp",
-				"bytes": 3288172
+				"src": "/paintings/catalogue/nga-72328-3200-af9ceef855e5.webp",
+				"bytes": 2387002
 			},
 			{
 				"width": 4096,
-				"src": "/paintings/catalogue/nga-72328-4096-df0cf6d8ef69.webp",
-				"bytes": 5651284
+				"src": "/paintings/catalogue/nga-72328-4096-669d63eca9b3.webp",
+				"bytes": 4544968
 			}
 		]
 	},
@@ -518,7 +713,7 @@
 		"id": "martin-wrath",
 		"name": "The Great Day of His Wrath",
 		"artist": "John Martin",
-		"year": "1851\u201353",
+		"year": "1851–53",
 		"style": "Romanticism",
 		"category": "Myth & spirit",
 		"medium": "Oil on canvas",
@@ -530,30 +725,45 @@
 		"sourceHeight": 2023,
 		"width": 3136,
 		"height": 2023,
-		"thumb": "/paintings/catalogue/martin-wrath-480-aa8241c1778c.webp",
+		"thumb": "/paintings/catalogue/martin-wrath-480-346642310705.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/martin-wrath-480-aa8241c1778c.webp",
-				"bytes": 26768
+				"src": "/paintings/catalogue/martin-wrath-480-346642310705.webp",
+				"bytes": 28686
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/martin-wrath-800-159ebe6ad511.webp",
+				"bytes": 73392
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/martin-wrath-1200-c51e5ef0008b.webp",
+				"bytes": 149208
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/martin-wrath-1600-33da364c4fab.webp",
-				"bytes": 385654
+				"src": "/paintings/catalogue/martin-wrath-1600-8e02a49d6887.webp",
+				"bytes": 239042
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/martin-wrath-2400-8c23d7f50b4a.webp",
+				"bytes": 418750
 			},
 			{
 				"width": 3136,
-				"src": "/paintings/catalogue/martin-wrath-3136-0b59599bd51e.webp",
-				"bytes": 941780
+				"src": "/paintings/catalogue/martin-wrath-3136-ed60419fbd33.webp",
+				"bytes": 701550
 			}
 		]
 	},
 	{
 		"id": "monet-sunset",
-		"name": "The Cliff, \u00c9tretat, Sunset",
+		"name": "The Cliff, Étretat, Sunset",
 		"artist": "Claude Monet",
-		"year": "1882\u201383",
+		"year": "1882–83",
 		"style": "Impressionism",
 		"category": "Sea & sky",
 		"medium": "Oil on canvas",
@@ -565,22 +775,32 @@
 		"sourceHeight": 1637,
 		"width": 2188,
 		"height": 1637,
-		"thumb": "/paintings/catalogue/monet-sunset-480-6265deeb1c3c.webp",
+		"thumb": "/paintings/catalogue/monet-sunset-480-e8959e81f588.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/monet-sunset-480-6265deeb1c3c.webp",
-				"bytes": 30682
+				"src": "/paintings/catalogue/monet-sunset-480-e8959e81f588.webp",
+				"bytes": 38954
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/monet-sunset-800-e9d8de19aa0a.webp",
+				"bytes": 104624
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/monet-sunset-1200-f08a774c4a41.webp",
+				"bytes": 257630
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/monet-sunset-1600-d9c47480050e.webp",
-				"bytes": 732072
+				"src": "/paintings/catalogue/monet-sunset-1600-e5b551aa0adc.webp",
+				"bytes": 471894
 			},
 			{
 				"width": 2188,
-				"src": "/paintings/catalogue/monet-sunset-2188-adc076125661.webp",
-				"bytes": 1592272
+				"src": "/paintings/catalogue/monet-sunset-2188-284388211203.webp",
+				"bytes": 1188540
 			}
 		]
 	},
@@ -594,7 +814,7 @@
 		"category": "Knights & legends",
 		"source": "https://commons.wikimedia.org/wiki/File:Victor_Vasnetsov_-_Knight_at_the_Crossroads_-_Google_Art_Project.jpg",
 		"original": "https://upload.wikimedia.org/wikipedia/commons/1/12/Victor_Vasnetsov_-_Knight_at_the_Crossroads_-_Google_Art_Project.jpg",
-		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"museum": "Wikimedia Commons · source & credits",
 		"position": "50% 50%",
 		"sourceWidth": 5527,
 		"sourceHeight": 3065,
@@ -602,27 +822,42 @@
 		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
 		"width": 5527,
 		"height": 3065,
-		"thumb": "/paintings/catalogue/vasnetsov-crossroads-480-f129b8e67686.webp",
+		"thumb": "/paintings/catalogue/vasnetsov-crossroads-480-255a3985b2c6.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/vasnetsov-crossroads-480-f129b8e67686.webp",
-				"bytes": 20920
+				"src": "/paintings/catalogue/vasnetsov-crossroads-480-255a3985b2c6.webp",
+				"bytes": 23696
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/vasnetsov-crossroads-800-705dd5a4986b.webp",
+				"bytes": 53918
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/vasnetsov-crossroads-1200-906536c3d553.webp",
+				"bytes": 96926
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/vasnetsov-crossroads-1600-1bc8ccde4a0d.webp",
-				"bytes": 268474
+				"src": "/paintings/catalogue/vasnetsov-crossroads-1600-a6532905a3fe.webp",
+				"bytes": 154264
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/vasnetsov-crossroads-2400-15ede6743932.webp",
+				"bytes": 294506
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/vasnetsov-crossroads-3200-fee14677b96d.webp",
-				"bytes": 842540
+				"src": "/paintings/catalogue/vasnetsov-crossroads-3200-ae10f5f77531.webp",
+				"bytes": 447086
 			},
 			{
-				"width": 5120,
-				"src": "/paintings/catalogue/vasnetsov-crossroads-5120-4fed33f3bcfa.webp",
-				"bytes": 1517766
+				"width": 5527,
+				"src": "/paintings/catalogue/vasnetsov-crossroads-5527-955fa4c3d459.webp",
+				"bytes": 1038724
 			}
 		]
 	},
@@ -636,7 +871,7 @@
 		"category": "Knights & legends",
 		"source": "https://commons.wikimedia.org/wiki/File:Peter_Nicolai_Arbo_-_The_wild_Hunt_of_Odin_-_NG.M.00258_-_National_Museum_of_Art,_Architecture_and_Design.jpg",
 		"original": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Peter_Nicolai_Arbo_-_The_wild_Hunt_of_Odin_-_NG.M.00258_-_National_Museum_of_Art%2C_Architecture_and_Design.jpg",
-		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"museum": "Wikimedia Commons · source & credits",
 		"position": "50% 50%",
 		"sourceWidth": 10291,
 		"sourceHeight": 7074,
@@ -645,27 +880,42 @@
 		"imageCredit": "National Museum of Art, Architecture and Design, Norway",
 		"width": 3840,
 		"height": 2640,
-		"thumb": "/paintings/catalogue/arbo-wild-hunt-480-c10025423d59.webp",
+		"thumb": "/paintings/catalogue/arbo-wild-hunt-480-874672280419.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/arbo-wild-hunt-480-c10025423d59.webp",
-				"bytes": 8574
+				"src": "/paintings/catalogue/arbo-wild-hunt-480-874672280419.webp",
+				"bytes": 9556
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/arbo-wild-hunt-800-ec6dacc975fa.webp",
+				"bytes": 21650
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/arbo-wild-hunt-1200-be3f31d8a92e.webp",
+				"bytes": 41586
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/arbo-wild-hunt-1600-6267feca068e.webp",
-				"bytes": 137978
+				"src": "/paintings/catalogue/arbo-wild-hunt-1600-f1997a4a65d2.webp",
+				"bytes": 72850
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/arbo-wild-hunt-2400-e2a65f541773.webp",
+				"bytes": 199338
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/arbo-wild-hunt-3200-3a10561381dc.webp",
-				"bytes": 974114
+				"src": "/paintings/catalogue/arbo-wild-hunt-3200-ef5c0da061a2.webp",
+				"bytes": 451256
 			},
 			{
 				"width": 3840,
-				"src": "/paintings/catalogue/arbo-wild-hunt-3840-4c196faf154f.webp",
-				"bytes": 1743782
+				"src": "/paintings/catalogue/arbo-wild-hunt-3840-f04e794f9b30.webp",
+				"bytes": 1376806
 			}
 		]
 	},
@@ -679,7 +929,7 @@
 		"category": "Knights & legends",
 		"source": "https://commons.wikimedia.org/wiki/File:Accolade_by_Edmund_Blair_Leighton.jpg",
 		"original": "https://upload.wikimedia.org/wikipedia/commons/3/38/Accolade_by_Edmund_Blair_Leighton.jpg",
-		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"museum": "Wikimedia Commons · source & credits",
 		"position": "50% 50%",
 		"sourceWidth": 2329,
 		"sourceHeight": 4000,
@@ -687,22 +937,32 @@
 		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
 		"width": 2329,
 		"height": 4000,
-		"thumb": "/paintings/catalogue/leighton-accolade-480-a0314df89874.webp",
+		"thumb": "/paintings/catalogue/leighton-accolade-480-62aba3560d35.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/leighton-accolade-480-a0314df89874.webp",
-				"bytes": 67030
+				"src": "/paintings/catalogue/leighton-accolade-480-62aba3560d35.webp",
+				"bytes": 81984
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/leighton-accolade-800-2de9377ba2cf.webp",
+				"bytes": 237734
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/leighton-accolade-1200-8e58ef894787.webp",
+				"bytes": 559538
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/leighton-accolade-1600-8a6c0fa93971.webp",
-				"bytes": 1496740
+				"src": "/paintings/catalogue/leighton-accolade-1600-426a54ace050.webp",
+				"bytes": 972012
 			},
 			{
 				"width": 2329,
-				"src": "/paintings/catalogue/leighton-accolade-2329-02b35ff89caf.webp",
-				"bytes": 2864012
+				"src": "/paintings/catalogue/leighton-accolade-2329-a2e9b9230842.webp",
+				"bytes": 2277164
 			}
 		]
 	},
@@ -716,7 +976,7 @@
 		"category": "Knights & legends",
 		"source": "https://commons.wikimedia.org/wiki/File:John_Waterhouse_-_Lamia_-_Google_Art_Project.jpg",
 		"original": "https://upload.wikimedia.org/wikipedia/commons/e/e4/John_Waterhouse_-_Lamia_-_Google_Art_Project.jpg",
-		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"museum": "Wikimedia Commons · source & credits",
 		"position": "50% 50%",
 		"sourceWidth": 3454,
 		"sourceHeight": 5686,
@@ -724,27 +984,42 @@
 		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
 		"width": 3454,
 		"height": 5686,
-		"thumb": "/paintings/catalogue/waterhouse-lamia-480-beec1bf50be0.webp",
+		"thumb": "/paintings/catalogue/waterhouse-lamia-480-55b89b2fa969.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/waterhouse-lamia-480-beec1bf50be0.webp",
-				"bytes": 69218
+				"src": "/paintings/catalogue/waterhouse-lamia-480-55b89b2fa969.webp",
+				"bytes": 69562
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/waterhouse-lamia-800-184d3dfb0de9.webp",
+				"bytes": 183328
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/waterhouse-lamia-1200-a836f693e5dc.webp",
+				"bytes": 407618
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/waterhouse-lamia-1600-b94f0412bb7c.webp",
-				"bytes": 870332
+				"src": "/paintings/catalogue/waterhouse-lamia-1600-85726f509fe4.webp",
+				"bytes": 682984
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/waterhouse-lamia-2400-3c72117a1ee4.webp",
+				"bytes": 1271648
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/waterhouse-lamia-3200-386e9c63cff3.webp",
-				"bytes": 2805384
+				"src": "/paintings/catalogue/waterhouse-lamia-3200-7d1371c9dfb4.webp",
+				"bytes": 1922240
 			},
 			{
 				"width": 3454,
-				"src": "/paintings/catalogue/waterhouse-lamia-3454-96558ccbf926.webp",
-				"bytes": 3193656
+				"src": "/paintings/catalogue/waterhouse-lamia-3454-1bbe0f3b3701.webp",
+				"bytes": 2548968
 			}
 		]
 	},
@@ -758,7 +1033,7 @@
 		"category": "Knights & legends",
 		"source": "https://commons.wikimedia.org/wiki/File:Arthur_Hughes_-_Sir_Galahad_-_The_Quest_for_the_Holy_Grail_(Study).jpg",
 		"original": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Arthur_Hughes_-_Sir_Galahad_-_The_Quest_for_the_Holy_Grail_%28Study%29.jpg",
-		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"museum": "Wikimedia Commons · source & credits",
 		"position": "50% 50%",
 		"sourceWidth": 2000,
 		"sourceHeight": 1424,
@@ -766,22 +1041,32 @@
 		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
 		"width": 1920,
 		"height": 1367,
-		"thumb": "/paintings/catalogue/hughes-galahad-480-86709cc1ccf5.webp",
+		"thumb": "/paintings/catalogue/hughes-galahad-480-7606fc3b677f.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/hughes-galahad-480-86709cc1ccf5.webp",
-				"bytes": 20716
+				"src": "/paintings/catalogue/hughes-galahad-480-7606fc3b677f.webp",
+				"bytes": 22868
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/hughes-galahad-800-3b9abbbe94d4.webp",
+				"bytes": 59274
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/hughes-galahad-1200-2beac9c0596c.webp",
+				"bytes": 134098
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/hughes-galahad-1600-98b2deaace10.webp",
-				"bytes": 392362
+				"src": "/paintings/catalogue/hughes-galahad-1600-edc75fb6a9e7.webp",
+				"bytes": 233766
 			},
 			{
 				"width": 1920,
-				"src": "/paintings/catalogue/hughes-galahad-1920-d3b23d5432c1.webp",
-				"bytes": 618392
+				"src": "/paintings/catalogue/hughes-galahad-1920-c5238d79dbe3.webp",
+				"bytes": 468958
 			}
 		]
 	},
@@ -795,7 +1080,7 @@
 		"category": "Knights & legends",
 		"source": "https://commons.wikimedia.org/wiki/File:Theodor_Kittelsen_-_Far,_far_away_Soria_Moria_Palace_shimmered_like_Gold_-_Google_Art_Project.jpg",
 		"original": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Theodor_Kittelsen_-_Far%2C_far_away_Soria_Moria_Palace_shimmered_like_Gold_-_Google_Art_Project.jpg",
-		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"museum": "Wikimedia Commons · source & credits",
 		"position": "50% 50%",
 		"sourceWidth": 7546,
 		"sourceHeight": 4955,
@@ -803,27 +1088,42 @@
 		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
 		"width": 3840,
 		"height": 2521,
-		"thumb": "/paintings/catalogue/kittelsen-far-away-480-d88cf0de8af6.webp",
+		"thumb": "/paintings/catalogue/kittelsen-far-away-480-63d9fb56b365.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/kittelsen-far-away-480-d88cf0de8af6.webp",
-				"bytes": 11660
+				"src": "/paintings/catalogue/kittelsen-far-away-480-63d9fb56b365.webp",
+				"bytes": 13574
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/kittelsen-far-away-800-014b501a4aa9.webp",
+				"bytes": 34436
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/kittelsen-far-away-1200-f98ff955dadc.webp",
+				"bytes": 83784
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/kittelsen-far-away-1600-d999fd6a8456.webp",
-				"bytes": 319222
+				"src": "/paintings/catalogue/kittelsen-far-away-1600-2a5f3fa021a7.webp",
+				"bytes": 167568
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/kittelsen-far-away-2400-d85427d81c83.webp",
+				"bytes": 547182
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/kittelsen-far-away-3200-8e0b3bbb1dec.webp",
-				"bytes": 1719708
+				"src": "/paintings/catalogue/kittelsen-far-away-3200-49059eca4285.webp",
+				"bytes": 1091582
 			},
 			{
 				"width": 3840,
-				"src": "/paintings/catalogue/kittelsen-far-away-3840-ef893b275be6.webp",
-				"bytes": 2964970
+				"src": "/paintings/catalogue/kittelsen-far-away-3840-f32a60291545.webp",
+				"bytes": 2270278
 			}
 		]
 	},
@@ -837,7 +1137,7 @@
 		"category": "Knights & legends",
 		"source": "https://commons.wikimedia.org/wiki/File:Theodor_Kittelsen_-_Soria_Moria_Palace_-_NG.M.00551_-_National_Museum_of_Art,_Architecture_and_Design.jpg",
 		"original": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Theodor_Kittelsen_-_Soria_Moria_Palace_-_NG.M.00551_-_National_Museum_of_Art%2C_Architecture_and_Design.jpg",
-		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"museum": "Wikimedia Commons · source & credits",
 		"position": "50% 50%",
 		"sourceWidth": 10232,
 		"sourceHeight": 6752,
@@ -846,27 +1146,42 @@
 		"imageCredit": "National Museum of Art, Architecture and Design, Norway",
 		"width": 3840,
 		"height": 2534,
-		"thumb": "/paintings/catalogue/kittelsen-palace-480-12c0faa16bc6.webp",
+		"thumb": "/paintings/catalogue/kittelsen-palace-480-253b4efc3363.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/kittelsen-palace-480-12c0faa16bc6.webp",
-				"bytes": 11240
+				"src": "/paintings/catalogue/kittelsen-palace-480-253b4efc3363.webp",
+				"bytes": 12120
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/kittelsen-palace-800-3771af7865cc.webp",
+				"bytes": 31626
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/kittelsen-palace-1200-9073e3ca5e58.webp",
+				"bytes": 82676
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/kittelsen-palace-1600-39afa7736c83.webp",
-				"bytes": 321444
+				"src": "/paintings/catalogue/kittelsen-palace-1600-f154dcc24d62.webp",
+				"bytes": 190670
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/kittelsen-palace-2400-a6b99f8ef0fa.webp",
+				"bytes": 641468
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/kittelsen-palace-3200-d1f639ea79ef.webp",
-				"bytes": 2017892
+				"src": "/paintings/catalogue/kittelsen-palace-3200-24dfc4d01699.webp",
+				"bytes": 1309202
 			},
 			{
 				"width": 3840,
-				"src": "/paintings/catalogue/kittelsen-palace-3840-96ac1fb74bff.webp",
-				"bytes": 3537948
+				"src": "/paintings/catalogue/kittelsen-palace-3840-daf8b448971b.webp",
+				"bytes": 2831736
 			}
 		]
 	},
@@ -880,7 +1195,7 @@
 		"category": "Knights & legends",
 		"source": "https://commons.wikimedia.org/wiki/File:1813_Schinkel_Gotischer_Dom_am_Wasser_anagoria.JPG",
 		"original": "https://upload.wikimedia.org/wikipedia/commons/8/88/1813_Schinkel_Gotischer_Dom_am_Wasser_anagoria.JPG",
-		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"museum": "Wikimedia Commons · source & credits",
 		"position": "50% 50%",
 		"sourceWidth": 4752,
 		"sourceHeight": 3516,
@@ -889,27 +1204,42 @@
 		"imageCredit": "Photograph: anagoria",
 		"width": 3840,
 		"height": 2841,
-		"thumb": "/paintings/catalogue/schinkel-cathedral-480-655f83435baf.webp",
+		"thumb": "/paintings/catalogue/schinkel-cathedral-480-1e8207c29258.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/schinkel-cathedral-480-655f83435baf.webp",
-				"bytes": 19884
+				"src": "/paintings/catalogue/schinkel-cathedral-480-1e8207c29258.webp",
+				"bytes": 23580
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/schinkel-cathedral-800-2154ef21e5ee.webp",
+				"bytes": 54038
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/schinkel-cathedral-1200-c1b178b0219b.webp",
+				"bytes": 111396
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/schinkel-cathedral-1600-697c130a9489.webp",
-				"bytes": 322492
+				"src": "/paintings/catalogue/schinkel-cathedral-1600-67011f9e0288.webp",
+				"bytes": 196834
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/schinkel-cathedral-2400-df8f4b755a13.webp",
+				"bytes": 449306
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/schinkel-cathedral-3200-b8f9c36f90ad.webp",
-				"bytes": 1398408
+				"src": "/paintings/catalogue/schinkel-cathedral-3200-cf8519821f87.webp",
+				"bytes": 801472
 			},
 			{
 				"width": 3840,
-				"src": "/paintings/catalogue/schinkel-cathedral-3840-f5f651c1fc07.webp",
-				"bytes": 2093302
+				"src": "/paintings/catalogue/schinkel-cathedral-3840-c230f1c3bdf8.webp",
+				"bytes": 1644922
 			}
 		]
 	},
@@ -917,13 +1247,13 @@
 		"id": "friedrich-abbey",
 		"name": "The Abbey in the Oakwood",
 		"artist": "Caspar David Friedrich",
-		"year": "1809\u20131810",
+		"year": "1809–1810",
 		"style": "Romanticism",
 		"medium": "Oil on canvas",
 		"category": "Knights & legends",
 		"source": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Abtei_im_Eichwald_-_Google_Art_Project.jpg",
 		"original": "https://upload.wikimedia.org/wikipedia/commons/3/32/Caspar_David_Friedrich_-_Abtei_im_Eichwald_-_Google_Art_Project.jpg",
-		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"museum": "Wikimedia Commons · source & credits",
 		"position": "50% 50%",
 		"sourceWidth": 4000,
 		"sourceHeight": 2563,
@@ -931,27 +1261,42 @@
 		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
 		"width": 3840,
 		"height": 2460,
-		"thumb": "/paintings/catalogue/friedrich-abbey-480-764d6e9e5965.webp",
+		"thumb": "/paintings/catalogue/friedrich-abbey-480-738b078266a2.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/friedrich-abbey-480-764d6e9e5965.webp",
-				"bytes": 13268
+				"src": "/paintings/catalogue/friedrich-abbey-480-738b078266a2.webp",
+				"bytes": 13430
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/friedrich-abbey-800-d8322dcf5f6c.webp",
+				"bytes": 33080
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/friedrich-abbey-1200-8e7b74079388.webp",
+				"bytes": 76814
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/friedrich-abbey-1600-88745c7f112e.webp",
-				"bytes": 253102
+				"src": "/paintings/catalogue/friedrich-abbey-1600-9b700daf9004.webp",
+				"bytes": 152786
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/friedrich-abbey-2400-8e9e67da1361.webp",
+				"bytes": 391992
 			},
 			{
 				"width": 3200,
-				"src": "/paintings/catalogue/friedrich-abbey-3200-4a744971e445.webp",
-				"bytes": 1161348
+				"src": "/paintings/catalogue/friedrich-abbey-3200-b85f1d0bf0ce.webp",
+				"bytes": 700604
 			},
 			{
 				"width": 3840,
-				"src": "/paintings/catalogue/friedrich-abbey-3840-ab29cdf3dc2f.webp",
-				"bytes": 1746058
+				"src": "/paintings/catalogue/friedrich-abbey-3840-1071b655d7b1.webp",
+				"bytes": 1355762
 			}
 		]
 	},
@@ -965,31 +1310,41 @@
 		"category": "Knights & legends",
 		"source": "https://commons.wikimedia.org/wiki/File:John_Martin_Le_Pandemonium_Louvre.JPG",
 		"original": "https://upload.wikimedia.org/wikipedia/commons/0/08/John_Martin_Le_Pandemonium_Louvre.JPG",
-		"museum": "Wikimedia Commons \u00b7 source & credits",
+		"museum": "Wikimedia Commons · source & credits",
 		"position": "50% 50%",
 		"sourceWidth": 3224,
 		"sourceHeight": 2127,
 		"license": "Public domain",
 		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-		"imageCredit": "Photograph: St\u00e9phane Magnenat",
+		"imageCredit": "Photograph: Stéphane Magnenat",
 		"width": 1920,
 		"height": 1267,
-		"thumb": "/paintings/catalogue/martin-pandemonium-480-9f9c8eca1748.webp",
+		"thumb": "/paintings/catalogue/martin-pandemonium-480-efd777b9c515.webp",
 		"variants": [
 			{
 				"width": 480,
-				"src": "/paintings/catalogue/martin-pandemonium-480-9f9c8eca1748.webp",
-				"bytes": 15618
+				"src": "/paintings/catalogue/martin-pandemonium-480-efd777b9c515.webp",
+				"bytes": 16366
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/martin-pandemonium-800-4af62a349a15.webp",
+				"bytes": 41360
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/martin-pandemonium-1200-3a1ee062f6af.webp",
+				"bytes": 87080
 			},
 			{
 				"width": 1600,
-				"src": "/paintings/catalogue/martin-pandemonium-1600-154716fe5261.webp",
-				"bytes": 271212
+				"src": "/paintings/catalogue/martin-pandemonium-1600-5363ad07e903.webp",
+				"bytes": 149596
 			},
 			{
 				"width": 1920,
-				"src": "/paintings/catalogue/martin-pandemonium-1920-d139df0b8d41.webp",
-				"bytes": 411918
+				"src": "/paintings/catalogue/martin-pandemonium-1920-3aad29af457e.webp",
+				"bytes": 318148
 			}
 		]
 	}

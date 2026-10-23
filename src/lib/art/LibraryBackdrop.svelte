@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { onMount, untrack } from 'svelte';
-	import { coverSizes, imageSet, imageSrc, type Painting } from './collection';
-	import { NoiseDissolve } from './NoiseDissolve';
+	import { coverSizes, imageSet, imageSrc, viewportImageSet, type Painting } from './collection';
+	import type { NoiseDissolve } from './NoiseDissolve';
 	let { painting }: { painting: Painting } = $props();
 	let displayed = $state(untrack(() => painting));
 	let mounted = $state(false);
 	let canvas: HTMLCanvasElement;
 	let renderer: NoiseDissolve | undefined;
 	let previous: HTMLImageElement | undefined;
+	let nativeImage: HTMLImageElement;
 	onMount(() => {
 		mounted = true;
 		const media = matchMedia('(prefers-reduced-motion: reduce)');
@@ -24,18 +25,24 @@
 		const target = painting;
 		if (!mounted) return;
 		let stale = false;
-		const next = new Image();
-		next.sizes = coverSizes(target);
-		next.srcset = imageSet(target) || '';
-		next.src = imageSrc(target);
-		next.style.objectPosition = target.position;
+		const next = !previous && target.id === untrack(() => displayed.id) ? nativeImage : new Image();
+		if (next !== nativeImage) {
+			next.sizes = coverSizes(target);
+			next.srcset = viewportImageSet(target) || '';
+			next.src = imageSrc(target);
+			next.style.objectPosition = target.position;
+		}
 		void next
 			.decode()
-			.then(() => {
+			.then(async () => {
 				if (stale) return;
 				if (previous && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
 					try {
-						renderer ??= new NoiseDissolve(canvas);
+						if (!renderer) {
+							const { NoiseDissolve } = await import('./NoiseDissolve');
+							if (stale) return;
+							renderer = new NoiseDissolve(canvas);
+						}
 						renderer.play(previous, next, () => {});
 					} catch {
 						renderer?.cancel();
@@ -54,13 +61,23 @@
 </script>
 
 <div class="library-backdrop" aria-hidden="true">
-	<img
-		src={imageSrc(displayed)}
-		srcset={imageSet(displayed)}
-		sizes={coverSizes(displayed)}
-		style:object-position={displayed.position}
-		alt=""
-	/>
+	<picture>
+		<source
+			media="(max-width: 760px)"
+			srcset={imageSet(displayed, 1600)}
+			sizes={coverSizes(displayed)}
+		/>
+		<img
+			bind:this={nativeImage}
+			fetchpriority="high"
+			decoding="async"
+			src={imageSrc(displayed)}
+			srcset={imageSet(displayed)}
+			sizes={coverSizes(displayed)}
+			style:object-position={displayed.position}
+			alt=""
+		/>
+	</picture>
 	<canvas bind:this={canvas} data-active="false"></canvas>
 	<div class="shade"></div>
 </div>

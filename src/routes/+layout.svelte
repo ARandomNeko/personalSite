@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import '../app.css';
+	import { bodyFont, headingFont, monoFont } from '$lib/fonts';
 	import SiteHeader from '$lib/components/SiteHeader.svelte';
 
 	let { children } = $props();
@@ -22,13 +23,9 @@
 	/>
 	<meta property="og:url" content={$page.url.origin + $page.url.pathname} />
 	<meta name="twitter:card" content="summary" />
-	<link
-		rel="preload"
-		href="/fonts/ETBembo-Regular.woff"
-		as="font"
-		type="font/woff"
-		crossorigin="anonymous"
-	/>
+	{#each [bodyFont, headingFont, monoFont] as font (font)}
+		<link rel="preload" href={font} as="font" type="font/woff2" crossorigin="anonymous" />
+	{/each}
 	<link rel="canonical" href={$page.url.origin + $page.url.pathname} />
 </svelte:head>
 
@@ -41,7 +38,7 @@
 			class="site-shell"
 			class:library-shell={$page.url.pathname === '/reading'}
 			class:resume-shell={$page.url.pathname === '/resume'}
-			class:journal-shell={$page.url.pathname === '/blog'}
+			class:journal-shell={['/blog', '/projects'].includes($page.url.pathname)}
 		>
 			<main class="html-content">{@render children()}</main>
 		</div>
@@ -69,7 +66,7 @@
 		color: var(--tx);
 		background:
 			linear-gradient(#141a1f44, #141a1f44),
-			url('/paintings/turner-moonlight.jpg') center/cover fixed;
+			url('/paintings/turner-moonlight-769fdc09a199.webp') center/cover fixed;
 	}
 	.html-content {
 		flex: initial;

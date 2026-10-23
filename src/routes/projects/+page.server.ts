@@ -1,5 +1,5 @@
 import type { PageServerLoad } from './$types';
-import { getPostsByTag } from '$lib/posts';
+import { getPostsByTag } from '$lib/server/posts';
 
 export const load: PageServerLoad = async () => {
 	const posts = await getPostsByTag('project');

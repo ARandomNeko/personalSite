@@ -3,21 +3,21 @@
 
 @font-face {
 	font-family: 'ET Bembo';
-	src: url('/fonts/ETBembo-Regular.woff') format('woff');
+	src: url('/fonts/ETBembo-Regular-635b67a74a38.woff2') format('woff2');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
 	font-family: 'ET Bembo';
-	src: url('/fonts/ETBembo-Italic.woff') format('woff');
+	src: url('/fonts/ETBembo-Italic-eb502aa9afda.woff2') format('woff2');
 	font-weight: 400;
 	font-style: italic;
 	font-display: swap;
 }
 @font-face {
 	font-family: 'ET Bembo';
-	src: url('/fonts/ETBembo-Bold.woff') format('woff');
+	src: url('/fonts/ETBembo-Bold-7d650bcd75d0.woff2') format('woff2');
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
@@ -25,18 +25,13 @@
 
 @font-face {
 	font-family: 'Instrument Serif';
-	src: url('/fonts/InstrumentSerif-Regular.ttf');
+	src: url('/fonts/InstrumentSerif-Regular-5bb90161439c.woff2') format('woff2');
 	font-display: swap;
 }
-@font-face {
-	font-family: 'Instrument Serif';
-	font-style: italic;
-	src: url('/fonts/InstrumentSerif-Italic.ttf');
-	font-display: swap;
-}
+
 @font-face {
 	font-family: 'JetBrains Mono';
-	src: url('/fonts/JetBrainsMono-Regular.ttf');
+	src: url('/fonts/JetBrainsMono-Regular-5ed56d0374e5.woff2') format('woff2');
 	font-display: swap;
 }
 

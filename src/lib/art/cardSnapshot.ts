@@ -1,17 +1,38 @@
 // Rasterize this small text-only panel with the browser's own HTML layout and
 // font rasterizer. No screenshot dependency or hand-maintained canvas typography.
+import { bodyFont, headingFont, monoFont } from '$lib/fonts';
 import { snapshotRect, type CardRect } from './CardGeometry';
+
+// These panels contain text, links, and flex rows. Copy the properties that
+// determine their pixels, rather than serializing every CSS property and every
+// Tailwind custom variable onto each node in each SVG snapshot.
+const snapshotProperties = `
+ display position top right bottom left box-sizing width height min-width min-height max-width max-height
+ margin-top margin-right margin-bottom margin-left padding-top padding-right padding-bottom padding-left
+ border-top-width border-right-width border-bottom-width border-left-width
+ border-top-style border-right-style border-bottom-style border-left-style
+ border-top-color border-right-color border-bottom-color border-left-color border-radius
+ background-color background-image background-size background-position background-repeat box-shadow
+ color opacity visibility overflow-x overflow-y transform transform-origin
+ flex-direction flex-wrap flex-grow flex-shrink flex-basis justify-content align-items align-content align-self order row-gap column-gap
+ font-family font-size font-weight font-style font-stretch font-variant font-feature-settings font-kerning
+ font-variation-settings font-optical-sizing font-synthesis line-height letter-spacing word-spacing
+ white-space text-align text-indent text-transform text-decoration-line text-decoration-style text-decoration-color
+ text-decoration-thickness text-underline-offset text-rendering direction unicode-bidi overflow-wrap word-break hyphens
+`
+	.trim()
+	.split(/\s+/);
 
 let fontStyles: Promise<string> | undefined;
 
 function embeddedFonts() {
 	return (fontStyles ??= Promise.all(
 		[
-			['Instrument Serif', 'InstrumentSerif-Regular.ttf', 'truetype'],
-			['JetBrains Mono', 'JetBrainsMono-Regular.ttf', 'truetype'],
-			['ET Bembo', 'ETBembo-Regular.woff', 'woff']
-		].map(async ([family, file, format]) => {
-			const response = await fetch(`/fonts/${file}`);
+			['Instrument Serif', headingFont],
+			['JetBrains Mono', monoFont],
+			['ET Bembo', bodyFont]
+		].map(async ([family, file]) => {
+			const response = await fetch(file);
 			if (!response.ok) throw new Error('Card font unavailable');
 			const blob = await response.blob();
 			const url = await new Promise<string>((resolve, reject) => {
@@ -20,7 +41,7 @@ function embeddedFonts() {
 				reader.onerror = reject;
 				reader.readAsDataURL(blob);
 			});
-			return `@font-face { font-family: '${family}'; src: url('${url}') format('${format}'); }`;
+			return `@font-face { font-family: '${family}'; src: url('${url}') format('woff2'); }`;
 		})
 	).then((rules) => rules.join('\n')));
 }
@@ -42,7 +63,7 @@ export async function snapshotCard(
 	sources.forEach((source, index) => {
 		const computed = getComputedStyle(source);
 		const copy = copies[index];
-		for (const property of computed)
+		for (const property of snapshotProperties)
 			copy.style.setProperty(property, computed.getPropertyValue(property));
 		copy.style.transition = 'none';
 		copy.style.animation = 'none';

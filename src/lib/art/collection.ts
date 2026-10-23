@@ -34,8 +34,15 @@ export const defaultPaintings = resolvePaintings(defaultIds);
 export function imageSrc(p: Painting, target = 1600) {
 	return p.variants?.find((v) => v.width >= target)?.src || p.variants?.at(-1)?.src || p.original;
 }
-export function imageSet(p: Painting) {
-	return p.variants?.map((v) => `${v.src} ${v.width}w`).join(', ');
+export function imageSet(p: Painting, maxWidth = Infinity) {
+	return p.variants
+		?.filter((v) => v.width <= maxWidth)
+		.map((v) => `${v.src} ${v.width}w`)
+		.join(', ');
+}
+// Darkened phone backdrops need less resolution than foreground artwork.
+export function viewportImageSet(p: Painting) {
+	return imageSet(p, matchMedia('(max-width: 760px)').matches ? 1600 : Infinity);
 }
 // Cover images may need more than 100vw when a portrait is cropped into a wide viewport.
 export function coverSizes(p: Painting) {

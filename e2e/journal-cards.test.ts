@@ -35,3 +35,34 @@ for (const width of [1440, 390]) {
 		expect(errors).toEqual([]);
 	});
 }
+
+test('Work is the journal filtered by the project tag', async ({ page, request }) => {
+	const posts = await (await request.get('/api/posts')).json();
+	const expected = posts
+		.filter((post: { metadata: { tags?: string[] } }) => post.metadata.tags?.includes('project'))
+		.map((post: { slug: string }) => `/blog/${post.slug}`);
+	await page.goto('/blog');
+	const filters = page.getByRole('navigation', { name: 'Journal filters' });
+	await filters.getByRole('link', { name: 'Projects', exact: true }).click();
+	await expect(page).toHaveURL(/\/projects$/);
+	await expect(filters.getByRole('link', { name: 'Projects', exact: true })).toHaveAttribute(
+		'aria-current',
+		'page'
+	);
+	expect(
+		await page
+			.locator('.journal-card .story')
+			.evaluateAll((links) => links.map((link) => link.getAttribute('href')))
+	).toEqual(expected);
+	await expect(
+		page
+			.getByRole('navigation', { name: 'Main navigation' })
+			.getByRole('link', { name: 'Work', exact: true })
+	).toHaveAttribute('aria-current', 'page');
+	await filters.getByRole('link', { name: 'All entries' }).click();
+	await expect(page).toHaveURL(/\/blog$/);
+	await expect(filters.getByRole('link', { name: 'All entries' })).toHaveAttribute(
+		'aria-current',
+		'page'
+	);
+});

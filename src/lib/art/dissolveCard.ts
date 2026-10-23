@@ -58,7 +58,15 @@ export function dissolveCard(card: HTMLElement, initial: Change) {
 			if (!disposed && current === revision) previous = undefined;
 		}
 	}
-	if (!media.matches) void warm();
+	let warmup = 0;
+	if (!media.matches && document.fonts) {
+		void document.fonts.ready.then(() => {
+			if (disposed) return;
+			if ('requestIdleCallback' in window) {
+				warmup = window.requestIdleCallback(() => void warm(), { timeout: 1500 });
+			} else void warm();
+		});
+	}
 
 	async function update(next: Change) {
 		if (next.key === change.key) return;
@@ -150,6 +158,7 @@ export function dissolveCard(card: HTMLElement, initial: Change) {
 			disposed = true;
 			++revision;
 			cancelAnimationFrame(resizeFrame);
+			if (warmup) window.cancelIdleCallback(warmup);
 			observer?.disconnect();
 			media.removeEventListener('change', motionChanged);
 			card.removeEventListener('focusin', cancel);

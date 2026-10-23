@@ -1,9 +1,12 @@
-# Responsive paintings have content hashes in their filenames.
-/paintings/catalogue/*
+# Painting and font filenames contain content hashes, so updates get fresh URLs.
+/paintings/*
   Cache-Control: public, max-age=31536000, immutable
 
-/paintings/turner-moonlight.jpg
-  Cache-Control: public, max-age=86400
+/fonts/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
 
-/fonts/*
+/fonts/*-LICENSE.txt
+  Cache-Control: public, max-age=604800
+
+/fonts/*-OFL.txt
   Cache-Control: public, max-age=604800

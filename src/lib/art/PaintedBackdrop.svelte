@@ -26,7 +26,6 @@
 		let target = 0;
 		let revision = 0;
 		let dissolve: NoiseDissolve | null | undefined;
-		let idle = 0;
 		function renderer() {
 			if (dissolve !== undefined) return dissolve;
 			try {
@@ -47,6 +46,7 @@
 			if (!layers[index] || loading.has(index)) return;
 			loading.add(index);
 			const img = layers[index].querySelector('img')!;
+			layers[index].querySelector('source')!.srcset = imageSet(collection[index], 1600) || '';
 			img.sizes = coverSizes(collection[index]);
 			img.srcset = imageSet(collection[index]) || '';
 			img.src = imageSrc(collection[index]);
@@ -114,7 +114,8 @@
 			});
 			desired = nearest;
 			load(paintingForScene(desired));
-			if (desired + 1 < sections.length) load(paintingForScene(desired + 1));
+			if (ready.has(paintingForScene(desired)) && desired + 1 < sections.length)
+				load(paintingForScene(desired + 1));
 			transition(desired);
 		}
 		function measure() {
@@ -134,14 +135,7 @@
 			schedule();
 		}
 		load(0);
-		if (!media.matches && 'requestIdleCallback' in window) {
-			idle = window.requestIdleCallback(
-				() => {
-					if (!disposed) renderer();
-				},
-				{ timeout: 1500 }
-			);
-		}
+
 		onchange(collection[0], 0);
 		measure();
 		const observer = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(measure) : null;
@@ -155,7 +149,6 @@
 		return () => {
 			disposed = true;
 			cancelAnimationFrame(frame);
-			if (idle) window.cancelIdleCallback(idle);
 			dissolve?.destroy();
 			observer?.disconnect();
 			window.removeEventListener('scroll', schedule);
@@ -166,22 +159,29 @@
 </script>
 
 <div class="painted-world" aria-hidden="true" bind:this={surface}>
-	{#each collection as painting, i}
+	{#each collection as painting, i (painting.id)}
 		<div
 			class="paint-layer"
 			data-painting={painting.id}
 			style:visibility={i === 0 ? 'visible' : 'hidden'}
 			style:opacity={i === 0 ? 1 : 0}
 		>
-			<img
-				src={i === 0 ? imageSrc(painting) : undefined}
-				srcset={i === 0 ? imageSet(painting) : undefined}
-				sizes={coverSizes(painting)}
-				alt=""
-				decoding="async"
-				fetchpriority={i === 0 ? 'high' : 'low'}
-				style:object-position={painting.position}
-			/>
+			<picture>
+				<source
+					media="(max-width: 760px)"
+					srcset={i === 0 ? imageSet(painting, 1600) : undefined}
+					sizes={coverSizes(painting)}
+				/>
+				<img
+					src={i === 0 ? imageSrc(painting) : undefined}
+					srcset={i === 0 ? imageSet(painting) : undefined}
+					sizes={coverSizes(painting)}
+					alt=""
+					decoding="async"
+					fetchpriority={i === 0 ? 'high' : 'low'}
+					style:object-position={painting.position}
+				/>
+			</picture>
 		</div>
 	{/each}
 	<canvas class="noise-dissolve" bind:this={noiseCanvas} data-active="false"></canvas>

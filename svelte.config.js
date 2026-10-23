@@ -19,6 +19,7 @@ const config = {
 	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 
 	kit: {
+		prerender: { origin: process.env.SITE_ORIGIN || 'https://rituparan.com' },
 		// Use Node adapter for local development (better for NixOS and native dependencies)
 		adapter:
 			process.env.NODE_ENV === 'production' && process.env.SITE_ADAPTER !== 'node'
