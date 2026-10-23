@@ -41,6 +41,7 @@
 			class="site-shell"
 			class:library-shell={$page.url.pathname === '/reading'}
 			class:resume-shell={$page.url.pathname === '/resume'}
+			class:journal-shell={$page.url.pathname === '/blog'}
 		>
 			<main class="html-content">{@render children()}</main>
 		</div>
@@ -85,11 +86,13 @@
 		font-size: 18px;
 		line-height: 1.9;
 	}
-	.resume-shell {
+	.resume-shell,
+	.journal-shell {
 		isolation: isolate;
 		background: transparent;
 	}
-	.resume-shell .html-content {
+	.resume-shell .html-content,
+	.journal-shell .html-content {
 		width: 100%;
 		margin: 0;
 		padding: 0;
