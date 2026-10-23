@@ -1,144 +1,822 @@
 <script lang="ts">
-	let { data } = $props();
-	const recentPosts = data.recentPosts;
+	import { resolve } from '$app/paths';
+	import { onMount, untrack } from 'svelte';
+	import { featuredBooks } from '#lib/books.js';
 
-	function formatDate(dateString: string) {
-		return new Date(dateString).toLocaleDateString('en-US', {
+	import PaintedBackdrop from '#lib/art/PaintedBackdrop.svelte';
+	import { dissolveCard } from '#lib/art/dissolveCard.js';
+	import type { DissolveClock } from '#lib/art/NoiseDissolve.js';
+	import { resolvePaintings, type Painting } from '#lib/art/collection.js';
+	import { randomart } from '#lib/art/randomart.js';
+	import type { PostPreview } from '#lib/posts.js';
+	let { data }: { data: { recentPosts: PostPreview[]; paintingOrder: string[] } } = $props();
+	// Keep this visit's dealt order even if server data refreshes while reading.
+	const paintings = resolvePaintings(untrack(() => data.paintingOrder));
+	const latestPost = $derived(data.recentPosts[0]);
+	const nextPost = $derived(data.recentPosts[1]);
+	function formatDate(date: string) {
+		return new Date(date).toLocaleDateString('en-GB', {
+			day: 'numeric',
+			month: 'long',
 			year: 'numeric',
-			month: 'short',
-			day: 'numeric'
+			timeZone: 'UTC'
 		});
 	}
+	let displayedPainting = $state<Painting | null>(null);
+	let activeScene = $state(0);
+	let paintingClock = $state.raw<DissolveClock>();
+	let introContent: HTMLDivElement;
+	let paintingContent: HTMLDivElement;
+	let sideCardHeight = $state<number>();
+	const currentPainting = $derived(displayedPainting ?? paintings[0]);
+
+	onMount(() => {
+		console.info(
+			`%c${randomart(crypto.getRandomValues(new Uint8Array(32)))}`,
+			'color: #d4c393; background: #202225; padding: 16px; font-family: monospace; line-height: 1.8'
+		);
+		function sizeSideCards() {
+			const cards = [introContent, paintingContent];
+			sideCardHeight = Math.ceil(
+				Math.max(
+					...cards.map((content) => {
+						const card = getComputedStyle(content.parentElement!);
+						const copy = content.querySelector<HTMLElement>('.side-card-copy')!;
+						const links = content.querySelector<HTMLElement>('.side-card-links')!;
+						return (
+							copy.getBoundingClientRect().height +
+							links.getBoundingClientRect().height +
+							parseFloat(getComputedStyle(content).rowGap) +
+							parseFloat(card.paddingTop) +
+							parseFloat(card.paddingBottom) +
+							parseFloat(card.borderTopWidth) +
+							parseFloat(card.borderBottomWidth)
+						);
+					})
+				)
+			);
+		}
+		const cardObserver =
+			typeof ResizeObserver !== 'undefined' ? new ResizeObserver(sizeSideCards) : null;
+		for (const content of [introContent, paintingContent]) {
+			cardObserver?.observe(content.querySelector('.side-card-copy')!);
+			cardObserver?.observe(content.querySelector('.side-card-links')!);
+		}
+		sizeSideCards();
+		window.addEventListener('resize', sizeSideCards);
+		return () => {
+			window.removeEventListener('resize', sizeSideCards);
+			cardObserver?.disconnect();
+		};
+	});
 </script>
 
 <svelte:head>
-	<title>Rituparan Reddy | Developer, Writer</title>
-	<meta
-		name="description"
-		content="Rituparan (Ritu) Reddy – blog, projects, robotics, reading notes, and experiments."
-	/>
-	<meta
-		name="keywords"
-		content="ritu, rituparan, ritu reddy, rituparan reddy, rituparan gurrala, rituparan reddy gurrala, blog, robotics, projects, reading, programming"
-	/>
+	<title>Rituparan Reddy — Journal</title>
+	<meta name="description" content="Writing, books, and things built by Rituparan Reddy." />
 </svelte:head>
 
-<section class="home-layout py-6">
-	<!-- Main Column -->
-	<div class="main-column">
-		<div class="animate-fade-in">
-			<h1 class="mb-3 text-3xl font-bold !text-[--re]">Rituparan Reddy</h1>
-			<p class="mb-6 text-lg text-[--tx-2]">Developer // Thinker // Humanist</p>
-		</div>
+<div
+	class="journal-page"
+	style:--side-card-height={sideCardHeight ? `${sideCardHeight}px` : undefined}
+>
+	<a class="skip" href="#writing">Skip to writing</a>
+	<PaintedBackdrop
+		collection={paintings}
+		onchange={(painting, scene, clock) => {
+			displayedPainting = painting;
+			activeScene = scene;
+			paintingClock = clock;
+		}}
+	/>
 
-		<div class="prose prose-base dark:prose-invert animate-fade-in animate-delay-1 max-w-none">
-			<p>
-				Welcome to my personal corner of the internet. I'm passionate about building things with
-				code, exploring new ideas, and documenting the journey.
-			</p>
-			<p>
-				This site serves as my digital garden, notebook, and portfolio — a place where I share
-				projects, reading notes, and thoughts on technology and life.
-			</p>
-		</div>
-
-		<div class="animate-fade-in animate-delay-2 mt-8 flex flex-wrap gap-3">
-			<a href="/projects" class="btn">Projects</a>
-			<a href="/blog" class="btn">Blog</a>
-			<a href="/reading" class="btn">Reading</a>
-			<a href="/resume" class="btn">Resume</a>
-		</div>
-	</div>
-
-	<!-- Sidebar -->
-	<aside class="sidebar">
-		<!-- Now Card -->
-		<div class="sidebar-card animate-fade-in animate-delay-3">
-			<h2 class="mb-3 text-sm font-bold text-[--tx-2]">// NOW</h2>
-			<p class="mb-2 text-sm">
-				Studying computer science at Rutgers University–New Brunswick, with projects in robotics,
-				agentic AI, and developer tooling.
-			</p>
-			<p class="text-sm text-[--tx-2]">
-				Currently reading: <em>The Myth of Sisyphus</em> by Albert Camus
-			</p>
-		</div>
-
-		<!-- Recent Posts -->
-		{#if recentPosts.length > 0}
-			<div class="sidebar-card animate-fade-in animate-delay-4">
-				<h2 class="mb-3 text-sm font-bold text-[--tx-2]">// RECENT</h2>
-				<ul class="space-y-3">
-					{#each recentPosts as post (post.slug)}
-						<li>
-							<a href="/blog/{post.slug}" class="group block">
-								<span class="text-xs text-[--tx-2]">{formatDate(post.metadata.date)}</span>
-								<p class="text-sm transition-colors group-hover:text-[--cy]">
-									{post.metadata.title}
-								</p>
-							</a>
-						</li>
-					{/each}
-				</ul>
-				<a href="/blog" class="mt-4 inline-block text-xs text-[--tx-2] hover:text-[--cy]">
-					View all posts →
-				</a>
+	<aside
+		class="painting-label"
+		aria-label="Current painting"
+		use:dissolveCard={{ key: currentPainting.id, clock: paintingClock }}
+	>
+		<div class="side-card-content" bind:this={paintingContent}>
+			<div class="side-card-copy">
+				<p class="painting-name">{currentPainting.name}</p>
+				<p class="painting-artist">{currentPainting.artist}</p>
+				<p class="painting-meta">{currentPainting.year} / {currentPainting.style}</p>
 			</div>
-		{/if}
-
-		<!-- Links -->
-		<div class="sidebar-card animate-fade-in animate-delay-5">
-			<h2 class="mb-3 text-sm font-bold text-[--tx-2]">// LINKS</h2>
-			<ul class="space-y-2 text-sm">
-				<li>
-					<a
-						href="https://github.com/ARandomNeko"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="hover:text-[--cy]">GitHub ↗</a
-					>
-				</li>
-				<li><a href="mailto:me@rituparan.com" class="hover:text-[--cy]">Email</a></li>
-			</ul>
+			<div class="side-card-links">
+				<a href={currentPainting.source} target="_blank" rel="external noreferrer">Source ↗</a>
+			</div>
 		</div>
 	</aside>
-</section>
+
+	<aside
+		class="intro-note"
+		aria-label="About me"
+		use:dissolveCard={{
+			key: String(sideCardHeight ?? 0),
+			clock: paintingClock,
+			geometryOnly: true
+		}}
+	>
+		<div class="side-card-content" bind:this={introContent}>
+			<div class="side-card-copy">
+				<p class="intro-name">Rituparan Reddy.</p>
+				<p>
+					Computer science student at Rutgers. I work on robotics, agentic systems, and developer
+					tools.
+				</p>
+			</div>
+			<div class="side-card-links">
+				<a href="https://github.com/ARandomNeko">GitHub</a><a
+					href="mailto:rituparanreddy2006@gmail.com">Email</a
+				>
+			</div>
+		</div>
+	</aside>
+
+	<main class="journal-pages" id="writing">
+		<section
+			class="chapter opening"
+			data-scene="0"
+			data-focused={activeScene === 0}
+			aria-labelledby="first-title"
+		>
+			<div class="sheet">
+				<div class="window-bar"><span>Writing</span><a href={resolve('/blog')}>Index ↗</a></div>
+				<article>
+					{#if latestPost}
+						<time datetime={latestPost.metadata.date}>{formatDate(latestPost.metadata.date)}</time>
+						<h1 id="first-title">
+							<a href={resolve('/blog/[slug]', { slug: latestPost.slug })}
+								>{latestPost.metadata.title}</a
+							>
+						</h1>
+						<p>{latestPost.metadata.description}</p>
+						<a class="read-link" href={resolve('/blog/[slug]', { slug: latestPost.slug })}
+							>Read entry</a
+						>
+					{/if}
+				</article>
+			</div>
+		</section>
+
+		<section
+			class="chapter"
+			id="books"
+			data-scene="1"
+			data-focused={activeScene === 1}
+			aria-labelledby="books-title"
+		>
+			<div class="sheet books-sheet">
+				<div class="window-bar"><span>Library</span><a href={resolve('/reading')}>Index ↗</a></div>
+				<h2 id="books-title">Library</h2>
+				<ul class="featured-books" aria-label="Featured books">
+					{#each featuredBooks as book (book.id)}
+						<li><span>{book.title}</span><span>{book.author}</span></li>
+					{/each}
+				</ul>
+				<a class="read-link" href={resolve('/reading')}>Explore the library ↗</a>
+			</div>
+		</section>
+
+		<section
+			class="chapter"
+			id="work"
+			data-scene="2"
+			data-focused={activeScene === 2}
+			aria-labelledby="work-title"
+		>
+			<div class="sheet work-sheet">
+				<div class="window-bar"><span>Work</span><a href={resolve('/projects')}>Index ↗</a></div>
+				<article>
+					{#if nextPost}
+						<time datetime={nextPost.metadata.date}>{formatDate(nextPost.metadata.date)}</time>
+						<h2 id="work-title">
+							<a href={resolve('/blog/[slug]', { slug: nextPost.slug })}
+								>{nextPost.metadata.title}</a
+							>
+						</h2>
+						<p>{nextPost.metadata.description}</p>
+						<a class="read-link" href={resolve('/blog/[slug]', { slug: nextPost.slug })}
+							>Read entry</a
+						>
+					{/if}
+				</article>
+				<div class="further-work">
+					{#each data.recentPosts.slice(2) as post (post.slug)}
+						<a href={resolve('/blog/[slug]', { slug: post.slug })}>{post.metadata.title}</a>
+					{/each}
+					<a class="read-link" href={resolve('/projects')}>All projects</a>
+				</div>
+			</div>
+		</section>
+
+		<section
+			class="chapter closing"
+			data-scene="3"
+			data-focused={activeScene === 3}
+			aria-labelledby="elsewhere-title"
+		>
+			<div class="sheet colophon">
+				<h2 id="elsewhere-title">Elsewhere</h2>
+				<div class="elsewhere-links">
+					<a href="https://github.com/ARandomNeko">GitHub</a><a href={resolve('/resume')}
+						>About me</a
+					><a href={resolve('/blog')}>All entries</a>
+				</div>
+				<details>
+					<summary>The paintings</summary>
+					<ul>
+						{#each paintings as painting (painting.id)}<li>
+								<a href={painting.source} rel="external">{painting.name}</a><span
+									>{painting.artist}, {painting.year}</span
+								>
+								{#if painting.license && painting.licenseUrl}
+									<span
+										>{painting.imageCredit || painting.artist} ·
+										<a href={painting.licenseUrl} rel="external">{painting.license}</a> · Resized for
+										display.</span
+									>
+								{/if}
+							</li>{/each}
+					</ul>
+				</details>
+			</div>
+		</section>
+	</main>
+</div>
 
 <style>
-	.home-layout {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: calc(var(--grid) * 3);
-		max-width: 960px;
-		margin: 0 auto;
-		padding: 0 var(--grid);
+	:global(body:has(.journal-page)) {
+		overflow: auto;
+		background: #625f69;
 	}
-
-	@media (min-width: 900px) {
-		.home-layout {
-			grid-template-columns: 1fr 0.6fr;
-			padding: 0 calc(var(--grid) * 2);
+	.journal-page {
+		--paper: #e7e4df;
+		--ink: #2d3139;
+		position: relative;
+		isolation: isolate;
+		color: var(--ink);
+		font-family: var(--font-body);
+	}
+	.journal-page a {
+		color: inherit;
+	}
+	.journal-page a:hover {
+		text-decoration: underline;
+	}
+	.journal-page :focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 6px;
+	}
+	.journal-pages {
+		padding-top: clamp(70px, 15vh, 180px);
+	}
+	.chapter {
+		width: min(590px, 46%);
+		margin-left: 46%;
+		position: relative;
+		scroll-margin-top: 55px;
+	}
+	.sheet {
+		position: relative;
+		background: var(--paper);
+		padding: 64px 66px 48px;
+	}
+	.sheet::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: -3px;
+		width: 3px;
+		background: radial-gradient(var(--paper) 0.8px, transparent 1px) 0 0 / 2px 3px;
+	}
+	.opening .sheet {
+		padding-top: 61px;
+	}
+	time {
+		display: block;
+		font:
+			11px/1.5 'Courier New',
+			monospace;
+		color: #62616a;
+	}
+	h1,
+	h2 {
+		font-family: 'Instrument Serif', Georgia, serif;
+		font-weight: 400;
+		letter-spacing: -0.035em;
+	}
+	h1 {
+		font-size: clamp(70px, 6.8vw, 106px);
+		line-height: 0.94;
+		margin: 27px 0 38px;
+	}
+	h1 a,
+	h2 a {
+		text-decoration: none;
+	}
+	h2 {
+		font-size: clamp(56px, 5.5vw, 78px);
+		line-height: 1;
+		margin: 0 0 38px;
+	}
+	p {
+		font-size: 17px;
+		line-height: 1.85;
+		margin: 0 0 22px;
+	}
+	.read-link {
+		display: inline-block;
+		font-size: 14px;
+		text-decoration: underline;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 5px;
+		margin-top: 8px;
+	}
+	.featured-books {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 28px;
+		display: grid;
+		gap: 22px;
+	}
+	.featured-books li > span:first-child {
+		display: block;
+		font: 28px/1.15 var(--font-serif);
+	}
+	.featured-books li > span:last-child {
+		display: block;
+		margin-top: 5px;
+		color: #aaa99d;
+		font: 16px/1.5 var(--font-body);
+	}
+	.books-sheet {
+		padding-top: 110px;
+		padding-bottom: 120px;
+		background: #e4e0dd;
+	}
+	.work-sheet {
+		background: #e1dfdb;
+		padding-top: 110px;
+		padding-bottom: 100px;
+	}
+	.work-sheet h2 {
+		margin-top: 28px;
+	}
+	.further-work {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 22px;
+		margin-top: 80px;
+	}
+	.further-work > a:not(.read-link) {
+		font:
+			30px/1.15 'Instrument Serif',
+			Georgia,
+			serif;
+		text-decoration: none;
+	}
+	.closing {
+		padding-top: 150px;
+		padding-bottom: 80px;
+	}
+	.colophon {
+		padding-top: 56px;
+		padding-bottom: 30px;
+	}
+	.colophon h2 {
+		font-size: 50px;
+		margin-bottom: 25px;
+	}
+	.elsewhere-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 23px;
+		font-size: 14px;
+	}
+	details {
+		margin-top: 50px;
+		font-size: 13px;
+	}
+	summary {
+		cursor: pointer;
+		text-underline-offset: 5px;
+	}
+	details ul {
+		list-style: none;
+		padding: 20px 0 0;
+	}
+	details li {
+		margin-bottom: 16px;
+	}
+	details li span {
+		display: block;
+		color: #66626a;
+		font-size: 12px;
+	}
+	.skip {
+		position: fixed;
+		top: -100px;
+		left: 20px;
+		z-index: 4;
+		padding: 14px;
+		background: var(--paper);
+	}
+	.skip:focus {
+		top: 20px;
+	}
+	@media (min-width: 1600px) {
+		.chapter {
+			margin-left: 49%;
+			width: 620px;
+		}
+		.sheet {
+			padding-left: 76px;
+			padding-right: 76px;
+		}
+	}
+	@media (max-width: 1000px) {
+		.chapter {
+			width: 53%;
+			margin-left: 41%;
+		}
+		.sheet {
+			padding-left: 38px;
+			padding-right: 38px;
+		}
+	}
+	@media (max-width: 650px) {
+		.journal-pages {
+			padding-top: 24svh;
+		}
+		.chapter {
+			width: calc(100% - 42px);
+			margin-left: 21px;
+			scroll-margin-top: 24px;
+		}
+		.sheet {
+			padding: 42px 30px;
+		}
+		.opening .sheet {
+			padding-top: 40px;
+		}
+		h1 {
+			font-size: 76px;
+			margin-top: 24px;
+			margin-bottom: 30px;
+		}
+		h2 {
+			font-size: 64px;
+		}
+		p {
+			font-size: 16px;
+			line-height: 1.85;
+		}
+		.books-sheet,
+		.work-sheet {
+			padding-top: 70px;
+			padding-bottom: 70px;
+		}
+		.closing {
+			padding-top: 180px;
+			padding-bottom: 24px;
+		}
+		.colophon h2 {
+			font-size: 45px;
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		:global(html:has(.journal-page)) {
+			scroll-behavior: auto;
 		}
 	}
 
-	.main-column {
-		min-width: 0;
+	/* Dark hypertext windows; the paintings remain the desktop. */
+	.journal-page {
+		--paper: #202225;
+		--ink: #dfd9c9;
+	}
+	.journal-pages {
+		padding-top: 18vh;
+	}
+	.chapter {
+		margin-left: 48%;
+		width: min(570px, 46%);
+		margin-bottom: 130px;
+	}
+	.sheet {
+		padding: 70px 49px 47px;
+		border: 1px solid #878779;
+		background: #202225;
+		box-shadow: 7px 7px 0 #11161980;
+		transition:
+			border-color 760ms ease,
+			box-shadow 760ms ease;
+	}
+	.chapter[data-focused='true'] .sheet {
+		border-color: #c1b58f;
+		box-shadow:
+			7px 7px 0 #11161980,
+			0 0 0 1px #c1b58f33;
+	}
+	.chapter[data-focused='true'] .window-bar {
+		background: #414139;
+		color: #f0e3bc;
+	}
+	.sheet::before {
+		left: -7px;
+		width: 5px;
+		background: repeating-conic-gradient(#9f9c89 0% 25%, transparent 0% 50%) 0 0 / 3px 3px;
+		opacity: 0.65;
+	}
+	.window-bar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 29px;
+		background: #35383a;
+		border-bottom: 1px solid #878779;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 12px;
+		font:
+			10px/1 'JetBrains Mono',
+			monospace;
+		color: #ddd8c8;
+	}
+	.window-bar a {
+		text-decoration: none;
+	}
+	.opening .sheet {
+		padding-top: 70px;
+	}
+	time {
+		font:
+			10px/1.5 'JetBrains Mono',
+			monospace;
+		color: #aaa99d;
+	}
+	h1 {
+		font-size: clamp(54px, 5.2vw, 76px);
+		line-height: 1;
+		margin: 23px 0 30px;
+	}
+	h2 {
+		font-size: 57px;
+		margin-bottom: 32px;
+	}
+	p {
+		font-size: 16px;
+		line-height: 1.85;
+		color: #ccc9bc;
+	}
+	.read-link {
+		font:
+			11px/1.8 'JetBrains Mono',
+			monospace;
+		color: #d4c393 !important;
+	}
+	.books-sheet,
+	.work-sheet {
+		padding-top: 70px;
+		padding-bottom: 55px;
+		background: #202225;
+	}
+	.further-work {
+		margin-top: 50px;
+		padding-top: 25px;
+		border-top: 1px solid #565b56;
+	}
+	.further-work > a:not(.read-link) {
+		font-size: 25px;
+	}
+	.closing {
+		padding-top: 0;
+		padding-bottom: 70px;
+		margin-bottom: 0;
+	}
+	.colophon {
+		padding-top: 43px;
+	}
+	.colophon h2 {
+		font-size: 43px;
+	}
+	details li span {
+		color: #aaa99d;
+	}
+	.elsewhere-links,
+	details {
+		font:
+			11px/1.8 'JetBrains Mono',
+			monospace;
+	}
+	@media (min-width: 1600px) {
+		.chapter {
+			margin-left: 49%;
+			width: 610px;
+		}
+	}
+	@media (max-width: 1000px) {
+		.chapter {
+			margin-left: 39%;
+			width: 56%;
+		}
+		.sheet {
+			padding-left: 34px;
+			padding-right: 34px;
+		}
+	}
+	@media (max-width: 650px) {
+		.journal-pages {
+			padding-top: 30svh;
+		}
+		.chapter {
+			margin-left: 17px;
+			width: calc(100% - 34px);
+			margin-bottom: 130px;
+		}
+		.sheet {
+			padding: 65px 27px 38px;
+		}
+		.opening .sheet {
+			padding-top: 65px;
+		}
+		h1 {
+			font-size: 60px;
+			margin-bottom: 26px;
+		}
+		h2 {
+			font-size: 53px;
+		}
+		p {
+			font-size: 16px;
+		}
+		.colophon {
+			padding-top: 35px;
+		}
+		.closing {
+			margin-bottom: 0;
+			padding-bottom: 30px;
+		}
 	}
 
-	.sidebar {
+	.intro-note {
+		position: fixed;
+		top: calc(55px + clamp(24px, 6vh, 72px));
+		left: 5%;
+		width: min(330px, 31%);
+		padding: 20px 23px 16px;
+		background: #202225;
+		border: 1px solid #77786d;
+		z-index: 2;
+	}
+	.intro-note p {
+		font-size: 15px;
+		line-height: 1.75;
+		margin-bottom: 18px;
+	}
+	.intro-note .side-card-links {
+		display: flex;
+		gap: 23px;
+		font:
+			10px/1.7 'JetBrains Mono',
+			monospace;
+		color: #d4c393;
+		justify-content: space-between;
+	}
+	@media (max-width: 650px) {
+		.intro-note {
+			top: 94px;
+			left: 17px;
+			right: 17px;
+			width: auto;
+			margin: 0;
+			padding: 11px 15px 10px;
+		}
+		.intro-note p {
+			font-size: 13px;
+			line-height: 1.65;
+			margin-bottom: 12px;
+		}
+		.journal-pages {
+			padding-top: calc(var(--side-card-height, 150px) + 40px);
+		}
+	}
+
+	.painting-label {
+		position: fixed;
+		bottom: 28px;
+		left: 5%;
+		width: min(330px, 31%);
+		padding: 20px 23px 16px;
+		background: #202225;
+		border: 1px solid #77786d;
+		z-index: 2;
+	}
+	.painting-label p {
+		margin: 0;
+	}
+	.painting-label .painting-name,
+	.intro-note .intro-name {
+		font:
+			27px/1.1 'Instrument Serif',
+			Georgia,
+			serif;
+		color: #dfd9c9;
+		margin-bottom: 13px;
+	}
+	.painting-label .painting-artist {
+		font:
+			12px/1.6 'JetBrains Mono',
+			monospace;
+	}
+	.painting-label .painting-meta {
+		font:
+			10px/1.8 'JetBrains Mono',
+			monospace;
+		color: #aaa99d;
+		margin-top: 4px;
+	}
+	.painting-label .side-card-links {
+		display: flex;
+		justify-content: space-between;
+		gap: 20px;
+		margin-top: 17px;
+		font:
+			10px/1.7 'JetBrains Mono',
+			monospace;
+		color: #d4c393;
+	}
+	@media (max-width: 650px) {
+		.painting-label {
+			left: 17px;
+			right: 17px;
+			bottom: 12px;
+			width: auto;
+			padding: 11px 15px 10px;
+		}
+		.painting-label .painting-name {
+			font-size: 20px;
+			margin-bottom: 5px;
+		}
+		.intro-note .intro-name {
+			font-size: 20px;
+			margin-bottom: 5px;
+		}
+		.painting-label .painting-artist {
+			display: inline;
+			font-size: 9px;
+		}
+		.painting-label .painting-meta {
+			display: inline;
+			font-size: 9px;
+			margin-left: 8px;
+		}
+		.painting-label .side-card-links {
+			margin-top: 7px;
+			font-size: 9px;
+		}
+		.journal-pages {
+			padding-bottom: calc(var(--side-card-height, 135px) + 24px);
+		}
+		.chapter {
+			scroll-margin-top: 100px;
+		}
+	}
+	.intro-note,
+	.painting-label {
+		box-sizing: border-box;
+		height: var(--side-card-height, auto);
+	}
+	.side-card-content {
 		display: flex;
 		flex-direction: column;
-		gap: calc(var(--grid) * 2);
+		height: 100%;
+		gap: 18px;
 	}
-
-	.sidebar-card {
-		padding: var(--grid);
-		border: 1px solid var(--ui-3);
-		overflow-wrap: anywhere;
+	.side-card-copy {
+		display: flow-root;
+		flex-shrink: 0;
 	}
-
-	.sidebar-card:hover {
-		border-color: var(--tx);
-		background-color: color-mix(in srgb, var(--tx) 5%, transparent);
+	.intro-note .side-card-copy > p:last-child {
+		margin-bottom: 0;
+	}
+	.intro-note .side-card-links,
+	.painting-label .side-card-links {
+		flex-shrink: 0;
+		margin-top: auto;
+	}
+	@media (max-width: 650px) {
+		.side-card-content {
+			gap: 12px;
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.sheet {
+			transition: none;
+		}
 	}
 </style>

@@ -25,7 +25,7 @@
 		{/if}
 		{#if tags && tags.length > 0}
 			<div class="mb-6 flex flex-wrap gap-2">
-				{#each tags as tag}
+				{#each tags as tag (tag)}
 					<span class="tag">#{tag}</span>
 				{/each}
 			</div>

@@ -2,34 +2,26 @@
 title: 'RL/PPO Drone Simulation Sandbox'
 date: '2026-09-16'
 tags: ['project']
-description: 'A MuJoCo sandbox for training and evaluating drone control policies with PPO, with configurable physics for sim-to-real experiments.'
+description: 'Robotomy: a MuJoCo sandbox for PPO training, baseline controllers, and configurable vehicle physics.'
 published: true
 ---
 
-I built a reinforcement-learning drone simulation sandbox for training and evaluating control policies with Proximal Policy Optimization (PPO). The project, Robotomy, uses MuJoCo and includes aerial quadrotors, aquatic vehicles, and ground rovers in a shared simulated world.
+Robotomy is a MuJoCo sandbox I built for training and evaluating vehicle controllers. It supports quadrotors, aquatic vehicles, and ground rovers, with PPO training through Stable-Baselines3.
 
-The focus is sim-to-real experimentation: making the conditions a controller encounters explicit and adjustable. Training is one part of that workflow. Inspecting the physics, running a baseline controller, and evaluating a saved policy are separate parts that need to work together.
+## Physics and controls
 
-## A shared world with different controls
+A configuration generates the world and sets actuator response, battery behavior, wind, and water currents. The vehicles share an observation layout: goal error, position, linear velocity, and angular velocity.
 
-The sandbox generates a MuJoCo world from configuration. Its vehicle models include actuator response, battery behavior, and environmental effects such as wind and water currents. Each vehicle type has its own control interpretation. For a quadrotor, a neutral command corresponds to hover trim calculated from its mass and gravity; for a rover, it means no drive or yaw command.
+Their actions differ. A quadrotor takes collective thrust, roll, pitch, and yaw commands. Its neutral command corresponds to hover trim calculated from mass and gravity. A rover’s neutral command means no drive or yaw.
 
-The goal-reaching environments use a common observation layout containing goal error, position, linear velocity, and angular velocity. Their actions differ: the aerial policy controls collective thrust, roll, pitch, and yaw, while the aquatic and terrestrial policies use controls suited to their vehicle models.
+## Before training
 
-This makes it possible to work on separate policies while keeping them within the same simulation framework.
+Scripted controllers provide a deterministic baseline. The workflow starts by inspecting the generated world and running that baseline. If the vehicle fails there, the physics, control mapping, and task configuration are the first things to check.
 
-## Establishing a baseline
+The interactive viewer and headless rollouts use the same simulation stepping code. A run can be watched in the viewer or inspected through trace output.
 
-The project includes scripted controllers as well as PPO training through Stable-Baselines3. The documented workflow starts with a deterministic baseline: inspect the generated world, run the scripted controller, and examine the resulting motion before introducing learning.
+## Varying a run
 
-That order gives debugging a useful starting point. If a vehicle cannot complete a task under the baseline controller, its physics, controls, or task configuration are available to inspect before interpreting a training result.
+Each episode can randomize mass, thrust, drag, motor behavior, sensor noise, wind, and initial state. Training saves policies and a summary; a separate evaluation command reloads a policy for another run.
 
-The interactive viewer and headless rollouts share the same simulation stepping path. A behavior can therefore be examined visually and recorded through trace output without maintaining two different versions of the environment.
-
-## Varying the conditions
-
-The sandbox supports episode-level randomization of properties including mass, thrust, drag, motor behavior, sensor noise, wind, and initial state. Deterministic runs provide a repeatable starting point; randomized runs expose the controller to variations in those configured conditions.
-
-Training produces saved policy files and a summary, and a separate evaluation command can load a policy for another run. These artifacts make it possible to revisit a result and compare behavior across configurations.
-
-The project provides the environment and workflow for these experiments. Transfer to a physical drone remains a separate validation step. For now, the useful result is a sandbox where control policies, their assumptions, and the simulated conditions can be examined together.
+The sandbox is built for sim-to-real experiments. Transfer to a physical drone still needs testing.

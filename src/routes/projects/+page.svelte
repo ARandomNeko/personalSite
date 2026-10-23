@@ -1,19 +1,15 @@
 <script lang="ts">
-	import type { PostPreview } from '$lib/posts';
-	import PostList from '$lib/components/PostList.svelte';
-
-	let { data } = $props();
-	const posts: PostPreview[] = data.posts;
+	import JournalGallery from '#lib/components/JournalGallery.svelte';
+	import type { PageData } from './$types';
+	let { data }: { data: PageData } = $props();
 </script>
 
 <svelte:head>
-	<title>Projects | Rituparan Reddy</title>
+	<title>Projects — Journal | Rituparan Reddy</title>
+	<meta
+		name="description"
+		content="Projects from the journal: code, robotics, and things I've built."
+	/>
 </svelte:head>
 
-<PostList
-	{posts}
-	title="Projects"
-	description="Posts tagged with 'project' — deep dives into things I've built."
-	emptyMessage="No project posts found. Tag posts with 'project'."
-	basePath="/blog"
-/>
+<JournalGallery posts={data.posts} projectOnly />

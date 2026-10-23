@@ -16,3 +16,9 @@ Object.defineProperty(window, 'matchMedia', {
 });
 
 // add more mocks here if you need them
+
+// jsdom does not decode images. Browser tests verify actual asset loading and transitions.
+Object.defineProperty(HTMLImageElement.prototype, 'decode', {
+	configurable: true,
+	value: vi.fn().mockResolvedValue(undefined)
+});

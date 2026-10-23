@@ -1,29 +1,15 @@
 <script lang="ts">
-	import type { PostPreview } from '$lib/posts';
-	import PostList from '$lib/components/PostList.svelte';
-
-	let { data } = $props();
-	const posts: PostPreview[] = data.posts;
+	import JournalGallery from '#lib/components/JournalGallery.svelte';
+	import type { PageData } from './$types';
+	let { data }: { data: PageData } = $props();
 </script>
 
 <svelte:head>
-	<title>Blog | Rituparan Reddy</title>
+	<title>Journal | Rituparan Reddy</title>
+	<meta
+		name="description"
+		content="Notes on code, robotics, and things I've built. A journal by Rituparan Reddy."
+	/>
 </svelte:head>
 
-<section class="blog-layout py-6">
-	<PostList {posts} title="Blog Posts" emptyMessage="No blog posts found." basePath="/blog" />
-</section>
-
-<style>
-	.blog-layout {
-		max-width: 900px;
-		margin: 0 auto;
-		padding: 0 var(--grid);
-	}
-
-	@media (min-width: 768px) {
-		.blog-layout {
-			padding: 0 calc(var(--grid) * 2);
-		}
-	}
-</style>
+<JournalGallery posts={data.posts} />

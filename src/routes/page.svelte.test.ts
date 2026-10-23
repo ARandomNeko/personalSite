@@ -5,7 +5,17 @@ import Page from './+page.svelte';
 
 describe('/+page.svelte', () => {
 	test('should render h1', () => {
-		render(Page);
+		render(Page, {
+			data: {
+				paintingOrder: ['nga-71503', 'martin-wrath', 'monet-sunset', 'nga-50299'],
+				recentPosts: [
+					{
+						slug: 'rl-ppo-drone-sandbox',
+						metadata: { title: 'RL/PPO Drone Simulation Sandbox', date: '2026-09-16' }
+					}
+				]
+			}
+		});
 		expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
 	});
 });

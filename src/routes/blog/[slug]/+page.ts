@@ -1,19 +1,18 @@
-import { getPostBySlug } from '$lib/posts';
 import { error } from '@sveltejs/kit';
+import type { PostMetadata } from '#lib/posts.js';
+import type { PageLoad } from './$types';
 
-export async function load({ params }) {
-    try {
-        const post = await getPostBySlug(params.slug);
-        return {
-            content: post.component, // Pass the component constructor
-            metadata: post.metadata // Pass metadata for the layout
-        };
-    } catch (e: any) {
-         // Handle potential errors from getPostBySlug (like 404)
-         if (e?.status === 404) {
-             error(404, e.body?.message || 'Not Found');
-         }
-         // Rethrow other errors or handle them as needed
-         error(500, 'Could not load post');
-    }
-}
+const articles = import.meta.glob<{
+	metadata: PostMetadata;
+	default: ConstructorOfATypedSvelteComponent;
+}>('/src/posts/**/*.md');
+
+export const load: PageLoad = async ({ params }) => {
+	const resolve =
+		articles[`/src/posts/${params.slug}.md`] ?? articles[`/src/posts/${params.slug}/index.md`];
+	if (!resolve) error(404, 'Post not found');
+	const post = await resolve();
+	if (post.metadata.published === false || post.metadata.status === 'plan to read')
+		error(404, 'Post not found');
+	return { content: post.default, metadata: post.metadata };
+};
