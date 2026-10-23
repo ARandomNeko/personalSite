@@ -31,6 +31,8 @@ PLAYWRIGHT_BASE_URL=http://127.0.0.1:4173 npm run test:e2e
 ```
 
 Set `CHROMIUM_PATH` when Chromium is installed outside Playwright’s default location.
+Set `FIREFOX_PATH` to a Playwright-compatible Firefox executable to also run the
+caption texture regression with Firefox's minimum font size enlarged to 20px.
 
 ## Journal and Work
 
@@ -79,6 +81,10 @@ to download or compile the renderer. Homepage text snapshots warm after fonts lo
 copy only the layout and paint properties the panels use, and leave their native
 HTML borders visible throughout transitions. The browser suite covers interrupted
 transitions, reduced motion, GPU loss, fractional borders, and high-density displays.
+Phone navigation collapses into a menu, the introduction scrolls with the page,
+and the painting credit uses a compact bottom bar. Card snapshots refresh when
+mobile browser controls resize the viewport and measure rendered text to preserve
+Firefox's text-size preferences during the shader-to-HTML handoff.
 
 ## Performance measurements
 

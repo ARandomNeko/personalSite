@@ -62,3 +62,71 @@ test('phone caption stays aligned after browser chrome resizes the viewport', as
 	await expect(content).toHaveCSS('opacity', '1');
 	await expect(page.locator('.identity-dissolve')).toHaveAttribute('data-active', 'false');
 });
+
+test.describe('caption text at phone pixel density', () => {
+	test.use({ deviceScaleFactor: 3, isMobile: false });
+	test('snapshot glyphs keep the native text size', async ({ page }) => {
+		await page.setViewportSize({ width: 390, height: 844 });
+		await page.addInitScript(() => {
+			const draw = CanvasRenderingContext2D.prototype.drawImage;
+			CanvasRenderingContext2D.prototype.drawImage = function (...args: Parameters<typeof draw>) {
+				draw.apply(this, args);
+				const source = args[0];
+				if (
+					source instanceof HTMLImageElement &&
+					source.src.startsWith('data:image/svg+xml') &&
+					source.src.includes(encodeURIComponent('Current painting'))
+				)
+					Object.assign(window, { captionSnapshot: this.canvas.toDataURL() });
+			} as typeof draw;
+		});
+		await page.goto('/');
+		await expect(page.locator('.painting-label')).toHaveAttribute('data-dissolve-ready', 'true');
+		const native = await page.locator('.painting-label').screenshot();
+		const bounds = await page.evaluate(async (native) => {
+			async function inkBounds(url: string, transparent: boolean) {
+				const image = new Image();
+				image.src = url;
+				await image.decode();
+				const canvas = document.createElement('canvas');
+				canvas.width = image.naturalWidth;
+				canvas.height = image.naturalHeight;
+				const context = canvas.getContext('2d')!;
+				context.drawImage(image, 0, 0);
+				const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
+				let left = canvas.width,
+					top = canvas.height,
+					right = 0,
+					bottom = 0,
+					count = 0;
+				for (let y = 0; y < canvas.height; y++) {
+					for (let x = 0; x < canvas.width; x++) {
+						const offset = (y * canvas.width + x) * 4;
+						// Exclude the dark native frame and compare the visible glyph extents.
+						if (pixels[offset + 3] < 128 || pixels[offset] < 150 || pixels[offset + 1] < 150)
+							continue;
+						if (!transparent && pixels[offset + 2] < 100) continue;
+						left = Math.min(left, x);
+						top = Math.min(top, y);
+						right = Math.max(right, x);
+						bottom = Math.max(bottom, y);
+						count++;
+					}
+				}
+				return { left, top, width: right - left, height: bottom - top, count };
+			}
+			return {
+				native: await inkBounds(`data:image/png;base64,${native}`, false),
+				texture: await inkBounds(
+					(window as unknown as { captionSnapshot: string }).captionSnapshot,
+					true
+				)
+			};
+		}, native.toString('base64'));
+		expect(bounds.texture.count).toBeGreaterThan(100);
+		expect(Math.abs(bounds.native.width - bounds.texture.width)).toBeLessThanOrEqual(3);
+		expect(Math.abs(bounds.native.height - bounds.texture.height)).toBeLessThanOrEqual(3);
+		expect(Math.abs(bounds.native.left - bounds.texture.left)).toBeLessThanOrEqual(3);
+		expect(Math.abs(bounds.native.top - bounds.texture.top)).toBeLessThanOrEqual(3);
+	});
+});

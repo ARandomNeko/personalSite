@@ -46,6 +46,36 @@ function embeddedFonts() {
 	).then((rules) => rules.join('\n')));
 }
 
+// Firefox's minimum font size and mobile text inflation affect layout without
+// changing getComputedStyle().fontSize. SVG images don't inherit those settings.
+// Measure a native, unwrapped word to preserve the reader's actual text size.
+function renderedFontSize(
+	element: HTMLElement,
+	style: CSSStyleDeclaration,
+	context: CanvasRenderingContext2D
+) {
+	const text = [...element.childNodes].find(
+		(node) => node.nodeType === Node.TEXT_NODE && /\S/.test(node.textContent ?? '')
+	);
+	if (!text) return style.fontSize;
+	const match = /\S+/.exec(text.textContent!)!;
+	const range = document.createRange();
+	const start = match.index;
+	let end = start + Math.min(match[0].length, 24);
+	range.setStart(text, start);
+	range.setEnd(text, end);
+	while (range.getClientRects().length > 1 && end > start + 1) range.setEnd(text, --end);
+	const width = range.getBoundingClientRect().width;
+	context.font = `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+	context.fontKerning = style.fontKerning as CanvasFontKerning;
+	context.letterSpacing = style.letterSpacing;
+	const measured = context.measureText(text.textContent!.slice(start, end)).width;
+	const ratio = width / measured;
+	return width > 0 && measured > 0 && Math.abs(ratio - 1) > 0.03
+		? `${parseFloat(style.fontSize) * ratio}px`
+		: style.fontSize;
+}
+
 export async function snapshotCard(
 	card: HTMLElement,
 	onlayout?: (rect: CardRect) => void
@@ -60,11 +90,13 @@ export async function snapshotCard(
 	clone.querySelectorAll('canvas').forEach((canvas) => canvas.remove());
 	const sources = [card, ...card.querySelectorAll<HTMLElement>(':not(canvas)')];
 	const copies = [clone, ...clone.querySelectorAll<HTMLElement>('*')];
+	const measurement = document.createElement('canvas').getContext('2d')!;
 	sources.forEach((source, index) => {
 		const computed = getComputedStyle(source);
 		const copy = copies[index];
 		for (const property of snapshotProperties)
 			copy.style.setProperty(property, computed.getPropertyValue(property));
+		copy.style.fontSize = renderedFontSize(source, computed, measurement);
 		copy.style.transition = 'none';
 		copy.style.animation = 'none';
 		copy.removeAttribute('id');
@@ -105,7 +137,10 @@ export async function snapshotCard(
 	const html = new XMLSerializer().serializeToString(clone);
 	const width = Math.max(1, Math.round(surface.width * scale));
 	const height = Math.max(1, Math.round(surface.height * scale));
-	const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${surface.width} ${surface.height}"><foreignObject width="100%" height="100%">${html}</foreignObject></svg>`;
+	// Keep HTML layout and the SVG viewport in the same CSS-pixel coordinate space.
+	// Scaling foreignObject through a device-pixel viewBox can shrink its text on
+	// mobile engines. Apply display density only when drawing into the canvas.
+	const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${surface.width}" height="${surface.height}"><foreignObject width="${surface.width}" height="${surface.height}">${html}</foreignObject></svg>`;
 	const image = new Image();
 	image.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 	await image.decode();

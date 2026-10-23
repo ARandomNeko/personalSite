@@ -10,6 +10,25 @@ export default defineConfig({
 			args: ['--enable-unsafe-swiftshader', '--use-angle=swiftshader']
 		}
 	},
+	projects: [
+		{ name: 'chromium' },
+		...(process.env.FIREFOX_PATH
+			? [
+					{
+						name: 'firefox-text',
+						grep: /snapshot glyphs/,
+						use: {
+							browserName: 'firefox' as const,
+							launchOptions: {
+								executablePath: process.env.FIREFOX_PATH,
+								args: [],
+								firefoxUserPrefs: { 'font.minimum-size.x-western': 20 }
+							}
+						}
+					}
+				]
+			: [])
+	],
 	webServer: externalUrl
 		? undefined
 		: {
