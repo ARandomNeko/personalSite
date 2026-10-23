@@ -1,5 +1,4 @@
-import { json } from '@sveltejs/kit';
-import { getAllPosts } from '$lib/server/posts';
+import { getAllPosts } from '#lib/server/posts.js';
 
 export async function GET() {
 	const posts = await getAllPosts();
@@ -10,7 +9,7 @@ export async function GET() {
 		metadata
 	}));
 
-	return json(publicPosts);
+	return Response.json(publicPosts);
 }
 
 export const prerender = true;

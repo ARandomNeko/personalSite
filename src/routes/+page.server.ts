@@ -1,7 +1,7 @@
 import type { PageServerLoad } from './$types';
-import { getAllPosts } from '$lib/server/posts';
-import { defaultIds } from '$lib/art/collection';
-import { shuffled } from '$lib/art/shuffle';
+import { getAllPosts } from '#lib/server/posts.js';
+import { defaultIds } from '#lib/art/collection.js';
+import { shuffled } from '#lib/art/shuffle.js';
 
 export const load: PageServerLoad = async ({ setHeaders }) => {
 	// Shared HTML caches must not deal the same shuffled deck to every visitor.

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import '../app.css';
-	import { bodyFont, headingFont, monoFont } from '$lib/fonts';
-	import SiteHeader from '$lib/components/SiteHeader.svelte';
+	import { bodyFont, headingFont, monoFont } from '#lib/fonts.js';
+	import SiteHeader from '#lib/components/SiteHeader.svelte';
 
 	let { children } = $props();
 </script>
@@ -21,24 +21,24 @@
 		property="og:description"
 		content="Developer, builder, and reader. Projects, reading notes, and writing."
 	/>
-	<meta property="og:url" content={$page.url.origin + $page.url.pathname} />
+	<meta property="og:url" content={page.url.origin + page.url.pathname} />
 	<meta name="twitter:card" content="summary" />
 	{#each [bodyFont, headingFont, monoFont] as font (font)}
 		<link rel="preload" href={font} as="font" type="font/woff2" crossorigin="anonymous" />
 	{/each}
-	<link rel="canonical" href={$page.url.origin + $page.url.pathname} />
+	<link rel="canonical" href={page.url.origin + page.url.pathname} />
 </svelte:head>
 
 <div class="site-root">
 	<SiteHeader />
-	{#if $page.url.pathname === '/'}
+	{#if page.url.pathname === '/'}
 		{@render children()}
 	{:else}
 		<div
 			class="site-shell"
-			class:library-shell={$page.url.pathname === '/reading'}
-			class:resume-shell={$page.url.pathname === '/resume'}
-			class:journal-shell={['/blog', '/projects'].includes($page.url.pathname)}
+			class:library-shell={page.url.pathname === '/reading'}
+			class:resume-shell={page.url.pathname === '/resume'}
+			class:journal-shell={['/blog', '/projects'].includes(page.url.pathname)}
 		>
 			<main class="html-content">{@render children()}</main>
 		</div>

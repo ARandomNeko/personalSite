@@ -1,5 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import { getAllPosts } from '$lib/server/posts';
+import { getAllPosts } from '#lib/server/posts.js';
 
 export const GET: RequestHandler = async ({ url }) => {
 	const origin = url.origin;

@@ -1,13 +1,14 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { onMount, untrack } from 'svelte';
-	import { featuredBooks } from '$lib/books';
+	import { featuredBooks } from '#lib/books.js';
 
-	import PaintedBackdrop from '$lib/art/PaintedBackdrop.svelte';
-	import { dissolveCard } from '$lib/art/dissolveCard';
-	import type { DissolveClock } from '$lib/art/NoiseDissolve';
-	import { resolvePaintings, type Painting } from '$lib/art/collection';
-	import { randomart } from '$lib/art/randomart';
-	import type { PostPreview } from '$lib/posts';
+	import PaintedBackdrop from '#lib/art/PaintedBackdrop.svelte';
+	import { dissolveCard } from '#lib/art/dissolveCard.js';
+	import type { DissolveClock } from '#lib/art/NoiseDissolve.js';
+	import { resolvePaintings, type Painting } from '#lib/art/collection.js';
+	import { randomart } from '#lib/art/randomart.js';
+	import type { PostPreview } from '#lib/posts.js';
 	let { data }: { data: { recentPosts: PostPreview[]; paintingOrder: string[] } } = $props();
 	// Keep this visit's dealt order even if server data refreshes while reading.
 	const paintings = resolvePaintings(untrack(() => data.paintingOrder));
@@ -101,7 +102,7 @@
 				<p class="painting-meta">{currentPainting.year} / {currentPainting.style}</p>
 			</div>
 			<div class="side-card-links">
-				<a href={currentPainting.source} target="_blank" rel="noreferrer">Source ↗</a>
+				<a href={currentPainting.source} target="_blank" rel="external noreferrer">Source ↗</a>
 			</div>
 		</div>
 	</aside>
@@ -139,15 +140,19 @@
 			aria-labelledby="first-title"
 		>
 			<div class="sheet">
-				<div class="window-bar"><span>Writing</span><a href="/blog">Index ↗</a></div>
+				<div class="window-bar"><span>Writing</span><a href={resolve('/blog')}>Index ↗</a></div>
 				<article>
 					{#if latestPost}
 						<time datetime={latestPost.metadata.date}>{formatDate(latestPost.metadata.date)}</time>
 						<h1 id="first-title">
-							<a href={`/blog/${latestPost.slug}`}>{latestPost.metadata.title}</a>
+							<a href={resolve('/blog/[slug]', { slug: latestPost.slug })}
+								>{latestPost.metadata.title}</a
+							>
 						</h1>
 						<p>{latestPost.metadata.description}</p>
-						<a class="read-link" href={`/blog/${latestPost.slug}`}>Read entry</a>
+						<a class="read-link" href={resolve('/blog/[slug]', { slug: latestPost.slug })}
+							>Read entry</a
+						>
 					{/if}
 				</article>
 			</div>
@@ -161,14 +166,14 @@
 			aria-labelledby="books-title"
 		>
 			<div class="sheet books-sheet">
-				<div class="window-bar"><span>Library</span><a href="/reading">Index ↗</a></div>
+				<div class="window-bar"><span>Library</span><a href={resolve('/reading')}>Index ↗</a></div>
 				<h2 id="books-title">Library</h2>
 				<ul class="featured-books" aria-label="Featured books">
 					{#each featuredBooks as book (book.id)}
 						<li><span>{book.title}</span><span>{book.author}</span></li>
 					{/each}
 				</ul>
-				<a class="read-link" href="/reading">Explore the library ↗</a>
+				<a class="read-link" href={resolve('/reading')}>Explore the library ↗</a>
 			</div>
 		</section>
 
@@ -180,22 +185,26 @@
 			aria-labelledby="work-title"
 		>
 			<div class="sheet work-sheet">
-				<div class="window-bar"><span>Work</span><a href="/projects">Index ↗</a></div>
+				<div class="window-bar"><span>Work</span><a href={resolve('/projects')}>Index ↗</a></div>
 				<article>
 					{#if nextPost}
 						<time datetime={nextPost.metadata.date}>{formatDate(nextPost.metadata.date)}</time>
 						<h2 id="work-title">
-							<a href={`/blog/${nextPost.slug}`}>{nextPost.metadata.title}</a>
+							<a href={resolve('/blog/[slug]', { slug: nextPost.slug })}
+								>{nextPost.metadata.title}</a
+							>
 						</h2>
 						<p>{nextPost.metadata.description}</p>
-						<a class="read-link" href={`/blog/${nextPost.slug}`}>Read entry</a>
+						<a class="read-link" href={resolve('/blog/[slug]', { slug: nextPost.slug })}
+							>Read entry</a
+						>
 					{/if}
 				</article>
 				<div class="further-work">
 					{#each data.recentPosts.slice(2) as post (post.slug)}
-						<a href={`/blog/${post.slug}`}>{post.metadata.title}</a>
+						<a href={resolve('/blog/[slug]', { slug: post.slug })}>{post.metadata.title}</a>
 					{/each}
-					<a class="read-link" href="/projects">All projects</a>
+					<a class="read-link" href={resolve('/projects')}>All projects</a>
 				</div>
 			</div>
 		</section>
@@ -209,21 +218,22 @@
 			<div class="sheet colophon">
 				<h2 id="elsewhere-title">Elsewhere</h2>
 				<div class="elsewhere-links">
-					<a href="https://github.com/ARandomNeko">GitHub</a><a href="/resume">About me</a><a
-						href="/blog">All entries</a
-					>
+					<a href="https://github.com/ARandomNeko">GitHub</a><a href={resolve('/resume')}
+						>About me</a
+					><a href={resolve('/blog')}>All entries</a>
 				</div>
 				<details>
 					<summary>The paintings</summary>
 					<ul>
 						{#each paintings as painting (painting.id)}<li>
-								<a href={painting.source}>{painting.name}</a><span
+								<a href={painting.source} rel="external">{painting.name}</a><span
 									>{painting.artist}, {painting.year}</span
 								>
 								{#if painting.license && painting.licenseUrl}
 									<span
 										>{painting.imageCredit || painting.artist} ·
-										<a href={painting.licenseUrl}>{painting.license}</a> · Resized for display.</span
+										<a href={painting.licenseUrl} rel="external">{painting.license}</a> · Resized for
+										display.</span
 									>
 								{/if}
 							</li>{/each}

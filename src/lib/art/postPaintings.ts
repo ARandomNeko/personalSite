@@ -1,5 +1,5 @@
 import { paintings } from './collection';
-import { bookPaintings } from '$lib/bookPaintings';
+import { bookPaintings } from '#lib/bookPaintings.js';
 
 // Book essays inherit their library pairing when they are published.
 const postPaintings: Record<string, string> = {

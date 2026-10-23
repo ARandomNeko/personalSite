@@ -64,7 +64,7 @@ export const projects = [
 		description:
 			'6-legged robot with vision navigation for autonomous obstacle detection and avoidance.'
 	}
-];
+] as const;
 export const education = [
 	{
 		title: 'B.S. in Computer Science',

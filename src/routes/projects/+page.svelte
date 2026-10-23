@@ -1,5 +1,5 @@
 <script lang="ts">
-	import JournalGallery from '$lib/components/JournalGallery.svelte';
+	import JournalGallery from '#lib/components/JournalGallery.svelte';
 	import type { PageData } from './$types';
 	let { data }: { data: PageData } = $props();
 </script>

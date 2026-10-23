@@ -1,7 +1,8 @@
 <script lang="ts">
-	import LibraryBackdrop from '$lib/art/LibraryBackdrop.svelte';
-	import { resolvePaintings } from '$lib/art/collection';
-	import { activities, education, experience, projects, skills, summary } from '$lib/resume';
+	import { asset, resolve } from '$app/paths';
+	import LibraryBackdrop from '#lib/art/LibraryBackdrop.svelte';
+	import { resolvePaintings } from '#lib/art/collection.js';
+	import { activities, education, experience, projects, skills, summary } from '#lib/resume.js';
 
 	const landscape = resolvePaintings(['nga-71503'])[0];
 </script>
@@ -13,7 +14,7 @@
 		<div class="eyebrow">Curriculum vitæ <span> / </span> Developer · Builder · Problem solver</div>
 		<div class="name-row">
 			<h1>Rituparan Reddy<br /><span>Gurrala.</span></h1>
-			<a href="/resume.pdf" download class="download"
+			<a href={asset('resume.pdf')} download class="download"
 				>Download PDF <span aria-hidden="true">↗</span></a
 			>
 		</div>
@@ -50,13 +51,17 @@
 			<article class="project-entry">
 				<span class="project-number">0{i + 1}</span>
 				<div>
-					<h3><a href={project.href}>{project.title} <span aria-hidden="true">↗</span></a></h3>
+					<h3>
+						<a href={resolve('/blog/[slug]', { slug: project.href.slice('/blog/'.length) })}
+							>{project.title} <span aria-hidden="true">↗</span></a
+						>
+					</h3>
 					<p>{project.description}</p>
 				</div>
 			</article>
 		{/each}
 	</div>
-	<a class="all-projects" href="/projects">All projects ↗</a>
+	<a class="all-projects" href={resolve('/projects')}>All projects ↗</a>
 {/snippet}
 
 {#snippet educationContent()}
@@ -136,7 +141,7 @@
 		</section>
 	</article>
 	<aside class="art-credit" aria-label="Background painting">
-		<a href={landscape.source} target="_blank" rel="noreferrer">{landscape.name} ↗</a><span
+		<a href={landscape.source} target="_blank" rel="external noreferrer">{landscape.name} ↗</a><span
 			>{landscape.artist}, {landscape.year}</span
 		>
 	</aside>

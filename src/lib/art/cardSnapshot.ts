@@ -1,6 +1,6 @@
 // Rasterize this small text-only panel with the browser's own HTML layout and
 // font rasterizer. No screenshot dependency or hand-maintained canvas typography.
-import { bodyFont, headingFont, monoFont } from '$lib/fonts';
+import { bodyFont, headingFont, monoFont } from '#lib/fonts.js';
 import { snapshotRect, type CardRect } from './CardGeometry';
 
 // These panels contain text, links, and flex rows. Copy the properties that

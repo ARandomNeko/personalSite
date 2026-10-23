@@ -1,9 +1,10 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { untrack } from 'svelte';
-	import type { PostPreview } from '$lib/posts';
-	import JournalCard from '$lib/components/JournalCard.svelte';
-	import LibraryBackdrop from '$lib/art/LibraryBackdrop.svelte';
-	import { paintingForPost } from '$lib/art/postPaintings';
+	import type { PostPreview } from '#lib/posts.js';
+	import JournalCard from '#lib/components/JournalCard.svelte';
+	import LibraryBackdrop from '#lib/art/LibraryBackdrop.svelte';
+	import { paintingForPost } from '#lib/art/postPaintings.js';
 
 	let { posts, projectOnly = false }: { posts: PostPreview[]; projectOnly?: boolean } = $props();
 	let selected = $state(untrack(() => posts[0]?.slug ?? ''));
@@ -20,8 +21,8 @@
 		<p class="intro">Things I've built,<br />and what I learned along the way.</p>
 	</header>
 	<nav class="journal-filters" aria-label="Journal filters">
-		<a href="/blog" aria-current={!projectOnly ? 'page' : undefined}>All entries</a>
-		<a href="/projects" aria-current={projectOnly ? 'page' : undefined}>Projects</a>
+		<a href={resolve('/blog')} aria-current={!projectOnly ? 'page' : undefined}>All entries</a>
+		<a href={resolve('/projects')} aria-current={projectOnly ? 'page' : undefined}>Projects</a>
 		<span>{posts.length} {posts.length === 1 ? 'entry' : 'entries'}</span>
 	</nav>
 	{#if posts.length}

@@ -16,7 +16,10 @@
 		const media = window.matchMedia('(prefers-reduced-motion: reduce)');
 		const layers = Array.from(surface.querySelectorAll<HTMLElement>('.paint-layer'));
 		const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-scene]'));
+		// Decode bookkeeping is local to this mount and never observed by the template.
+		// eslint-disable-next-line svelte/prefer-svelte-reactivity
 		const ready = new Set<number>();
+		// eslint-disable-next-line svelte/prefer-svelte-reactivity
 		const loading = new Set<number>();
 		let centers: number[] = [];
 		let disposed = false;

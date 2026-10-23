@@ -19,14 +19,18 @@ test('homepage, blog, and projects show the latest work first', async ({ page })
 			.locator(
 				'.journal-pages article h1 a, .journal-pages article h2 a, .further-work a[href^="/blog/"]'
 			)
-			.evaluateAll((links) => links.map((link) => link.getAttribute('href')))
+			.evaluateAll((links) =>
+				links.map((link) => new URL((link as HTMLAnchorElement).href).pathname)
+			)
 	).toEqual(newestFirst);
 	for (const path of ['/blog', '/projects']) {
 		await page.goto(path);
 		expect(
 			await page
 				.locator('a.card')
-				.evaluateAll((links) => links.map((link) => link.getAttribute('href')))
+				.evaluateAll((links) =>
+					links.map((link) => new URL((link as HTMLAnchorElement).href).pathname)
+				)
 		).toEqual(newestFirst);
 	}
 });

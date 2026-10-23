@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import type { PostMetadata } from '$lib/posts';
+import type { PostMetadata } from '#lib/posts.js';
 import type { PageLoad } from './$types';
 
 const articles = import.meta.glob<{

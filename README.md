@@ -1,7 +1,11 @@
 # Rituparan Reddy’s personal site
 
-A SvelteKit journal with painting backgrounds, dark reading cards, and scroll-linked
+A SvelteKit 3 journal with painting backgrounds, dark reading cards, and scroll-linked
 pixel transitions. Posts live in `src/posts` and appear newest first.
+
+Node 24 is pinned in `.node-version` for local development and Cloudflare Pages.
+TypeScript stays on 6.x because SvelteKit and typescript-eslint do not yet support 7.x.
+The typography plugin uses a scoped override for the patched selector parser.
 
 ```sh
 npm install
@@ -16,6 +20,9 @@ Build for Cloudflare with `npm run build`, or use the Node adapter locally:
 SITE_ADAPTER=node npm run build
 npm run preview
 ```
+
+Cloudflare Pages deploys the repository’s `master` branch automatically. The release
+branch is merged there after the checks pass.
 
 Run browser checks against a running preview with:
 
@@ -52,7 +59,8 @@ preference. The browser console hides a fresh SSH-style randomart pattern, drawn
 with the drunken-bishop walk over 32 cryptographically random bytes.
 Lake Lucerne remains the fixed résumé backdrop.
 
-`SITE_ORIGIN` controls the prerendered canonical origin and defaults to
+Framework and adapter configuration lives in `vite.config.ts`.
+`SITE_ORIGIN` controls the canonical origin and defaults to
 `https://rituparan.com`, matching the résumé’s website address.
 
 Responsive WebP paintings include 480, 800, 1200, 1600, 2400, 3200, and source-width

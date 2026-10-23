@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { untrack } from 'svelte';
-	import { readingGroups, readingGroup, type Book } from '$lib/books';
-	import { bookPaintings } from '$lib/bookPaintings';
-	import { paintings } from '$lib/art/collection';
-	import LibraryBackdrop from '$lib/art/LibraryBackdrop.svelte';
+	import { readingGroups, readingGroup, type Book } from '#lib/books.js';
+	import { bookPaintings } from '#lib/bookPaintings.js';
+	import { paintings } from '#lib/art/collection.js';
+	import LibraryBackdrop from '#lib/art/LibraryBackdrop.svelte';
 	let { data }: { data: { books: Book[] } } = $props();
 	let selectedId = $state(
 		untrack(() => data.books.find((book) => book.status === 'reading')?.id ?? data.books[0]?.id)
@@ -33,7 +33,7 @@
 	<header class="library-heading">
 		<h1 id="library-title">The library.</h1>
 		<aside class="painting-credit" aria-label="Current painting" aria-live="polite">
-			<a href={painting.source} target="_blank" rel="noreferrer">{painting.name} ↗</a>
+			<a href={painting.source} target="_blank" rel="external noreferrer">{painting.name} ↗</a>
 			<p>{painting.artist}, {painting.year}</p>
 		</aside>
 	</header>

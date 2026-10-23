@@ -51,14 +51,12 @@ for (const path of [
 				path,
 				...window.perfData,
 				ttfb: performance.getEntriesByType('navigation')[0].responseStart,
-				resources: performance
-					.getEntriesByType('resource')
-					.map((e) => ({
-						name: new URL(e.name).pathname,
-						bytes: e.encodedBodySize,
-						type: e.initiatorType,
-						duration: e.duration
-					})),
+				resources: performance.getEntriesByType('resource').map((e) => ({
+					name: new URL(e.name).pathname,
+					bytes: e.encodedBodySize,
+					type: e.initiatorType,
+					duration: e.duration
+				})),
 				heap: performance.memory?.usedJSHeapSize
 			}),
 			path

@@ -1,4 +1,4 @@
-import type { PostMetadata, PostPreview } from '$lib/posts';
+import type { PostMetadata, PostPreview } from '#lib/posts.js';
 
 // List pages need only frontmatter; article components stay out of this index.
 const metadata = import.meta.glob<PostMetadata>('/src/posts/**/*.md', {

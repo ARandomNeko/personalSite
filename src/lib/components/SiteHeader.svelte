@@ -1,27 +1,28 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { resolve } from '$app/paths';
+	import { page } from '$app/state';
 	const sections = [
 		{ href: '/projects', label: 'Work' },
 		{ href: '/reading', label: 'Library' },
 		{ href: '/blog', label: 'Journal' },
 		{ href: '/resume', label: 'Résumé' }
-	];
+	] as const;
 </script>
 
 <header class="site-header">
 	<a
 		class="site-brand"
-		href="/"
+		href={resolve('/')}
 		aria-label="Rituparan Reddy — home"
-		aria-current={$page.url.pathname === '/' ? 'page' : undefined}
+		aria-current={page.url.pathname === '/' ? 'page' : undefined}
 	>
 		Rituparan Reddy<span aria-hidden="true">▮</span>
 	</a>
 	<nav aria-label="Main navigation">
-		{#each sections as section}
+		{#each sections as section (section.href)}
 			<a
-				href={section.href}
-				aria-current={$page.url.pathname.startsWith(section.href) ? 'page' : undefined}
+				href={resolve(section.href)}
+				aria-current={page.url.pathname.startsWith(section.href) ? 'page' : undefined}
 				>{section.label}</a
 			>
 		{/each}

@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { imageSet, imageSrc, type Painting } from '$lib/art/collection';
-	import type { PostPreview } from '$lib/posts';
+	import { resolve } from '$app/paths';
+	import { imageSet, imageSrc, type Painting } from '#lib/art/collection.js';
+	import type { PostPreview } from '#lib/posts.js';
 
 	let {
 		post,
@@ -24,7 +25,7 @@
 <article class="journal-card" class:lead>
 	<a
 		class="card story"
-		href="/blog/{post.slug}"
+		href={resolve('/blog/[slug]', { slug: post.slug })}
 		onmouseenter={onselect}
 		onfocus={onselect}
 		aria-labelledby="title-{post.slug}"
@@ -60,7 +61,7 @@
 		<span>{painting.artist}</span><a
 			href={painting.source}
 			target="_blank"
-			rel="noreferrer"
+			rel="external noreferrer"
 			aria-label="Artwork: {painting.name} by {painting.artist}">{painting.name} ↗</a
 		>
 	</div>
