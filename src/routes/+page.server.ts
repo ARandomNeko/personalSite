@@ -1,13 +1,16 @@
 import type { PageServerLoad } from './$types';
 import { getAllPosts } from '$lib/server/posts';
+import { defaultIds } from '$lib/art/collection';
+import { shuffled } from '$lib/art/shuffle';
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({ setHeaders }) => {
+	// Shared HTML caches must not deal the same shuffled deck to every visitor.
+	setHeaders({ 'cache-control': 'private, no-store' });
 	const allPosts = await getAllPosts();
 	const recentPosts = allPosts
 		.filter((post) => post.metadata.status !== 'plan to read')
 		.map(({ metadata, slug }) => ({ metadata, slug }));
-	const paintingSeed = crypto.getRandomValues(new Uint32Array(1))[0];
-	return { recentPosts, paintingSeed };
+	return { recentPosts, paintingOrder: shuffled(defaultIds) };
 };
 
 // A fresh request chooses a new painting order; content pages are prerendered.

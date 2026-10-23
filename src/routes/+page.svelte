@@ -5,13 +5,12 @@
 	import PaintedBackdrop from '$lib/art/PaintedBackdrop.svelte';
 	import { dissolveCard } from '$lib/art/dissolveCard';
 	import type { DissolveClock } from '$lib/art/NoiseDissolve';
-	import { shuffled } from '$lib/art/shuffle';
-	import { defaultPaintings, type Painting } from '$lib/art/collection';
+	import { resolvePaintings, type Painting } from '$lib/art/collection';
+	import { randomart } from '$lib/art/randomart';
 	import type { PostPreview } from '$lib/posts';
-	let { data }: { data: { recentPosts: PostPreview[]; paintingSeed: number } } = $props();
-	// Keep this page's seed even if its server data is refreshed while reading.
-	const paintingSeed = untrack(() => data.paintingSeed);
-	const paintings = shuffled(defaultPaintings, paintingSeed);
+	let { data }: { data: { recentPosts: PostPreview[]; paintingOrder: string[] } } = $props();
+	// Keep this visit's dealt order even if server data refreshes while reading.
+	const paintings = resolvePaintings(untrack(() => data.paintingOrder));
 	const latestPost = $derived(data.recentPosts[0]);
 	const nextPost = $derived(data.recentPosts[1]);
 	function formatDate(date: string) {
@@ -31,6 +30,10 @@
 	const currentPainting = $derived(displayedPainting ?? paintings[0]);
 
 	onMount(() => {
+		console.info(
+			`%c${randomart(crypto.getRandomValues(new Uint8Array(32)))}`,
+			'color: #d4c393; background: #202225; padding: 16px; font-family: monospace; line-height: 1.8'
+		);
 		function sizeSideCards() {
 			const cards = [introContent, paintingContent];
 			sideCardHeight = Math.ceil(
@@ -161,7 +164,7 @@
 				<div class="window-bar"><span>Library</span><a href="/reading">Index ↗</a></div>
 				<h2 id="books-title">Library</h2>
 				<ul class="featured-books" aria-label="Featured books">
-					{#each featuredBooks as book}
+					{#each featuredBooks as book (book.id)}
 						<li><span>{book.title}</span><span>{book.author}</span></li>
 					{/each}
 				</ul>
@@ -189,7 +192,7 @@
 					{/if}
 				</article>
 				<div class="further-work">
-					{#each data.recentPosts.slice(2) as post}
+					{#each data.recentPosts.slice(2) as post (post.slug)}
 						<a href={`/blog/${post.slug}`}>{post.metadata.title}</a>
 					{/each}
 					<a class="read-link" href="/projects">All projects</a>
@@ -213,7 +216,7 @@
 				<details>
 					<summary>The paintings</summary>
 					<ul>
-						{#each paintings as painting}<li>
+						{#each paintings as painting (painting.id)}<li>
 								<a href={painting.source}>{painting.name}</a><span
 									>{painting.artist}, {painting.year}</span
 								>

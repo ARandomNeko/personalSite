@@ -1347,5 +1347,1449 @@
 				"bytes": 318148
 			}
 		]
+	},
+	{
+		"id": "bosch-earthly-delights",
+		"name": "The Garden of Earthly Delights",
+		"artist": "Hieronymus Bosch",
+		"year": "1490–1500",
+		"style": "Northern Renaissance",
+		"category": "Literature & philosophy",
+		"medium": "oil on oak panels",
+		"source": "https://commons.wikimedia.org/wiki/File:The_Garden_of_earthly_delights.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/9/96/The_Garden_of_earthly_delights.jpg",
+		"museum": "Museo Nacional del Prado",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "http://boschproject.org/dzi/00MCPVIS.dzi (downloaded with dezoomify-rs)",
+		"sourceWidth": 39137,
+		"sourceHeight": 22279,
+		"width": 3200,
+		"height": 1822,
+		"thumb": "/paintings/catalogue/bosch-earthly-delights-480-f167c3c6f135.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/bosch-earthly-delights-480-f167c3c6f135.webp",
+				"bytes": 48176
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/bosch-earthly-delights-800-0ef64a8c9a3e.webp",
+				"bytes": 120618
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/bosch-earthly-delights-1200-96106f0df9c6.webp",
+				"bytes": 250272
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/bosch-earthly-delights-1600-caa051e47f1f.webp",
+				"bytes": 436648
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/bosch-earthly-delights-2400-3839af992d4d.webp",
+				"bytes": 988932
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/bosch-earthly-delights-3200-40b5c6a55ff0.webp",
+				"bytes": 1770288
+			}
+		]
+	},
+	{
+		"id": "velazquez-innocent-x",
+		"name": "Portrait of Pope Innocent X",
+		"artist": "Diego Velázquez",
+		"year": "1650",
+		"style": "Baroque",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:Retrato_del_Papa_Inocencio_X._Roma,_by_Diego_Vel%C3%A1zquez.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Retrato_del_Papa_Inocencio_X._Roma%2C_by_Diego_Vel%C3%A1zquez.jpg",
+		"museum": "Galleria Doria Pamphilj",
+		"position": "50% 30%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "http://picasaweb.google.com/EnrikeCdC/VelazquezObraCompleta#5297131513290212530",
+		"sourceWidth": 4545,
+		"sourceHeight": 5799,
+		"width": 3200,
+		"height": 4083,
+		"thumb": "/paintings/catalogue/velazquez-innocent-x-480-ca59ef95bf98.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/velazquez-innocent-x-480-ca59ef95bf98.webp",
+				"bytes": 57562
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/velazquez-innocent-x-800-ac289485e10c.webp",
+				"bytes": 150510
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/velazquez-innocent-x-1200-4a8a91d9606b.webp",
+				"bytes": 315572
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/velazquez-innocent-x-1600-51092ffee207.webp",
+				"bytes": 514548
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/velazquez-innocent-x-2400-12355d6b3ebe.webp",
+				"bytes": 929982
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/velazquez-innocent-x-3200-155046217fb8.webp",
+				"bytes": 1348654
+			}
+		]
+	},
+	{
+		"id": "turner-whalers",
+		"name": "Whalers",
+		"artist": "J. M. W. Turner",
+		"year": "1845",
+		"style": "Romanticism",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:Whalers_MET_DP169567.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Whalers_MET_DP169567.jpg",
+		"museum": "The Metropolitan Museum of Art",
+		"position": "50% 50%",
+		"license": "CC0",
+		"licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+		"imageCredit": "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art. See the Image and Data Resources Open Access Policy",
+		"sourceWidth": 3915,
+		"sourceHeight": 2938,
+		"width": 3200,
+		"height": 2402,
+		"thumb": "/paintings/catalogue/turner-whalers-480-b2edc78ecdf8.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/turner-whalers-480-b2edc78ecdf8.webp",
+				"bytes": 20510
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/turner-whalers-800-971dfe58b94c.webp",
+				"bytes": 58498
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/turner-whalers-1200-43dddd6ba622.webp",
+				"bytes": 136644
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/turner-whalers-1600-3509072a7c93.webp",
+				"bytes": 268324
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/turner-whalers-2400-bc975f46e55d.webp",
+				"bytes": 673274
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/turner-whalers-3200-0e8bd8d323e4.webp",
+				"bytes": 1214910
+			}
+		]
+	},
+	{
+		"id": "eakins-single-scull",
+		"name": "The Champion Single Sculls",
+		"artist": "Thomas Eakins",
+		"year": "1871",
+		"style": "Realism",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:Max_Schmitt_in_a_Single_Scull.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/4/48/Max_Schmitt_in_a_Single_Scull.jpg",
+		"museum": "The Metropolitan Museum of Art",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "art database",
+		"sourceWidth": 5940,
+		"sourceHeight": 4116,
+		"width": 3200,
+		"height": 2218,
+		"thumb": "/paintings/catalogue/eakins-single-scull-480-e661856764bb.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/eakins-single-scull-480-e661856764bb.webp",
+				"bytes": 20672
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/eakins-single-scull-800-04059e8a56c4.webp",
+				"bytes": 55252
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/eakins-single-scull-1200-82367eb9fb1a.webp",
+				"bytes": 131394
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/eakins-single-scull-1600-a794d4a71c9e.webp",
+				"bytes": 267630
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/eakins-single-scull-2400-01816b55d6ac.webp",
+				"bytes": 802714
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/eakins-single-scull-3200-09fe58736605.webp",
+				"bytes": 1688904
+			}
+		]
+	},
+	{
+		"id": "lorenzetti-good-government",
+		"name": "The Allegory of Good Government",
+		"artist": "Ambrogio Lorenzetti",
+		"year": "1338–1339",
+		"style": "Sienese Gothic",
+		"category": "Literature & philosophy",
+		"medium": "fresco",
+		"source": "https://commons.wikimedia.org/wiki/File:Ambrogio_Lorenzetti_-_Allegory_of_Good_Government_-_Google_Art_Project.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Ambrogio_Lorenzetti_-_Allegory_of_Good_Government_-_Google_Art_Project.jpg",
+		"museum": "Palazzo Pubblico, Siena",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "owH6OsVYalFGMw at Google Cultural Institute maximum zoom level",
+		"sourceWidth": 4673,
+		"sourceHeight": 2527,
+		"width": 3200,
+		"height": 1731,
+		"thumb": "/paintings/catalogue/lorenzetti-good-government-480-052ba4bce63d.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/lorenzetti-good-government-480-052ba4bce63d.webp",
+				"bytes": 33990
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/lorenzetti-good-government-800-d67d350b1408.webp",
+				"bytes": 88510
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/lorenzetti-good-government-1200-efac2a758150.webp",
+				"bytes": 190664
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/lorenzetti-good-government-1600-e2c5fc42160a.webp",
+				"bytes": 345814
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/lorenzetti-good-government-2400-99042e0155f1.webp",
+				"bytes": 799378
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/lorenzetti-good-government-3200-161a1a67d89d.webp",
+				"bytes": 1377078
+			}
+		]
+	},
+	{
+		"id": "david-wrath-achilles",
+		"name": "The Anger of Achilles",
+		"artist": "Jacques-Louis David",
+		"year": "1819",
+		"style": "Neoclassicism",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:Jacques-Louis_David_-_The_Anger_of_Achilles_-_Google_Art_Project.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Jacques-Louis_David_-_The_Anger_of_Achilles_-_Google_Art_Project.jpg",
+		"museum": "Kimbell Art Museum",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "egH1jm7p2qNAUw at Google Cultural Institute maximum zoom level",
+		"sourceWidth": 4201,
+		"sourceHeight": 2994,
+		"width": 3200,
+		"height": 2281,
+		"thumb": "/paintings/catalogue/david-wrath-achilles-480-da475325bf78.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/david-wrath-achilles-480-da475325bf78.webp",
+				"bytes": 30414
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/david-wrath-achilles-800-3cd841a892a6.webp",
+				"bytes": 64866
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/david-wrath-achilles-1200-6f9b6f3d4ece.webp",
+				"bytes": 120160
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/david-wrath-achilles-1600-23b02f56d1db.webp",
+				"bytes": 212078
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/david-wrath-achilles-2400-9e7ee41e26d7.webp",
+				"bytes": 535692
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/david-wrath-achilles-3200-2d79cbecd93d.webp",
+				"bytes": 981592
+			}
+		]
+	},
+	{
+		"id": "turner-ulysses",
+		"name": "Ulysses Deriding Polyphemus",
+		"artist": "J. M. W. Turner",
+		"year": "1829",
+		"style": "Romanticism",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_064.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/0/07/Joseph_Mallord_William_Turner_064.jpg",
+		"museum": "National Gallery, London",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "The Yorck Project (2002) 10.000 Meisterwerke der Malerei (DVD-ROM), distributed by DIRECTMEDIA Publishing GmbH. ISBN: 3936122202.",
+		"sourceWidth": 1920,
+		"sourceHeight": 1200,
+		"width": 1920,
+		"height": 1200,
+		"thumb": "/paintings/catalogue/turner-ulysses-480-b8cb057bdec0.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/turner-ulysses-480-b8cb057bdec0.webp",
+				"bytes": 22834
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/turner-ulysses-800-59511a8b9b6a.webp",
+				"bytes": 60622
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/turner-ulysses-1200-d6bc671b984e.webp",
+				"bytes": 133412
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/turner-ulysses-1600-820adeab1b96.webp",
+				"bytes": 225004
+			},
+			{
+				"width": 1920,
+				"src": "/paintings/catalogue/turner-ulysses-1920-90d5b9cb9498.webp",
+				"bytes": 327486
+			}
+		]
+	},
+	{
+		"id": "bruegel-icarus",
+		"name": "Landscape with the Fall of Icarus",
+		"artist": "After Pieter Bruegel the Elder",
+		"year": "c. 1560",
+		"style": "Northern Renaissance",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_Landscape_with_the_Fall_of_Icarus_-_Brussels,_Royal_Museums_of_Fine_Arts_of_Belgium_-_Google_Arts_%26_Culture.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Pieter_Bruegel_the_Elder_-_Landscape_with_the_Fall_of_Icarus_-_Brussels%2C_Royal_Museums_of_Fine_Arts_of_Belgium_-_Google_Arts_%26_Culture.jpg",
+		"museum": "Royal Museums of Fine Arts of Belgium",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "Google Arts &amp; Culture — 6gGkgMwPyiEqUQ",
+		"sourceWidth": 12265,
+		"sourceHeight": 8000,
+		"width": 3200,
+		"height": 2088,
+		"thumb": "/paintings/catalogue/bruegel-icarus-480-32ae2e9f6a97.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/bruegel-icarus-480-32ae2e9f6a97.webp",
+				"bytes": 31430
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/bruegel-icarus-800-cd596d260925.webp",
+				"bytes": 89564
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/bruegel-icarus-1200-2c6926c1c226.webp",
+				"bytes": 214544
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/bruegel-icarus-1600-8f062541b93b.webp",
+				"bytes": 436200
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/bruegel-icarus-2400-95f268ad5403.webp",
+				"bytes": 1153820
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/bruegel-icarus-3200-225af8d108f5.webp",
+				"bytes": 2259922
+			}
+		]
+	},
+	{
+		"id": "bruegel-triumph-death",
+		"name": "The Triumph of Death",
+		"artist": "Pieter Bruegel the Elder",
+		"year": "1562–1563",
+		"style": "Northern Renaissance",
+		"category": "Literature & philosophy",
+		"medium": "oil on panel",
+		"source": "https://commons.wikimedia.org/wiki/File:The_Triumph_of_Death_by_Pieter_Bruegel_the_Elder.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/b/b3/The_Triumph_of_Death_by_Pieter_Bruegel_the_Elder.jpg",
+		"museum": "Museo Nacional del Prado",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "Museo del Prado",
+		"sourceWidth": 2126,
+		"sourceHeight": 1517,
+		"width": 2126,
+		"height": 1517,
+		"thumb": "/paintings/catalogue/bruegel-triumph-death-480-4b4601e2ba90.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/bruegel-triumph-death-480-4b4601e2ba90.webp",
+				"bytes": 54680
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/bruegel-triumph-death-800-548f40fa3203.webp",
+				"bytes": 138684
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/bruegel-triumph-death-1200-a7d69143bd3a.webp",
+				"bytes": 293140
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/bruegel-triumph-death-1600-e995e1147eec.webp",
+				"bytes": 500654
+			},
+			{
+				"width": 2126,
+				"src": "/paintings/catalogue/bruegel-triumph-death-2126-1dabf1d82d4c.webp",
+				"bytes": 884414
+			}
+		]
+	},
+	{
+		"id": "delacroix-liberty",
+		"name": "Liberty Leading the People",
+		"artist": "Eugène Delacroix",
+		"year": "1830",
+		"style": "Romanticism",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:La_Libert%C3%A9_guidant_le_peuple_-_Eug%C3%A8ne_Delacroix_-_Mus%C3%A9e_du_Louvre_Peintures_RF_129_-_apr%C3%A8s_restauration_2024.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/0/02/La_Libert%C3%A9_guidant_le_peuple_-_Eug%C3%A8ne_Delacroix_-_Mus%C3%A9e_du_Louvre_Peintures_RF_129_-_apr%C3%A8s_restauration_2024.jpg",
+		"museum": "Musée du Louvre",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "photo Shonagon 2024-05-02",
+		"sourceWidth": 10128,
+		"sourceHeight": 8103,
+		"width": 3200,
+		"height": 2560,
+		"thumb": "/paintings/catalogue/delacroix-liberty-480-96ce5154430a.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/delacroix-liberty-480-96ce5154430a.webp",
+				"bytes": 39716
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/delacroix-liberty-800-c743228fcac2.webp",
+				"bytes": 86652
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/delacroix-liberty-1200-a799ba756f2c.webp",
+				"bytes": 158420
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/delacroix-liberty-1600-7316c7ca9ad4.webp",
+				"bytes": 277354
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/delacroix-liberty-2400-fe7484557561.webp",
+				"bytes": 705228
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/delacroix-liberty-3200-383753dba47d.webp",
+				"bytes": 1384452
+			}
+		]
+	},
+	{
+		"id": "goya-third-may",
+		"name": "The Third of May 1808",
+		"artist": "Francisco Goya",
+		"year": "1814",
+		"style": "Romanticism",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:El_Tres_de_Mayo,_by_Francisco_de_Goya,_from_Prado_thin_black_margin.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/f/fd/El_Tres_de_Mayo%2C_by_Francisco_de_Goya%2C_from_Prado_thin_black_margin.jpg",
+		"museum": "Museo Nacional del Prado",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "This file was derived from: El Tres de Mayo, by Francisco de Goya, from Prado in Google Earth.jpg:",
+		"sourceWidth": 29294,
+		"sourceHeight": 22626,
+		"width": 3200,
+		"height": 2472,
+		"thumb": "/paintings/catalogue/goya-third-may-480-88f9615c913d.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/goya-third-may-480-88f9615c913d.webp",
+				"bytes": 21574
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/goya-third-may-800-8fc916e55d69.webp",
+				"bytes": 47444
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/goya-third-may-1200-5b25f02c301a.webp",
+				"bytes": 95884
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/goya-third-may-1600-e6cefc2e3b64.webp",
+				"bytes": 170422
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/goya-third-may-2400-ecf378e95deb.webp",
+				"bytes": 461526
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/goya-third-may-3200-7f6c4af914bf.webp",
+				"bytes": 962020
+			}
+		]
+	},
+	{
+		"id": "bouguereau-dante-virgil",
+		"name": "Dante and Virgil",
+		"artist": "William-Adolphe Bouguereau",
+		"year": "1850",
+		"style": "Academic art",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:William_Bouguereau_-_Dante_and_Virgile_-_Google_Art_Project_2.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/2/27/William_Bouguereau_-_Dante_and_Virgile_-_Google_Art_Project_2.jpg",
+		"museum": "Musée d’Orsay",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "-AF79SI4-gGMKA at Google Cultural Institute maximum zoom level",
+		"sourceWidth": 2803,
+		"sourceHeight": 3515,
+		"width": 2803,
+		"height": 3515,
+		"thumb": "/paintings/catalogue/bouguereau-dante-virgil-480-6948762cd6ad.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/bouguereau-dante-virgil-480-6948762cd6ad.webp",
+				"bytes": 34066
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/bouguereau-dante-virgil-800-94272d5ca569.webp",
+				"bytes": 72888
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/bouguereau-dante-virgil-1200-7807cc419728.webp",
+				"bytes": 155190
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/bouguereau-dante-virgil-1600-fb5b6a3411fa.webp",
+				"bytes": 267868
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/bouguereau-dante-virgil-2400-0404dc32fb44.webp",
+				"bytes": 566808
+			},
+			{
+				"width": 2803,
+				"src": "/paintings/catalogue/bouguereau-dante-virgil-2803-4f10d729b79c.webp",
+				"bytes": 760704
+			}
+		]
+	},
+	{
+		"id": "gerome-sphinx",
+		"name": "Bonaparte Before the Sphinx",
+		"artist": "Jean-Léon Gérôme",
+		"year": "1867–1868",
+		"style": "Academic art",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:Bonaparte_ante_la_Esfinge,_por_Jean-L%C3%A9on_G%C3%A9r%C3%B4me.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Bonaparte_ante_la_Esfinge%2C_por_Jean-L%C3%A9on_G%C3%A9r%C3%B4me.jpg",
+		"museum": "Hearst Castle",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "Fuente",
+		"sourceWidth": 3071,
+		"sourceHeight": 1838,
+		"width": 3071,
+		"height": 1838,
+		"thumb": "/paintings/catalogue/gerome-sphinx-480-745a992e520e.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/gerome-sphinx-480-745a992e520e.webp",
+				"bytes": 20670
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/gerome-sphinx-800-d19e6068e76b.webp",
+				"bytes": 48796
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/gerome-sphinx-1200-eaf967639b8b.webp",
+				"bytes": 98582
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/gerome-sphinx-1600-32cc30139cbc.webp",
+				"bytes": 161988
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/gerome-sphinx-2400-b789ab4ef20b.webp",
+				"bytes": 306722
+			},
+			{
+				"width": 3071,
+				"src": "/paintings/catalogue/gerome-sphinx-3071-d83bb40a4326.webp",
+				"bytes": 425808
+			}
+		]
+	},
+	{
+		"id": "cabanel-fallen-angel",
+		"name": "The Fallen Angel",
+		"artist": "Alexandre Cabanel",
+		"year": "1847",
+		"style": "Academic art",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:Alexandre_Cabanel_-_Fallen_Angel.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Alexandre_Cabanel_-_Fallen_Angel.jpg",
+		"museum": "Musée Fabre",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "https://en.artsdot.com/@@/8BWMPJ-Alexandre%20Cabanel-Fallen%20Angel",
+		"sourceWidth": 3732,
+		"sourceHeight": 2550,
+		"width": 3200,
+		"height": 2186,
+		"thumb": "/paintings/catalogue/cabanel-fallen-angel-480-da0a26147cfc.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/cabanel-fallen-angel-480-da0a26147cfc.webp",
+				"bytes": 20908
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/cabanel-fallen-angel-800-328cc9936a54.webp",
+				"bytes": 41044
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/cabanel-fallen-angel-1200-34fe2a8f1602.webp",
+				"bytes": 66454
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/cabanel-fallen-angel-1600-93a46e259b77.webp",
+				"bytes": 95218
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/cabanel-fallen-angel-2400-e4cd0cf95e01.webp",
+				"bytes": 158372
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/cabanel-fallen-angel-3200-8cc8531ea8ba.webp",
+				"bytes": 228982
+			}
+		]
+	},
+	{
+		"id": "friedrich-wanderer",
+		"name": "Wanderer above the Sea of Fog",
+		"artist": "Caspar David Friedrich",
+		"year": "1818",
+		"style": "Romanticism",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Wanderer_above_the_Sea_of_Fog.jpeg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/a/af/Caspar_David_Friedrich_-_Wanderer_above_the_Sea_of_Fog.jpeg",
+		"museum": "Hamburger Kunsthalle",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "https://www.tiqets.com/ja/hamburg-attractions-c64886/tickets-for-hamburger-kunsthalle-skip-the-line-p976728/",
+		"sourceWidth": 5256,
+		"sourceHeight": 6742,
+		"width": 3200,
+		"height": 4105,
+		"thumb": "/paintings/catalogue/friedrich-wanderer-480-4f746d633832.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/friedrich-wanderer-480-4f746d633832.webp",
+				"bytes": 30754
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/friedrich-wanderer-800-dfdc7c637c8f.webp",
+				"bytes": 102206
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/friedrich-wanderer-1200-5c956c0e788c.webp",
+				"bytes": 320828
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/friedrich-wanderer-1600-8eede2574e51.webp",
+				"bytes": 745166
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/friedrich-wanderer-2400-3091e96a61c3.webp",
+				"bytes": 2248870
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/friedrich-wanderer-3200-d0b956f8f58a.webp",
+				"bytes": 4150254
+			}
+		]
+	},
+	{
+		"id": "blake-ancient-days",
+		"name": "The Ancient of Days",
+		"artist": "William Blake",
+		"year": "1794; printed 1821",
+		"style": "Romanticism",
+		"category": "Literature & philosophy",
+		"medium": "hand-coloured relief etching with watercolour",
+		"source": "https://commons.wikimedia.org/wiki/File:Europe_a_Prophecy_copy_K_plate_01.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Europe_a_Prophecy_copy_K_plate_01.jpg",
+		"museum": "Fitzwilliam Museum",
+		"position": "50% 25%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "The William Blake Archive",
+		"sourceWidth": 2217,
+		"sourceHeight": 3004,
+		"width": 2217,
+		"height": 3004,
+		"thumb": "/paintings/catalogue/blake-ancient-days-480-f9e10a0bebe3.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/blake-ancient-days-480-f9e10a0bebe3.webp",
+				"bytes": 67932
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/blake-ancient-days-800-f827956b7675.webp",
+				"bytes": 219860
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/blake-ancient-days-1200-64f8eff6da2a.webp",
+				"bytes": 497086
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/blake-ancient-days-1600-f8c0e7c93572.webp",
+				"bytes": 817500
+			},
+			{
+				"width": 2217,
+				"src": "/paintings/catalogue/blake-ancient-days-2217-03602441c472.webp",
+				"bytes": 1257962
+			}
+		]
+	},
+	{
+		"id": "moreau-apparition",
+		"name": "The Apparition",
+		"artist": "Gustave Moreau",
+		"year": "1876",
+		"style": "Symbolism",
+		"category": "Literature & philosophy",
+		"medium": "watercolour on paper",
+		"source": "https://commons.wikimedia.org/wiki/File:Gustave_Moreau_-_The_Apparition_-_Google_Art_Project.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/2/23/Gustave_Moreau_-_The_Apparition_-_Google_Art_Project.jpg",
+		"museum": "Musée d’Orsay",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "8wHHpSOCxyjnIg at Google Cultural Institute maximum zoom level",
+		"sourceWidth": 3894,
+		"sourceHeight": 5747,
+		"width": 3200,
+		"height": 4723,
+		"thumb": "/paintings/catalogue/moreau-apparition-480-b28a6e8a9dd3.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/moreau-apparition-480-b28a6e8a9dd3.webp",
+				"bytes": 69250
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/moreau-apparition-800-2f005dc7c9ae.webp",
+				"bytes": 190234
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/moreau-apparition-1200-2dc15938b741.webp",
+				"bytes": 380168
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/moreau-apparition-1600-d0a0b0920b7a.webp",
+				"bytes": 654746
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/moreau-apparition-2400-61d82c456e0f.webp",
+				"bytes": 1267870
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/moreau-apparition-3200-9974e02d7fbf.webp",
+				"bytes": 1845752
+			}
+		]
+	},
+	{
+		"id": "bocklin-isle-dead",
+		"name": "Isle of the Dead",
+		"artist": "Arnold Böcklin",
+		"year": "1883",
+		"style": "Symbolism",
+		"category": "Literature & philosophy",
+		"medium": "oil on wood",
+		"source": "https://commons.wikimedia.org/wiki/File:Arnold_B%C3%B6cklin_-_Die_Toteninsel_III_(Alte_Nationalgalerie,_Berlin).jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/6/65/Arnold_B%C3%B6cklin_-_Die_Toteninsel_III_%28Alte_Nationalgalerie%2C_Berlin%29.jpg",
+		"museum": "Alte Nationalgalerie, Berlin",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "Google Arts &amp; Culture — 0wFgMTIQ3kZCpg",
+		"sourceWidth": 4933,
+		"sourceHeight": 2628,
+		"width": 3200,
+		"height": 1705,
+		"thumb": "/paintings/catalogue/bocklin-isle-dead-480-6e44774ab282.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/bocklin-isle-dead-480-6e44774ab282.webp",
+				"bytes": 18952
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/bocklin-isle-dead-800-f2ae971a02bd.webp",
+				"bytes": 45422
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/bocklin-isle-dead-1200-964d0fb83f99.webp",
+				"bytes": 92884
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/bocklin-isle-dead-1600-b6f84047135f.webp",
+				"bytes": 188834
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/bocklin-isle-dead-2400-354b8ba0bbac.webp",
+				"bytes": 471590
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/bocklin-isle-dead-3200-dd82e87bb8cd.webp",
+				"bytes": 820202
+			}
+		]
+	},
+	{
+		"id": "raphael-school-athens",
+		"name": "The School of Athens",
+		"artist": "Raphael",
+		"year": "1509–1511",
+		"style": "High Renaissance",
+		"category": "Literature & philosophy",
+		"medium": "fresco",
+		"source": "https://commons.wikimedia.org/wiki/File:%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg",
+		"museum": "Vatican Museums",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "Stitched together from vatican.va",
+		"sourceWidth": 3820,
+		"sourceHeight": 2964,
+		"width": 3200,
+		"height": 2483,
+		"thumb": "/paintings/catalogue/raphael-school-athens-480-fad777999f6d.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/raphael-school-athens-480-fad777999f6d.webp",
+				"bytes": 49708
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/raphael-school-athens-800-193fd4ad55e5.webp",
+				"bytes": 127632
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/raphael-school-athens-1200-ad537adb5c4d.webp",
+				"bytes": 262118
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/raphael-school-athens-1600-82b51b9b5bbf.webp",
+				"bytes": 491320
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/raphael-school-athens-2400-f9f9154654be.webp",
+				"bytes": 1053212
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/raphael-school-athens-3200-0cd774b1f06d.webp",
+				"bytes": 1636104
+			}
+		]
+	},
+	{
+		"id": "titian-sisyphus",
+		"name": "Sisyphus",
+		"artist": "Titian",
+		"year": "1548–1549",
+		"style": "Venetian Renaissance",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:Punishment_sisyph.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/4/43/Punishment_sisyph.jpg",
+		"museum": "Museo Nacional del Prado",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "[2]",
+		"sourceWidth": 2688,
+		"sourceHeight": 3051,
+		"width": 2688,
+		"height": 3051,
+		"thumb": "/paintings/catalogue/titian-sisyphus-480-b0d9ad816657.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/titian-sisyphus-480-b0d9ad816657.webp",
+				"bytes": 59036
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/titian-sisyphus-800-58e5ecc59b86.webp",
+				"bytes": 183626
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/titian-sisyphus-1200-f35463ce2a3a.webp",
+				"bytes": 484664
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/titian-sisyphus-1600-4a8a34a9c883.webp",
+				"bytes": 905592
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/titian-sisyphus-2400-ab6d43d1ffd2.webp",
+				"bytes": 2092304
+			},
+			{
+				"width": 2688,
+				"src": "/paintings/catalogue/titian-sisyphus-2688-35683a8d3c7a.webp",
+				"bytes": 2646568
+			}
+		]
+	},
+	{
+		"id": "repin-ivan-terrible",
+		"name": "Ivan the Terrible and His Son Ivan",
+		"artist": "Ilya Repin",
+		"year": "1885",
+		"style": "Realism",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:Iv%C3%A1n_el_Terrible_y_su_hijo,_por_Ili%C3%A1_Repin.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/3/33/Iv%C3%A1n_el_Terrible_y_su_hijo%2C_por_Ili%C3%A1_Repin.jpg",
+		"museum": "State Tretyakov Gallery",
+		"position": "60% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "Own work",
+		"sourceWidth": 2023,
+		"sourceHeight": 1589,
+		"width": 2023,
+		"height": 1589,
+		"thumb": "/paintings/catalogue/repin-ivan-terrible-480-33584a5e1a50.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/repin-ivan-terrible-480-33584a5e1a50.webp",
+				"bytes": 30434
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/repin-ivan-terrible-800-dac54395c59b.webp",
+				"bytes": 77830
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/repin-ivan-terrible-1200-9b74bcd5454c.webp",
+				"bytes": 180488
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/repin-ivan-terrible-1600-93dc64e2af39.webp",
+				"bytes": 356742
+			},
+			{
+				"width": 2023,
+				"src": "/paintings/catalogue/repin-ivan-terrible-2023-73ccdd008c46.webp",
+				"bytes": 702930
+			}
+		]
+	},
+	{
+		"id": "daumier-quixote",
+		"name": "Don Quixote and Sancho Panza",
+		"artist": "Honoré Daumier",
+		"year": "c. 1868",
+		"style": "Realism",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:Honor%C3%A9_Daumier_017_(Don_Quixote).jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Honor%C3%A9_Daumier_017_%28Don_Quixote%29.jpg",
+		"museum": "Neue Pinakothek, Munich",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "The Yorck Project (2002) 10.000 Meisterwerke der Malerei (DVD-ROM), distributed by DIRECTMEDIA Publishing GmbH. ISBN: 3936122202.",
+		"sourceWidth": 1576,
+		"sourceHeight": 2271,
+		"width": 1280,
+		"height": 1844,
+		"thumb": "/paintings/catalogue/daumier-quixote-480-47b042e4f9da.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/daumier-quixote-480-47b042e4f9da.webp",
+				"bytes": 98604
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/daumier-quixote-800-0a2a795cb027.webp",
+				"bytes": 265578
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/daumier-quixote-1200-955ca7bb717a.webp",
+				"bytes": 501050
+			},
+			{
+				"width": 1280,
+				"src": "/paintings/catalogue/daumier-quixote-1280-14ed83a04b80.webp",
+				"bytes": 547406
+			}
+		]
+	},
+	{
+		"id": "vangogh-night-cafe",
+		"name": "The Night Café",
+		"artist": "Vincent van Gogh",
+		"year": "1888",
+		"style": "Post-Impressionism",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_The_Night_Caf%C3%A9_(1888).jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/4/45/Van_Gogh_-_The_Night_Caf%C3%A9_%281888%29.jpg",
+		"museum": "Yale University Art Gallery",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "1. The Yorck Project (2002) 10.000 Meisterwerke der Malerei (DVD-ROM), distributed by DIRECTMEDIA Publishing GmbH. ISBN: 3936122202. 2. Unknown sourceUnknown source3. Yale University Art Gallery",
+		"sourceWidth": 7408,
+		"sourceHeight": 5848,
+		"width": 3200,
+		"height": 2526,
+		"thumb": "/paintings/catalogue/vangogh-night-cafe-480-4a1ea6b9ebe8.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/vangogh-night-cafe-480-4a1ea6b9ebe8.webp",
+				"bytes": 48576
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/vangogh-night-cafe-800-9b7f550e0cdf.webp",
+				"bytes": 131496
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/vangogh-night-cafe-1200-3107bd16a1a5.webp",
+				"bytes": 301022
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/vangogh-night-cafe-1600-2ad9cb405123.webp",
+				"bytes": 584304
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/vangogh-night-cafe-2400-9142a206ebb9.webp",
+				"bytes": 1393628
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/vangogh-night-cafe-3200-7076fd2a626a.webp",
+				"bytes": 2480148
+			}
+		]
+	},
+	{
+		"id": "durer-self-portrait",
+		"name": "Self-Portrait at Twenty-Eight",
+		"artist": "Albrecht Dürer",
+		"year": "1500",
+		"style": "Northern Renaissance",
+		"category": "Literature & philosophy",
+		"medium": "oil on limewood panel",
+		"source": "https://commons.wikimedia.org/wiki/File:D%C3%BCrer_Alte_Pinakothek.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/4/40/D%C3%BCrer_Alte_Pinakothek.jpg",
+		"museum": "Alte Pinakothek, Munich",
+		"position": "50% 25%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "https://www.sammlung.pinakothek.de/de/artwork/Qlx2QpQ4Xq",
+		"sourceWidth": 2128,
+		"sourceHeight": 3000,
+		"width": 2128,
+		"height": 3000,
+		"thumb": "/paintings/catalogue/durer-self-portrait-480-2a6c3e9aea3f.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/durer-self-portrait-480-2a6c3e9aea3f.webp",
+				"bytes": 22810
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/durer-self-portrait-800-970cf8bac541.webp",
+				"bytes": 61418
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/durer-self-portrait-1200-9ea365325a10.webp",
+				"bytes": 181786
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/durer-self-portrait-1600-9390e5965293.webp",
+				"bytes": 372918
+			},
+			{
+				"width": 2128,
+				"src": "/paintings/catalogue/durer-self-portrait-2128-48ddc7d78888.webp",
+				"bytes": 679838
+			}
+		]
+	},
+	{
+		"id": "munch-scream",
+		"name": "The Scream",
+		"artist": "Edvard Munch",
+		"year": "1893",
+		"style": "Expressionism",
+		"category": "Literature & philosophy",
+		"medium": "oil, tempera, and pastel on cardboard",
+		"source": "https://commons.wikimedia.org/wiki/File:Edvard_Munch,_1893,_The_Scream,_oil,_tempera_and_pastel_on_cardboard,_91_x_73_cm,_National_Gallery_of_Norway.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg",
+		"museum": "National Museum, Norway",
+		"position": "50% 65%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "National Museum of Art, Architecture and Design",
+		"sourceWidth": 3223,
+		"sourceHeight": 4000,
+		"width": 3200,
+		"height": 3971,
+		"thumb": "/paintings/catalogue/munch-scream-480-b763fb1fc015.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/munch-scream-480-b763fb1fc015.webp",
+				"bytes": 44092
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/munch-scream-800-7023305a1819.webp",
+				"bytes": 116852
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/munch-scream-1200-772b6699795f.webp",
+				"bytes": 294192
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/munch-scream-1600-acd2603eb04b.webp",
+				"bytes": 601702
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/munch-scream-2400-318c73c1292b.webp",
+				"bytes": 1658898
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/munch-scream-3200-0bd763a5b084.webp",
+				"bytes": 3333430
+			}
+		]
+	},
+	{
+		"id": "goya-dog",
+		"name": "The Dog",
+		"artist": "Francisco Goya",
+		"year": "1819–1823",
+		"style": "Romanticism",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas, transferred from plaster",
+		"source": "https://commons.wikimedia.org/wiki/File:Goya_Dog.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/3/38/Goya_Dog.jpg",
+		"museum": "Museo Nacional del Prado",
+		"position": "50% 75%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "http://www.museodelprado.es/en/the-collection/online-gallery/on-line-gallery/zoom/1/obra/dog-half-submerged/oimg/0/",
+		"sourceWidth": 1797,
+		"sourceHeight": 3051,
+		"width": 1797,
+		"height": 3051,
+		"thumb": "/paintings/catalogue/goya-dog-480-029bcb735e05.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/goya-dog-480-029bcb735e05.webp",
+				"bytes": 100234
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/goya-dog-800-90fbd8cd2d0b.webp",
+				"bytes": 327552
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/goya-dog-1200-bd9d995c3441.webp",
+				"bytes": 794296
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/goya-dog-1600-2960cb0fbb4a.webp",
+				"bytes": 1447606
+			},
+			{
+				"width": 1797,
+				"src": "/paintings/catalogue/goya-dog-1797-0659d1c635cb.webp",
+				"bytes": 1868946
+			}
+		]
+	},
+	{
+		"id": "bruegel-tower-babel",
+		"name": "The Tower of Babel",
+		"artist": "Pieter Bruegel the Elder",
+		"year": "1563",
+		"style": "Northern Renaissance",
+		"category": "Literature & philosophy",
+		"medium": "oil on oak panel",
+		"source": "https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project_-_edited.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_%28Vienna%29_-_Google_Art_Project_-_edited.jpg",
+		"museum": "Kunsthistorisches Museum, Vienna",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "Levels adjusted from File:Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project.jpg, originally from Google Art Project.",
+		"sourceWidth": 30000,
+		"sourceHeight": 21952,
+		"width": 3200,
+		"height": 2342,
+		"thumb": "/paintings/catalogue/bruegel-tower-babel-480-eaf382c732fb.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/bruegel-tower-babel-480-eaf382c732fb.webp",
+				"bytes": 49076
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/bruegel-tower-babel-800-187bc0d80408.webp",
+				"bytes": 127594
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/bruegel-tower-babel-1200-6ef1499b80f8.webp",
+				"bytes": 274724
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/bruegel-tower-babel-1600-37b69563363b.webp",
+				"bytes": 510048
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/bruegel-tower-babel-2400-51efb60fdb17.webp",
+				"bytes": 1219478
+			},
+			{
+				"width": 3200,
+				"src": "/paintings/catalogue/bruegel-tower-babel-3200-a080bb9d1c41.webp",
+				"bytes": 2230766
+			}
+		]
+	},
+	{
+		"id": "boccioni-city-rises",
+		"name": "The City Rises",
+		"artist": "Umberto Boccioni",
+		"year": "1910",
+		"style": "Futurism",
+		"category": "Literature & philosophy",
+		"medium": "oil on canvas",
+		"source": "https://commons.wikimedia.org/wiki/File:The_City_Rises_by_Umberto_Boccioni_1910.jpg",
+		"original": "https://upload.wikimedia.org/wikipedia/commons/b/b4/The_City_Rises_by_Umberto_Boccioni_1910.jpg",
+		"museum": "The Museum of Modern Art",
+		"position": "50% 50%",
+		"license": "Public domain",
+		"licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+		"imageCredit": "Moma.org",
+		"sourceWidth": 2583,
+		"sourceHeight": 1715,
+		"width": 2583,
+		"height": 1715,
+		"thumb": "/paintings/catalogue/boccioni-city-rises-480-84b4c0685597.webp",
+		"variants": [
+			{
+				"width": 480,
+				"src": "/paintings/catalogue/boccioni-city-rises-480-84b4c0685597.webp",
+				"bytes": 49700
+			},
+			{
+				"width": 800,
+				"src": "/paintings/catalogue/boccioni-city-rises-800-14af92aab8bb.webp",
+				"bytes": 131944
+			},
+			{
+				"width": 1200,
+				"src": "/paintings/catalogue/boccioni-city-rises-1200-e78de29f6899.webp",
+				"bytes": 271866
+			},
+			{
+				"width": 1600,
+				"src": "/paintings/catalogue/boccioni-city-rises-1600-1132dafd74ca.webp",
+				"bytes": 416124
+			},
+			{
+				"width": 2400,
+				"src": "/paintings/catalogue/boccioni-city-rises-2400-b5d654ee1d3f.webp",
+				"bytes": 746930
+			},
+			{
+				"width": 2583,
+				"src": "/paintings/catalogue/boccioni-city-rises-2583-756a4fb928ed.webp",
+				"bytes": 883458
+			}
+		]
 	}
 ]

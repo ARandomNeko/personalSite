@@ -51,18 +51,18 @@ for (const width of [1440, 390]) {
 		const collection = page.getByRole('list', { name: 'Owned / to read', exact: true });
 		const finished = page.getByRole('list', { name: 'Read', exact: true });
 		await expect(current.getByRole('button')).toHaveCount(2);
-		await expect(collection.getByRole('button')).toHaveCount(6);
-		await expect(finished.getByRole('button')).toHaveCount(4);
+		await expect(collection.getByRole('button')).toHaveCount(10);
+		await expect(finished.getByRole('button')).toHaveCount(16);
 		const caption = page.getByRole('complementary', { name: 'Current painting' });
-		await expect(caption).toContainText('The Abbey in the Oakwood');
+		await expect(caption).toContainText('The Garden of Earthly Delights');
 		const book = page.getByRole('button', { name: 'The Picture of Dorian Gray Oscar Wilde' });
 		await book.click();
 		await expect(book).toHaveAttribute('aria-pressed', 'true');
-		await expect(caption).toContainText('Lamia');
+		await expect(caption).toContainText('Self-Portrait at Twenty-Eight');
 		await expect(caption.getByRole('link')).toHaveAttribute('href', /^https:\/\//);
 		await expect
 			.poll(() => page.locator('.library-backdrop img').getAttribute('src'))
-			.toMatch(/waterhouse-lamia/);
+			.toMatch(/durer-self-portrait/);
 		await expect
 			.poll(() =>
 				page
@@ -71,7 +71,7 @@ for (const width of [1440, 390]) {
 			)
 			.toBe(true);
 		await current.getByRole('button').first().focus();
-		await expect(caption).toContainText('The Abbey in the Oakwood');
+		await expect(caption).toContainText('The Garden of Earthly Delights');
 		expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);
 		await expect(page.locator('.cabinet, .book-card')).toHaveCount(0);
 		expect(errors).toEqual([]);
@@ -96,7 +96,7 @@ for (const mode of ['reduced motion', 'no WebGL'] as const) {
 		await page.getByRole('button', { name: 'The Picture of Dorian Gray Oscar Wilde' }).click();
 		await expect
 			.poll(() => page.locator('.library-backdrop img').getAttribute('src'))
-			.toMatch(/waterhouse-lamia/);
+			.toMatch(/durer-self-portrait/);
 		await expect
 			.poll(() =>
 				page
@@ -141,7 +141,7 @@ test('preloaded library paintings keep valid crop coordinates through rapid chan
 	await page.getByRole('button', { name: 'The Picture of Dorian Gray Oscar Wilde' }).click();
 	await expect(backdrop.locator('canvas')).toHaveAttribute('data-active', 'true');
 	await page.getByRole('button', { name: 'Crime and Punishment Fyodor Dostoyevsky' }).click();
-	await expect(backdrop.locator('img')).toHaveAttribute('src', /nga-1238/);
+	await expect(backdrop.locator('img')).toHaveAttribute('src', /repin-ivan-terrible/);
 	await expect(backdrop.locator('canvas')).toHaveAttribute('data-active', 'false', {
 		timeout: 15000
 	});
@@ -150,9 +150,9 @@ test('preloaded library paintings keep valid crop coordinates through rapid chan
 	);
 	expect(positions.length).toBeGreaterThan(2);
 	expect(positions.every((pair) => pair.every(Number.isFinite))).toBe(true);
-	expect(positions.some(([x, y]) => x === 0.35 && y === 0.5)).toBe(true);
+	expect(positions.some(([x, y]) => x === 0.6 && y === 0.5)).toBe(true);
 	await expect(page.getByRole('complementary', { name: 'Current painting' })).toContainText(
-		'Grey and Silver: Chelsea Wharf'
+		'Ivan the Terrible and His Son Ivan'
 	);
-	await expect(backdrop.locator('img')).toHaveCSS('object-position', '35% 50%');
+	await expect(backdrop.locator('img')).toHaveCSS('object-position', '60% 50%');
 });

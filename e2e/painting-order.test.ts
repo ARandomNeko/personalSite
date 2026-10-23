@@ -22,11 +22,19 @@ test('a fresh load shuffles the curated selection once and ignores old picker pr
 		['nga-1225', 'met-island']
 	);
 	await page.setViewportSize({ width: 1440, height: 1000 });
+	const consoleMessages: string[] = [];
+	page.on('console', (message) => consoleMessages.push(message.text()));
 	const response = await page.goto('/');
+	expect(response!.headers()['cache-control']).toContain('no-store');
 	const serverOrder = [...(await response!.text()).matchAll(/data-painting="([^"]+)"/g)].map(
 		(match) => match[1]
 	);
 	await expect(page.locator('.painting-label')).toHaveAttribute('data-dissolve-ready', 'true');
+	expect(
+		consoleMessages.some((message) =>
+			/\+-----------------\+\n(?:\|.{17}\|\n){9}\+-----------------\+/.test(message)
+		)
+	).toBe(true);
 	const order = await page
 		.locator('.paint-layer')
 		.evaluateAll((layers) => layers.map((layer) => (layer as HTMLElement).dataset.painting!));

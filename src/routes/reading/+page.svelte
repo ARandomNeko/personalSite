@@ -32,9 +32,13 @@
 <section class="library" aria-labelledby="library-title">
 	<header class="library-heading">
 		<h1 id="library-title">The library.</h1>
+		<aside class="painting-credit" aria-label="Current painting" aria-live="polite">
+			<a href={painting.source} target="_blank" rel="noreferrer">{painting.name} ↗</a>
+			<p>{painting.artist}, {painting.year}</p>
+		</aside>
 	</header>
 	<div class="reading-groups">
-		{#each groups as group}
+		{#each groups as group (group.id)}
 			<section aria-labelledby={`group-${group.id}`}>
 				<h2 id={`group-${group.id}`}>
 					{group.label}<span>{String(group.books.length).padStart(2, '0')}</span>
@@ -56,10 +60,6 @@
 			</section>
 		{/each}
 	</div>
-	<aside class="painting-credit" aria-label="Current painting" aria-live="polite">
-		<a href={painting.source} target="_blank" rel="noreferrer">{painting.name} ↗</a>
-		<p>{painting.artist}, {painting.year}</p>
-	</aside>
 </section>
 
 <style>
@@ -69,6 +69,10 @@
 		flex-direction: column;
 	}
 	.library-heading {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 32px;
 		margin-bottom: 68px;
 	}
 	h1 {
@@ -132,8 +136,8 @@
 		text-underline-offset: 6px;
 	}
 	.painting-credit {
-		margin-top: auto;
-		padding-top: 72px;
+		max-width: 340px;
+		text-align: right;
 		color: #c0bfab;
 		font: 9px/1.6 var(--font-mono);
 	}
@@ -158,6 +162,7 @@
 	}
 	@media (max-width: 760px) {
 		.library-heading {
+			display: block;
 			margin-bottom: 45px;
 		}
 		h1 {
@@ -181,7 +186,8 @@
 			margin-top: 6px;
 		}
 		.painting-credit {
-			padding-top: 60px;
+			margin-top: 24px;
+			text-align: left;
 		}
 	}
 </style>

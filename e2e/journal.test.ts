@@ -4,7 +4,15 @@ import { readFileSync } from 'node:fs';
 
 const catalogue = JSON.parse(
 	readFileSync(new URL('../src/lib/art/catalogue.json', import.meta.url), 'utf8')
-) as { id: string; name: string; artist: string; year: string; style: string; source: string }[];
+) as {
+	id: string;
+	name: string;
+	artist: string;
+	year: string;
+	style: string;
+	source: string;
+	width: number;
+}[];
 const selectedIds = JSON.parse(
 	readFileSync(new URL('../src/lib/art/selection.json', import.meta.url), 'utf8')
 ) as string[];
@@ -61,7 +69,9 @@ test('journal reveals decoded paintings smoothly and updates the painting label'
 					return asset.naturalWidth;
 				})
 		)
-		.toBeGreaterThanOrEqual(1600);
+		.toBeGreaterThanOrEqual(
+			Math.min(1600, catalogue.find((painting) => painting.id === order[0])!.width)
+		);
 	await expect
 		.poll(async () => {
 			const about = await page.getByRole('complementary', { name: 'About me' }).boundingBox();

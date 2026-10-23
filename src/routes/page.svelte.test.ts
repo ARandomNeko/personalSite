@@ -7,7 +7,7 @@ describe('/+page.svelte', () => {
 	test('should render h1', () => {
 		render(Page, {
 			data: {
-				paintingSeed: 1,
+				paintingOrder: ['nga-71503', 'martin-wrath', 'monet-sunset', 'nga-50299'],
 				recentPosts: [
 					{
 						slug: 'rl-ppo-drone-sandbox',

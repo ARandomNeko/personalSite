@@ -30,15 +30,12 @@ Set `CHROMIUM_PATH` when Chromium is installed outside Playwright’s default lo
 `/blog` and `/projects` use the same `JournalGallery` component. Work selects only
 posts tagged `project`; the filters link between those two views. The metadata
 index lives in `src/lib/server/posts.ts`, separate from article components. Opening
-an article imports only that article. Books marked `plan to read` supply the library
-inventory without publishing empty journal pages.
+an article imports only that article. Reading status is independent of journal publication; changing a book’s shelf never publishes an empty article.
 
 Article painting pairings live in `src/lib/art/postPaintings.ts`. Book essays inherit
 their library pairing. Artwork links and credits come from the local catalogue.
 
-The library has Reading now, Owned / to read, and Read groups. The owner-approved
-placeholder assignments are in `provisionalReadingStatus` in `src/lib/books.ts`;
-replace that map when the final inventory is available. Selecting or focusing a
+The library has Reading now, Owned / to read, and Read groups. The owner’s inventory lives in `libraryBooks` in `src/lib/books.ts`: two reading, ten owned/to read, and sixteen read, including the six original Dune novels as separate entries. Selecting or focusing a
 book changes the backdrop, with reduced-motion and WebGL fallbacks.
 
 ## Delivery and rendering
@@ -46,7 +43,14 @@ book changes the backdrop, with reduced-motion and WebGL fallbacks.
 Journal, Work, Library, Résumé, and published articles are prerendered. Cloudflare
 serves those pages and their assets without running a Function. The homepage stays
 server-rendered so each fresh request can shuffle the approved paintings. Their IDs
-live in `src/lib/art/selection.json`; visitor preferences cannot override them.
+live in `src/lib/art/selection.json`; all 53 works, including the 28 book pairings,
+are eligible. Each swap in Fisher–Yates draws directly from OS-backed Web Crypto;
+rejection sampling avoids modulo bias. The server sends the final order for stable
+hydration and scrolling, and marks the response `private, no-store` so a shared
+cache cannot reuse a visitor’s deal. There is no seeded generator or saved picker
+preference. The browser console hides a fresh SSH-style randomart pattern, drawn
+with the drunken-bishop walk over 32 cryptographically random bytes.
+Lake Lucerne remains the fixed résumé backdrop.
 
 `SITE_ORIGIN` controls the prerendered canonical origin and defaults to
 `https://rituparan.com`, matching the résumé’s website address.
@@ -82,7 +86,9 @@ download throughput, and 4× CPU throttling. It saves resource transfers, LCP, l
 shifts, and long tasks. These are local lab observations; production timings will
 also depend on the device and network.
 
-A cold sample before and after this pass measured the following subresource transfers:
+Before the book-art expansion, a cold sample before and after the performance pass
+measured the following subresource transfers. The expanded library now starts with
+Bosch’s more detailed painting, so its current transfer differs from this historical sample:
 
 | Page          |  Before |   After | Reduction |
 | ------------- | ------: | ------: | --------: |
@@ -95,3 +101,13 @@ Journal LCP fell from 8.58 s to 1.99 s in those samples. The homepage’s painti
 shuffle makes byte comparisons vary between runs; measured startup long-task time
 fell from 1.13 s to 0.50 s after simplifying its text snapshots. Article requests fell
 from 48 to 34 after removing the full-collection import and unused external font CSS.
+
+## Book paintings
+
+Each of the 28 books has a distinct painting, with credits linked in the library.
+The pairings and brief curatorial notes live in `src/lib/bookPaintings.ts`. The
+expanded catalogue adds 28 recognizable works, including Titian’s _Sisyphus_,
+Raphael’s _The School of Athens_, Turner’s _Whalers_ and _Ulysses Deriding Polyphemus_,
+and Bouguereau’s _Dante and Virgil_. Six separate paintings accompany Frank Herbert’s
+six Dune novels. New images use the existing responsive WebP variants and hashed
+CDN cache URLs; selecting one book does not download the rest of the collection.
