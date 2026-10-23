@@ -48,6 +48,10 @@ export function dissolveCard(card: HTMLElement, initial: Change) {
 	}
 	async function warm() {
 		const current = ++revision;
+		if (media.matches || getComputedStyle(card).position !== 'fixed') {
+			previous = undefined;
+			return;
+		}
 		try {
 			const snapshot = await capture();
 			if (!disposed && current === revision) {
@@ -74,6 +78,7 @@ export function dissolveCard(card: HTMLElement, initial: Change) {
 		const current = ++revision;
 		if (
 			media.matches ||
+			getComputedStyle(card).position !== 'fixed' ||
 			!next.clock ||
 			!previous ||
 			performance.now() >= next.clock.started + next.clock.timing.duration
@@ -139,6 +144,18 @@ export function dissolveCard(card: HTMLElement, initial: Change) {
 		if (media.matches) cancel();
 		else void warm();
 	}
+	function viewportChanged() {
+		// Mobile browser chrome moves bottom-anchored cards without changing their
+		// width. Never reuse a snapshot or a fixed canvas at the old viewport origin.
+		++revision;
+		reveal();
+		previous = undefined;
+		card.dataset.dissolveReady = 'false';
+		cancelAnimationFrame(resizeFrame);
+		resizeFrame = requestAnimationFrame(() => {
+			if (!disposed) void warm();
+		});
+	}
 	const observer =
 		typeof ResizeObserver === 'undefined'
 			? null
@@ -146,12 +163,14 @@ export function dissolveCard(card: HTMLElement, initial: Change) {
 					const nextWidth = card.getBoundingClientRect().width;
 					if (Math.abs(nextWidth - width) < 0.5) return;
 					width = nextWidth;
-					cancelAnimationFrame(resizeFrame);
-					resizeFrame = requestAnimationFrame(cancel);
+					viewportChanged();
 				});
 	observer?.observe(card);
 	card.addEventListener('focusin', cancel);
 	media.addEventListener('change', motionChanged);
+	window.addEventListener('resize', viewportChanged);
+	window.visualViewport?.addEventListener('resize', viewportChanged);
+	window.visualViewport?.addEventListener('scroll', viewportChanged);
 	return {
 		update,
 		destroy() {
@@ -161,6 +180,9 @@ export function dissolveCard(card: HTMLElement, initial: Change) {
 			if (warmup) window.cancelIdleCallback(warmup);
 			observer?.disconnect();
 			media.removeEventListener('change', motionChanged);
+			window.removeEventListener('resize', viewportChanged);
+			window.visualViewport?.removeEventListener('resize', viewportChanged);
+			window.visualViewport?.removeEventListener('scroll', viewportChanged);
 			card.removeEventListener('focusin', cancel);
 			renderer?.destroy();
 			canvas.remove();

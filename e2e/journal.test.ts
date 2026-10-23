@@ -157,7 +157,7 @@ test('journal reveals decoded paintings smoothly and updates the painting label'
 	expect(errors).toEqual([]);
 });
 
-test('mobile cards match and reduced motion changes paintings without animation', async ({
+test('mobile introduction scrolls away and reduced motion changes paintings without animation', async ({
 	page
 }) => {
 	await page.setViewportSize({ width: 390, height: 844 });
@@ -170,19 +170,17 @@ test('mobile cards match and reduced motion changes paintings without animation'
 	await expect(page.locator('.noise-dissolve')).toHaveAttribute('data-active', 'false');
 	await expect(page.locator('.caption-dissolve')).toHaveAttribute('data-active', 'false');
 	await expect(page.locator('.painting-label .side-card-content')).toHaveCSS('opacity', '1');
-	await expect(page.getByRole('complementary', { name: 'About me' })).toBeInViewport();
+	await expect(page.getByRole('complementary', { name: 'About me' })).not.toBeInViewport();
 	expect(
 		await page
 			.locator('.paint-layer')
 			.nth(2)
 			.evaluate((layer) => layer.getAnimations().length)
 	).toBe(0);
-	const about = await page.getByRole('complementary', { name: 'About me' }).boundingBox();
 	const painting = await page
 		.getByRole('complementary', { name: 'Current painting' })
 		.boundingBox();
-	expect(Math.abs(about!.width - painting!.width)).toBeLessThan(1);
-	expect(Math.abs(about!.height - painting!.height)).toBeLessThan(1);
+	expect(painting!.height).toBeLessThan(100);
 	expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
 	await expect(page.getByRole('complementary', { name: 'Current painting' })).toBeVisible();
 });

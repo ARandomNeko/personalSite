@@ -155,7 +155,7 @@ export class NoiseDissolve {
 
 	constructor(
 		private canvas: HTMLCanvasElement,
-		private size = () => ({ width: innerWidth, height: innerHeight }),
+		private size: () => { width: number; height: number } = () => canvas.getBoundingClientRect(),
 		transparent = false
 	) {
 		const gl = canvas.getContext('webgl', {

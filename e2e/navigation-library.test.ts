@@ -15,6 +15,7 @@ for (const width of [1440, 390]) {
 			{ label: 'Résumé', path: '/resume' }
 		];
 		for (const destination of destinations) {
+			if (width <= 650) await page.getByRole('button', { name: 'Menu' }).click();
 			const navigation = page.getByRole('navigation', { name: 'Main navigation' });
 			await expect(navigation.getByRole('link')).toHaveText(destinations.map((item) => item.label));
 			expect(
@@ -24,9 +25,17 @@ for (const width of [1440, 390]) {
 			).toEqual(destinations.map((item) => item.path));
 			await navigation.getByRole('link', { name: destination.label, exact: true }).click();
 			await expect(page).toHaveURL(new RegExp(`${destination.path}$`));
+			if (width <= 650) {
+				await expect(page.getByRole('button', { name: 'Menu' })).toHaveAttribute(
+					'aria-expanded',
+					'false'
+				);
+				await page.getByRole('button', { name: 'Menu' }).click();
+			}
 			await expect(
 				navigation.getByRole('link', { name: destination.label, exact: true })
 			).toHaveAttribute('aria-current', 'page');
+			if (width <= 650) await page.getByRole('button', { name: 'Close' }).click();
 			await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
 			await expect.poll(async () => (await header.boundingBox())!.y).toBe(0);
 			expect(Math.abs((await header.boundingBox())!.height - initial!.height)).toBeLessThan(1);

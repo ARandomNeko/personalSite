@@ -17,7 +17,7 @@ const snapshotProperties = `
  flex-direction flex-wrap flex-grow flex-shrink flex-basis justify-content align-items align-content align-self order row-gap column-gap
  font-family font-size font-weight font-style font-stretch font-variant font-feature-settings font-kerning
  font-variation-settings font-optical-sizing font-synthesis line-height letter-spacing word-spacing
- white-space text-align text-indent text-transform text-decoration-line text-decoration-style text-decoration-color
+ white-space text-overflow text-align text-indent text-transform text-decoration-line text-decoration-style text-decoration-color
  text-decoration-thickness text-underline-offset text-rendering direction unicode-bidi overflow-wrap word-break hyphens
 `
 	.trim()

@@ -36,6 +36,11 @@
 			'color: #d4c393; background: #202225; padding: 16px; font-family: monospace; line-height: 1.8'
 		);
 		function sizeSideCards() {
+			// Phone panels have independent sizes: the introduction scrolls with the page.
+			if (matchMedia('(max-width: 650px)').matches) {
+				sideCardHeight = undefined;
+				return;
+			}
 			const cards = [introContent, paintingContent];
 			sideCardHeight = Math.ceil(
 				Math.max(
@@ -812,6 +817,134 @@
 	@media (max-width: 650px) {
 		.side-card-content {
 			gap: 12px;
+		}
+		.journal-page {
+			padding-top: 28px;
+		}
+		.intro-note {
+			position: relative;
+			top: auto;
+			left: auto;
+			right: auto;
+			width: calc(100% - 40px);
+			height: auto;
+			margin: 0 20px 48px;
+			padding: 24px;
+			border: 0;
+			background: #202225f2;
+			z-index: auto;
+		}
+		.intro-note .intro-name {
+			font-size: 34px;
+			margin-bottom: 16px;
+		}
+		.intro-note p {
+			font-size: 17px;
+			line-height: 1.6;
+		}
+		.intro-note .side-card-links {
+			justify-content: flex-start;
+			gap: 28px;
+		}
+		.intro-note .side-card-links a {
+			display: inline-flex;
+			align-items: center;
+			min-height: 44px;
+		}
+		.journal-pages {
+			padding-top: 0;
+			padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px));
+		}
+		.chapter {
+			width: calc(100% - 40px);
+			margin-left: 20px;
+			margin-bottom: 64px;
+			scroll-margin-top: 80px;
+		}
+		.sheet,
+		.opening .sheet {
+			padding: 64px 24px 28px;
+			box-shadow: none;
+		}
+		.sheet::before {
+			display: none;
+		}
+		.chapter[data-focused='true'] .sheet {
+			box-shadow: none;
+		}
+		.window-bar {
+			height: 40px;
+		}
+		h1 {
+			font-size: clamp(38px, 11vw, 48px);
+			line-height: 1.05;
+			margin: 20px 0;
+		}
+		h2 {
+			font-size: 42px;
+			line-height: 1.08;
+			margin-bottom: 24px;
+		}
+		p {
+			font-size: 17px;
+			line-height: 1.65;
+		}
+		.read-link {
+			min-height: 44px;
+			padding-block: 12px;
+		}
+		.featured-books li > span:first-child {
+			font-size: 26px;
+		}
+		.further-work {
+			margin-top: 28px;
+		}
+		.colophon {
+			padding-top: 28px;
+		}
+		.closing {
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+		.painting-label {
+			left: 12px;
+			right: 12px;
+			bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+			width: auto;
+			height: auto;
+			padding: 10px 14px;
+		}
+		.painting-label .side-card-content {
+			flex-direction: row;
+			align-items: center;
+			gap: 14px;
+		}
+		.painting-label .side-card-copy {
+			flex: 1;
+			min-width: 0;
+		}
+		.painting-label .painting-name {
+			font-size: 20px;
+			line-height: 1.2;
+			margin-bottom: 4px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		.painting-label .painting-artist {
+			display: block;
+			font-size: 9px;
+		}
+		.painting-label .painting-meta {
+			display: none;
+		}
+		.painting-label .side-card-links {
+			margin-top: 0;
+		}
+		.painting-label .side-card-links a {
+			display: flex;
+			align-items: center;
+			min-height: 44px;
 		}
 	}
 	@media (prefers-reduced-motion: reduce) {
