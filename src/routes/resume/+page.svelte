@@ -1,38 +1,12 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import LibraryBackdrop from '$lib/art/LibraryBackdrop.svelte';
-	import PaintedBackdrop from '$lib/art/PaintedBackdrop.svelte';
 	import { resolvePaintings } from '$lib/art/collection';
 	import { activities, education, experience, projects, skills, summary } from '$lib/resume';
 
-	const layouts = [
-		{ id: 'document', name: 'The document' },
-		{ id: 'margin', name: 'In the margins' },
-		{ id: 'painting', name: 'An open canvas' },
-		{ id: 'chapters', name: 'Three chapters' }
-	];
-	let view = $derived(
-		layouts.find((layout) => layout.id === $page.url.searchParams.get('view'))?.id ?? 'document'
-	);
-	const collection = resolvePaintings(['nga-46523', 'nga-166436', 'schinkel-cathedral']);
 	const landscape = resolvePaintings(['nga-71503'])[0];
-	let scene = $state(0);
-	let currentArt = $derived(
-		view === 'painting' ? landscape : view === 'chapters' ? collection[scene] : collection[0]
-	);
 </script>
 
 <svelte:head><title>Résumé | Rituparan Reddy Gurrala</title></svelte:head>
-
-<nav class="layout-picker" aria-label="Résumé layouts">
-	<span class="picker-label">Résumé studies</span>
-	{#each layouts as layout, i (layout.id)}
-		<a href="/resume?view={layout.id}" aria-current={view === layout.id ? 'page' : undefined}>
-			<span class="number">0{i + 1}</span>
-			{layout.name}
-		</a>
-	{/each}
-</nav>
 
 {#snippet identity()}
 	<header class="identity">
@@ -135,122 +109,46 @@
 	</section>
 {/snippet}
 
-{#key view}
-	<div class="resume-view {view}" data-resume-layout={view}>
-		{#if view === 'chapters'}
-			<PaintedBackdrop {collection} onchange={(_, index) => (scene = index)} />
-			<nav class="chapter-nav" aria-label="Résumé sections">
-				{#each ['Experience', 'Projects', 'Education'] as label, i (label)}
-					<a
-						href="/resume?view=chapters#chapter-{i}"
-						aria-current={scene === i ? 'location' : undefined}><span>0{i + 1}</span> {label}</a
-					>
-				{/each}
-			</nav>
-			<section class="chapter" data-scene="0" id="chapter-0">
-				<div class="sheet">
-					{@render identity()}
-					<div class="section-heading">
-						<span>01</span>
-						<h2>Experience</h2>
-					</div>
-					{@render experienceContent()}
-				</div>
-			</section>
-			<section class="chapter" data-scene="1" id="chapter-1">
-				<div class="sheet">
-					<div class="section-heading">
-						<span>02</span>
-						<h2>Selected projects</h2>
-					</div>
-					{@render projectContent()}
-				</div>
-			</section>
-			<section class="chapter" data-scene="2" id="chapter-2">
-				<div class="sheet">
-					<div class="section-heading">
-						<span>03</span>
-						<h2>Education & beyond</h2>
-					</div>
-					{@render educationContent()}
-				</div>
-			</section>
-		{:else}
-			<LibraryBackdrop painting={view === 'painting' ? landscape : collection[0]} />
-			<article class="resume-sheet">
-				{@render identity()}
-				<section class="resume-section">
-					<div class="section-heading">
-						<span>01</span>
-						<h2>Experience</h2>
-					</div>
-					{@render experienceContent()}
-				</section>
-				<section class="resume-section">
-					<div class="section-heading">
-						<span>02</span>
-						<h2>Selected projects</h2>
-					</div>
-					{@render projectContent()}
-				</section>
-				<section class="resume-section">
-					<div class="section-heading">
-						<span>03</span>
-						<h2>Education & beyond</h2>
-					</div>
-					{@render educationContent()}
-				</section>
-			</article>
-		{/if}
-		<aside class="art-credit" aria-label="Background painting">
-			<a href={currentArt.source} target="_blank" rel="noreferrer">{currentArt.name} ↗</a><span
-				>{currentArt.artist}, {currentArt.year}</span
-			>
-		</aside>
-	</div>
-{/key}
+<LibraryBackdrop painting={landscape} />
+<div class="resume-view">
+	<article class="resume-sheet">
+		{@render identity()}
+		<section class="resume-section">
+			<div class="section-heading">
+				<span>01</span>
+				<h2>Experience</h2>
+			</div>
+			{@render experienceContent()}
+		</section>
+		<section class="resume-section">
+			<div class="section-heading">
+				<span>02</span>
+				<h2>Selected projects</h2>
+			</div>
+			{@render projectContent()}
+		</section>
+		<section class="resume-section">
+			<div class="section-heading">
+				<span>03</span>
+				<h2>Education & beyond</h2>
+			</div>
+			{@render educationContent()}
+		</section>
+	</article>
+	<aside class="art-credit" aria-label="Background painting">
+		<a href={landscape.source} target="_blank" rel="noreferrer">{landscape.name} ↗</a><span
+			>{landscape.artist}, {landscape.year}</span
+		>
+	</aside>
+</div>
 
 <style>
-	.layout-picker {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-wrap: wrap;
-		gap: 8px 24px;
-		padding: 18px 24px;
-		background: #1b1e1df5;
-		border-bottom: 1px solid #77786d55;
-		font: 10px/1.5 var(--font-mono);
-	}
-	.picker-label {
-		color: var(--tx-2);
-		margin-right: 20px;
-	}
-	.layout-picker a {
-		text-decoration: none;
-		padding: 7px 0;
-		color: var(--tx-2);
-		border-bottom: 1px solid transparent;
-	}
-	.layout-picker a[aria-current] {
-		color: var(--cy);
-		border-color: var(--cy);
-	}
-	.number {
-		opacity: 0.55;
-		margin-right: 6px;
-	}
 	.resume-view {
-		padding: 56px 40px 100px;
+		padding: 80px max(6vw, 24px) 100px;
 		font: 19px/1.65 var(--font-body);
 	}
 	.resume-sheet {
-		max-width: 850px;
-		margin: auto;
-		padding: 58px 68px;
-		background: #202225;
-		border: 1px solid #77786d;
-		box-shadow: 7px 7px #10171566;
+		max-width: 650px;
 	}
 	.eyebrow {
 		font: 9px/1.8 var(--font-mono);
@@ -261,14 +159,10 @@
 		margin: 0 10px;
 	}
 	.name-row {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 20px;
 		margin: 26px 0;
 	}
 	h1 {
-		font-size: clamp(48px, 5vw, 68px);
+		font-size: clamp(64px, 7vw, 96px);
 		letter-spacing: -0.025em;
 		margin: 0;
 	}
@@ -276,6 +170,8 @@
 		color: var(--cy);
 	}
 	.download {
+		display: inline-block;
+		margin-top: 24px;
 		font: 10px/1.8 var(--font-mono);
 		white-space: nowrap;
 		text-decoration: none;
@@ -287,7 +183,7 @@
 	}
 	.summary {
 		max-width: 58ch;
-		font-size: 20px;
+		font-size: 23px;
 		line-height: 1.55;
 	}
 	address {
@@ -308,7 +204,7 @@
 		border-bottom: 1px solid #77786d88;
 	}
 	.resume-section {
-		margin-top: 40px;
+		margin-top: 65px;
 	}
 	.section-heading {
 		display: flex;
@@ -422,13 +318,18 @@
 		margin-bottom: 0;
 	}
 	.art-credit {
+		position: fixed;
+		right: 32px;
+		bottom: 24px;
+		text-align: right;
+		text-shadow: 0 1px 5px #000;
 		display: flex;
 		flex-direction: column;
 		gap: 4px;
 		font: 9px/1.7 var(--font-mono);
 		color: #d0cbbd;
 		margin: 30px auto 0;
-		max-width: 850px;
+		max-width: 320px;
 	}
 	.art-credit a {
 		text-decoration: none;
@@ -437,236 +338,26 @@
 		opacity: 0.7;
 	}
 
-	/* An editorial column with the chronology pulled into its own margin. */
-	.margin .resume-sheet {
-		max-width: 1080px;
-		padding: 64px 72px;
-		background: #202225f5;
-	}
-	.margin .identity {
-		padding-left: 190px;
-	}
-	.margin h1 {
-		font-size: 76px;
-	}
-	.margin .name-row {
-		align-items: flex-end;
-	}
-	.margin .name-row .download {
-		margin-bottom: 8px;
-	}
-	.margin .resume-section {
-		position: relative;
-		padding-left: 190px;
-		padding-top: 30px;
-		border-top: 1px solid #77786d88;
-	}
-	.margin .section-heading {
-		position: absolute;
-		top: 30px;
-		left: 0;
-		flex-direction: column;
-		gap: 8px;
-	}
-	.margin .section-heading h2 {
-		font-size: 25px;
-		max-width: 130px;
-	}
-	.margin .entry {
-		position: relative;
-	}
-	.margin .entry > .date {
-		position: absolute;
-		right: calc(100% + 30px);
-		width: 160px;
-		text-align: right;
-		padding-top: 4px;
-	}
-	.margin .resume-section:first-of-type {
-		margin-top: 0;
-		border: 0;
-	}
-	.margin .resume-section:first-of-type .section-heading {
-		position: static;
-		flex-direction: row;
-		margin-bottom: 32px;
-	}
-	.margin .resume-section:first-of-type .section-heading h2 {
-		max-width: none;
-		font-size: 36px;
-	}
-	.margin .art-credit {
-		max-width: 1080px;
-	}
-
-	/* No sheet: the text inhabits the landscape. */
-	.painting {
-		padding: 80px max(6vw, 24px) 100px;
-	}
-	.painting .resume-sheet {
-		max-width: 650px;
-		padding: 0;
-		margin: 0;
-		border: 0;
-		background: transparent;
-		box-shadow: none;
-	}
-	.painting h1 {
-		font-size: clamp(64px, 7vw, 96px);
-	}
-	.painting .name-row {
-		display: block;
-	}
-	.painting .download {
-		display: inline-block;
-		margin-top: 24px;
-	}
-	.painting .summary {
-		font-size: 23px;
-	}
-	.painting .resume-section {
-		margin-top: 65px;
-	}
-	.painting .art-credit {
-		position: fixed;
-		right: 32px;
-		bottom: 24px;
-		text-align: right;
-		max-width: 320px;
-		text-shadow: 0 1px 5px #000;
-	}
-
-	/* Independent scroll chapters, each opening onto a different work. */
-	.chapters {
-		padding: 0 5vw 10vh;
-	}
-	.chapter {
-		min-height: 100dvh;
-		padding: 10vh 0;
-		display: flex;
-		align-items: center;
-		scroll-margin-top: var(--site-header-height);
-	}
-	.chapter .sheet {
-		width: min(760px, 100%);
-		padding: 48px 52px;
-		background: #202225f5;
-		border: 1px solid #77786d;
-		box-shadow: 7px 7px #10171566;
-	}
-	.chapter:nth-of-type(2) {
-		justify-content: flex-end;
-	}
-	.chapter .identity {
-		margin-bottom: 36px;
-	}
-	.chapter-nav {
-		position: fixed;
-		right: 30px;
-		top: calc(var(--site-header-height) + 100px);
-		display: flex;
-		flex-direction: column;
-		gap: 15px;
-		font: 10px/1.6 var(--font-mono);
-		z-index: 2;
-		padding: 18px;
-		background: #1b1e1de8;
-		border: 1px solid #77786d88;
-	}
-	.chapter-nav a {
-		text-decoration: none;
-		color: var(--tx-2);
-	}
-	.chapter-nav a[aria-current] {
-		color: var(--cy);
-	}
-	.chapter-nav span {
-		margin-right: 10px;
-	}
-	.chapters .art-credit {
-		max-width: none;
-		background: #202225e8;
-		display: inline-flex;
-		padding: 12px 18px;
-	}
-	@media (min-width: 1100px) {
-		.chapters .chapter:nth-of-type(2) {
-			padding-right: 190px;
-		}
-	}
 	@media (max-width: 900px) {
-		.margin .resume-sheet {
-			padding: 40px;
-		}
-		.margin .identity {
-			padding-left: 0;
-		}
-		.margin h1 {
-			font-size: 64px;
-		}
-		.margin .resume-section {
-			padding-left: 150px;
-		}
-		.margin .entry > .date {
-			width: 125px;
-			right: calc(100% + 25px);
-		}
-		.chapter-nav {
-			position: sticky;
-			top: var(--site-header-height);
-			margin: 0 -5vw;
-			flex-direction: row;
-			justify-content: center;
-			border-width: 0 0 1px;
-		}
-		.chapter:nth-of-type(2) {
-			justify-content: flex-start;
-		}
-		.chapter {
-			padding: 50px 0;
-		}
-		.painting .art-credit {
+		.art-credit {
 			position: static;
 			text-align: left;
 			margin: 60px 0 0;
 		}
 	}
 	@media (max-width: 600px) {
-		.layout-picker {
-			gap: 4px 18px;
-			justify-content: flex-start;
-			padding: 12px 24px;
-		}
-		.picker-label {
-			width: 100%;
-			margin: 0 0 2px;
-			font-size: 9px;
-		}
-		.layout-picker a {
-			width: calc(50% - 9px);
-		}
 		.resume-view {
-			padding: 28px 16px 48px;
+			padding: 42px 28px 60px;
 			font-size: 18px;
 		}
-		.resume-sheet,
-		.margin .resume-sheet {
-			padding: 30px 24px;
-		}
 		.name-row {
-			display: block;
 			margin: 24px 0;
 		}
-		.download {
-			display: inline-block;
-			margin-top: 20px;
-		}
-		h1,
-		.margin h1 {
-			font-size: 54px;
+		h1 {
+			font-size: 66px;
 		}
 		.summary {
-			font-size: 19px;
+			font-size: 21px;
 		}
 		.eyebrow span {
 			margin: 0 4px;
@@ -684,73 +375,21 @@
 			grid-template-columns: 1fr;
 			gap: 16px;
 		}
-		.margin .resume-section {
-			padding-left: 0;
-		}
-		.margin .section-heading {
-			position: static;
-			flex-direction: row;
-		}
-		.margin .section-heading h2 {
-			max-width: none;
-			font-size: 32px;
-		}
-		.margin .entry > .date {
-			position: static;
-			width: auto;
-			text-align: left;
-			padding: 0;
-		}
-		.painting {
-			padding: 42px 28px 60px;
-		}
-		.painting h1 {
-			font-size: 66px;
-		}
-		.painting .summary {
-			font-size: 21px;
-		}
-		.chapters {
-			padding: 0 16px 40px;
-		}
-		.chapter-nav {
-			margin: 0 -16px;
-			gap: 14px;
-			padding: 14px 8px;
-			font-size: 9px;
-		}
-		.chapter-nav span {
-			margin-right: 4px;
-		}
-		.chapter .sheet {
-			padding: 32px 24px;
-		}
 	}
 	@media print {
-		.layout-picker,
-		.chapter-nav,
 		.art-credit,
 		.download {
 			display: none;
 		}
 		.resume-view {
-			padding: 0;
+			padding: 20px;
 			color: #111;
+			background: white;
 			--tx-2: #555;
 			--cy: #444;
 		}
-		.resume-sheet,
-		.margin .resume-sheet,
-		.chapter .sheet {
-			background: white;
-			border: 0;
-			box-shadow: none;
-			padding: 20px;
+		.resume-sheet {
 			max-width: none;
-		}
-		.chapter {
-			min-height: 0;
-			padding: 0;
 		}
 	}
 </style>
