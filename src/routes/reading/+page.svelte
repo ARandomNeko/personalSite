@@ -69,10 +69,6 @@
 		flex-direction: column;
 	}
 	.library-heading {
-		display: flex;
-		align-items: flex-end;
-		justify-content: space-between;
-		gap: 32px;
 		margin-bottom: 68px;
 	}
 	h1 {
@@ -136,10 +132,14 @@
 		text-underline-offset: 6px;
 	}
 	.painting-credit {
-		max-width: 340px;
-		text-align: right;
-		color: #c0bfab;
-		font: 9px/1.6 var(--font-mono);
+		position: fixed;
+		left: 32px;
+		bottom: 24px;
+		max-width: 320px;
+		text-align: left;
+		text-shadow: 0 1px 5px #000;
+		color: #d0cbbd;
+		font: 9px/1.7 var(--font-mono);
 	}
 	.painting-credit a {
 		text-decoration: none;
@@ -148,9 +148,8 @@
 		text-decoration: underline;
 	}
 	.painting-credit p {
-		color: #a9af9b;
-		font-size: 8px;
-		margin: 5px 0 0;
+		opacity: 0.7;
+		margin: 4px 0 0;
 	}
 	@media (max-width: 1000px) {
 		.reading-groups {
@@ -160,9 +159,14 @@
 			font-size: 26px;
 		}
 	}
+	@media (max-width: 900px) {
+		.painting-credit {
+			position: static;
+			margin-top: 24px;
+		}
+	}
 	@media (max-width: 760px) {
 		.library-heading {
-			display: block;
 			margin-bottom: 45px;
 		}
 		h1 {
@@ -184,10 +188,6 @@
 		.book-author {
 			font-size: 17px;
 			margin-top: 6px;
-		}
-		.painting-credit {
-			margin-top: 24px;
-			text-align: left;
 		}
 	}
 </style>
